@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pristine Detailers · Account Login</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAADQUlEQVR42u1WTWhUZxQ9937vzUwmySQyJkIVsiliE2jRmIyCYZKiENxVednoqtBaQ7ELN0IWL0/IRhCx/oRpF113HrT0z7ZKSULT1KihYpvSRaEoJIsmhFQzyZuZ933XRTJY2lrNZBIp9Swf73333PvOd84FnuP/DlrrAdmsoxoafqeZmUbp6fH1hjEX+Tt5KaMhq6zirstEngGAsff3dNfHVdvc/eIdOn7jExEQEaRSBEgE+POBQ27aIs8Lr5xv39ZYSx9Ebdpv24BlIXftQlsT6Obcakjwk5olgrguWFyXb2Va7S5vJLx6KfXSlgSPxGNqfy4Iw9n5QlAbt6prYnyEABnuT6uKiNB1wa8m25vSJ278Vno2+l57R8xi37awZTHQIRFZAphYhHkpb36JiH659c2JkKgkizJ+gQjI73F429a7n4rQwlcXd/bVR+zNQnTYVniHCXYu0IaJrJUuOCiYYjzG2+dzdIAIV4bctNXljYTlToAA4NvLqV3M8hoIrcmE1V0MBYt5DW0gTI++FREdsVltrotgejZ/K5iq2tuJTkPeslDL0YBksw539I5PgGhGgMmFJV1cCHTRyKPiIhAAJlFtqWIoP0zPFk6RYBANiK0Up7JvweSkLyKgsUH9DYiPFkK5XRNTbbm8NgBIAMMMVEUVP8jpgXv1Te4/GJGsSYTiukyeZ0YzqT6IvFAd496lgikSAZYiO2IxFvOmd+8b44MioOHhtOqcaRRahSP+qw/4LT8TABDJ92JwICjoqWTC3qoNkC+YPx4smmP73hr/UIbSFmhEd+HJolt1FoiAvnz3xUhdNHmaFRYScdWRC8yPuSUMdr19/VfJOorWMwMk6ygA+C7T/vpoJnX4r0G07mlYCpivz+7ZVFsjA1GEJwDgs+kJ7XkwayXAT8FQkHW4++T1OQB3A6h9u49NFFtaHKrEhPlpXuqf9AUANJmPmOggADhOs2AjkXVKWkidGcq07njcTrAuEwAAp3l5CgT9hS3qEAD4vsMbOoVSLI9lUhevXWhLVmKtW1UH/S0OLXu8GauK8qGVa8obRmDFcGg+oM9JaMdPbnMEjm/wLPDxuVfqK2FEz2ydX5e1/Dn+k3gIGPddeHHa2JAAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --black2: #111111;
+  --surface: #161616;
+  --surface2: #1c1c1c;
+  --gold: #c9941a;
+  --gold-lt: #e5a820;
+  --white: #ffffff;
+  --off-white: #f0ece4;
+  --gray: #888888;
+  --gray-lt: #bbbbbb;
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(201,148,26,0.25);
+  --green: #22c55e;
+  --red: #ef4444;
+  --red-dim: rgba(239,68,68,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100vh; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+/* ── SCREEN SYSTEM ── */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; }
+
+/* ── LOGIN SCREEN ── */
+#screen-login.active { flex-direction: row; min-height: 100vh; }
+
+.login-left {
+  flex: 1; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; padding: 4rem;
+  background: var(--black2);
+}
+.login-left::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(201,148,26,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(201,148,26,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.login-left::after {
+  content: 'PRISTINE';
+  position: absolute; right: -30px; bottom: -10px;
+  font-family: 'Cormorant Garamond', serif; font-size: 180px; font-weight: 700;
+  color: rgba(201,148,26,0.04); line-height: 1; pointer-events: none; white-space: nowrap;
+}
+
+.ll-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 3rem; position: relative; z-index: 1;
+}
+.ll-logo img { width: 42px; height: 42px; object-fit: contain; }
+.ll-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.ll-logo-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+}
+.ll-logo-sub {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+}
+.ll-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 500;
+  line-height: 1.1; color: var(--white);
+  margin-bottom: 1.2rem; position: relative; z-index: 1;
+}
+.ll-h1 em { font-style: italic; color: var(--gold-lt); }
+.ll-sub {
+  font-size: 0.95rem; color: var(--gray-lt); line-height: 1.7;
+  max-width: 400px; position: relative; z-index: 1;
+}
+
+/* ── LOGIN RIGHT PANEL ── */
+.login-right {
+  width: 440px; background: var(--black2);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: center; padding: 3rem;
+  animation: slideIn 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+.lr-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem;
+}
+.lr-sub { font-size: 0.82rem; color: var(--gray); margin-bottom: 2rem; }
+
+/* ── ROLE TABS ── */
+.role-tabs {
+  display: flex; gap: 0; margin-bottom: 2rem;
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+.role-tab {
+  flex: 1; padding: 10px 0; text-align: center;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray); background: var(--surface);
+  border: none; cursor: pointer; transition: all 0.2s;
+}
+.role-tab:not(:last-child) { border-right: 1px solid var(--border); }
+.role-tab.active { background: var(--gold); color: var(--black); }
+.role-tab:hover:not(.active) { color: var(--white); background: var(--surface2); }
+
+/* ── FORM ── */
+.field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 1.2rem; }
+.field label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-lt);
+}
+.field input {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--white); padding: 12px 14px;
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+  outline: none; border-radius: 6px; transition: border-color 0.2s;
+}
+.field input:focus { border-color: var(--gold); }
+.field input::placeholder { color: rgba(136,136,136,0.4); }
+
+.form-error {
+  font-size: 0.78rem; color: var(--red); margin-bottom: 1rem;
+  padding: 10px 14px; background: var(--red-dim);
+  border: 1px solid rgba(239,68,68,0.2); border-radius: 6px; display: none;
+}
+
+.btn-gold {
+  background: var(--gold); color: var(--white); border: none;
+  padding: 14px 24px; border-radius: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; width: 100%;
+}
+.btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,148,26,0.3); }
+
+.login-hint {
+  margin-top: 1.8rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem; color: var(--gray); line-height: 2;
+}
+.login-hint strong { color: var(--gold); font-weight: 600; }
+
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; color: var(--gray); text-decoration: none;
+  margin-bottom: 2rem; transition: color 0.2s;
+}
+.back-link:hover { color: var(--gold-lt); }
+
+/* ── DASHBOARD ── */
+.dash-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 68px;
+  background: rgba(10,10,10,0.95); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 300; backdrop-filter: blur(12px);
+}
+.dash-logo { display: flex; align-items: center; gap: 10px; }
+.dash-logo img { width: 32px; height: 32px; object-fit: contain; }
+.dash-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.dash-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+.dash-logo-sub { font-size: 0.55rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.dash-user { display: flex; align-items: center; gap: 12px; }
+.dash-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gold); color: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700;
+}
+.dash-uname { font-size: 0.82rem; font-weight: 500; color: var(--white); }
+.btn-logout {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--gray); padding: 6px 14px; border-radius: 6px;
+  font-size: 0.72rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
+}
+.btn-logout:hover { border-color: var(--red); color: var(--red); }
+
+/* ── TAB BAR ── */
+.tab-bar {
+  display: flex; gap: 0; padding: 0 2.5rem;
+  border-bottom: 1px solid var(--border); background: var(--black2);
+}
+.tab-item {
+  padding: 14px 20px; font-size: 0.78rem; font-weight: 500;
+  color: var(--gray); background: none; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer; transition: all 0.2s;
+}
+.tab-item.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-item:hover:not(.active) { color: var(--white); }
+
+/* ── PANELS ── */
+.panel { display: none; padding: 2rem 2.5rem 3rem; }
+.panel.active { display: block; animation: fadeUp 0.4s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.panel-hero { margin-bottom: 2rem; }
+.panel-eyebrow {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+}
+.panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; color: var(--white);
+}
+.panel-title span { color: var(--gold-lt); }
+
+/* ── STATS GRID ── */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.stat-cell {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 1.5rem; border-radius: 8px;
+}
+.sc-label { font-size: 0.7rem; font-weight: 500; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.sc-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 500; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+.sc-value.gold { color: var(--gold-lt); }
+.sc-value.green { color: var(--green); }
+.sc-caption { font-size: 0.7rem; color: var(--gray); }
+
+/* ── SECTIONS ── */
+.section { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.sec-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.sec-title { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+
+/* ── ACCOUNT INFO ── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.info-item { }
+.info-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.4rem; }
+.info-value { font-size: 0.95rem; color: var(--white); }
+
+.role-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 4px;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.role-badge.customer { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.role-badge.detailer { background: rgba(34,197,94,0.15); color: #22c55e; }
+.role-badge.admin { background: rgba(201,148,26,0.15); color: var(--gold-lt); }
+
+/* ── BOOKING CARDS ── */
+.booking-card {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 1.2rem 1.5rem; border-radius: 8px; margin-bottom: 0.8rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.bc-left { }
+.bc-service { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+.bc-meta { font-size: 0.78rem; color: var(--gray); }
+.bc-status {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px;
+}
+.bc-status.confirmed { background: rgba(34,197,94,0.15); color: #22c55e; }
+.bc-status.completed { background: rgba(59,130,246,0.15); color: #3b82f6; }
+.bc-status.pending { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+.empty-state {
+  text-align: center; padding: 3rem 1rem; color: var(--gray);
+}
+.empty-icon { font-size: 2.5rem; margin-bottom: 0.8rem; opacity: 0.4; }
+.empty-text { font-size: 0.85rem; }
+
+/* ── ADMIN TABLE ── */
+.admin-table {
+  width: 100%; border-collapse: collapse; margin-top: 1rem;
+}
+.admin-table th {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray); text-align: left;
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+}
+.admin-table td {
+  font-size: 0.85rem; color: var(--gray-lt); padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.admin-table td.name { font-weight: 600; color: var(--white); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  #screen-login.active { flex-direction: column; }
+  .login-left { padding: 2rem; }
+  .login-right { width: 100%; border-left: none; border-top: 1px solid var(--border); }
+  .login-left::after { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .info-grid { grid-template-columns: 1fr; }
+  .dash-nav { padding: 0 1.2rem; }
+  .tab-bar { padding: 0 1.2rem; overflow-x: auto; }
+  .panel { padding: 1.5rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LOGIN SCREEN ══ -->
+<div class="screen active" id="screen-login">
+  <div class="login-left">
+    <div class="ll-logo">
+      <img src="data:image/png;base64,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" alt="Pristine Detailers">
+      <div class="ll-logo-text">
+        <span class="ll-logo-main">Pristine</span>
+        <span class="ll-logo-sub">Detailers</span>
+      </div>
+    </div>
+    <h1 class="ll-h1">Your account,<br><em>one login</em> away.</h1>
+    <p class="ll-sub">Customers can track bookings and earn referral rewards. Detailers can log jobs and monitor KPIs. Admins manage the entire operation.</p>
+  </div>
+  <div class="login-right">
+    <a href="index.html" class="back-link">&larr; Back to website</a>
+    <div class="lr-title">Sign in</div>
+    <div class="lr-sub">Access your Pristine Detailers account</div>
+
+    <div class="role-tabs">
+      <button class="role-tab active" onclick="setRole('customer',this)">Customer</button>
+      <button class="role-tab" onclick="setRole('detailer',this)">Detailer</button>
+      <button class="role-tab" onclick="setRole('admin',this)">Admin</button>
+    </div>
+
+    <div class="form-error" id="login-err">Incorrect email or password.</div>
+    <div class="field"><label>Email</label><input type="email" id="li-email" placeholder="your@email.com" autocomplete="email"></div>
+    <div class="field"><label>Password</label><input type="password" id="li-pass" placeholder="••••••••"></div>
+    <button class="btn-gold" onclick="doLogin()">Sign In</button>
+
+    <div class="login-hint" id="login-hint">
+      <strong>Demo account</strong><br>
+      <span id="hint-accounts">amelia@example.com / demo123</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DASHBOARD SCREEN ══ -->
+<div class="screen" id="screen-dash">
+  <nav class="dash-nav">
+    <div class="dash-logo">
+      <img src="data:image/png;base64,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" alt="Pristine Detailers">
+      <div class="dash-logo-text">
+        <span class="dash-logo-main">Pristine</span>
+        <span class="dash-logo-sub" id="nav-portal-label">Account Portal</span>
+      </div>
+    </div>
+    <div class="dash-user">
+      <div class="dash-avatar" id="nav-avatar">PD</div>
+      <span class="dash-uname" id="nav-uname">User</span>
+      <button class="btn-logout" onclick="doLogout()">Sign out</button>
+    </div>
+  </nav>
+
+  <div class="tab-bar" id="tab-bar"></div>
+
+  <!-- Panels injected by JS based on role -->
+  <div id="panels-container"></div>
+</div>
+
+<script>
+// ═══════════════════
+//  DEMO DATA
+// ═══════════════════
+const USERS = {
+  // Customers
+  'amelia@example.com': {
+    pass:'demo123', role:'customer', name:'Amelia Johnson', first:'Amelia', initials:'AJ',
+    phone:'+61 412 345 678', email:'amelia@example.com', joined:'Jan 2025', vehicle:'BMW 3 Series',
+    refCode:'AMELIA-3K7F', totalBookings: 8, upcoming: 2, referrals: 3,
+    bookings: [
+      { service:'Full Detail', date:'28 Apr 2026', status:'confirmed', vehicle:'BMW 3 Series', price:'$299' },
+      { service:'Interior Detail', date:'15 May 2026', status:'confirmed', vehicle:'BMW 3 Series', price:'$149' },
+      { service:'Exterior Detail', date:'12 Mar 2026', status:'completed', vehicle:'BMW 3 Series', price:'$199' },
+      { service:'Ceramic Coating', date:'10 Feb 2026', status:'completed', vehicle:'BMW 3 Series', price:'$599' },
+    ]
+  },
+  'ben@example.com': {
+    pass:'demo123', role:'customer', name:'Ben Carter', first:'Ben', initials:'BC',
+    phone:'+61 421 987 654', email:'ben@example.com', joined:'Mar 2025', vehicle:'Tesla Model 3',
+    refCode:'BEN-8X2P', totalBookings: 4, upcoming: 1, referrals: 1,
+    bookings: [
+      { service:'Full Detail', date:'5 May 2026', status:'confirmed', vehicle:'Tesla Model 3', price:'$299' },
+      { service:'Interior Detail', date:'20 Mar 2026', status:'completed', vehicle:'Tesla Model 3', price:'$149' },
+    ]
+  },
+  // Detailers
+  'jake@pristine.com.au': {
+    pass:'pristine123', role:'detailer', name:'Jake Mitchell', first:'Jake', initials:'JM',
+    phone:'+61 433 111 222', email:'jake@pristine.com.au', joined:'Jun 2024',
+    carsThisMonth: 38, revenue: 5420, reviews: 14, referrals: 5,
+    recentJobs: [
+      { customer:'Sarah L.', vehicle:'Porsche 911 GT3', service:'Full Detail', date:'12 Apr 2026', value:'$450' },
+      { customer:'Tom B.', vehicle:'BMW M4', service:'Exterior Detail', date:'11 Apr 2026', value:'$199' },
+      { customer:'Maria K.', vehicle:'Tesla Model Y', service:'Ceramic Coating', date:'10 Apr 2026', value:'$599' },
+    ]
+  },
+  'harshad@pristine.com.au': {
+    pass:'pristine123', role:'detailer', name:'Harshad V.', first:'Harshad', initials:'HV',
+    phone:'+61 491 108 905', email:'harshad@pristine.com.au', joined:'Jan 2024',
+    carsThisMonth: 45, revenue: 6800, reviews: 18, referrals: 7,
+    recentJobs: [
+      { customer:'James O.', vehicle:'Hyundai i30 N', service:'Full Detail', date:'13 Apr 2026', value:'$299' },
+      { customer:'Lisa W.', vehicle:'BMW X7', service:'Interior Detail', date:'12 Apr 2026', value:'$199' },
+      { customer:'David C.', vehicle:'Ford Ranger', service:'Exterior Detail', date:'11 Apr 2026', value:'$179' },
+    ]
+  },
+  // Admin
+  'admin@pristine.com.au': {
+    pass:'admin123', role:'admin', name:'Harshad Vadakkepura', first:'Harshad', initials:'HV',
+    phone:'+61 491 108 905', email:'admin@pristine.com.au', joined:'Jan 2024',
+    totalCustomers: 127, totalDetailers: 4, monthlyRevenue: 24600, totalBookings: 312,
+    activeBookings: 18, avgRating: 4.8
+  }
+};
+
+let currentUser = null;
+let currentRole = 'customer';
+
+function setRole(role, btn) {
+  currentRole = role;
+  document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const hints = {
+    customer: 'amelia@example.com / demo123',
+    detailer: 'harshad@pristine.com.au / pristine123',
+    admin: 'admin@pristine.com.au / admin123'
+  };
+  document.getElementById('hint-accounts').textContent = hints[role];
+  document.getElementById('login-err').style.display = 'none';
+}
+
+function doLogin() {
+  const email = document.getElementById('li-email').value.trim().toLowerCase();
+  const pass = document.getElementById('li-pass').value;
+  const user = USERS[email];
+  if (!user || user.pass !== pass) {
+    document.getElementById('login-err').style.display = 'block';
+    return;
+  }
+  if (user.role !== currentRole) {
+    document.getElementById('login-err').textContent = 'This account is not a ' + currentRole + ' account. Please select the correct role.';
+    document.getElementById('login-err').style.display = 'block';
+    return;
+  }
+  currentUser = user;
+  document.getElementById('login-err').style.display = 'none';
+  showDashboard();
+}
+
+function doLogout() {
+  currentUser = null;
+  document.getElementById('screen-dash').classList.remove('active');
+  document.getElementById('screen-login').classList.add('active');
+  document.getElementById('li-email').value = '';
+  document.getElementById('li-pass').value = '';
+}
+
+function showDashboard() {
+  document.getElementById('screen-login').classList.remove('active');
+  document.getElementById('screen-dash').classList.add('active');
+
+  const u = currentUser;
+  document.getElementById('nav-avatar').textContent = u.initials;
+  document.getElementById('nav-uname').textContent = u.name;
+
+  const labels = { customer: 'Customer Portal', detailer: 'Detailer Portal', admin: 'Admin Dashboard' };
+  document.getElementById('nav-portal-label').textContent = labels[u.role];
+
+  buildTabs(u.role);
+  buildPanels(u);
+}
+
+function buildTabs(role) {
+  const tabConfigs = {
+    customer: [['overview','Overview'],['bookings','My Bookings'],['account','Account']],
+    detailer: [['overview','Overview'],['jobs','Recent Jobs'],['account','Account']],
+    admin: [['overview','Overview'],['customers','Customers'],['detailers','Detailers'],['account','Account']]
+  };
+  const tabs = tabConfigs[role];
+  document.getElementById('tab-bar').innerHTML = tabs.map((t, i) =>
+    `<button class="tab-item${i===0?' active':''}" onclick="switchTab('${t[0]}',this)">${t[1]}</button>`
+  ).join('');
+}
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+function buildPanels(u) {
+  const c = document.getElementById('panels-container');
+  if (u.role === 'customer') c.innerHTML = buildCustomerPanels(u);
+  else if (u.role === 'detailer') c.innerHTML = buildDetailerPanels(u);
+  else c.innerHTML = buildAdminPanels(u);
+}
+
+function buildCustomerPanels(u) {
+  const upcoming = u.bookings.filter(b => b.status === 'confirmed');
+  const past = u.bookings.filter(b => b.status === 'completed');
+  return `
+    <div class="panel active" id="panel-overview">
+      <div class="panel-hero"><div class="panel-eyebrow">Welcome back</div><div class="panel-title">Hello, <span>${u.first}</span></div></div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="sc-label">Total Bookings</div><div class="sc-value gold">${u.totalBookings}</div><div class="sc-caption">All time</div></div>
+        <div class="stat-cell"><div class="sc-label">Upcoming</div><div class="sc-value">${u.upcoming}</div><div class="sc-caption">Confirmed</div></div>
+        <div class="stat-cell"><div class="sc-label">Referrals</div><div class="sc-value green">${u.referrals}</div><div class="sc-caption">Target: 5 for 30% off</div></div>
+        <div class="stat-cell"><div class="sc-label">Member Since</div><div class="sc-value" style="font-size:1.3rem">${u.joined}</div><div class="sc-caption">Valued customer</div></div>
+      </div>
+      <div class="section"><div class="sec-head"><div class="sec-title">Upcoming Bookings</div></div>
+        ${upcoming.map(b => `<div class="booking-card"><div class="bc-left"><div class="bc-service">${b.service}</div><div class="bc-meta">${b.date} · ${b.vehicle} · ${b.price}</div></div><div class="bc-status confirmed">Confirmed</div></div>`).join('') || '<div class="empty-state"><div class="empty-icon">📅</div><div class="empty-text">No upcoming bookings</div></div>'}
+      </div>
+    </div>
+    <div class="panel" id="panel-bookings">
+      <div class="panel-hero"><div class="panel-eyebrow">Appointment history</div><div class="panel-title">My <span>Bookings</span></div></div>
+      <div class="section"><div class="sec-head"><div class="sec-title">All Bookings</div></div>
+        ${u.bookings.map(b => `<div class="booking-card"><div class="bc-left"><div class="bc-service">${b.service}</div><div class="bc-meta">${b.date} · ${b.vehicle} · ${b.price}</div></div><div class="bc-status ${b.status}">${b.status}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="panel" id="panel-account">
+      <div class="panel-hero"><div class="panel-eyebrow">Your details</div><div class="panel-title">Account <span>Settings</span></div></div>
+      <div class="section"><div class="sec-head"><div class="sec-title">Profile Information</div></div>
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Full Name</div><div class="info-value">${u.name}</div></div>
+          <div class="info-item"><div class="info-label">Email</div><div class="info-value">${u.email}</div></div>
+          <div class="info-item"><div class="info-label">Phone</div><div class="info-value">${u.phone}</div></div>
+          <div class="info-item"><div class="info-label">Vehicle</div><div class="info-value">${u.vehicle || '—'}</div></div>
+          <div class="info-item"><div class="info-label">Account Type</div><div class="info-value"><span class="role-badge customer">Customer</span></div></div>
+          <div class="info-item"><div class="info-label">Referral Code</div><div class="info-value" style="color:var(--gold)">${u.refCode}</div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildDetailerPanels(u) {
+  return `
+    <div class="panel active" id="panel-overview">
+      <div class="panel-hero"><div class="panel-eyebrow">April 2026</div><div class="panel-title">Good morning, <span>${u.first}</span></div></div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="sc-label">Cars This Month</div><div class="sc-value green">${u.carsThisMonth}</div><div class="sc-caption">Target: 50</div></div>
+        <div class="stat-cell"><div class="sc-label">Revenue</div><div class="sc-value gold">${u.revenue.toLocaleString('en-AU',{style:'currency',currency:'AUD',minimumFractionDigits:0})}</div><div class="sc-caption">This month</div></div>
+        <div class="stat-cell"><div class="sc-label">Reviews</div><div class="sc-value">${u.reviews}</div><div class="sc-caption">Target: 20</div></div>
+        <div class="stat-cell"><div class="sc-label">Referrals</div><div class="sc-value gold">${u.referrals}</div><div class="sc-caption">Target: 8</div></div>
+      </div>
+      <div class="section"><div class="sec-head"><div class="sec-title">Recent Jobs</div></div>
+        ${u.recentJobs.map(j => `<div class="booking-card"><div class="bc-left"><div class="bc-service">${j.service}</div><div class="bc-meta">${j.date} · ${j.customer} · ${j.vehicle}</div></div><div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold-lt)">${j.value}</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="panel" id="panel-jobs">
+      <div class="panel-hero"><div class="panel-eyebrow">Job log</div><div class="panel-title">Recent <span>Jobs</span></div></div>
+      <div class="section"><div class="sec-head"><div class="sec-title">This Month</div></div>
+        ${u.recentJobs.map(j => `<div class="booking-card"><div class="bc-left"><div class="bc-service">${j.customer} — ${j.service}</div><div class="bc-meta">${j.date} · ${j.vehicle} · ${j.value}</div></div><div class="bc-status completed">Completed</div></div>`).join('')}
+      </div>
+    </div>
+    <div class="panel" id="panel-account">
+      <div class="panel-hero"><div class="panel-eyebrow">Your details</div><div class="panel-title">Account <span>Settings</span></div></div>
+      <div class="section"><div class="sec-head"><div class="sec-title">Profile Information</div></div>
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Full Name</div><div class="info-value">${u.name}</div></div>
+          <div class="info-item"><div class="info-label">Email</div><div class="info-value">${u.email}</div></div>
+          <div class="info-item"><div class="info-label">Phone</div><div class="info-value">${u.phone}</div></div>
+          <div class="info-item"><div class="info-label">Joined</div><div class="info-value">${u.joined}</div></div>
+          <div class="info-item"><div class="info-label">Account Type</div><div class="info-value"><span class="role-badge detailer">Detailer</span></div></div>
+          <div class="info-item"><div class="info-label">Cars This Month</div><div class="info-value">${u.carsThisMonth}</div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildAdminPanels(u) {
+  const allCustomers = Object.values(USERS).filter(x => x.role === 'customer');
+  const allDetailers = Object.values(USERS).filter(x => x.role === 'detailer');
+  return `
+    <div class="panel active" id="panel-overview">
+      <div class="panel-hero"><div class="panel-eyebrow">Business overview</div><div class="panel-title">Admin <span>Dashboard</span></div></div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="sc-label">Total Customers</div><div class="sc-value">${u.totalCustomers}</div><div class="sc-caption">Registered</div></div>
+        <div class="stat-cell"><div class="sc-label">Active Detailers</div><div class="sc-value green">${u.totalDetailers}</div><div class="sc-caption">On team</div></div>
+        <div class="stat-cell"><div class="sc-label">Monthly Revenue</div><div class="sc-value gold">${u.monthlyRevenue.toLocaleString('en-AU',{style:'currency',currency:'AUD',minimumFractionDigits:0})}</div><div class="sc-caption">April 2026</div></div>
+        <div class="stat-cell"><div class="sc-label">Avg Rating</div><div class="sc-value gold">${u.avgRating}</div><div class="sc-caption">⭐ Google</div></div>
+      </div>
+      <div class="stats-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="stat-cell"><div class="sc-label">Total Bookings</div><div class="sc-value">${u.totalBookings}</div><div class="sc-caption">All time</div></div>
+        <div class="stat-cell"><div class="sc-label">Active Bookings</div><div class="sc-value green">${u.activeBookings}</div><div class="sc-caption">This week</div></div>
+      </div>
+    </div>
+    <div class="panel" id="panel-customers">
+      <div class="panel-hero"><div class="panel-eyebrow">Manage</div><div class="panel-title">All <span>Customers</span></div></div>
+      <div class="section">
+        <table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Bookings</th><th>Joined</th></tr></thead><tbody>
+          ${allCustomers.map(c => `<tr><td class="name">${c.name}</td><td>${c.email}</td><td>${c.phone}</td><td>${c.totalBookings}</td><td>${c.joined}</td></tr>`).join('')}
+        </tbody></table>
+      </div>
+    </div>
+    <div class="panel" id="panel-detailers">
+      <div class="panel-hero"><div class="panel-eyebrow">Team</div><div class="panel-title">All <span>Detailers</span></div></div>
+      <div class="section">
+        <table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Cars/Month</th><th>Revenue</th><th>Reviews</th></tr></thead><tbody>
+          ${allDetailers.map(d => `<tr><td class="name">${d.name}</td><td>${d.email}</td><td>${d.carsThisMonth}</td><td style="color:var(--gold)">${d.revenue.toLocaleString('en-AU',{style:'currency',currency:'AUD',minimumFractionDigits:0})}</td><td>${d.reviews}</td></tr>`).join('')}
+        </tbody></table>
+      </div>
+    </div>
+    <div class="panel" id="panel-account">
+      <div class="panel-hero"><div class="panel-eyebrow">Your details</div><div class="panel-title">Account <span>Settings</span></div></div>
+      <div class="section"><div class="sec-head"><div class="sec-title">Admin Profile</div></div>
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Full Name</div><div class="info-value">${u.name}</div></div>
+          <div class="info-item"><div class="info-label">Email</div><div class="info-value">${u.email}</div></div>
+          <div class="info-item"><div class="info-label">Phone</div><div class="info-value">${u.phone}</div></div>
+          <div class="info-item"><div class="info-label">Account Type</div><div class="info-value"><span class="role-badge admin">Administrator</span></div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+// Enter key to login
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.getElementById('screen-login').classList.contains('active')) doLogin();
+});
+</script>
+</body>
+</html>
