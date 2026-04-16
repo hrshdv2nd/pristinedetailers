@@ -1,2 +1,2 @@
 # pristinedetailers
-Home for Pristine Detailers
+Home of Pristine Detailers Website!
