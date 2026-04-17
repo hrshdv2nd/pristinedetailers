@@ -230,26 +230,44 @@ p { line-height: 1.7; color: var(--gray-lt); font-size: 0.95rem; }
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: 8rem 0 6rem;
-  max-width: 700px;
+  padding: 10rem 0 6rem;
+  max-width: 680px;
 }
-.hero-content .section-label { margin-bottom: 2rem; }
+.hero-content .section-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hero-content .section-label::before { display: none; }
 .hero-content h1 {
   margin-bottom: 1.5rem;
   color: var(--white);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 .hero-content h1 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--gold-lt);
+  font-weight: 700;
 }
 .hero-content p {
-  font-size: 1.1rem;
-  max-width: 520px;
-  margin-bottom: 2.5rem;
-  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin-bottom: 3rem;
+  color: rgba(255,255,255,0.82);
 }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
+.hero-btns .btn { min-width: 180px; padding: 16px 34px; font-size: 0.9rem; }
 .hero-stats {
   position: absolute;
   bottom: 3rem;
@@ -754,7 +772,7 @@ p { line-height: 1.7; color: var(--gray-lt); font-size: 0.95rem; }
   </div>
   <div class="container">
     <div class="hero-content">
-      <span class="section-label">Melbourne's Premier Detailing Service</span>
+      <span class="section-label">Melbourne's Premier Car Detailing Service</span>
       <h1>Discover <em>Automotive</em> Excellence</h1>
       <p>Experience the ultimate in automotive care with our meticulous detailing services and exclusive subscription plans — designed for the discerning vehicle owner.</p>
       <div class="hero-btns">

@@ -38,15 +38,15 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
 
 /* ── SCREEN SYSTEM ── */
 .screen { display: none; min-height: 100vh; }
-.screen.active { display: flex; }
-
-/* ── LOGIN SCREEN ── */
+.screen.active { display: flex; align-items: stretch; gap: 2rem; }
 #screen-login.active { flex-direction: row; min-height: 100vh; }
 
+/* ── LOGIN SCREEN ── */
 .login-left {
   flex: 1; position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: center; padding: 4rem;
   background: var(--black2);
+  min-height: 100vh;
 }
 .login-left::before {
   content: ''; position: absolute; inset: 0;
@@ -90,10 +90,13 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
 
 /* ── LOGIN RIGHT PANEL ── */
 .login-right {
-  width: 440px; background: var(--black2);
+  width: min(520px, 100%);
+  background: var(--black2);
   border-left: 1px solid var(--border);
   display: flex; flex-direction: column; justify-content: center; padding: 3rem;
   animation: slideIn 0.5s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.24);
+  min-height: 100vh;
 }
 @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 
@@ -170,6 +173,11 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
   background: rgba(10,10,10,0.95); border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 300; backdrop-filter: blur(12px);
 }
+.tab-bar {
+  display: flex; gap: 0; padding: 0 2.5rem;
+  border-bottom: 1px solid var(--border); background: var(--black2);
+  margin-bottom: 1rem;
+}
 .dash-logo { display: flex; align-items: center; gap: 10px; }
 .dash-logo img { width: 32px; height: 32px; object-fit: contain; }
 .dash-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
@@ -234,7 +242,8 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
 /* ── SECTIONS ── */
 .section { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
 .sec-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.sec-title { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+.sec-title { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+.section:last-child { border-bottom: none; }
 
 /* ── ACCOUNT INFO ── */
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -255,8 +264,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
   background: var(--surface); border: 1px solid var(--border);
   padding: 1.2rem 1.5rem; border-radius: 8px; margin-bottom: 0.8rem;
   display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
 }
-.bc-left { }
+.bc-left { display: grid; gap: 0.3rem; }
 .bc-service { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
 .bc-meta { font-size: 0.78rem; color: var(--gray); }
 .bc-status {
@@ -440,7 +450,9 @@ function doLogin() {
   const pass = document.getElementById('li-pass').value;
   const user = USERS[email];
   if (!user || user.pass !== pass) {
-    document.getElementById('login-err').style.display = 'block';
+    const err = document.getElementById('login-err');
+    err.textContent = 'Incorrect email or password.';
+    err.style.display = 'block';
     return;
   }
   if (user.role !== currentRole) {
