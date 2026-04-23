@@ -13,27 +13,8 @@ export function Nav({ active = 'home' }: { active?: string }) {
   ];
 
   return (
-    <nav
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        background: 'rgba(244,244,242,0.85)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        borderBottom: '1px solid #E1DFD8',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1320px',
-          margin: '0 auto',
-          padding: '18px 32px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '32px',
-        }}
-      >
+    <nav className="pd-nav">
+      <div className="pd-nav-inner">
         <a
           href="/"
           style={{
@@ -51,7 +32,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             Pristine<span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>·</span>Detailers
           </span>
         </a>
-        <div style={{ marginLeft: '20px', display: 'flex', gap: '32px' }}>
+        <div className="pd-nav-links">
           {links.map(l => (
             <a
               key={l.id}
@@ -67,7 +48,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             </a>
           ))}
         </div>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '12px' }}>
+        <div className="pd-nav-actions" style={{ marginLeft: 'auto' }}>
           <a
             href="/portal-customer"
             style={{

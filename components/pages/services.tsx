@@ -1,0 +1,132 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { Footer } from '@/components/shared/footer';
+import { Nav } from '@/components/shared/nav';
+import { Arrow, Eyebrow } from '@/components/shared/atoms';
+import { Placeholder } from '@/components/shared/placeholder';
+import { BlobImage } from '@/components/shared/blob-image';
+
+export function Services() {
+  const [selected, setSelected] = useState('vehicle-detailing');
+  const services = [
+    {
+      id: 'vehicle-detailing',
+      title: 'Vehicle detailing',
+      description: 'Interior, exterior, polish, and protection for every finish.',
+      price: '$340+ ',
+      label: 'Best for regular maintenance',
+    },
+    {
+      id: 'ceramic-coating',
+      title: 'Ceramic coating',
+      description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
+      price: '$1,890+',
+      label: 'Best for deep protection',
+    },
+    {
+      id: 'paint-protection',
+      title: 'Paint protection film',
+      description: 'Invisible, impact-resistant coverage for the most vulnerable panels.',
+      price: '$4,200+',
+      label: 'Best for high-risk areas',
+    },
+  ];
+
+  return (
+    <div className="pd-page">
+      <Nav active="services" />
+
+      <section style={{ padding: '40px 0 100px' }}>
+        <div className="pd-container">
+          <div className="pd-two-col pd-two-col-1fr-380" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 40, alignItems: 'start' }}>
+            <div>
+              <div className="pd-eyebrow" style={{ marginBottom: 20 }}>Services</div>
+              <h1 style={{ fontSize: 60, fontWeight: 600, lineHeight: 1.03 }}>
+                We treat every car like the one we drive.
+              </h1>
+              <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 680 }}>From mobile detail appointments to long-term ceramic and PPF installations, we make premium service feel effortless.</p>
+            </div>
+
+            <div className="pd-card" style={{ padding: 28, position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', right: -80, top: -80, opacity: 0.15, pointerEvents: 'none' }}>
+                <BlobImage variant="a" size={220} rotate={20} color="#C89B37">
+                  <Placeholder label="GOLD" tone="navy" style={{ width: '100%', height: '100%' }} />
+                </BlobImage>
+              </div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div className="pd-eyebrow">Need help choosing?</div>
+                <h2 style={{ fontSize: 30, marginTop: 18 }}>Talk to our concierge.
+                </h2>
+                <p style={{ marginTop: 16, color: 'var(--ink-3)' }}>We’ll recommend the right plan based on your vehicle, schedule, and protection needs.</p>
+                <Link href="/booking" className="pd-btn pd-btn-dark" style={{ marginTop: 24 }}>Book a call</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="pd-two-col" style={{ marginTop: 60, display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 40, alignItems: 'start' }}>
+            <div>
+              <div style={{ display: 'flex', gap: 24, marginBottom: 32, flexWrap: 'wrap' }}>
+                {services.map(service => (
+                  <button
+                    key={service.id}
+                    type="button"
+                    onClick={() => setSelected(service.id)}
+                    className="pd-btn pd-btn-light"
+                    style={{
+                      padding: '16px 22px',
+                      borderRadius: 999,
+                      borderColor: selected === service.id ? 'var(--ink)' : 'transparent',
+                      background: selected === service.id ? 'var(--ink)' : '#F8F7F3',
+                      color: selected === service.id ? '#fff' : 'var(--ink)',
+                    }}
+                  >
+                    {service.title}
+                  </button>
+                ))}
+              </div>
+
+              <div className="pd-card" style={{ padding: 36 }}>
+                <div style={{ display: 'grid', gap: 24 }}>
+                  {services.map(service => (
+                    <div key={service.id} style={{ display: selected === service.id ? 'block' : 'none' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24 }}>
+                        <div>
+                          <div className="pd-eyebrow">{service.title}</div>
+                          <h2 style={{ fontSize: 38, lineHeight: 1.05, marginTop: 14 }}>{service.description}</h2>
+                        </div>
+                        <div style={{ textAlign: 'right' }}>
+                          <div style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</div>
+                          <div style={{ color: 'var(--ink-3)', marginTop: 8 }}>{service.label}</div>
+                        </div>
+                      </div>
+                      <div style={{ marginTop: 28, display: 'grid', gap: 14 }}>
+                        <p style={{ color: 'var(--ink-2)' }}>Our team handles the full job from wash and clay bar through finishing touches. If you want add-ons such as engine bay detail or headlight restoration, we’ll plan them in.</p>
+                        <Link href="/booking" className="pd-btn pd-btn-dark">Book this service <Arrow /></Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <aside className="pd-aside-sticky" style={{ position: 'sticky', top: 100 }}>
+              <div className="pd-card" style={{ padding: 28 }}>
+                <div className="pd-eyebrow">Why we’re different</div>
+                <ul style={{ marginTop: 20, display: 'grid', gap: 18, lineHeight: 1.7, color: 'var(--ink-3)' }}>
+                  <li>Mobile service across greater Melbourne.</li>
+                  <li>Technicians certified by Ceramic Pro and Gtechniq.</li>
+                  <li>One-point communication via text and phone.</li>
+                  <li>Clear pricing for every stage of your service.</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

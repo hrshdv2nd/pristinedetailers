@@ -33,7 +33,7 @@ export function Home() {
 function HeroSection() {
   return (
     <section style={{ padding: '64px 0 80px', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 60, alignItems: 'center' }}>
+      <div className="pd-two-col pd-two-col-1-15" style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 60, alignItems: 'center' }}>
         <div>
           <div style={{ display: 'flex', gap: 10, marginBottom: 28 }}>
             <span
@@ -89,7 +89,7 @@ function HeroSection() {
           <p style={{ fontSize: 19, color: '#3A3A38', marginTop: 32, maxWidth: 520, lineHeight: 1.55 }}>
             Mobile ceramic coating, paint protection film, and obsessive-grade detailing — brought to your driveway in Melbourne. No shortcuts. No shops. No fuss.
           </p>
-          <div style={{ display: 'flex', gap: 12, marginTop: 40 }}>
+          <div className="pd-hero-actions" style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a
               href="/booking"
               style={{
@@ -124,8 +124,8 @@ function HeroSection() {
               Explore services
             </a>
           </div>
-          <div style={{ display: 'flex', gap: 48, marginTop: 64, paddingTop: 32, borderTop: '1px solid #E1DFD8' }}>
-            <Stat value="2,400+" label="Cars detailed" />
+          <div className="pd-hero-stats" style={{ display: 'flex', gap: 48, marginTop: 64, paddingTop: 32, borderTop: '1px solid #E1DFD8' }}>
+            <div className="pd-hero-stat"><Stat value="2,400+" label="Cars detailed" /></div>
             <Stat value="8yr" label="Ceramic warranty" />
             <Stat value="$80/mo" label="Membership from" />
           </div>
@@ -139,7 +139,7 @@ function HeroSection() {
 
 function HeroComposition() {
   return (
-    <div style={{ position: 'relative', height: 620 }}>
+    <div className="pd-hero-composition" style={{ position: 'relative', height: 620 }}>
       <svg viewBox="0 0 100 100" style={{ position: 'absolute', top: 20, right: -40, width: 460, height: 460, zIndex: 0 }}>
         <path d="M 55,6 C 82,10 94,35 88,60 C 82,85 55,95 30,88 C 8,82 4,55 10,32 C 16,12 32,4 55,6 Z" fill="#C89B37" opacity="0.08" />
       </svg>
@@ -233,7 +233,7 @@ function ServicesPreview() {
           </a>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+        <div className="pd-four-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
           {services.map(s => (
             <a
               key={s.tag}
@@ -322,7 +322,7 @@ function FlagshipSection() {
   return (
     <section style={{ padding: '120px 0', background: '#0A0A0A', color: '#fff', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', position: 'relative' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div className="pd-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
           <div>
             <Eyebrow style={{ color: 'rgba(255,255,255,0.5)' }}>02 · Flagship</Eyebrow>
             <h2
@@ -348,7 +348,7 @@ function FlagshipSection() {
               A nano-ceramic barrier fused to your paint. Hydrophobic, UV-stable, and guaranteed for up to 8 years. Applied by certified technicians in a controlled, dust-free environment at your location.
             </p>
 
-            <div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+            <div className="pd-three-col" style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
               {[
                 { tier: '1YR', price: '$1,290', feat: '9H hardness, hydrophobic' },
                 { tier: '3YR', price: '$1,890', feat: 'Enhanced gloss, 2 layers', best: true },
@@ -509,7 +509,7 @@ function MelbourneSection() {
   return (
     <section style={{ padding: '120px 0' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'start' }}>
+        <div className="pd-two-col pd-two-col-1-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'start' }}>
           <div style={{ position: 'sticky', top: 120 }}>
             <Eyebrow>03 · Local</Eyebrow>
             <h2
@@ -680,6 +680,7 @@ function PPFSection() {
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div style={{ background: '#EBEAE5', borderRadius: 32, padding: '80px 60px', position: 'relative', overflow: 'hidden' }}>
           <div
+            className="pd-two-col"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
@@ -781,6 +782,7 @@ function MembershipTeaser() {
     <section style={{ padding: '80px 0' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div
+          className="pd-two-col pd-two-col-1-2"
           style={{
             background: '#C89B37',
             color: '#0A0A0A',
@@ -902,7 +904,7 @@ function GallerySection() {
           </a>
         </div>
 
-        <div style={{ columnCount: 3, columnGap: 20 } as any}>
+        <div className="pd-gallery-columns" style={{ columnCount: 3, columnGap: 20 } as any}>
           {items.map((item, i) => (
             <div key={i} style={{ breakInside: 'avoid' as any, marginBottom: 20 }}>
               <Placeholder label={item.label} tone={item.tone as any} style={{ height: item.h, borderRadius: 20 }} />
@@ -946,7 +948,7 @@ function TestimonialsSection() {
             <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> across 240 reviews.
           </h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="pd-three-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           {reviews.map(r => (
             <div
               key={r.name}
@@ -1088,7 +1090,7 @@ function CTASection() {
           <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.65)', marginTop: 24, maxWidth: 520, margin: '24px auto 0' }}>
             Book in 90 seconds. We'll confirm your time slot and assigned technician within the hour.
           </p>
-          <div style={{ marginTop: 40, display: 'flex', gap: 12, justifyContent: 'center' }}>
+          <div className="pd-cta-actions" style={{ marginTop: 40, display: 'flex', gap: 12, justifyContent: 'center' }}>
             <a
               href="/booking"
               style={{

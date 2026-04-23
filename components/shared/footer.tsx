@@ -16,14 +16,7 @@ export function Footer() {
           padding: '0 32px',
         }}
       >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
-            gap: '40px',
-            marginBottom: '60px',
-          }}
-        >
+        <div className="pd-footer-grid" style={{ marginBottom: '60px' }}>
           <div>
             <div
               style={{
