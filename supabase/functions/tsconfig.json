@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["https://esm.sh/v135/@types/node@20.11.5/index.d.ts"]
+  },
+  "include": ["./**/*.ts"]
+}
