@@ -49,7 +49,7 @@ function HeroSection() {
                 color: '#0A0A0A',
               }}
             >
-              Melbourne · Mobile Service
+              Melbourne · Car Detailing Service
             </span>
             <span
               style={{
@@ -65,7 +65,7 @@ function HeroSection() {
                 border: '1px solid #E1DFD8',
               }}
             >
-              ★ 4.9 / 240 reviews
+              ★ 4.9 / 30 reviews
             </span>
           </div>
           <h1
@@ -81,13 +81,13 @@ function HeroSection() {
             Where your car<br />
             meets its{' '}
             <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              better
+              best
             </span>
             <br />
             self.
           </h1>
           <p style={{ fontSize: 19, color: '#3A3A38', marginTop: 32, maxWidth: 520, lineHeight: 1.55 }}>
-            Mobile ceramic coating, paint protection film, and obsessive-grade detailing — brought to your driveway in Melbourne. No shortcuts. No shops. No fuss.
+            Obsessive-grade detailing - from monthly maintenance details to elite paint protection services.
           </p>
           <div className="pd-hero-actions" style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a
@@ -126,7 +126,7 @@ function HeroSection() {
           </div>
           <div className="pd-hero-stats" style={{ display: 'flex', gap: 48, marginTop: 64, paddingTop: 32, borderTop: '1px solid #E1DFD8' }}>
             <div className="pd-hero-stat"><Stat value="2,400+" label="Cars detailed" /></div>
-            <Stat value="8yr" label="Ceramic warranty" />
+            <Stat value="5yr" label="Ceramic Coatings" />
             <Stat value="$80/mo" label="Membership from" />
           </div>
         </div>
@@ -145,7 +145,11 @@ function HeroComposition() {
       </svg>
 
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
-        <Placeholder label="HERO · PORSCHE 911" tone="dark" style={{ width: '100%', height: '100%' }} />
+        <img
+          src="/images/hero-porsche-911.jpg"
+          alt="Porsche 911"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 24 }}
+        />
       </BlobImage>
 
       <BlobImage variant="c" size={220} rotate={6} style={{ position: 'absolute', bottom: 10, left: 0, zIndex: 3 }}>
@@ -212,10 +216,9 @@ function MarqueeStrip() {
 // ============ SERVICES PREVIEW ============
 function ServicesPreview() {
   const services = [
-    { tag: '01', title: 'Full Detail', blurb: 'Exterior wash, decontamination, machine polish, interior deep clean.', from: '$340', blob: 'a' },
-    { tag: '02', title: 'Ceramic Coating', blurb: '1, 3, or 5-year paint protection with hydrophobic gloss finish.', from: '$1,290', blob: 'b', flagship: true },
-    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,800', blob: 'c' },
-    { tag: '04', title: 'Interior Restoration', blurb: 'Leather reconditioning, stain removal, odour elimination.', from: '$280', blob: 'd' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '80', blob: 'a' },
+    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', blob: 'b', flagship: true },
+    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,000', blob: 'c' },
   ];
 
   return (
