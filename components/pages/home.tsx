@@ -353,7 +353,7 @@ function FlagshipSection() {
 
             <div className="pd-three-col" style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
               {[
-                { tier: '1YR', price: '$1,290', feat: '9H hardness, hydrophobic' },
+                { tier: '3-5YR', price: '$1,290', feat: '9H hardness, hydrophobic' },
                 { tier: '3YR', price: '$1,890', feat: 'Enhanced gloss, 2 layers', best: true },
                 { tier: '5YR', price: '$2,490', feat: 'Graphene infusion, 3 layers' },
               ].map(p => (
