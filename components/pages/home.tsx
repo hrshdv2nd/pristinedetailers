@@ -147,13 +147,9 @@ function HeroComposition() {
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
         <img
           src="https://drive.google.com/file/d/1XvOZGIRO4T6SDNsJR8bv1mWiNLgtjXB_/view?usp=drive_link"
-          alt="Porsche 911"
+          alt="Porsche 911 Interior"
           style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 24 }}
         />
-      </BlobImage>
-
-      <BlobImage variant="c" size={220} rotate={6} style={{ position: 'absolute', bottom: 10, left: 0, zIndex: 3 }}>
-        <Placeholder label="DETAIL · PAINT BEAD" tone="navy" style={{ width: '100%', height: '100%' }} />
       </BlobImage>
 
       <svg viewBox="0 0 100 100" style={{ position: 'absolute', top: 180, left: 220, width: 150, height: 150, zIndex: 1 }}>
@@ -183,10 +179,10 @@ function HeroComposition() {
         </div>
         <div>
           <div style={{ fontSize: 12, color: '#7A7A76', fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            Contact angle
+            Servicing
           </div>
           <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500, letterSpacing: '-0.02em' }}>
-            110°+
+            SE Melb
           </div>
         </div>
       </div>
@@ -196,7 +192,7 @@ function HeroComposition() {
 
 // ============ MARQUEE ============
 function MarqueeStrip() {
-  const items = ['Porsche', 'Audi RS', 'BMW M', 'Tesla', 'Mercedes-AMG', 'Range Rover', 'Ferrari', 'McLaren', 'Lotus'];
+  const items = ['Porsche', 'Audi', 'BMW', 'Tesla', 'Mercedes-AMG', 'Range Rover', 'Ferrari', 'McLaren', 'Lotus', 'BYD'];
   const row = [...items, ...items, ...items];
 
   return (
