@@ -182,7 +182,7 @@ function HeroComposition() {
             Servicing
           </div>
           <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500, letterSpacing: '-0.02em' }}>
-            SE Melb
+            6 years in Melbourne
           </div>
         </div>
       </div>
@@ -433,7 +433,7 @@ function FlagshipSection() {
 
           <div style={{ position: 'relative', height: 640 }}>
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
-              <Placeholder label="WATER · BEADING" tone="navy" style={{ width: '100%', height: '100%' }} />
+              <img src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg" alt="Ceramic coated car" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
               <Placeholder label="GLOSS · REFLECTION" tone="dark" style={{ width: '100%', height: '100%' }} />
@@ -734,7 +734,7 @@ function PPFSection() {
 
             <div style={{ position: 'relative', height: 520 }}>
               <BlobImage variant="b" size={420} rotate={4} color="#0A0A0A" style={{ position: 'absolute', top: 0, right: 0 }}>
-                <Placeholder label="PPF · APPLICATION" tone="dark" style={{ width: '100%', height: '100%' }} />
+                <img src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg" alt="Engine bay detail" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </BlobImage>
               <div
                 style={{
@@ -871,12 +871,12 @@ function MembershipTeaser() {
 
 // ============ GALLERY ============
 function GallerySection() {
-  const items = [
-    { label: 'BMW M3 · CERAMIC', variant: 'a', h: 420, tone: 'dark' },
+  const items: { label: string; variant: string; h: number; tone: string; src?: string }[] = [
+    { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg' },
     { label: 'R8 · PPF FRONT', variant: 'b', h: 320, tone: 'navy' },
     { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark' },
-    { label: 'GTR · FULL DETAIL', variant: 'd', h: 380, tone: 'dark' },
-    { label: '911 · GLOSS', variant: 'a', h: 300, tone: 'navy' },
+    { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250525_093249.jpg' },
+    { label: 'ENGINE BAY', variant: 'a', h: 300, tone: 'navy', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg' },
     { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark' },
   ];
 
@@ -906,7 +906,11 @@ function GallerySection() {
         <div className="pd-gallery-columns" style={{ columnCount: 3, columnGap: 20 } as any}>
           {items.map((item, i) => (
             <div key={i} style={{ breakInside: 'avoid' as any, marginBottom: 20 }}>
-              <Placeholder label={item.label} tone={item.tone as any} style={{ height: item.h, borderRadius: 20 }} />
+              {item.src ? (
+                <img src={item.src} alt={item.label} style={{ width: '100%', height: item.h, objectFit: 'cover', borderRadius: 20, display: 'block' }} />
+              ) : (
+                <Placeholder label={item.label} tone={item.tone as any} style={{ height: item.h, borderRadius: 20 }} />
+              )}
             </div>
           ))}
         </div>
