@@ -21,7 +21,7 @@ export function Membership() {
     {
       id: 'signature',
       title: 'Signature membership',
-      price: '149/mo',
+      price: '$149/mo',
       description: 'Recommended: maintenance detailing, ceramic care, and priority mobile service.',
       benefits: ['Bi-Monthly Detail', 'Ceramic maintenance', 'Exclusive add-on pricing'],
       featured: true,
@@ -45,12 +45,12 @@ export function Membership() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                 <div>
                   <div className="pd-eyebrow">Member benefit</div>
-                  <h2 style={{ fontSize: 26, marginTop: 10 }}>Skip the queue, keep the finish pristine.</h2>
+                  <h2 style={{ fontSize: 26, marginTop: 10 }}>Keep it Pristine, always.</h2>
                 </div>
                 <Link href="/booking" className="pd-btn pd-btn-dark">Join now</Link>
               </div>
               <div style={{ display: 'grid', gap: 16, color: 'var(--ink-3)' }}>
-                <p>Signature members save on bookings, enjoy faster scheduling, and receive personalised care plans for their vehicles.</p>
+                <p>Signature members save up to  35% on bookings annually, enjoy faster scheduling, and receive personalised care plans for their vehicles.</p>
                 <p>Membership is designed for owners who want consistent, premium service without repeated calls or price surprises.</p>
               </div>
             </div>
