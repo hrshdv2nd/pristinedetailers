@@ -15,21 +15,21 @@ export function Services() {
       id: 'vehicle-detailing',
       title: 'Vehicle detailing',
       description: 'Interior, exterior, polish, and protection for every finish.',
-      price: '$340+ ',
-      label: 'Best for regular maintenance',
+      price: '$120 ',
+      label: 'Best for a quick inside and out clean',
     },
     {
       id: 'ceramic-coating',
       title: 'Ceramic coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
-      price: '$1,890+',
-      label: 'Best for deep protection',
+      price: '$750',
+      label: 'Best for deep long lasting, protection',
     },
     {
       id: 'paint-protection',
-      title: 'Paint protection film',
+      title: 'Paint Protection film',
       description: 'Invisible, impact-resistant coverage for the most vulnerable panels.',
-      price: '$4,200+',
+      price: '$3,000',
       label: 'Best for high-risk areas',
     },
   ];
@@ -77,9 +77,9 @@ export function Services() {
                     style={{
                       padding: '16px 22px',
                       borderRadius: 999,
-                      border: `1.5px solid ${selected === service.id ? '#0A0A0A' : '#C8C5BC'}`,
-                      background: selected === service.id ? '#0A0A0A' : '#fff',
-                      color: selected === service.id ? '#fff' : '#0A0A0A',
+                      border: `1.5px solid ${selected === service.id ? '#C89B37' : '#C8C5BC'}`,
+                      background: selected === service.id ? '#C89B37' : '#fff',
+                      color: '#0A0A0A',
                     }}
                   >
                     {service.title}
@@ -97,6 +97,7 @@ export function Services() {
                           <h2 style={{ fontSize: 38, lineHeight: 1.05, marginTop: 14 }}>{service.description}</h2>
                         </div>
                         <div style={{ textAlign: 'right' }}>
+                          <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
                           <div style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</div>
                           <div style={{ color: 'var(--ink-3)', marginTop: 8 }}>{service.label}</div>
                         </div>
