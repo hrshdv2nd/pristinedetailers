@@ -57,7 +57,7 @@ export function Services() {
               </div>
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div className="pd-eyebrow">Need help choosing?</div>
-                <h2 style={{ fontSize: 30, marginTop: 18 }}>Talk to our concierge.
+                <h2 style={{ fontSize: 30, marginTop: 18 }}>Talk to our team.
                 </h2>
                 <p style={{ marginTop: 16, color: 'var(--ink-3)' }}>We’ll recommend the right plan based on your vehicle, schedule, and protection needs.</p>
                 <Link href="/booking" className="pd-btn pd-btn-dark" style={{ marginTop: 24 }}>Book a call</Link>
@@ -77,9 +77,9 @@ export function Services() {
                     style={{
                       padding: '16px 22px',
                       borderRadius: 999,
-                      borderColor: selected === service.id ? 'var(--ink)' : 'transparent',
-                      background: selected === service.id ? 'var(--ink)' : '#F8F7F3',
-                      color: selected === service.id ? '#fff' : 'var(--ink)',
+                      border: `1.5px solid ${selected === service.id ? '#0A0A0A' : '#C8C5BC'}`,
+                      background: selected === service.id ? '#0A0A0A' : '#fff',
+                      color: selected === service.id ? '#fff' : '#0A0A0A',
                     }}
                   >
                     {service.title}
