@@ -28,7 +28,6 @@ export async function signUp(formData: FormData): Promise<{ error?: string }> {
     stripe_customer_id: stripeCustomerId,
   });
 
-  // Update profile with phone
   if (phone) {
     await supabase.from('profiles').update({ phone }).eq('id', data.user.id);
   }

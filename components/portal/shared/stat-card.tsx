@@ -9,7 +9,7 @@ interface StatCardProps {
   color?: Color;
 }
 
-export function StatCard({ label, value, subtext, trend, color = 'default' }: StatCardProps) {
+export default function StatCard({ label, value, subtext, trend, color = 'default' }: StatCardProps) {
   const bg = color === 'gold' ? '#C89B37' : color === 'dark' ? '#0A0A0A' : '#fff';
   const fg = color === 'default' ? '#0A0A0A' : '#fff';
   const borderColor = color === 'default' ? '#E1DFD8' : 'transparent';

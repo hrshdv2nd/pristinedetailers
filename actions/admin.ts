@@ -64,7 +64,7 @@ export async function getAdminKPIs(): Promise<AdminKPIs> {
     supabase.from('payments').select('amount').eq('status', 'succeeded').gte('created_at', monthStart),
   ]);
 
-  const mrr = ((plans ?? []) as Array<{ membership_plans: { price_monthly: number } | null }>)
+  const mrr = ((plans ?? []) as unknown as Array<{ membership_plans: { price_monthly: number } | null }>)
     .reduce((sum, c) => sum + (c.membership_plans?.price_monthly ?? 0), 0);
 
   const totalRevenue = ((recentPayments ?? []) as Array<{ amount: number }>)
@@ -124,7 +124,7 @@ export async function getRevenueBreakdown(period: 'month' | 'quarter' | 'year'):
   const byDetailer = new Map<string, { revenue: number; jobs: number }>();
   let total = 0;
 
-  for (const p of (payments ?? []) as Array<{ amount: number; bookings: { services: { name: string } | null; detailers: { profiles: { full_name: string } | null } | null } | null }>) {
+  for (const p of (payments ?? []) as unknown as Array<{ amount: number; bookings: { services: { name: string } | null; detailers: { profiles: { full_name: string } | null } | null } | null }>) {
     total += p.amount;
     const svc = p.bookings?.services?.name ?? 'Other';
     const det = p.bookings?.detailers?.profiles?.full_name ?? 'Unknown';
@@ -154,7 +154,7 @@ export async function getPendingPayouts(): Promise<PayoutItem[]> {
     .is('payout_id', null);
 
   const map = new Map<string, PayoutItem>();
-  for (const b of (data ?? []) as Array<{ detailer_id: string; price: number; detailers: { profiles: { full_name: string } | null } | null }>) {
+  for (const b of (data ?? []) as unknown as Array<{ detailer_id: string; price: number; detailers: { profiles: { full_name: string } | null } | null }>) {
     if (!b.detailer_id) continue;
     const name = b.detailers?.profiles?.full_name ?? 'Unknown';
     const existing = map.get(b.detailer_id) ?? { detailerId: b.detailer_id, detailerName: name, jobsCompleted: 0, amount: 0, period: new Date().toLocaleString('default', { month: 'long', year: 'numeric' }) };

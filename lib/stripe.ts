@@ -1,15 +1,17 @@
 import Stripe from 'stripe';
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
-});
+function getStripe(): Stripe {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) throw new Error('STRIPE_SECRET_KEY is not set');
+  return new Stripe(key, { apiVersion: '2026-04-22.dahlia' });
+}
 
 export async function createStripeCustomer(
   email: string,
   name: string,
   metadata: Record<string, string>
 ): Promise<string> {
-  const customer = await stripe.customers.create({ email, name, metadata });
+  const customer = await getStripe().customers.create({ email, name, metadata });
   return customer.id;
 }
 
@@ -19,7 +21,7 @@ export async function createMembershipCheckout(
   successUrl: string,
   cancelUrl: string
 ): Promise<string> {
-  const session = await stripe.checkout.sessions.create({
+  const session = await getStripe().checkout.sessions.create({
     customer: stripeCustomerId,
     mode: 'subscription',
     payment_method_types: ['card'],
@@ -35,7 +37,7 @@ export async function createBillingPortalSession(
   stripeCustomerId: string,
   returnUrl: string
 ): Promise<string> {
-  const session = await stripe.billingPortal.sessions.create({
+  const session = await getStripe().billingPortal.sessions.create({
     customer: stripeCustomerId,
     return_url: returnUrl,
   });
@@ -46,7 +48,7 @@ export async function getSubscription(
   subscriptionId: string
 ): Promise<Stripe.Subscription | null> {
   try {
-    return await stripe.subscriptions.retrieve(subscriptionId);
+    return await getStripe().subscriptions.retrieve(subscriptionId);
   } catch {
     return null;
   }
@@ -56,7 +58,7 @@ export async function getCustomerInvoices(
   stripeCustomerId: string,
   limit = 20
 ): Promise<Stripe.Invoice[]> {
-  const invoices = await stripe.invoices.list({ customer: stripeCustomerId, limit });
+  const invoices = await getStripe().invoices.list({ customer: stripeCustomerId, limit });
   return invoices.data;
 }
 
@@ -65,5 +67,5 @@ export function constructWebhookEvent(
   sig: string,
   secret: string
 ): Stripe.Event {
-  return stripe.webhooks.constructEvent(payload, sig, secret);
+  return getStripe().webhooks.constructEvent(payload, sig, secret);
 }

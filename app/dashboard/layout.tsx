@@ -10,7 +10,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#FAFAF8' }}>
       <Sidebar role="customer" userName={profile.full_name} />
-      <main style={{ flex: 1, overflowY: 'auto' }}>{children}</main>
+      <main style={{ flex: 1, marginLeft: 240, overflowY: 'auto', minHeight: '100vh' }}>{children}</main>
     </div>
   );
 }

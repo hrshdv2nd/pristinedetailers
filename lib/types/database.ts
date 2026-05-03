@@ -191,31 +191,76 @@ export interface DetailerJobWithRelations extends Booking {
 
 export interface CustomerWithPlan extends Customer {
   membership_plans: Pick<MembershipPlan, 'name' | 'price_monthly' | 'benefits'> | null;
+  profiles: Pick<Profile, 'full_name' | 'email' | 'phone' | 'created_at'> | null;
+}
+
+export interface AdminNote {
+  id:          string;
+  customer_id: string;
+  author_id:   string | null;
+  note:        string;
+  created_at:  string;
+}
+
+export interface ReviewRequest {
+  id:                string;
+  booking_id:        string;
+  customer_id:       string;
+  status:            string;
+  scheduled_send_at: string;
+  sent_at:           string | null;
+  completed_at:      string | null;
+  created_at:        string;
+}
+
+export interface Referral {
+  id:                   string;
+  referrer_customer_id: string;
+  referred_user_id:     string | null;
+  status:               string;
+  created_at:           string;
 }
 
 // ----------------------------------------------------------------
 // Supabase Database type for createClient<Database>()
+// Must include Views / Enums / CompositeTypes so postgrest-js v2
+// can resolve Insert/Update types correctly (without them → never).
+// Replace with `supabase gen types typescript` once project is live.
 // ----------------------------------------------------------------
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TableDef<T = any> = {
+  Row:    T;
+  Insert: Partial<T>;
+  Update: Partial<T>;
+  Relationships: [];
+};
+
 export type Database = {
   public: {
     Tables: {
-      profiles:               { Row: Profile;        Insert: Partial<Profile>;        Update: Partial<Profile>        };
-      locations:              { Row: Location;        Insert: Partial<Location>;        Update: Partial<Location>        };
-      service_categories:     { Row: ServiceCategory; Insert: Partial<ServiceCategory>; Update: Partial<ServiceCategory> };
-      services:               { Row: Service;         Insert: Partial<Service>;         Update: Partial<Service>         };
-      membership_plans:       { Row: MembershipPlan;  Insert: Partial<MembershipPlan>;  Update: Partial<MembershipPlan>  };
-      customers:              { Row: Customer;        Insert: Partial<Customer>;        Update: Partial<Customer>        };
-      vehicles:               { Row: Vehicle;         Insert: Partial<Vehicle>;         Update: Partial<Vehicle>         };
-      detailers:              { Row: Detailer;        Insert: Partial<Detailer>;        Update: Partial<Detailer>        };
-      bookings:               { Row: Booking;         Insert: Partial<Booking>;         Update: Partial<Booking>         };
-      job_details:            { Row: JobDetail;       Insert: Partial<JobDetail>;       Update: Partial<JobDetail>       };
-      payments:               { Row: Payment;         Insert: Partial<Payment>;         Update: Partial<Payment>         };
+      profiles:          TableDef<Profile>;
+      locations:         TableDef<Location>;
+      service_categories:TableDef<ServiceCategory>;
+      services:          TableDef<Service>;
+      membership_plans:  TableDef<MembershipPlan>;
+      customers:         TableDef<Customer>;
+      vehicles:          TableDef<Vehicle>;
+      detailers:         TableDef<Detailer>;
+      bookings:          TableDef<Booking>;
+      job_details:       TableDef<JobDetail>;
+      payments:          TableDef<Payment>;
+      review_requests:   TableDef<ReviewRequest>;
+      admin_notes:       TableDef<AdminNote>;
+      referrals:         TableDef<Referral>;
     };
+    Views:          { [_ in never]: never };
     Functions: {
-      get_my_role:          { Args: Record<never, never>; Returns: UserRole  };
-      get_my_customer_id:   { Args: Record<never, never>; Returns: string    };
-      get_my_detailer_id:   { Args: Record<never, never>; Returns: string    };
-      increment_customer_visits: { Args: { booking_id: string }; Returns: void };
+      get_my_role:               { Args: Record<never, never>; Returns: UserRole };
+      get_my_customer_id:        { Args: Record<never, never>; Returns: string   };
+      get_my_detailer_id:        { Args: Record<never, never>; Returns: string   };
+      increment_customer_visits: { Args: { booking_id: string }; Returns: void   };
     };
+    Enums:          { [_ in never]: never };
+    CompositeTypes: { [_ in never]: never };
   };
 };

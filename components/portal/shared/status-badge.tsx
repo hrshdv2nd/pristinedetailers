@@ -16,7 +16,7 @@ const STATUS_MAP: Record<string, { bg: string; color: string; label: string }> =
   reward_unlocked:  { bg: '#fef3c7', color: '#b45309', label: 'Reward Unlocked' },
 };
 
-export function StatusBadge({ status }: { status: string }) {
+export default function StatusBadge({ status }: { status: string }) {
   const cfg = STATUS_MAP[status] ?? { bg: '#f3f4f6', color: '#4b5563', label: status };
   return (
     <span style={{

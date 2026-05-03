@@ -31,7 +31,7 @@ const NAV: Record<Role, { label: string; href: string; icon: string }[]> = {
   ],
 };
 
-export function Sidebar({ role, userName }: { role: Role; userName: string }) {
+export default function Sidebar({ role, userName }: { role: Role; userName: string }) {
   const pathname = usePathname();
 
   return (
