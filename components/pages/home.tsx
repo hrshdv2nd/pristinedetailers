@@ -146,7 +146,7 @@ function HeroComposition() {
 
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
         <img
-          src="https://drive.google.com/file/d/1XvOZGIRO4T6SDNsJR8bv1mWiNLgtjXB_/view?usp=drive_link"
+          src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250525_093249.jpg"
           alt="Porsche 911 Interior"
           style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 24 }}
         />
