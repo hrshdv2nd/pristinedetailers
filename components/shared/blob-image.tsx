@@ -1,7 +1,5 @@
 'use client';
 
-import { useId } from 'react';
-
 const BLOB_PATHS: Record<string, string> = {
   a: 'M 50,10 C 75,10 90,30 90,55 C 90,80 70,90 45,90 C 20,90 10,70 10,45 C 10,20 25,10 50,10 Z',
   b: 'M 50,5 C 80,5 95,25 90,55 C 85,85 60,95 35,90 C 10,85 5,60 10,35 C 15,15 25,5 50,5 Z',
@@ -25,8 +23,11 @@ export function BlobImage({
   rotate?: number;
   style?: React.CSSProperties;
 }) {
-  const rawId = useId();
-  const id = `blob-${variant}-${rawId.replace(/:/g, '')}`;
+  const path = BLOB_PATHS[variant] || BLOB_PATHS.a;
+  const maskSvg = encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="${path}" fill="black"/></svg>`
+  );
+  const maskUrl = `url("data:image/svg+xml,${maskSvg}")`;
 
   return (
     <div
@@ -39,20 +40,16 @@ export function BlobImage({
       }}
     >
       <svg viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-        <defs>
-          <clipPath id={id} clipPathUnits="objectBoundingBox">
-            <path d={BLOB_PATHS[variant] || BLOB_PATHS.a} transform="scale(0.01)" />
-          </clipPath>
-        </defs>
-        <path d={BLOB_PATHS[variant] || BLOB_PATHS.a} fill={color} />
+        <path d={path} fill={color} />
       </svg>
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          clipPath: `url(#${id})`,
-          WebkitClipPath: `url(#${id})`,
-          transform: `rotate(${-rotate}deg)`,
+          maskImage: maskUrl,
+          WebkitMaskImage: maskUrl,
+          maskSize: '100% 100%',
+          WebkitMaskSize: '100% 100%',
         }}
       >
         {children}
