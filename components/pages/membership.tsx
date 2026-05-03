@@ -14,16 +14,16 @@ export function Membership() {
     {
       id: 'essential',
       title: 'Essential membership',
-      price: '$49/mo',
+      price: '$79/mo',
       description: 'Light protection and a monthly exterior refresh for city drivers.',
       benefits: ['Monthly wash + seal', 'Priority booking', 'Member support'],
     },
     {
       id: 'signature',
       title: 'Signature membership',
-      price: '$89/mo',
-      description: 'Recommended: regular detailing, ceramic care, and priority mobile service.',
-      benefits: ['Quarterly detail', 'Ceramic maintenance', 'Exclusive add-on pricing'],
+      price: '149/mo',
+      description: 'Recommended: maintenance detailing, ceramic care, and priority mobile service.',
+      benefits: ['Bi-Monthly Detail', 'Ceramic maintenance', 'Exclusive add-on pricing'],
       featured: true,
     },
   ];
