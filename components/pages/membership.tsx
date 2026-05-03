@@ -186,7 +186,7 @@ export function Membership() {
             {
               heading: 'Booking Responsibility',
               items: [
-                'It is the member\'s responsibility to book their monthly detail appointment.',
+                'It is the member\'s responsibility to book their monthly detail appointment, but we will send reminders to make sure you don\'t miss it.',
                 'Membership does not automatically create bookings.',
                 'If a booking is not made within a given month, that month\'s service is considered unused.',
               ],
@@ -208,7 +208,7 @@ export function Membership() {
             {
               heading: 'Customer Cancellations & Rescheduling',
               items: [
-                'We request at least 24 hours\' notice for appointment changes or cancellations.',
+                'We request minimum of 24 hours\' notice for appointment changes or cancellations.',
                 'Late cancellations or no-shows may result in that month\'s service being forfeited.',
                 'Rescheduling is subject to availability.',
               ],
@@ -230,7 +230,7 @@ export function Membership() {
             {
               heading: 'Service Areas',
               items: [
-                "Membership services are available only within Pristine Detailers' active service areas.",
+                "Membership services are available only within Pristine Detailers' active service areas, currently East and South East Melbourne.",
                 'Travel fees may apply outside standard service zones.',
               ],
             },
@@ -245,7 +245,7 @@ export function Membership() {
             {
               heading: 'Pricing & Terms Updates',
               items: [
-                'Pristine Detailers may update pricing, inclusions, or membership terms from time to time.',
+                'Pristine Detailers may update pricing, inclusions, or membership terms from time to time, but we will let you know beforehand.',
                 'Members will be notified of material changes before they take effect.',
               ],
             },
