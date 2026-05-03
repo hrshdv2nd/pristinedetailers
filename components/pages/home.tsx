@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Placeholder } from '@/components/shared/placeholder';
@@ -145,10 +146,11 @@ function HeroComposition() {
       </svg>
 
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
-        <img
+        <Image
           src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250525_093249.jpg"
           alt="Porsche 911 Interior"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 24 }}
+          fill
+          style={{ objectFit: 'cover', borderRadius: 24 }}
         />
       </BlobImage>
 
@@ -433,7 +435,7 @@ function FlagshipSection() {
 
           <div style={{ position: 'relative', height: 640 }}>
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
-              <img src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg" alt="Ceramic coated car" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg" alt="Ceramic coated car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
               <Placeholder label="GLOSS · REFLECTION" tone="dark" style={{ width: '100%', height: '100%' }} />
@@ -734,7 +736,7 @@ function PPFSection() {
 
             <div style={{ position: 'relative', height: 520 }}>
               <BlobImage variant="b" size={420} rotate={4} color="#0A0A0A" style={{ position: 'absolute', top: 0, right: 0 }}>
-                <img src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg" alt="Engine bay detail" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg" alt="Engine bay detail" fill style={{ objectFit: 'cover' }} />
               </BlobImage>
               <div
                 style={{
@@ -905,9 +907,9 @@ function GallerySection() {
 
         <div className="pd-gallery-columns" style={{ columnCount: 3, columnGap: 20 } as any}>
           {items.map((item, i) => (
-            <div key={i} style={{ breakInside: 'avoid' as any, marginBottom: 20 }}>
+            <div key={i} style={{ breakInside: 'avoid' as any, marginBottom: 20, position: 'relative', height: item.h }}>
               {item.src ? (
-                <img src={item.src} alt={item.label} style={{ width: '100%', height: item.h, objectFit: 'cover', borderRadius: 20, display: 'block' }} />
+                <Image src={item.src} alt={item.label} fill style={{ objectFit: 'cover', borderRadius: 20 }} />
               ) : (
                 <Placeholder label={item.label} tone={item.tone as any} style={{ height: item.h, borderRadius: 20 }} />
               )}

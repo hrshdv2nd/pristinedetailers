@@ -27,7 +27,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             gap: '12px',
           }}
         >
-          <img src="/logo-flag.png" alt="Logo" style={{ width: 34, height: 34, objectFit: 'contain' }} />
+          <Image src="/logo-flag.png" alt="Logo" width={34} height={34} style={{ objectFit: 'contain' }} />
           <span>
             Pristine<span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>·</span>Detailers
           </span>

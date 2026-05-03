@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export function Footer() {
   return (
     <footer
@@ -29,7 +31,7 @@ export function Footer() {
                 marginBottom: '20px',
               }}
             >
-              <img src="/logo-flag.png" alt="Logo" style={{ width: 34, height: 34 }} />
+              <Image src="/logo-flag.png" alt="Logo" width={34} height={34} />
               <span>
                 Pristine<span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>·</span>Detailers
               </span>

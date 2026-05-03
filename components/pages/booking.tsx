@@ -7,6 +7,22 @@ import { Placeholder } from '@/components/shared/placeholder';
 import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
+const SERVICES = [
+  { id: 'essential-detail', name: 'Essential Detail', price: 340, duration: '3 hrs' },
+  { id: 'signature-detail', name: 'Signature Detail', price: 520, duration: '5 hrs', popular: true },
+  { id: 'concours-detail', name: 'Concours Detail', price: 890, duration: '8 hrs' },
+  { id: 'ceramic-3yr', name: 'Ceramic Coating · 3yr', price: 1890, duration: '2 days' },
+  { id: 'ppf-full-front', name: 'PPF · Full Front', price: 4200, duration: '3 days' },
+];
+
+const ADD_ON_LIST = [
+  { id: 'headlight', name: 'Headlight restoration', price: 140 },
+  { id: 'engine', name: 'Engine bay detail', price: 120 },
+  { id: 'odour', name: 'Odour ozone treatment', price: 180 },
+  { id: 'wheels', name: 'Wheel-off detail', price: 160 },
+  { id: 'pet', name: 'Pet hair extraction', price: 90 },
+];
+
 export function Booking() {
   const [step, setStep] = useState(0);
   const [service, setService] = useState('signature-detail');
@@ -14,25 +30,9 @@ export function Booking() {
   const [upsell, setUpsell] = useState(false);
   const [slot, setSlot] = useState('2026-04-24-10');
 
-  const services = [
-    { id: 'essential-detail', name: 'Essential Detail', price: 340, duration: '3 hrs' },
-    { id: 'signature-detail', name: 'Signature Detail', price: 520, duration: '5 hrs', popular: true },
-    { id: 'concours-detail', name: 'Concours Detail', price: 890, duration: '8 hrs' },
-    { id: 'ceramic-3yr', name: 'Ceramic Coating · 3yr', price: 1890, duration: '2 days' },
-    { id: 'ppf-full-front', name: 'PPF · Full Front', price: 4200, duration: '3 days' },
-  ];
-
-  const addOnList = [
-    { id: 'headlight', name: 'Headlight restoration', price: 140 },
-    { id: 'engine', name: 'Engine bay detail', price: 120 },
-    { id: 'odour', name: 'Odour ozone treatment', price: 180 },
-    { id: 'wheels', name: 'Wheel-off detail', price: 160 },
-    { id: 'pet', name: 'Pet hair extraction', price: 90 },
-  ];
-
-  const sel = useMemo(() => services.find((s) => s.id === service) ?? services[0], [service]);
+  const sel = useMemo(() => SERVICES.find((s) => s.id === service) ?? SERVICES[0], [service]);
   const addTotal = useMemo(
-    () => addOns.reduce((total, id) => total + (addOnList.find((a) => a.id === id)?.price || 0), 0),
+    () => addOns.reduce((total, id) => total + (ADD_ON_LIST.find((a) => a.id === id)?.price || 0), 0),
     [addOns]
   );
   const upsellCost = upsell ? 1890 : 0;
@@ -76,10 +76,10 @@ export function Booking() {
 
           <div className="pd-two-col pd-two-col-1-6" style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 40, alignItems: 'start' }}>
             <div>
-              {step === 0 && <StepService services={services} service={service} setService={setService} />}
-              {step === 1 && <StepAddons addOnList={addOnList} addOns={addOns} setAddOns={setAddOns} upsell={upsell} setUpsell={setUpsell} />}
+              {step === 0 && <StepService services={SERVICES} service={service} setService={setService} />}
+              {step === 1 && <StepAddons ADD_ON_LIST={ADD_ON_LIST} addOns={addOns} setAddOns={setAddOns} upsell={upsell} setUpsell={setUpsell} />}
               {step === 2 && <StepSchedule slot={slot} setSlot={setSlot} />}
-              {step === 3 && <StepConfirm service={sel} addOns={addOns} addOnList={addOnList} upsell={upsell} slot={slot} total={total} />}
+              {step === 3 && <StepConfirm service={sel} addOns={addOns} ADD_ON_LIST={ADD_ON_LIST} upsell={upsell} slot={slot} total={total} />}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 40 }}>
                 <button
@@ -114,7 +114,7 @@ export function Booking() {
                     <span>${sel.price.toLocaleString()}</span>
                   </div>
                   {addOns.map((id) => {
-                    const addOn = addOnList.find((x) => x.id === id);
+                    const addOn = ADD_ON_LIST.find((x) => x.id === id);
                     return addOn ? (
                       <div key={id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, padding: '6px 0', color: 'var(--ink-2)' }}>
                         <span>+ {addOn.name}</span>
@@ -216,7 +216,7 @@ function StepService({ services, service, setService }: { services: Array<{ id: 
   );
 }
 
-function StepAddons({ addOnList, addOns, setAddOns, upsell, setUpsell }: { addOnList: Array<{ id: string; name: string; price: number }>; addOns: string[]; setAddOns: (value: string[]) => void; upsell: boolean; setUpsell: (value: boolean) => void; }) {
+function StepAddons({ ADD_ON_LIST, addOns, setAddOns, upsell, setUpsell }: { ADD_ON_LIST: Array<{ id: string; name: string; price: number }>; addOns: string[]; setAddOns: (value: string[]) => void; upsell: boolean; setUpsell: (value: boolean) => void; }) {
   const toggle = (id: string) => {
     setAddOns(addOns.includes(id) ? addOns.filter((x) => x !== id) : [...addOns, id]);
   };
@@ -272,7 +272,7 @@ function StepAddons({ addOnList, addOns, setAddOns, upsell, setUpsell }: { addOn
         Add-ons
       </h4>
       <div className="pd-card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
-        {addOnList.map((a) => (
+        {ADD_ON_LIST.map((a) => (
           <button
             key={a.id}
             type="button"
@@ -419,7 +419,7 @@ function StepSchedule({ slot, setSlot }: { slot: string; setSlot: (value: string
   );
 }
 
-function StepConfirm({ service, addOns, addOnList, upsell, slot, total }: { service: { name: string; duration: string }; addOns: string[]; addOnList: Array<{ id: string; name: string; price: number }>; upsell: boolean; slot: string; total: number }) {
+function StepConfirm({ service, addOns, ADD_ON_LIST, upsell, slot, total }: { service: { name: string; duration: string }; addOns: string[]; ADD_ON_LIST: Array<{ id: string; name: string; price: number }>; upsell: boolean; slot: string; total: number }) {
   return (
     <div>
       <h2 style={{ fontSize: 56, fontWeight: 500 }}>
@@ -434,7 +434,7 @@ function StepConfirm({ service, addOns, addOnList, upsell, slot, total }: { serv
           ['Technician', 'Jake M. · Ceramic Pro certified'],
           ['Address', '12 Punt Rd, South Yarra VIC 3141'],
           ['Est. duration', service.duration],
-          ['Add-ons', addOns.map((id) => addOnList.find((a) => a.id === id)?.name).filter(Boolean).join(', ') || 'None'],
+          ['Add-ons', addOns.map((id) => ADD_ON_LIST.find((a) => a.id === id)?.name).filter(Boolean).join(', ') || 'None'],
         ].map(([label, value]) => (
           <div
             key={label}
