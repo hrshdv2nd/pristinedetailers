@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { Arrow } from './atoms';
 
 export function Nav({ active = 'home' }: { active?: string }) {
+  const [open, setOpen] = useState(false);
+
   const links = [
     { id: 'home', label: 'Home', href: '/' },
     { id: 'services', label: 'Services', href: '/services' },
@@ -14,7 +17,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
 
   return (
     <nav className="pd-nav">
-      <div className="pd-nav-inner">
+      <div className="pd-nav-inner" style={{ flexWrap: 'wrap' }}>
         <a
           href="/"
           style={{
@@ -32,7 +35,27 @@ export function Nav({ active = 'home' }: { active?: string }) {
             Pristine<span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>·</span>Detailers
           </span>
         </a>
-        <div className="pd-nav-links">
+
+        <button
+          className="pd-nav-hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+        >
+          {open ? (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          )}
+        </button>
+
+        <div className={`pd-nav-links${open ? ' pd-open' : ''}`}>
           {links.map(l => (
             <a
               key={l.id}
@@ -48,7 +71,8 @@ export function Nav({ active = 'home' }: { active?: string }) {
             </a>
           ))}
         </div>
-        <div className="pd-nav-actions" style={{ marginLeft: 'auto' }}>
+
+        <div className={`pd-nav-actions${open ? ' pd-open' : ''}`} style={{ marginLeft: 'auto' }}>
           <a
             href="/portal-customer"
             style={{

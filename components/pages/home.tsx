@@ -33,8 +33,8 @@ export function Home() {
 // ============ HERO ============
 function HeroSection() {
   return (
-    <section style={{ padding: '64px 0 80px', position: 'relative', overflow: 'hidden' }}>
-      <div className="pd-two-col pd-two-col-1-15" style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 60, alignItems: 'center' }}>
+    <section className="pd-sect-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="pd-two-col pd-two-col-1-15" style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', gap: 60, alignItems: 'center' }}>
         <div>
           <div style={{ display: 'flex', gap: 10, marginBottom: 28 }}>
             <span
@@ -220,12 +220,12 @@ function ServicesPreview() {
   ];
 
   return (
-    <section style={{ padding: '120px 0 60px' }}>
+    <section className="pd-sect">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 56 }}>
           <div>
             <Eyebrow>01 · Services</Eyebrow>
-            <h2 style={{ fontSize: 72, marginTop: 16, maxWidth: 780, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, letterSpacing: '-0.03em' }}>
+            <h2 className="pd-h-md" style={{ marginTop: 16, maxWidth: 780, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
               Three pillars of <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>obsession.</span>
             </h2>
           </div>
@@ -234,7 +234,7 @@ function ServicesPreview() {
           </a>
         </div>
 
-        <div className="pd-four-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+        <div className="pd-four-col" style={{ gap: 20 }}>
           {services.map(s => (
             <a
               key={s.tag}
@@ -321,19 +321,18 @@ function ServicesPreview() {
 // ============ FLAGSHIP: CERAMIC COATING ============
 function FlagshipSection() {
   return (
-    <section style={{ padding: '120px 0', background: '#0A0A0A', color: '#fff', position: 'relative', overflow: 'hidden' }}>
+    <section className="pd-sect" style={{ background: '#0A0A0A', color: '#fff', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px', position: 'relative' }}>
-        <div className="pd-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div className="pd-two-col" style={{ gap: 80, alignItems: 'center' }}>
           <div>
             <Eyebrow style={{ color: 'rgba(255,255,255,0.5)' }}>02 · Flagship</Eyebrow>
             <h2
+              className="pd-h-lg"
               style={{
-                fontSize: 88,
                 marginTop: 16,
                 color: '#fff',
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
-                letterSpacing: '-0.03em',
               }}
             >
               Ceramic coating.<br />
@@ -349,7 +348,7 @@ function FlagshipSection() {
               A nano-ceramic barrier fused to your paint. Hydrophobic, UV-stable, and guaranteed for up to 8 years. Applied by certified technicians in a controlled, dust-free environment at your location.
             </p>
 
-            <div className="pd-three-col" style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+            <div className="pd-three-col" style={{ marginTop: 48, gap: 20 }}>
               {[
                 { tier: '3-5YR', price: '$1,290', feat: '9H hardness, hydrophobic' },
                 { tier: '3YR', price: '$1,890', feat: 'Enhanced gloss, 2 layers', best: true },
@@ -506,18 +505,17 @@ function MelbourneSection() {
   ];
 
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="pd-sect">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div className="pd-two-col pd-two-col-1-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'start' }}>
-          <div style={{ position: 'sticky', top: 120 }}>
+        <div className="pd-two-col pd-two-col-1-2" style={{ gap: 80, alignItems: 'start' }}>
+          <div className="pd-aside-sticky">
             <Eyebrow>03 · Local</Eyebrow>
             <h2
+              className="pd-h-md"
               style={{
-                fontSize: 72,
                 marginTop: 16,
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
-                letterSpacing: '-0.03em',
               }}
             >
               Servicing<br />
@@ -675,14 +673,12 @@ function MelbourneSection() {
 // ============ PPF ============
 function PPFSection() {
   return (
-    <section style={{ padding: '100px 0' }}>
+    <section className="pd-sect">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ background: '#EBEAE5', borderRadius: 32, padding: '80px 60px', position: 'relative', overflow: 'hidden' }}>
+        <div className="pd-ppf-inner" style={{ background: '#EBEAE5', borderRadius: 32, position: 'relative', overflow: 'hidden' }}>
           <div
             className="pd-two-col"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
               gap: 60,
               alignItems: 'center',
               position: 'relative',
@@ -692,12 +688,11 @@ function PPFSection() {
             <div>
               <Eyebrow>04 · Protection</Eyebrow>
               <h2
+                className="pd-h-md"
                 style={{
-                  fontSize: 72,
                   marginTop: 16,
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   fontWeight: 600,
-                  letterSpacing: '-0.03em',
                 }}
               >
                 Paint<br />
@@ -778,19 +773,16 @@ function PPFSection() {
 // ============ MEMBERSHIP TEASER ============
 function MembershipTeaser() {
   return (
-    <section style={{ padding: '80px 0' }}>
+    <section className="pd-sect-sm">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div
-          className="pd-two-col pd-two-col-1-2"
+          className="pd-membership-inner pd-two-col pd-two-col-1-2"
           style={{
             background: '#C89B37',
             color: '#0A0A0A',
             borderRadius: 32,
-            padding: '64px 60px',
             position: 'relative',
             overflow: 'hidden',
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 1fr',
             gap: 40,
             alignItems: 'center',
           }}
@@ -801,13 +793,12 @@ function MembershipTeaser() {
           <div style={{ position: 'relative' }}>
             <Eyebrow style={{ color: 'rgba(10,10,10,0.6)' }}>Membership · $80/mo</Eyebrow>
             <h2
+              className="pd-h-sm"
               style={{
-                fontSize: 60,
                 marginTop: 16,
                 color: '#0A0A0A',
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
-                letterSpacing: '-0.03em',
               }}
             >
               A pristine car,<br />
@@ -881,18 +872,17 @@ function GallerySection() {
   ];
 
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="pd-sect">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 56 }}>
           <div>
             <Eyebrow>05 · Portfolio</Eyebrow>
             <h2
+              className="pd-h-md"
               style={{
-                fontSize: 72,
                 marginTop: 16,
                 fontFamily: "'Bricolage Grotesque', sans-serif",
                 fontWeight: 600,
-                letterSpacing: '-0.03em',
               }}
             >
               The <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>work.</span>
@@ -943,15 +933,15 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section style={{ padding: '80px 0', background: '#EBEAE5' }}>
+    <section className="pd-sect-sm" style={{ background: '#EBEAE5' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <Eyebrow>06 · Reviews</Eyebrow>
-          <h2 style={{ fontSize: 60, marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, letterSpacing: '-0.03em' }}>
+          <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
             <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> across 240 reviews.
           </h2>
         </div>
-        <div className="pd-three-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="pd-three-col" style={{ gap: 20 }}>
           {reviews.map(r => (
             <div
               key={r.name}
@@ -1010,11 +1000,11 @@ function FAQSection() {
   ];
 
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="pd-sect">
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <Eyebrow>07 · FAQ</Eyebrow>
-          <h2 style={{ fontSize: 60, marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600, letterSpacing: '-0.03em' }}>
+          <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
             Questions, answered.
           </h2>
         </div>
@@ -1062,27 +1052,23 @@ function CTASection() {
     <section style={{ padding: '40px 0 80px' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div
+          className="pd-cta-inner"
           style={{
             background: '#0A0A0A',
             color: '#fff',
             borderRadius: 32,
-            padding: '100px 60px',
-            textAlign: 'center',
-            position: 'relative',
-            overflow: 'hidden',
           }}
         >
           <Eyebrow style={{ color: 'rgba(255,255,255,0.5)' }}>Ready when you are</Eyebrow>
           <h2
+            className="pd-h-xl"
             style={{
-              fontSize: 96,
               marginTop: 24,
               color: '#fff',
               maxWidth: 900,
               margin: '24px auto 0',
               fontFamily: "'Bricolage Grotesque', sans-serif",
               fontWeight: 600,
-              letterSpacing: '-0.03em',
             }}
           >
             Let's make it{' '}

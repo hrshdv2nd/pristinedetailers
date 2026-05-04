@@ -95,16 +95,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            paddingTop: '32px',
-            borderTop: '1px solid rgba(255,255,255,0.12)',
-            fontSize: '13px',
-            color: 'rgba(255,255,255,0.5)',
-          }}
-        >
+        <div className="pd-footer-bottom">
           <span>© 2026 Pristine Detailers · Melbourne, Australia · ABN 00 000 000 000</span>
           <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>0491 108 905 · hello@pristinedetailers.com.au</span>
         </div>
