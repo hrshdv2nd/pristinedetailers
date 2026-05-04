@@ -526,7 +526,7 @@ function MelbourneSection() {
               since 2019.
             </h2>
             <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, lineHeight: 1.6, maxWidth: 440 }}>
-              Our mobile units travel across greater Melbourne, bringing studio-grade detailing to your driveway, garage, or office car park. Same-day bookings available inside the CBD ring.
+              Our mobile units travel across East and South East Melbourne, bringing studio-grade detailing to your driveway, garage, or office car park. Same-day bookings available inside the CBD ring.
             </p>
 
             <div style={{ marginTop: 40, display: 'flex', gap: 40 }}>
@@ -540,7 +540,7 @@ function MelbourneSection() {
               </div>
               <div>
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  4
+                  2
                 </div>
                 <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Mobile units
