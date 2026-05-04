@@ -315,6 +315,70 @@ button {
   justify-content: center;
 }
 
+/* ===== ABOUT DROPDOWN PANEL ===== */
+.pd-about-panel {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-60%);
+  width: 680px;
+  max-width: calc(100vw - 40px);
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #E1DFD8;
+  box-shadow: 0 8px 32px rgba(10,10,10,0.08), 0 24px 64px rgba(10,10,10,0.07);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  z-index: 100;
+}
+
+.pd-about-featured {
+  background: #0A0A0A;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-about-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #0A0A0A;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+
+.pd-about-item:hover {
+  background: #F8F7F4;
+}
+
+.pd-about-item:hover .pd-about-item-icon {
+  background: #C89B37;
+  color: #fff;
+}
+
+.pd-about-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #F3E8CD;
+  display: grid;
+  place-items: center;
+  color: #C89B37;
+  flex-shrink: 0;
+  transition: background 0.12s, color 0.12s;
+}
+
+/* Desktop: show hover dropdown, hide mobile accordion */
+.pd-about-desktop { display: block; }
+.pd-about-mobile  { display: none; }
+
 /* ===== FOOTER BOTTOM ===== */
 .pd-footer-bottom {
   display: flex;
@@ -412,6 +476,10 @@ button {
   .pd-nav-actions.pd-open {
     display: flex;
   }
+
+  /* About: swap desktop dropdown for mobile accordion */
+  .pd-about-desktop { display: none; }
+  .pd-about-mobile  { display: block; width: 100%; }
 
   .pd-hero-actions,
   .pd-cta-actions {
