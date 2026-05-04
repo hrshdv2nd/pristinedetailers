@@ -147,8 +147,8 @@ function HeroComposition() {
 
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
         <Image
-          src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250525_093249.jpg"
-          alt="Porsche 911 Interior"
+          src="/images/20250525_093249.jpg"
+          alt="Detailer working on red sports car"
           fill
           style={{ objectFit: 'cover', borderRadius: 24 }}
         />
@@ -434,7 +434,7 @@ function FlagshipSection() {
 
           <div style={{ position: 'relative', height: 640 }}>
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
-              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg" alt="Ceramic coated car" fill style={{ objectFit: 'cover' }} />
+              <Image src="/images/20250217_125148.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
               <Placeholder label="GLOSS · REFLECTION" tone="dark" style={{ width: '100%', height: '100%' }} />
@@ -729,7 +729,7 @@ function PPFSection() {
 
             <div style={{ position: 'relative', height: 520 }}>
               <BlobImage variant="b" size={420} rotate={4} color="#0A0A0A" style={{ position: 'absolute', top: 0, right: 0 }}>
-                <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg" alt="Engine bay detail" fill style={{ objectFit: 'cover' }} />
+                <Image src="/images/20250525_093249.jpg" alt="Mobile detail in progress" fill style={{ objectFit: 'cover' }} />
               </BlobImage>
               <div
                 style={{
@@ -863,11 +863,11 @@ function MembershipTeaser() {
 // ============ GALLERY ============
 function GallerySection() {
   const items: { label: string; variant: string; h: number; tone: string; src?: string }[] = [
-    { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250217_125148.jpg' },
-    { label: 'R8 · PPF FRONT', variant: 'b', h: 320, tone: 'navy' },
+    { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: '/images/20250217_125148.jpg' },
+    { label: 'THE TEAM', variant: 'b', h: 320, tone: 'navy', src: '/images/20241203_134603.jpg' },
     { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark' },
-    { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250525_093249.jpg' },
-    { label: 'ENGINE BAY', variant: 'a', h: 300, tone: 'navy', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg' },
+    { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
+    { label: 'ENGINE BAY', variant: 'a', h: 300, tone: 'navy', src: '/images/20250321_101446.jpg' },
     { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark' },
   ];
 
