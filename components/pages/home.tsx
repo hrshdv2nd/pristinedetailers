@@ -729,7 +729,7 @@ function PPFSection() {
 
             <div style={{ position: 'relative', height: 520 }}>
               <BlobImage variant="b" size={420} rotate={4} color="#0A0A0A" style={{ position: 'absolute', top: 0, right: 0 }}>
-                <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/pristine/20250321_101446.jpg" alt="Engine bay detail" fill style={{ objectFit: 'cover' }} />
+                <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg" alt="Engine bay detail" fill style={{ objectFit: 'cover' }} />
               </BlobImage>
               <div
                 style={{

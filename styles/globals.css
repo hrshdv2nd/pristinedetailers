@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Surfaces */
+  --bg:         #F4F4F2;
+  --bg-2:       #EBEAE5;
+
+  /* Ink / text */
+  --ink:        #0A0A0A;
+  --ink-2:      #3A3A38;
+  --ink-3:      #7A7A76;
+
+  /* Borders */
+  --line:       #E1DFD8;
+
+  /* Brand gold */
+  --navy:       #C89B37;
+  --navy-deep:  #A07A21;
+  --navy-soft:  #F3E8CD;
+
+  /* Typography */
+  --f-sans:    'Inter Tight', sans-serif;
+  --f-display: 'Bricolage Grotesque', sans-serif;
+  --f-mono:    'JetBrains Mono', monospace;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,9 +32,9 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg, #F4F4F2);
-  color: var(--ink, #0A0A0A);
-  font-family: var(--f-sans, 'Inter Tight', sans-serif);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-sans);
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +42,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: var(--f-display, 'Bricolage Grotesque', sans-serif);
+  font-family: var(--f-display);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.02;
@@ -80,29 +105,29 @@ button {
   transform: translateY(-1px);
 }
 
-.pd-btn-dark {
+.pd-btn.pd-btn-dark {
   background: #0A0A0A;
   color: #fff;
 }
 
-.pd-btn-ghost {
+.pd-btn.pd-btn-ghost {
   background: transparent;
   color: #0A0A0A;
   border-color: #E1DFD8;
 }
 
-.pd-btn-light {
+.pd-btn.pd-btn-light {
   background: #EBEAE5;
   color: #0A0A0A;
 }
 
-.pd-btn-sm {
+.pd-btn.pd-btn-sm {
   padding: 10px 16px;
   border-radius: 999px;
   font-size: 13px;
 }
 
-.pd-btn-primary {
+.pd-btn.pd-btn-primary {
   background: #C89B37;
   color: #0A0A0A;
 }
