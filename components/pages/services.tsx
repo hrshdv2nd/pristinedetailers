@@ -15,15 +15,25 @@ export function Services() {
       id: 'vehicle-detailing',
       title: 'Vehicle detailing',
       description: 'Interior, exterior, polish, and protection for every finish.',
-      price: '$120 ',
+      price: '$120',
       label: 'Best for a quick inside and out clean',
+      body: 'Our team handles the full job from wash and clay bar through finishing touches. If you want add-ons such as engine bay detail or headlight restoration, we\'ll plan them in.',
+    },
+    {
+      id: 'revitalise-package',
+      title: 'Revitalise Package',
+      description: 'A full reset — deep clean, paint correction, and lasting protection in one visit.',
+      price: '$300',
+      label: 'Best for neglected or pre-sale vehicles',
+      body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
     },
     {
       id: 'ceramic-coating',
       title: 'Ceramic coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
       price: '$750',
-      label: 'Best for deep long lasting, protection',
+      label: 'Best for deep long lasting protection',
+      body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant — our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
     },
     {
       id: 'paint-protection',
@@ -31,6 +41,7 @@ export function Services() {
       description: 'Invisible, impact-resistant coverage for the most vulnerable panels.',
       price: '$3,000',
       label: 'Best for high-risk areas',
+      body: 'Self-healing polyurethane film, precisely cut and installed panel by panel. Virtually invisible at any angle, PPF takes the stone chips, road debris, and minor abrasions so your paint never has to. Stack with ceramic for maximum long-term defence.',
     },
   ];
 
@@ -59,7 +70,7 @@ export function Services() {
                 <div className="pd-eyebrow">Need help choosing?</div>
                 <h2 style={{ fontSize: 30, marginTop: 18 }}>Talk to our team.
                 </h2>
-                <p style={{ marginTop: 16, color: 'var(--ink-3)' }}>We’ll recommend the right plan based on your vehicle, schedule, and protection needs.</p>
+                <p style={{ marginTop: 16, color: 'var(--ink-3)' }}>We'll recommend the right plan based on your vehicle, schedule, and protection needs.</p>
                 <Link href="/booking" className="pd-btn pd-btn-dark" style={{ marginTop: 24 }}>Book a call</Link>
               </div>
             </div>
@@ -103,7 +114,7 @@ export function Services() {
                         </div>
                       </div>
                       <div style={{ marginTop: 28, display: 'grid', gap: 14 }}>
-                        <p style={{ color: 'var(--ink-2)' }}>Our team handles the full job from wash and clay bar through finishing touches. If you want add-ons such as engine bay detail or headlight restoration, we’ll plan them in.</p>
+                        <p style={{ color: 'var(--ink-2)' }}>{service.body}</p>
                         <Link href="/booking" className="pd-btn pd-btn-dark">Book this service <Arrow /></Link>
                       </div>
                     </div>
@@ -114,7 +125,7 @@ export function Services() {
 
             <aside className="pd-aside-sticky" style={{ position: 'sticky', top: 100 }}>
               <div className="pd-card" style={{ padding: 28 }}>
-                <div className="pd-eyebrow">Why we’re different</div>
+                <div className="pd-eyebrow">Why we're different</div>
                 <ul style={{ marginTop: 20, display: 'grid', gap: 18, lineHeight: 1.7, color: 'var(--ink-3)' }}>
                   <li>Mobile service across greater Melbourne.</li>
                   <li>Technicians certified by Ceramic Pro and Gtechniq.</li>
