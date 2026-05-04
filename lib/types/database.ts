@@ -132,6 +132,7 @@ export interface Booking {
   internal_notes:        string | null;
   setmore_raw:           Record<string, unknown> | null;
   synced_at:             string | null;
+  payout_id:             string | null;
   created_at:            string;
   updated_at:            string;
 }
