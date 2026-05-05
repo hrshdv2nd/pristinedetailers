@@ -346,14 +346,12 @@ function FlagshipSection() {
               you'll ever need.
             </h2>
             <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', marginTop: 28, maxWidth: 500, lineHeight: 1.6 }}>
-              A nano-ceramic barrier fused to your paint. Hydrophobic, UV-stable, and guaranteed for up to 8 years. Applied by certified technicians in a controlled, dust-free environment at your location.
+              A nano-ceramic barrier fused to your paint. Hydrophobic, UV-stable, lasting up to 5 years. Applied by certified technicians in a controlled, dust-free environment. Brand new vehicles only. 
             </p>
 
             <div className="pd-three-col" style={{ marginTop: 48, gap: 20 }}>
               {[
-                { tier: '3-5YR', price: '$1,290', feat: '9H hardness, hydrophobic' },
-                { tier: '3YR', price: '$1,890', feat: 'Enhanced gloss, 2 layers', best: true },
-                { tier: '5YR', price: '$2,490', feat: 'Graphene infusion, 3 layers' },
+                { tier: '5YR', price: '$750', feat: 'Enhanced gloss, long lasting protection', best: true },
               ].map(p => (
                 <div
                   key={p.tier}
