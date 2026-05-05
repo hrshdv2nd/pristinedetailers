@@ -213,7 +213,7 @@ export function AboutReviews() {
             Book online in 90 seconds. Confirmation within the hour.
           </p>
           <a
-            href="/booking"
+            href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '14px 28px', borderRadius: 6, background: '#C89B37', color: '#0A0A0A', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}
           >
             Book a detail <Arrow />

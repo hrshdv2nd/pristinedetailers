@@ -132,7 +132,7 @@ export function MembershipTerms() {
 
           <p style={{ marginTop: 16, fontSize: 13, color: '#7A7A76' }}>
             Questions? Contact us before subscribing —{' '}
-            <Link href="/booking" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+            <Link href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
               get in touch
             </Link>.
           </p>

@@ -71,7 +71,7 @@ export function Services() {
                 <h2 style={{ fontSize: 30, marginTop: 18 }}>Talk to our team.
                 </h2>
                 <p style={{ marginTop: 16, color: 'var(--ink-3)' }}>We'll recommend the right plan based on your vehicle, schedule, and protection needs.</p>
-                <Link href="/booking" className="pd-btn pd-btn-dark" style={{ marginTop: 24 }}>Book a call</Link>
+                <Link href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark" style={{ marginTop: 24 }}>Book a call</Link>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ export function Services() {
                       </div>
                       <div style={{ marginTop: 28, display: 'grid', gap: 14 }}>
                         <p style={{ color: 'var(--ink-2)' }}>{service.body}</p>
-                        <Link href="/booking" className="pd-btn pd-btn-dark">Book this service <Arrow /></Link>
+                        <Link href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">Book this service <Arrow /></Link>
                       </div>
                     </div>
                   ))}

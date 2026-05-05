@@ -61,7 +61,7 @@ export function Membership() {
                   <div className="pd-eyebrow">Member benefit</div>
                   <h2 style={{ fontSize: 26, marginTop: 10 }}>Keep it Pristine, always.</h2>
                 </div>
-                <Link href="/booking" className="pd-btn pd-btn-dark">Join now</Link>
+                <Link href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">Join now</Link>
               </div>
               <div style={{ display: 'grid', gap: 16, color: 'var(--ink-3)' }}>
                 <p>Signature members save up to  35% on bookings annually, enjoy faster scheduling, and receive personalised care plans for their vehicles.</p>
@@ -110,7 +110,7 @@ export function Membership() {
 
               <div style={{ marginTop: 32, display: 'flex', gap: 14 }}>
                 <button className="pd-btn pd-btn-dark">Select plan</button>
-                <Link href="/booking" className="pd-btn pd-btn-ghost">Book member service</Link>
+                <Link href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-ghost">Book member service</Link>
               </div>
               <p style={{ marginTop: 16, fontSize: 13, color: 'var(--ink-3)' }}>
                 By subscribing you agree to our{' '}

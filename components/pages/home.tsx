@@ -92,7 +92,7 @@ function HeroSection() {
           </p>
           <div className="pd-hero-actions" style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a
-              href="/booking"
+              href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -412,7 +412,7 @@ function FlagshipSection() {
                 Learn the process <Arrow />
               </a>
               <a
-                href="/booking"
+                href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -556,7 +556,7 @@ function MelbourneSection() {
             </div>
 
             <a
-              href="/booking"
+              href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -1080,7 +1080,7 @@ function CTASection() {
           </p>
           <div className="pd-cta-actions" style={{ marginTop: 40, display: 'flex', gap: 12, justifyContent: 'center' }}>
             <a
-              href="/booking"
+              href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
