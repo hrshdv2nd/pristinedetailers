@@ -40,11 +40,11 @@ export async function signIn(formData: FormData): Promise<{ error?: string }> {
   const email     = formData.get('email') as string;
   const password  = formData.get('password') as string;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) return { error: error.message };
 
   // Role-based redirect
-  const { data: profile } = await supabase.from('profiles').select('role').single<{ role: string }>();
+  const { data: profile } = await supabase.from('profiles').select('role').eq('id', authData.user.id).single<{ role: string }>();
   const dest = profile?.role === 'admin' ? '/admin' : profile?.role === 'detailer' ? '/detailer/jobs' : '/dashboard';
   redirect(dest);
 }
