@@ -217,7 +217,7 @@ function ServicesPreview() {
     { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$79', image: '/images/20250525_093249.jpg' },
     { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing add ons include steam cleaning and waxing.', from: '$120', image: '/images/20250321_101446.jpg' },
     { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', image: '/images/20250217_125148.jpg', flagship: true },
-    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: '/images/20250217_125148.jpg' },
+    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
   ];
 
   return (
