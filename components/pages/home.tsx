@@ -433,10 +433,10 @@ function FlagshipSection() {
 
           <div style={{ position: 'relative', height: 640 }}>
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
-              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
+              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
-              <Placeholder label="/images/20250217_125148.jpg" tone="dark" style={{ width: '100%', height: '100%' }} />
+              <Placeholder label="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg" tone="dark" style={{ width: '100%', height: '100%' }} />
             </BlobImage>
             <div
               style={{
