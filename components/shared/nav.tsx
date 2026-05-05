@@ -289,7 +289,6 @@ export function Nav({ active = 'home' }: { active?: string }) {
     { id: 'services', label: 'Services', href: '/services' },
     { id: 'membership', label: 'Membership', href: '/membership' },
     { id: 'contact', label: 'Contact', href: '/contact' },
-    { id: 'booking', label: 'Book', href: '/booking' },
   ];
 
   const onAboutEnter = () => {
