@@ -114,9 +114,7 @@ export function Booking() {
     fetch('/api/setmore/services')
       .then((r) => r.json())
       .then(({ services, staff }: { services: SetmoreServiceData[]; staff: SetmoreStaffData[] }) => {
-        console.log('[Setmore] services:', services.map(s => ({ name: s.service_name, key: s.key })));
-        console.log('[Setmore] staff:', staff.map(s => ({ name: `${s.first_name} ${s.last_name}`, key: s.key })));
-        const sMap: Record<string, string> = {};
+const sMap: Record<string, string> = {};
         const dMap: Record<string, number> = {};
         SERVICES.forEach((local) => {
           const lname = local.name.toLowerCase().replace(/[·\s]+/g, ' ').trim();
