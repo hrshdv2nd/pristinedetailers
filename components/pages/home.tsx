@@ -214,10 +214,10 @@ function MarqueeStrip() {
 // ============ SERVICES PREVIEW ============
 function ServicesPreview() {
   const services = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$79', blob: 'a' },
-    { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing including steam cleaning and waxing.', from: '$300', blob: 'b', flagship: true },
-    { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', blob: 'b', flagship: true },
-    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,000', blob: 'c' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$79', image: '/images/20250525_093249.jpg' },
+    { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing add ons include steam cleaning and waxing.', from: '$120', image: '/images/20250321_101446.jpg' },
+    { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', image: '/images/20250217_125148.jpg', flagship: true },
+    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: '/images/20250217_125148.jpg' },
   ];
 
   return (
@@ -279,14 +279,14 @@ function ServicesPreview() {
                   </span>
                 )}
               </div>
-              <div style={{ height: 180, display: 'grid', placeItems: 'center' }}>
-                <BlobImage variant={s.blob} size={160} color={s.flagship ? '#C89B37' : '#0A0A0A'}>
-                  <Placeholder
-                    label={s.title.toUpperCase()}
-                    tone={s.flagship ? 'navy' : 'dark'}
-                    style={{ width: '100%', height: '100%' }}
-                  />
-                </BlobImage>
+              <div style={{ height: 180, borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
               <div style={{ marginTop: 'auto' }}>
                 <h3 style={{ fontSize: 30, fontWeight: 500, fontFamily: "'Bricolage Grotesque', sans-serif" }}>
