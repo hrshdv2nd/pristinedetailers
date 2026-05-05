@@ -13,12 +13,17 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    const result = await signIn(new FormData(e.currentTarget));
-    if (result?.error) {
-      setError(result.error);
+    try {
+      const result = await signIn(new FormData(e.currentTarget));
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+      } else if (result?.dest) {
+        window.location.href = result.dest;
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
       setLoading(false);
-    } else if (result?.dest) {
-      window.location.href = result.dest;
     }
   }
 
