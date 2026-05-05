@@ -214,9 +214,10 @@ function MarqueeStrip() {
 // ============ SERVICES PREVIEW ============
 function ServicesPreview() {
   const services = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '80', blob: 'a' },
-    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', blob: 'b', flagship: true },
-    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,000', blob: 'c' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$79', blob: 'a' },
+    { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing including steam cleaning and waxing.', from: '$300', blob: 'b', flagship: true },
+    { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', blob: 'b', flagship: true },
+    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,000', blob: 'c' },
   ];
 
   return (
