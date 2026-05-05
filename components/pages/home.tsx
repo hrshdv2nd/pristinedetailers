@@ -147,7 +147,7 @@ function HeroComposition() {
 
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
         <Image
-          src="/images/20250525_093249.jpg"
+          src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg"
           alt="Detailer working on red sports car"
           fill
           style={{ objectFit: 'cover', borderRadius: 24 }}
