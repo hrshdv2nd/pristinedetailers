@@ -534,7 +534,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
           style={{ marginLeft: 'auto' }}
         >
           <a
-            href="/portal-customer"
+            href="/login"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
