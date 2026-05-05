@@ -23,6 +23,15 @@ const ADD_ON_LIST = [
   { id: 'pet', name: 'Pet Hair Removal', price: 50 },
 ];
 
+// Hardcoded Setmore keys (from /api/setmore/debug)
+const SETMORE_MAP: Record<string, { serviceKey: string; staffKey: string; durationMins: number }> = {
+  'essential-detail':  { serviceKey: '8c9fa98d-71fc-4e4e-bc6a-d3863de5930c', staffKey: 'MW48ha1ejJNvrXxujYvGgyoMEaSVmRm4', durationMins: 120 },
+  'revitalise-detail': { serviceKey: '92b15811-c629-49a5-bfa8-e7007f68721d', staffKey: 'MW48ha1ejJNvrXxujYvGgyoMEaSVmRm4', durationMins: 195 },
+  'ceramic-3yr':       { serviceKey: '277d5f6c-85fa-40eb-9676-e08b831fef46', staffKey: 'cce7ef23-2272-4e62-8fb6-a5e8a369babf', durationMins: 480 },
+  'ppf-full-front':    { serviceKey: '', staffKey: '', durationMins: 480 },
+  'ppf-full-car':      { serviceKey: '', staffKey: '', durationMins: 2880 },
+};
+
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -77,83 +86,42 @@ function addMinutes(d: Date, time24: string, mins: number): string {
   return `${hh}:${mm}`;
 }
 
-interface SetmoreServiceData { key: string; service_name: string; duration: number }
-interface SetmoreStaffData { key: string; first_name: string; last_name: string }
-
 export function Booking() {
   const [step, setStep] = useState(0);
   const [service, setService] = useState('');
   const [addOns, setAddOns] = useState<string[]>([]);
   const [upsell, setUpsell] = useState(false);
 
-  // Setmore data
-  const [setmoreMap, setSetmoreMap] = useState<Record<string, string>>({});
-  const [durationMap, setDurationMap] = useState<Record<string, number>>({});
-  const [staffKey, setStaffKey] = useState('');
-  const [staffName, setStaffName] = useState('');
-
-  // Schedule state (lifted from StepSchedule)
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState('');
   const [slots, setSlots] = useState<string[]>([]);
   const [slotsLoading, setSlotsLoading] = useState(false);
   const [address, setAddress] = useState('');
 
-  // Customer info
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
 
-  // Submission
   const [bookingLoading, setBookingLoading] = useState(false);
   const [bookingError, setBookingError] = useState('');
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
-  // Load services + staff from Setmore once
+  // Fetch real slots from Setmore when service + date changes
   useEffect(() => {
-    fetch('/api/setmore/services')
-      .then((r) => r.json())
-      .then(({ services, staff }: { services: SetmoreServiceData[]; staff: SetmoreStaffData[] }) => {
-const sMap: Record<string, string> = {};
-        const dMap: Record<string, number> = {};
-        SERVICES.forEach((local) => {
-          const lname = local.name.toLowerCase().replace(/[·\s]+/g, ' ').trim();
-          const match = services.find((sm) => {
-            const sname = sm.service_name.toLowerCase();
-            const localWords = lname.split(' ').filter((w) => w.length > 3);
-            return localWords.some((w) => sname.includes(w));
-          });
-          if (match) {
-            sMap[local.id] = match.key;
-            dMap[local.id] = match.duration;
-          }
-        });
-        setSetmoreMap(sMap);
-        setDurationMap(dMap);
-        if (staff.length > 0) {
-          setStaffKey(staff[0].key);
-          setStaffName(`${staff[0].first_name} ${staff[0].last_name}`);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  // Fetch slots when service + date changes
-  useEffect(() => {
-    const serviceKey = setmoreMap[service];
-    if (!serviceKey || !staffKey || !selectedDate) {
+    const entry = SETMORE_MAP[service];
+    if (!entry?.serviceKey || !selectedDate) {
       setSlots([]);
       return;
     }
     setSlotsLoading(true);
     setSelectedTime('');
     const dateStr = toSetmoreDate(selectedDate);
-    fetch(`/api/setmore/slots?staffKey=${staffKey}&serviceKey=${serviceKey}&date=${dateStr}`)
+    fetch(`/api/setmore/slots?staffKey=${entry.staffKey}&serviceKey=${entry.serviceKey}&date=${dateStr}`)
       .then((r) => r.json())
       .then(({ slots: s }: { slots: string[] }) => setSlots(s ?? []))
       .catch(() => setSlots([]))
       .finally(() => setSlotsLoading(false));
-  }, [service, selectedDate, setmoreMap, staffKey]);
+  }, [service, selectedDate]);
 
   const sel = useMemo(() => SERVICES.find((s) => s.id === service) ?? null, [service]);
   const addTotal = useMemo(
@@ -174,8 +142,8 @@ const sMap: Record<string, string> = {};
     const lastName = rest.join(' ') || '-';
     const time24 = slotTo24hr(selectedTime);
     const startTime = toSetmoreDateTime(selectedDate, time24);
-    const durationMins = durationMap[service] ?? 120;
-    const endTime24 = addMinutes(selectedDate, time24, durationMins);
+    const entry = SETMORE_MAP[service];
+    const endTime24 = addMinutes(selectedDate, time24, entry?.durationMins ?? 120);
     const endTime = toSetmoreDateTime(selectedDate, endTime24);
 
     const commentParts = [
@@ -193,8 +161,8 @@ const sMap: Record<string, string> = {};
         lastName,
         email: customerEmail,
         phone: customerPhone,
-        serviceKey: setmoreMap[service],
-        staffKey,
+        serviceKey: entry?.serviceKey,
+        staffKey: entry?.staffKey,
         startTime,
         endTime,
         comment: commentParts.join(' | '),
@@ -311,7 +279,7 @@ const sMap: Record<string, string> = {};
                   setSelectedTime={setSelectedTime}
                   slots={slots}
                   slotsLoading={slotsLoading}
-                  hasServiceKey={!!setmoreMap[service]}
+                  hasServiceKey={!!SETMORE_MAP[service]?.serviceKey}
                   address={address}
                   setAddress={setAddress}
                   customerName={customerName}
@@ -332,7 +300,7 @@ const sMap: Record<string, string> = {};
                   selectedTime={selectedTime}
                   address={address}
                   customerName={customerName}
-                  staffName={staffName}
+                  staffName="Pristine Detailers"
                   total={total}
                   bookingError={bookingError}
                 />
