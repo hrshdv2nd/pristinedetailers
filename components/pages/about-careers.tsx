@@ -5,55 +5,12 @@ import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
 
-const ROLES = [
-  {
-    title: 'Senior Detailer',
-    type: 'Full-time',
-    location: 'Mobile · Melbourne',
-    salary: '$75,000 – $90,000',
-    desc: 'Lead full-detail and ceramic coating jobs across greater Melbourne. You\'ll be our clients\' primary point of contact on the day — so professionalism matters as much as technique.',
-    requirements: [
-      '3+ years professional detailing experience',
-      'Paint correction and polishing proficiency',
-      'Clean driver\'s licence',
-      'Excellent client communication skills',
-    ],
-  },
-  {
-    title: 'PPF & Ceramic Specialist',
-    type: 'Full-time',
-    location: 'Mobile · Melbourne',
-    salary: '$85,000 – $100,000',
-    desc: 'Install paint protection film and apply ceramic coatings to a fleet of Melbourne\'s most valuable vehicles. XPEL or equivalent accreditation preferred.',
-    requirements: [
-      'Certified PPF installation experience (XPEL, LLumar, or equivalent)',
-      'Ceramic coating certification (Gtechniq, CarPro, or similar)',
-      'Meticulous attention to panel alignment and edge sealing',
-      'Experience with high-value and exotic vehicles',
-    ],
-  },
-  {
-    title: 'Customer Experience Coordinator',
-    type: 'Part-time',
-    location: 'Remote · Melbourne',
-    salary: '$32 – $38/hr',
-    desc: 'Own the booking experience and member communications. You\'ll handle enquiries, coordinate scheduling, and make sure every client feels cared for before a detailer arrives.',
-    requirements: [
-      'Strong written and verbal communication',
-      'Experience with booking or CRM software',
-      'Passion for cars and customer service',
-      'Availability across weekday business hours',
-    ],
-  },
-];
-
 const PERKS = [
-  { title: 'Vehicle access', body: 'Use a company-branded van for commuting to and from jobs.' },
   { title: 'Ongoing training', body: 'Fully funded certification upgrades — ceramic, PPF, detailing courses.' },
   { title: 'Member events', body: 'Access to our exclusive car showcases and collection days.' },
   { title: 'Flexible scheduling', body: 'No two weeks are the same. We work around your life, not against it.' },
   { title: 'Product supply', body: 'All professional-grade products, tools, and PPE supplied by us.' },
-  { title: 'Performance bonus', body: 'Quarterly bonuses tied to customer satisfaction scores.' },
+  { title: 'Monthly Performance based Commissions', body: 'Quarterly bonuses tied to customer satisfaction scores.' },
 ];
 
 export function AboutCareers() {
