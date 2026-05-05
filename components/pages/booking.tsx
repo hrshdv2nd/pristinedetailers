@@ -25,18 +25,18 @@ const ADD_ON_LIST = [
 
 export function Booking() {
   const [step, setStep] = useState(0);
-  const [service, setService] = useState('signature-detail');
-  const [addOns, setAddOns] = useState(['headlight']);
+  const [service, setService] = useState('');
+  const [addOns, setAddOns] = useState<string[]>([]);
   const [upsell, setUpsell] = useState(false);
   const [slot, setSlot] = useState('2026-04-24-10');
 
-  const sel = useMemo(() => SERVICES.find((s) => s.id === service) ?? SERVICES[0], [service]);
+  const sel = useMemo(() => SERVICES.find((s) => s.id === service) ?? null, [service]);
   const addTotal = useMemo(
     () => addOns.reduce((total, id) => total + (ADD_ON_LIST.find((a) => a.id === id)?.price || 0), 0),
     [addOns]
   );
   const upsellCost = upsell ? 1890 : 0;
-  const total = sel.price + addTotal + upsellCost;
+  const total = (sel?.price ?? 0) + addTotal + upsellCost;
 
   const steps = ['Service', 'Upgrades', 'Schedule', 'Confirm'];
 
@@ -79,7 +79,7 @@ export function Booking() {
               {step === 0 && <StepService services={SERVICES} service={service} setService={setService} />}
               {step === 1 && <StepAddons ADD_ON_LIST={ADD_ON_LIST} addOns={addOns} setAddOns={setAddOns} upsell={upsell} setUpsell={setUpsell} />}
               {step === 2 && <StepSchedule slot={slot} setSlot={setSlot} />}
-              {step === 3 && <StepConfirm service={sel} addOns={addOns} ADD_ON_LIST={ADD_ON_LIST} upsell={upsell} slot={slot} total={total} />}
+              {step === 3 && sel && <StepConfirm service={sel} addOns={addOns} ADD_ON_LIST={ADD_ON_LIST} upsell={upsell} slot={slot} total={total} />}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 40 }}>
                 <button
@@ -91,7 +91,13 @@ export function Booking() {
                   ← Back
                 </button>
                 {step < 3 ? (
-                  <button type="button" onClick={() => setStep(step + 1)} className="pd-btn pd-btn-dark">
+                  <button
+                    type="button"
+                    onClick={() => setStep(step + 1)}
+                    className="pd-btn pd-btn-dark"
+                    disabled={step === 0 && !sel}
+                    style={{ opacity: step === 0 && !sel ? 0.4 : 1, cursor: step === 0 && !sel ? 'not-allowed' : 'pointer' }}
+                  >
                     Continue <Arrow />
                   </button>
                 ) : (
@@ -105,14 +111,16 @@ export function Booking() {
             <aside className="pd-aside-sticky" style={{ position: 'sticky', top: 100 }}>
               <div className="pd-card" style={{ padding: 28 }}>
                 <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--ink-3)', textTransform: 'uppercase' }}>Your order</div>
-                <h3 style={{ fontSize: 26, fontWeight: 500, marginTop: 10 }}>{sel.name}</h3>
-                <div style={{ fontSize: 13, color: 'var(--ink-3)', marginTop: 4 }}>Est. {sel.duration}</div>
+                <h3 style={{ fontSize: 26, fontWeight: 500, marginTop: 10 }}>{sel ? sel.name : 'No service selected'}</h3>
+                <div style={{ fontSize: 13, color: 'var(--ink-3)', marginTop: 4 }}>{sel ? `Est. ${sel.duration}` : 'Choose a service to begin'}</div>
 
                 <div style={{ margin: '24px 0', padding: '20px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+                  {sel && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, padding: '6px 0' }}>
                     <span>{sel.name}</span>
                     <span>${sel.price.toLocaleString()}</span>
                   </div>
+                  )}
                   {addOns.map((id) => {
                     const addOn = ADD_ON_LIST.find((x) => x.id === id);
                     return addOn ? (
@@ -191,7 +199,10 @@ function StepService({ services, service, setService }: { services: Array<{ id: 
               </div>
               <div style={{ fontSize: 13, opacity: 0.6, marginTop: 4 }}>{s.duration}</div>
             </div>
-            <div style={{ fontFamily: 'var(--f-display)', fontSize: 28, fontWeight: 500 }}>${s.price.toLocaleString()}</div>
+            <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: 11, opacity: 0.5, fontFamily: 'var(--f-mono)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>Starting from</div>
+                <div style={{ fontFamily: 'var(--f-display)', fontSize: 28, fontWeight: 500 }}>${s.price.toLocaleString()}</div>
+              </div>
             <div
               style={{
                 width: 28,
