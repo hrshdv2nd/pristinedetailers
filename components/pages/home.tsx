@@ -937,7 +937,7 @@ function TestimonialsSection() {
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <Eyebrow>06 · Reviews</Eyebrow>
           <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
-            <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> across 240 reviews.
+            <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> across 39 reviews.
           </h2>
         </div>
         <div className="pd-three-col" style={{ gap: 20 }}>
@@ -991,11 +991,10 @@ function TestimonialsSection() {
 function FAQSection() {
   const [open, setOpen] = useState<number>(-1);
   const faqs = [
-    { q: 'Do you come to my home or office?', a: 'Yes — our mobile units are fully self-contained with water, power, lighting and a dust barrier system. We only require a covered or semi-covered space roughly the size of two parking bays.' },
-    { q: 'How long does a ceramic coating take?', a: 'A full ceramic application (including paint correction) is typically 1–3 days depending on the condition of the vehicle. We\'ll give you an exact timeline after our free paint inspection.' },
-    { q: 'Is my ceramic coating warrantied?', a: 'All ceramic coatings come with a manufacturer-backed warranty of 1, 3, 5, or 8 years depending on tier. We also provide an annual inspection to keep the warranty valid.' },
+    { q: 'Do you come to my home or office?', a: 'Yes — our mobile team will bring the tools & we will need access to water and power. We require a covered or open  space roughly the size of two parking bays to complete a thorough service.' },
+    { q: 'How long does a ceramic coating application take?', a: 'A full ceramic application (including paint correction) is typically 1 day worth of work.'},
     { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely — and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
-    { q: 'What does the membership include?', a: '$80/month gets you one monthly wash-and-seal detail, priority same-week booking, 15% off ceramic and PPF services, one free headlight restoration per year, and member-only collection days.' },
+    { q: 'What does the membership include?', a: '$79/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },
   ];
 
   return (
@@ -1058,7 +1057,7 @@ function CTASection() {
             borderRadius: 32,
           }}
         >
-          <Eyebrow style={{ color: 'rgba(255,255,255,0.5)' }}>Ready when you are</Eyebrow>
+          <Eyebrow style={{ color: 'rgba(255,255,255,0.5)' }}>Book us today</Eyebrow>
           <h2
             className="pd-h-xl"
             style={{
@@ -1072,7 +1071,7 @@ function CTASection() {
           >
             Let's make it{' '}
             <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              pristine.
+              Pristine.
             </span>
           </h2>
           <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.65)', marginTop: 24, maxWidth: 520, margin: '24px auto 0' }}>
