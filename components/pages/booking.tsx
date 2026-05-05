@@ -8,19 +8,20 @@ import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
 const SERVICES = [
-  { id: 'essential-detail', name: 'Essential Detail', price: 340, duration: '3 hrs' },
-  { id: 'signature-detail', name: 'Signature Detail', price: 520, duration: '5 hrs', popular: true },
-  { id: 'concours-detail', name: 'Concours Detail', price: 890, duration: '8 hrs' },
-  { id: 'ceramic-3yr', name: 'Ceramic Coating · 3yr', price: 1890, duration: '2 days' },
-  { id: 'ppf-full-front', name: 'PPF · Full Front', price: 4200, duration: '3 days' },
+  { id: 'essential-detail', name: 'Essential Detail', price: 120, duration: '3 hrs' },
+  { id: 'revitalise-detail', name: 'Revitalise Detail', price: 300, duration: '5 hrs', popular: true },
+  { id: 'ceramic-3yr', name: 'Ceramic Coating ', price: 750, duration: '2 days' },
+  { id: 'ppf-full-front', name: 'PPF · Full Front', price: 2999, duration: '3 days' },
+  { id: 'ppf-full-car', name: 'PPF · Full Car', price: 7549, duration: '7 days' },
+
 ];
 
 const ADD_ON_LIST = [
-  { id: 'headlight', name: 'Headlight restoration', price: 140 },
-  { id: 'engine', name: 'Engine bay detail', price: 120 },
-  { id: 'odour', name: 'Odour ozone treatment', price: 180 },
-  { id: 'wheels', name: 'Wheel-off detail', price: 160 },
-  { id: 'pet', name: 'Pet hair extraction', price: 90 },
+  { id: 'engine', name: 'Engine Bay Detail', price: 70 },
+  { id: 'leather-ceramic', name: 'Leather Ceramic Coating', price: 250 },
+  { id: 'wheel-ceramic', name: 'Wheel Ceramic Coating', price: 200 },
+  { id: 'glass-ceramic', name: 'Glass Ceramic Coating', price: 150 },
+  { id: 'pet', name: 'Pet Hair Removal', price: 50 },
 ];
 
 export function Booking() {
