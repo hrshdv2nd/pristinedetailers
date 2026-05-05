@@ -13,6 +13,35 @@ const PERKS = [
   { title: 'Monthly Performance based Commissions', body: 'Quarterly bonuses tied to customer satisfaction scores.' },
 ];
 
+const ROLES = [
+  {
+    title: 'Mobile Car Detailer',
+    type: 'Full-time',
+    location: 'Melbourne, VIC',
+    desc: 'Join our mobile detailing crew and deliver showroom-quality results at our clients\' locations across Melbourne. You\'ll work with premium products on high-end vehicles.',
+    requirements: [
+      'Minimum 1 year of professional detailing experience',
+      'Valid Australian driver\'s licence',
+      'Strong attention to detail and pride in your work',
+      'Reliable, punctual, and customer-focused',
+    ],
+    salary: '$65,000 – $80,000',
+  },
+  {
+    title: 'Senior Detailer – Ceramic & PPF',
+    type: 'Full-time',
+    location: 'Melbourne, VIC',
+    desc: 'Lead complex ceramic coating and paint protection film installations. You\'ll mentor junior detailers and handle our most technically demanding jobs.',
+    requirements: [
+      '3+ years hands-on ceramic coating and PPF experience',
+      'Recognised certification (Gyeon, XPEL, or equivalent)',
+      'Experience working on prestige and exotic vehicles',
+      'Strong communication skills for client consultations',
+    ],
+    salary: '$80,000 – $100,000',
+  },
+];
+
 export function AboutCareers() {
   const [form, setForm] = useState({ name: '', email: '', role: '', message: '' });
   const [sent, setSent] = useState(false);
