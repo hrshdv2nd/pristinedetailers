@@ -570,7 +570,7 @@ function MelbourneSection() {
                 marginTop: 40,
               }}
             >
-              Check your suburb <Arrow />
+              Book Today <Arrow />
             </a>
           </div>
 
@@ -619,7 +619,7 @@ function MelbourneSection() {
                   <circle cx="200" cy="160" r="6" fill="#fff" />
                 </g>
                 <text x="218" y="164" fontFamily="JetBrains Mono" fontSize="10" fill="#0A0A0A" fontWeight="600">
-                  HQ · RICHMOND
+                  HQ · CLYDE NORTH
                 </text>
                 <text x="20" y="30" fontFamily="Bricolage Grotesque" fontSize="14" fill="#7A7A76" fontStyle="italic">
                   Melbourne
