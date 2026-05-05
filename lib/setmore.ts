@@ -56,11 +56,15 @@ let _tokenExpiry = 0;
 
 async function getToken(): Promise<string> {
   if (_token && Date.now() < _tokenExpiry) return _token;
-  const res = await fetch(
-    `${BASE}/o/oauth2/token?refreshToken=${encodeURIComponent(process.env.SETMORE_REFRESH_TOKEN!)}`,
-    { cache: 'no-store' },
-  );
-  if (!res.ok) throw new Error(`Setmore auth failed: ${res.status}`);
+  const res = await fetch(`${BASE}/o/oauth2/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ refreshToken: process.env.SETMORE_REFRESH_TOKEN }),
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    throw new Error(`Setmore auth failed: ${res.status} ${body}`);
+  }
   const json = await res.json();
   _token = json.data.token.access_token as string;
   _tokenExpiry = Date.now() + 55 * 60 * 1000;
