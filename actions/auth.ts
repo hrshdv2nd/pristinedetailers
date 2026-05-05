@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 import { createStripeCustomer } from '@/lib/stripe';
 import type { Profile } from '@/lib/types/database';
 
-export async function signUp(formData: FormData): Promise<{ error?: string }> {
+export async function signUp(formData: FormData): Promise<{ error?: string; dest?: string }> {
   const supabase = await createClient();
   const email    = formData.get('email') as string;
   const password = formData.get('password') as string;
@@ -32,10 +32,10 @@ export async function signUp(formData: FormData): Promise<{ error?: string }> {
     await supabase.from('profiles').update({ phone }).eq('id', data.user.id);
   }
 
-  redirect('/dashboard');
+  return { dest: '/dashboard' };
 }
 
-export async function signIn(formData: FormData): Promise<{ error?: string }> {
+export async function signIn(formData: FormData): Promise<{ error?: string; dest?: string }> {
   const supabase  = await createClient();
   const email     = formData.get('email') as string;
   const password  = formData.get('password') as string;
@@ -43,10 +43,12 @@ export async function signIn(formData: FormData): Promise<{ error?: string }> {
   const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) return { error: error.message };
 
-  // Role-based redirect
+  // Role-based redirect — return dest so the client can do a full navigation
+  // after cookies are flushed (redirect() inside a server action can fire before
+  // Set-Cookie headers reach the browser, leaving the session unset in middleware)
   const { data: profile } = await supabase.from('profiles').select('role').eq('id', authData.user.id).single<{ role: string }>();
   const dest = profile?.role === 'admin' ? '/admin' : profile?.role === 'detailer' ? '/detailer/jobs' : '/dashboard';
-  redirect(dest);
+  return { dest };
 }
 
 export async function signInWithGoogle(): Promise<{ url?: string; error?: string }> {
