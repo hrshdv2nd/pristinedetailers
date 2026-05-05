@@ -215,7 +215,7 @@ function MarqueeStrip() {
 function ServicesPreview() {
   const services = [
     { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$79', image: '/images/20250525_093249.jpg' },
-    { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing add ons include steam cleaning and waxing.', from: '$120', image: '/images/20240822_100032.jpg' },
+    { tag: '02', title: 'Vehicle Detailing', blurb: 'Vehicle detailing add ons include steam cleaning and waxing.', from: '$120', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
     { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$750', image: '/images/scratch-repair.jpg', flagship: true },
     { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
   ];
@@ -433,10 +433,10 @@ function FlagshipSection() {
 
           <div style={{ position: 'relative', height: 640 }}>
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
-              <Image src="/images/20250217_125148.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
+              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
-              <Placeholder label="GLOSS · REFLECTION" tone="dark" style={{ width: '100%', height: '100%' }} />
+              <Placeholder label="/images/20250217_125148.jpg" tone="dark" style={{ width: '100%', height: '100%' }} />
             </BlobImage>
             <div
               style={{
