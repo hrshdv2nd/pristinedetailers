@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Footer } from '@/components/shared/footer';
 import { Nav } from '@/components/shared/nav';
 import { Placeholder } from '@/components/shared/placeholder';
@@ -10,10 +10,9 @@ import { Arrow } from '@/components/shared/atoms';
 const SERVICES = [
   { id: 'essential-detail', name: 'Essential Detail', price: 120, duration: '3 hrs' },
   { id: 'revitalise-detail', name: 'Revitalise Detail', price: 300, duration: '5 hrs', popular: true },
-  { id: 'ceramic-3yr', name: 'Ceramic Coating ', price: 750, duration: '2 days' },
+  { id: 'ceramic-3yr', name: 'Ceramic Coating', price: 750, duration: '2 days' },
   { id: 'ppf-full-front', name: 'PPF · Full Front', price: 2999, duration: '3 days' },
   { id: 'ppf-full-car', name: 'PPF · Full Car', price: 7549, duration: '7 days' },
-
 ];
 
 const ADD_ON_LIST = [
@@ -24,22 +23,247 @@ const ADD_ON_LIST = [
   { id: 'pet', name: 'Pet Hair Removal', price: 50 },
 ];
 
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function getUpcomingDates(count = 14): Date[] {
+  const dates: Date[] = [];
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  while (dates.length < count) {
+    if (d.getDay() !== 0) dates.push(new Date(d)); // skip Sundays
+    d.setDate(d.getDate() + 1);
+  }
+  return dates;
+}
+
+function toSetmoreDate(d: Date): string {
+  // Setmore slots API expects MM/dd/yyyy
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${mm}/${dd}/${d.getFullYear()}`;
+}
+
+function toSetmoreDateTime(d: Date, time24: string): string {
+  // Setmore appointment API expects dd/MM/yyyy HH:mm
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm}/${d.getFullYear()} ${time24}`;
+}
+
+function slotTo24hr(slot: string): string {
+  if (!slot.includes('AM') && !slot.includes('PM')) return slot;
+  const [timePart, period] = slot.split(' ');
+  let [h, m] = timePart.split(':').map(Number);
+  if (period === 'PM' && h !== 12) h += 12;
+  if (period === 'AM' && h === 12) h = 0;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+function slotToDisplay(slot: string): string {
+  const t24 = slotTo24hr(slot);
+  const [h, m] = t24.split(':').map(Number);
+  const period = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 || 12;
+  return `${h12}:${String(m).padStart(2, '0')} ${period}`;
+}
+
+function addMinutes(d: Date, time24: string, mins: number): string {
+  const [h, m] = time24.split(':').map(Number);
+  const end = new Date(d);
+  end.setHours(h, m + mins, 0, 0);
+  const hh = String(end.getHours()).padStart(2, '0');
+  const mm = String(end.getMinutes()).padStart(2, '0');
+  return `${hh}:${mm}`;
+}
+
+interface SetmoreServiceData { key: string; service_name: string; duration: number }
+interface SetmoreStaffData { key: string; first_name: string; last_name: string }
+
 export function Booking() {
   const [step, setStep] = useState(0);
   const [service, setService] = useState('');
   const [addOns, setAddOns] = useState<string[]>([]);
   const [upsell, setUpsell] = useState(false);
-  const [slot, setSlot] = useState('2026-04-24-10');
+
+  // Setmore data
+  const [setmoreMap, setSetmoreMap] = useState<Record<string, string>>({});
+  const [durationMap, setDurationMap] = useState<Record<string, number>>({});
+  const [staffKey, setStaffKey] = useState('');
+  const [staffName, setStaffName] = useState('');
+
+  // Schedule state (lifted from StepSchedule)
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState('');
+  const [slots, setSlots] = useState<string[]>([]);
+  const [slotsLoading, setSlotsLoading] = useState(false);
+  const [address, setAddress] = useState('');
+
+  // Customer info
+  const [customerName, setCustomerName] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+
+  // Submission
+  const [bookingLoading, setBookingLoading] = useState(false);
+  const [bookingError, setBookingError] = useState('');
+  const [bookingSuccess, setBookingSuccess] = useState(false);
+
+  // Load services + staff from Setmore once
+  useEffect(() => {
+    fetch('/api/setmore/services')
+      .then((r) => r.json())
+      .then(({ services, staff }: { services: SetmoreServiceData[]; staff: SetmoreStaffData[] }) => {
+        const sMap: Record<string, string> = {};
+        const dMap: Record<string, number> = {};
+        SERVICES.forEach((local) => {
+          const lname = local.name.toLowerCase().replace(/[·\s]+/g, ' ').trim();
+          const match = services.find((sm) => {
+            const sname = sm.service_name.toLowerCase();
+            const localWords = lname.split(' ').filter((w) => w.length > 3);
+            return localWords.some((w) => sname.includes(w));
+          });
+          if (match) {
+            sMap[local.id] = match.key;
+            dMap[local.id] = match.duration;
+          }
+        });
+        setSetmoreMap(sMap);
+        setDurationMap(dMap);
+        if (staff.length > 0) {
+          setStaffKey(staff[0].key);
+          setStaffName(`${staff[0].first_name} ${staff[0].last_name}`);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Fetch slots when service + date changes
+  useEffect(() => {
+    const serviceKey = setmoreMap[service];
+    if (!serviceKey || !staffKey || !selectedDate) {
+      setSlots([]);
+      return;
+    }
+    setSlotsLoading(true);
+    setSelectedTime('');
+    const dateStr = toSetmoreDate(selectedDate);
+    fetch(`/api/setmore/slots?staffKey=${staffKey}&serviceKey=${serviceKey}&date=${dateStr}`)
+      .then((r) => r.json())
+      .then(({ slots: s }: { slots: string[] }) => setSlots(s ?? []))
+      .catch(() => setSlots([]))
+      .finally(() => setSlotsLoading(false));
+  }, [service, selectedDate, setmoreMap, staffKey]);
 
   const sel = useMemo(() => SERVICES.find((s) => s.id === service) ?? null, [service]);
   const addTotal = useMemo(
-    () => addOns.reduce((total, id) => total + (ADD_ON_LIST.find((a) => a.id === id)?.price || 0), 0),
-    [addOns]
+    () => addOns.reduce((t, id) => t + (ADD_ON_LIST.find((a) => a.id === id)?.price ?? 0), 0),
+    [addOns],
   );
   const upsellCost = upsell ? 1890 : 0;
   const total = (sel?.price ?? 0) + addTotal + upsellCost;
 
+  const canContinueSchedule = !!selectedDate && !!selectedTime && !!customerName && !!customerEmail;
+
+  async function handleConfirm() {
+    if (!sel || !selectedDate || !selectedTime || !customerName || !customerEmail) return;
+    setBookingLoading(true);
+    setBookingError('');
+
+    const [firstName, ...rest] = customerName.trim().split(' ');
+    const lastName = rest.join(' ') || '-';
+    const time24 = slotTo24hr(selectedTime);
+    const startTime = toSetmoreDateTime(selectedDate, time24);
+    const durationMins = durationMap[service] ?? 120;
+    const endTime24 = addMinutes(selectedDate, time24, durationMins);
+    const endTime = toSetmoreDateTime(selectedDate, endTime24);
+
+    const commentParts = [
+      address && `Address: ${address}`,
+      addOns.length > 0 &&
+        `Add-ons: ${addOns.map((id) => ADD_ON_LIST.find((a) => a.id === id)?.name).join(', ')}`,
+      upsell && 'Upgrade: Ceramic 3yr',
+    ].filter(Boolean);
+
+    const res = await fetch('/api/setmore/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email: customerEmail,
+        phone: customerPhone,
+        serviceKey: setmoreMap[service],
+        staffKey,
+        startTime,
+        endTime,
+        comment: commentParts.join(' | '),
+      }),
+    });
+
+    const data = await res.json();
+    if (data.error) setBookingError(data.error);
+    else setBookingSuccess(true);
+    setBookingLoading(false);
+  }
+
   const steps = ['Service', 'Upgrades', 'Schedule', 'Confirm'];
+
+  const selectedDateDisplay = selectedDate
+    ? `${DAYS[selectedDate.getDay()]} ${selectedDate.getDate()} ${MONTHS[selectedDate.getMonth()]}`
+    : null;
+
+  if (bookingSuccess) {
+    return (
+      <div className="pd-page">
+        <Nav active="booking" />
+        <section style={{ padding: '80px 0', minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
+          <div className="pd-container" style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
+            <div
+              style={{
+                width: 72,
+                height: 72,
+                borderRadius: '50%',
+                background: 'var(--navy-soft)',
+                display: 'grid',
+                placeItems: 'center',
+                margin: '0 auto 24px',
+              }}
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="2.5">
+                <path d="M5 12l5 5L20 7" />
+              </svg>
+            </div>
+            <h2 style={{ fontSize: 48, fontWeight: 500, margin: '0 0 12px' }}>Booking confirmed!</h2>
+            <p style={{ fontSize: 16, color: 'var(--ink-2)', lineHeight: 1.6 }}>
+              You&apos;ll receive a confirmation email at <strong>{customerEmail}</strong>. We&apos;ll text you when
+              your technician is 30 minutes out.
+            </p>
+            {selectedDateDisplay && selectedTime && (
+              <div
+                style={{
+                  marginTop: 32,
+                  padding: '20px 24px',
+                  background: '#fff',
+                  borderRadius: 14,
+                  border: '1px solid var(--line)',
+                  display: 'inline-block',
+                  textAlign: 'left',
+                }}
+              >
+                <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8 }}>Your appointment</div>
+                <div style={{ fontSize: 18, fontWeight: 600 }}>{sel?.name}</div>
+                <div style={{ fontSize: 14, color: 'var(--ink-2)', marginTop: 4 }}>
+                  {selectedDateDisplay} · {slotToDisplay(selectedTime)}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="pd-page">
@@ -79,8 +303,40 @@ export function Booking() {
             <div>
               {step === 0 && <StepService services={SERVICES} service={service} setService={setService} />}
               {step === 1 && <StepAddons ADD_ON_LIST={ADD_ON_LIST} addOns={addOns} setAddOns={setAddOns} upsell={upsell} setUpsell={setUpsell} />}
-              {step === 2 && <StepSchedule slot={slot} setSlot={setSlot} />}
-              {step === 3 && sel && <StepConfirm service={sel} addOns={addOns} ADD_ON_LIST={ADD_ON_LIST} upsell={upsell} slot={slot} total={total} />}
+              {step === 2 && (
+                <StepSchedule
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  selectedTime={selectedTime}
+                  setSelectedTime={setSelectedTime}
+                  slots={slots}
+                  slotsLoading={slotsLoading}
+                  hasServiceKey={!!setmoreMap[service]}
+                  address={address}
+                  setAddress={setAddress}
+                  customerName={customerName}
+                  setCustomerName={setCustomerName}
+                  customerEmail={customerEmail}
+                  setCustomerEmail={setCustomerEmail}
+                  customerPhone={customerPhone}
+                  setCustomerPhone={setCustomerPhone}
+                />
+              )}
+              {step === 3 && sel && (
+                <StepConfirm
+                  service={sel}
+                  addOns={addOns}
+                  ADD_ON_LIST={ADD_ON_LIST}
+                  upsell={upsell}
+                  selectedDateDisplay={selectedDateDisplay}
+                  selectedTime={selectedTime}
+                  address={address}
+                  customerName={customerName}
+                  staffName={staffName}
+                  total={total}
+                  bookingError={bookingError}
+                />
+              )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 40 }}>
                 <button
@@ -96,14 +352,23 @@ export function Booking() {
                     type="button"
                     onClick={() => setStep(step + 1)}
                     className="pd-btn pd-btn-dark"
-                    disabled={step === 0 && !sel}
-                    style={{ opacity: step === 0 && !sel ? 0.4 : 1, cursor: step === 0 && !sel ? 'not-allowed' : 'pointer' }}
+                    disabled={(step === 0 && !sel) || (step === 2 && !canContinueSchedule)}
+                    style={{
+                      opacity: (step === 0 && !sel) || (step === 2 && !canContinueSchedule) ? 0.4 : 1,
+                      cursor: (step === 0 && !sel) || (step === 2 && !canContinueSchedule) ? 'not-allowed' : 'pointer',
+                    }}
                   >
                     Continue <Arrow />
                   </button>
                 ) : (
-                  <button type="button" className="pd-btn pd-btn-primary">
-                    Confirm & pay ${total.toLocaleString()} <Arrow />
+                  <button
+                    type="button"
+                    className="pd-btn pd-btn-primary"
+                    onClick={handleConfirm}
+                    disabled={bookingLoading}
+                    style={{ opacity: bookingLoading ? 0.6 : 1, cursor: bookingLoading ? 'not-allowed' : 'pointer' }}
+                  >
+                    {bookingLoading ? 'Confirming…' : `Confirm & pay $${total.toLocaleString()}`} <Arrow />
                   </button>
                 )}
               </div>
@@ -117,10 +382,10 @@ export function Booking() {
 
                 <div style={{ margin: '24px 0', padding: '20px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
                   {sel && (
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, padding: '6px 0' }}>
-                    <span>{sel.name}</span>
-                    <span>${sel.price.toLocaleString()}</span>
-                  </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, padding: '6px 0' }}>
+                      <span>{sel.name}</span>
+                      <span>${sel.price.toLocaleString()}</span>
+                    </div>
                   )}
                   {addOns.map((id) => {
                     const addOn = ADD_ON_LIST.find((x) => x.id === id);
@@ -162,7 +427,15 @@ export function Booking() {
   );
 }
 
-function StepService({ services, service, setService }: { services: Array<{ id: string; name: string; price: number; duration: string; popular?: boolean }>; service: string; setService: (value: string) => void; }) {
+function StepService({
+  services,
+  service,
+  setService,
+}: {
+  services: Array<{ id: string; name: string; price: number; duration: string; popular?: boolean }>;
+  service: string;
+  setService: (value: string) => void;
+}) {
   return (
     <div>
       <h2 style={{ fontSize: 56, fontWeight: 500 }}>
@@ -201,9 +474,9 @@ function StepService({ services, service, setService }: { services: Array<{ id: 
               <div style={{ fontSize: 13, opacity: 0.6, marginTop: 4 }}>{s.duration}</div>
             </div>
             <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: 11, opacity: 0.5, fontFamily: 'var(--f-mono)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>Starting from</div>
-                <div style={{ fontFamily: 'var(--f-display)', fontSize: 28, fontWeight: 500 }}>${s.price.toLocaleString()}</div>
-              </div>
+              <div style={{ fontSize: 11, opacity: 0.5, fontFamily: 'var(--f-mono)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>Starting from</div>
+              <div style={{ fontFamily: 'var(--f-display)', fontSize: 28, fontWeight: 500 }}>${s.price.toLocaleString()}</div>
+            </div>
             <div
               style={{
                 width: 28,
@@ -228,7 +501,19 @@ function StepService({ services, service, setService }: { services: Array<{ id: 
   );
 }
 
-function StepAddons({ ADD_ON_LIST, addOns, setAddOns, upsell, setUpsell }: { ADD_ON_LIST: Array<{ id: string; name: string; price: number }>; addOns: string[]; setAddOns: (value: string[]) => void; upsell: boolean; setUpsell: (value: boolean) => void; }) {
+function StepAddons({
+  ADD_ON_LIST,
+  addOns,
+  setAddOns,
+  upsell,
+  setUpsell,
+}: {
+  ADD_ON_LIST: Array<{ id: string; name: string; price: number }>;
+  addOns: string[];
+  setAddOns: (value: string[]) => void;
+  upsell: boolean;
+  setUpsell: (value: boolean) => void;
+}) {
   const toggle = (id: string) => {
     setAddOns(addOns.includes(id) ? addOns.filter((x) => x !== id) : [...addOns, id]);
   };
@@ -263,7 +548,7 @@ function StepAddons({ ADD_ON_LIST, addOns, setAddOns, upsell, setUpsell }: { ADD
           </div>
           <h3 style={{ fontSize: 26, fontWeight: 500, marginTop: 8 }}>Add Ceramic 3yr to this booking</h3>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', marginTop: 6, maxWidth: 460 }}>
-            Since we're polishing anyway, lock in 3 years of hydrophobic protection for an extra $1,890.
+            Since we&apos;re polishing anyway, lock in 3 years of hydrophobic protection for an extra $1,890.
           </p>
         </div>
         <button
@@ -331,18 +616,34 @@ function StepAddons({ ADD_ON_LIST, addOns, setAddOns, upsell, setUpsell }: { ADD
   );
 }
 
-function StepSchedule({ slot, setSlot }: { slot: string; setSlot: (value: string) => void }) {
-  const dates = [
-    { d: '24', day: 'Fri', mo: 'Apr', full: 'Fri 24 Apr' },
-    { d: '25', day: 'Sat', mo: 'Apr', full: 'Sat 25 Apr' },
-    { d: '27', day: 'Mon', mo: 'Apr', full: 'Mon 27 Apr' },
-    { d: '28', day: 'Tue', mo: 'Apr', full: 'Tue 28 Apr' },
-    { d: '29', day: 'Wed', mo: 'Apr', full: 'Wed 29 Apr' },
-    { d: '30', day: 'Thu', mo: 'Apr', full: 'Thu 30 Apr' },
-  ];
-  const times = ['08:00', '10:00', '12:00', '14:00', '16:00'];
-  const [selDate, setSelDate] = useState('24');
-  const [selTime, setSelTime] = useState('10:00');
+interface StepScheduleProps {
+  selectedDate: Date | null;
+  setSelectedDate: (d: Date | null) => void;
+  selectedTime: string;
+  setSelectedTime: (t: string) => void;
+  slots: string[];
+  slotsLoading: boolean;
+  hasServiceKey: boolean;
+  address: string;
+  setAddress: (v: string) => void;
+  customerName: string;
+  setCustomerName: (v: string) => void;
+  customerEmail: string;
+  setCustomerEmail: (v: string) => void;
+  customerPhone: string;
+  setCustomerPhone: (v: string) => void;
+}
+
+function StepSchedule({
+  selectedDate, setSelectedDate,
+  selectedTime, setSelectedTime,
+  slots, slotsLoading, hasServiceKey,
+  address, setAddress,
+  customerName, setCustomerName,
+  customerEmail, setCustomerEmail,
+  customerPhone, setCustomerPhone,
+}: StepScheduleProps) {
+  const dates = useMemo(() => getUpcomingDates(14), []);
 
   return (
     <div>
@@ -351,102 +652,170 @@ function StepSchedule({ slot, setSlot }: { slot: string; setSlot: (value: string
       </h2>
       <p style={{ fontSize: 16, color: 'var(--ink-2)', marginTop: 16 }}>Mobile service · anywhere in greater Melbourne.</p>
 
+      {/* Date picker */}
       <div style={{ marginTop: 40 }}>
         <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Date</div>
-        <div className="pd-date-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 8 }}>
-          {dates.map((d) => (
-            <button
-              key={d.d}
-              type="button"
-              onClick={() => setSelDate(d.d)}
-              style={{
-                padding: 16,
-                borderRadius: 14,
-                cursor: 'pointer',
-                background: selDate === d.d ? 'var(--ink)' : '#fff',
-                color: selDate === d.d ? '#fff' : 'var(--ink)',
-                border: `1px solid ${selDate === d.d ? 'var(--ink)' : 'var(--line)'}`,
-                textAlign: 'center',
-              }}
-            >
-              <div style={{ fontSize: 11, opacity: 0.6, fontFamily: 'var(--f-mono)', letterSpacing: '0.1em' }}>{d.day.toUpperCase()}</div>
-              <div style={{ fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 500, marginTop: 4 }}>{d.d}</div>
-              <div style={{ fontSize: 11, opacity: 0.6, marginTop: 2 }}>{d.mo}</div>
-            </button>
-          ))}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8 }}>
+          {dates.map((d) => {
+            const isSelected = selectedDate?.toDateString() === d.toDateString();
+            return (
+              <button
+                key={d.toISOString()}
+                type="button"
+                onClick={() => setSelectedDate(d)}
+                style={{
+                  padding: '12px 8px',
+                  borderRadius: 14,
+                  cursor: 'pointer',
+                  background: isSelected ? 'var(--ink)' : '#fff',
+                  color: isSelected ? '#fff' : 'var(--ink)',
+                  border: `1px solid ${isSelected ? 'var(--ink)' : 'var(--line)'}`,
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: 10, opacity: 0.6, fontFamily: 'var(--f-mono)', letterSpacing: '0.08em' }}>{DAYS[d.getDay()].toUpperCase()}</div>
+                <div style={{ fontFamily: 'var(--f-display)', fontSize: 26, fontWeight: 500, marginTop: 4 }}>{d.getDate()}</div>
+                <div style={{ fontSize: 10, opacity: 0.6, marginTop: 2 }}>{MONTHS[d.getMonth()]}</div>
+              </button>
+            );
+          })}
         </div>
       </div>
 
+      {/* Time slots */}
       <div style={{ marginTop: 32 }}>
-        <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Time slot</div>
-        <div className="pd-time-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8 }}>
-          {times.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setSelTime(t)}
-              style={{
-                padding: '14px 10px',
-                borderRadius: 12,
-                cursor: 'pointer',
-                background: selTime === t ? 'var(--navy)' : '#fff',
-                color: selTime === t ? '#fff' : 'var(--ink)',
-                border: `1px solid ${selTime === t ? 'var(--navy)' : 'var(--line)'}`,
-                fontFamily: 'var(--f-mono)',
-                fontSize: 14,
-                fontWeight: 500,
-                letterSpacing: '0.04em',
-              }}
-            >
-              {t}
-            </button>
-          ))}
+        <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>
+          Time slot{selectedDate ? '' : ' · select a date first'}
         </div>
+        {!selectedDate ? null : slotsLoading ? (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8 }}>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} style={{ height: 48, borderRadius: 12, background: '#F0EDE8', animation: 'pulse 1.5s ease-in-out infinite' }} />
+            ))}
+          </div>
+        ) : !hasServiceKey ? (
+          <div style={{ fontSize: 14, color: 'var(--ink-3)', padding: '16px 0' }}>
+            Service not yet linked to Setmore — please call us to book this service.
+          </div>
+        ) : slots.length === 0 ? (
+          <div style={{ fontSize: 14, color: 'var(--ink-3)', padding: '16px 0' }}>
+            No availability on this date. Please choose another day.
+          </div>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8 }}>
+            {slots.map((t) => (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setSelectedTime(t)}
+                style={{
+                  padding: '14px 10px',
+                  borderRadius: 12,
+                  cursor: 'pointer',
+                  background: selectedTime === t ? 'var(--navy)' : '#fff',
+                  color: selectedTime === t ? '#fff' : 'var(--ink)',
+                  border: `1px solid ${selectedTime === t ? 'var(--navy)' : 'var(--line)'}`,
+                  fontFamily: 'var(--f-mono)',
+                  fontSize: 13,
+                  fontWeight: 500,
+                  letterSpacing: '0.04em',
+                }}
+              >
+                {slotToDisplay(t)}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* Address */}
       <div style={{ marginTop: 32 }}>
         <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>Address</div>
         <input
           type="text"
-          defaultValue="12 Punt Rd, South Yarra VIC 3141"
-          style={{
-            width: '100%',
-            padding: '16px 20px',
-            borderRadius: 14,
-            border: '1px solid var(--line)',
-            background: '#fff',
-            fontSize: 15,
-            fontFamily: 'var(--f-sans)',
-            color: 'var(--ink)',
-          }}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          placeholder="12 Punt Rd, South Yarra VIC 3141"
+          style={inputStyle}
         />
         <div style={{ fontSize: 13, color: 'var(--ink-3)', marginTop: 10, display: 'flex', gap: 6, alignItems: 'center' }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12l5 5L20 7" />
           </svg>
-          In service area · standard call-out fee waived
+          Mobile service · greater Melbourne
+        </div>
+      </div>
+
+      {/* Customer info */}
+      <div style={{ marginTop: 40 }}>
+        <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>Your details</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div>
+              <label style={labelStyle}>Full name *</label>
+              <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="Alex Smith" style={inputStyle} />
+            </div>
+            <div>
+              <label style={labelStyle}>Phone</label>
+              <input type="tel" value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} placeholder="04xx xxx xxx" style={inputStyle} />
+            </div>
+          </div>
+          <div>
+            <label style={labelStyle}>Email *</label>
+            <input type="email" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} placeholder="you@example.com" style={inputStyle} />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function StepConfirm({ service, addOns, ADD_ON_LIST, upsell, slot, total }: { service: { name: string; duration: string }; addOns: string[]; ADD_ON_LIST: Array<{ id: string; name: string; price: number }>; upsell: boolean; slot: string; total: number }) {
+function StepConfirm({
+  service,
+  addOns,
+  ADD_ON_LIST,
+  upsell,
+  selectedDateDisplay,
+  selectedTime,
+  address,
+  customerName,
+  staffName,
+  total,
+  bookingError,
+}: {
+  service: { name: string; duration: string };
+  addOns: string[];
+  ADD_ON_LIST: Array<{ id: string; name: string; price: number }>;
+  upsell: boolean;
+  selectedDateDisplay: string | null;
+  selectedTime: string;
+  address: string;
+  customerName: string;
+  staffName: string;
+  total: number;
+  bookingError: string;
+}) {
+  const whenStr = selectedDateDisplay && selectedTime
+    ? `${selectedDateDisplay} · ${slotToDisplay(selectedTime)}`
+    : '—';
+
   return (
     <div>
       <h2 style={{ fontSize: 56, fontWeight: 500 }}>
         Nearly <span className="pd-hl">pristine.</span>
       </h2>
-      <p style={{ fontSize: 16, color: 'var(--ink-2)', marginTop: 16 }}>Review and confirm — we'll text you when your technician is 30 mins out.</p>
+      <p style={{ fontSize: 16, color: 'var(--ink-2)', marginTop: 16 }}>Review and confirm — we&apos;ll text you when your technician is 30 mins out.</p>
 
       <div className="pd-card" style={{ marginTop: 40, padding: 0, overflow: 'hidden' }}>
         {[
           ['Service', service.name],
-          ['When', 'Fri 24 Apr · 10:00 AM'],
-          ['Technician', 'Jake M. · Ceramic Pro certified'],
-          ['Address', '12 Punt Rd, South Yarra VIC 3141'],
+          ['When', whenStr],
+          ['Technician', staffName || 'To be assigned'],
+          ['Address', address || '—'],
           ['Est. duration', service.duration],
           ['Add-ons', addOns.map((id) => ADD_ON_LIST.find((a) => a.id === id)?.name).filter(Boolean).join(', ') || 'None'],
+          ...(upsell ? [['Upgrade', 'Ceramic 3yr coating']] : []),
+          ['Name', customerName || '—'],
         ].map(([label, value]) => (
           <div
             key={label}
@@ -468,6 +837,33 @@ function StepConfirm({ service, addOns, ADD_ON_LIST, upsell, slot, total }: { se
           I agree to the service terms and 24h cancellation policy. A 20% deposit is charged now; the balance post-service.
         </label>
       </div>
+
+      {bookingError && (
+        <div style={{ marginTop: 16, padding: '14px 18px', background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: 10, color: '#DC2626', fontSize: 14 }}>
+          {bookingError}
+        </div>
+      )}
     </div>
   );
 }
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  padding: '12px 16px',
+  border: '1px solid var(--line)',
+  borderRadius: 12,
+  background: '#fff',
+  fontSize: 15,
+  fontFamily: 'var(--f-sans)',
+  color: 'var(--ink)',
+  boxSizing: 'border-box',
+  outline: 'none',
+};
+
+const labelStyle: React.CSSProperties = {
+  display: 'block',
+  fontSize: 12,
+  fontWeight: 500,
+  color: 'var(--ink-3)',
+  marginBottom: 6,
+};

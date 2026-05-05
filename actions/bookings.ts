@@ -1,7 +1,7 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
-import { getAvailableSlots as setmoreSlots, createAppointment, cancelAppointment as setmoreCancel } from '@/lib/setmore';
+import { getSlots as setmoreSlots, createAppointment, cancelAppointment as setmoreCancel } from '@/lib/setmore';
 import type { BookingWithRelations } from '@/lib/types/database';
 
 export async function getUpcomingBookings(): Promise<BookingWithRelations[]> {
