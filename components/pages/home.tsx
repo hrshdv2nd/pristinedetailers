@@ -435,7 +435,7 @@ function FlagshipSection() {
             <BlobImage variant="d" size={500} rotate={-6} color="#C89B37" style={{ position: 'absolute', top: 20, right: -20 }}>
               <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
-            <BlobImage variant="a" size={240} rotate={8} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
+            <BlobImage variant="d" size={240} rotate={-10} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
               <Placeholder label="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg" tone="dark" style={{ width: '100%', height: '100%' }} />
             </BlobImage>
             <div
@@ -547,7 +547,7 @@ function MelbourneSection() {
               </div>
               <div>
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  10mins
+                  Instant
                 </div>
                 <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Typical lead time
@@ -706,9 +706,9 @@ function PPFSection() {
 
               <div style={{ marginTop: 40 }}>
                 {[
-                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$2,800' },
+                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$2,900' },
                   { name: 'Full Front', parts: 'Bumper, full hood, fenders, mirrors, headlights', price: '$4,200' },
-                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$8,900' },
+                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$7,900' },
                 ].map(p => (
                   <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', borderTop: '1px solid #E1DFD8' }}>
                     <div>
@@ -835,14 +835,14 @@ function MembershipTeaser() {
               }}
             >
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, opacity: 0.7, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                Savings vs à la carte
+                Yearly Savings Plans
               </div>
               <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 72, fontWeight: 500, marginTop: 8, letterSpacing: '-0.03em' }}>
-                $720<span style={{ fontSize: 22, opacity: 0.7 }}>/yr</span>
+                $840<span style={{ fontSize: 22, opacity: 0.7 }}>/yr</span>
               </div>
               <div style={{ height: 1, background: 'rgba(10,10,10,0.15)', margin: '20px 0' }} />
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14 }}>
-                {['12 monthly details included', 'Priority same-week booking', '15% off ceramic + PPF', 'Free headlight restoration /yr'].map(x => (
+                {['12 monthly details included', 'Priority same-week booking', '15% off services s', ' Discounted rates for same household vehicle'].map(x => (
                   <div key={x} style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 12l5 5L20 7" />
