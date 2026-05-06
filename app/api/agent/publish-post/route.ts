@@ -17,7 +17,8 @@ export async function POST(request: NextRequest) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!supabaseUrl || !serviceRoleKey) {
-    return NextResponse.json({ error: 'Server misconfigured: missing Supabase credentials' }, { status: 500 });
+    const missing = [!supabaseUrl && 'NEXT_PUBLIC_SUPABASE_URL', !serviceRoleKey && 'SUPABASE_SERVICE_ROLE_KEY'].filter(Boolean);
+    return NextResponse.json({ error: `Server misconfigured: missing ${missing.join(', ')}` }, { status: 500 });
   }
 
   const body = await request.json();
