@@ -37,6 +37,12 @@
       "skillPath": "skills/churn-prevention/SKILL.md",
       "computedHash": "ce389baf7e32cc942143503ecba7068784ca2c790460824c1e5a306d83d1283f"
     },
+    "co-marketing": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/co-marketing/SKILL.md",
+      "computedHash": "d79f1159a851801651d69fea2f07850272d611d029a81e3238b95ab0daa258f5"
+    },
     "cold-email": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
