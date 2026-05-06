@@ -14,6 +14,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceRoleKey) {
+    return NextResponse.json({ error: 'Server misconfigured: missing Supabase credentials' }, { status: 500 });
+  }
+
   const body = await request.json();
   const { slug, title, excerpt, body: postBody, category, read_time, agent_name, status = 'published' } = body;
 
@@ -22,10 +28,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Use service role key — bypasses RLS so agent can write
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  );
+  const supabase = createClient(supabaseUrl, serviceRoleKey);
 
   const { data, error } = await supabase
     .from('blog_posts')
