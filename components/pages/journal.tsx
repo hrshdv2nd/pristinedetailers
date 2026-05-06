@@ -37,7 +37,7 @@ export function Journal({ articles }: { articles: Article[] }) {
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
           <div className="pd-two-col pd-two-col-1-2" style={{ gap: 60, alignItems: 'center' }}>
             <div>
-              <Eyebrow>Journal</Eyebrow>
+              <Eyebrow>Blog</Eyebrow>
               <h1
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -76,7 +76,7 @@ export function Journal({ articles }: { articles: Article[] }) {
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>{featured.read_time}</span>
-                    <a href={`/journal/${featured.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#C89B37', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
+                    <a href={`/blog/${featured.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#C89B37', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
                       Read <Arrow />
                     </a>
                   </div>
@@ -94,7 +94,7 @@ export function Journal({ articles }: { articles: Article[] }) {
             {articles.map(article => (
               <a
                 key={article.slug}
-                href={`/journal/${article.slug}`}
+                href={`/blog/${article.slug}`}
                 style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
               >
                 <div

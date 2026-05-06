@@ -65,7 +65,7 @@ export function Footer() {
             },
             {
               title: 'Company',
-              links: ['About', 'Melbourne Service Area', 'Gallery', 'Journal', 'Contact'],
+              links: ['About', 'Melbourne Service Area', 'Gallery', 'Blog', 'Contact'],
             },
             {
               title: 'Portals',

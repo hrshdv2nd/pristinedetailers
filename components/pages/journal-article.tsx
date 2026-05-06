@@ -117,8 +117,8 @@ export function JournalArticle({ post }: { post: Post }) {
       {/* Hero */}
       <section className="pd-sect-hero" style={{ paddingBottom: 0 }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 32px' }}>
-          <a href="/journal" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#7A7A76', fontSize: 13, textDecoration: 'none', marginBottom: 32 }}>
-            <span style={{ transform: 'rotate(180deg)', display: 'inline-block' }}><Arrow /></span> Back to Journal
+          <a href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#7A7A76', fontSize: 13, textDecoration: 'none', marginBottom: 32 }}>
+            <span style={{ transform: 'rotate(180deg)', display: 'inline-block' }}><Arrow /></span> Back to Blog
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
