@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -57,38 +58,60 @@ export function Footer() {
           {[
             {
               title: 'Services',
-              links: ['Full Detail', 'Ceramic Coating', 'Paint Protection Film', 'Interior Care', 'Add-ons'],
+              links: [
+                { label: 'Full Detail', href: '/services' },
+                { label: 'Ceramic Coating', href: '/services' },
+                { label: 'Paint Protection Film', href: '/services' },
+                { label: 'Interior Care', href: '/services' },
+                { label: 'Add-ons', href: '/services' },
+              ],
             },
             {
               title: 'Membership',
-              links: ['Plans', 'Member Perks', 'Savings Calculator', 'Priority Booking'],
+              links: [
+                { label: 'Plans', href: '/membership' },
+                { label: 'Member Perks', href: '/membership' },
+                { label: 'Savings Calculator', href: '/membership' },
+                { label: 'Priority Booking', href: '/booking' },
+              ],
             },
             {
               title: 'Company',
-              links: ['About', 'Melbourne Service Area', 'Gallery', 'Blog', 'Contact'],
+              links: [
+                { label: 'About', href: '/about' },
+                { label: 'Melbourne Service Area', href: '/about' },
+                { label: 'Gallery', href: '/gallery' },
+                { label: 'Blog', href: '/blog' },
+                { label: 'Contact', href: '/contact' },
+              ],
             },
             {
               title: 'Portals',
-              links: ['Customer', 'Detailer', 'Admin'],
+              links: [
+                { label: 'Customer', href: '/dashboard' },
+                { label: 'Detailer', href: '/detailer/jobs' },
+                { label: 'Admin', href: '/admin' },
+              ],
             },
           ].map((section, i) => (
             <div key={i}>
               <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '16px' }}>{section.title}</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {section.links.map((link, j) => (
-                  <a
+                  <Link
                     key={j}
-                    href="#"
+                    href={link.href}
                     style={{
                       fontSize: '14px',
                       color: 'rgba(255,255,255,0.7)',
                       transition: 'color 0.2s',
+                      textDecoration: 'none',
                     }}
                     onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#fff')}
                     onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
