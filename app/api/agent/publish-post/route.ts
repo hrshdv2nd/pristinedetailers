@@ -14,10 +14,8 @@ export async function POST(request: NextRequest) {
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  // Prefer service role key; fall back to publishable key (RLS is open for agent writes)
-  const supabaseKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  // Use publishable key — RLS is open for agent writes, route is secured by AGENT_API_SECRET
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
     return NextResponse.json({ error: 'Server misconfigured: missing Supabase credentials' }, { status: 500 });
