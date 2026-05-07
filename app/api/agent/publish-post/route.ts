@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Temporary diagnostic — remove after confirming env vars
-export async function GET() {
-  const vars = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_SERVICE_ROLE_KEY', 'AGENT_API_SECRET'];
-  return NextResponse.json(Object.fromEntries(vars.map(k => [k, !!process.env[k]])));
-}
-
 function isAuthorized(request: NextRequest): boolean {
   const auth = request.headers.get('authorization');
   const secret = process.env.AGENT_API_SECRET;
