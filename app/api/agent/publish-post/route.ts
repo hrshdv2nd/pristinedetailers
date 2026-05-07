@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 
 function isAuthorized(request: NextRequest): boolean {
   const auth = request.headers.get('authorization');
@@ -14,7 +13,6 @@ export async function POST(request: NextRequest) {
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  // Use service role key (available in runtime); RLS is open for agent writes
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
@@ -28,30 +26,35 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields: slug, title, excerpt, category' }, { status: 400 });
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const row = {
+    slug,
+    title,
+    excerpt,
+    body: postBody ?? '',
+    category,
+    read_time: read_time ?? '5 min read',
+    agent_name,
+    status,
+    ...(status === 'published' ? { published_at: new Date().toISOString() } : {}),
+  };
 
-  const { data, error } = await supabase
-    .from('blog_posts')
-    .upsert(
-      {
-        slug,
-        title,
-        excerpt,
-        body: postBody ?? '',
-        category,
-        read_time: read_time ?? '5 min read',
-        agent_name,
-        status,
-        ...(status === 'published' ? { published_at: new Date().toISOString() } : {}),
-      },
-      { onConflict: 'slug' },
-    )
-    .select('id, slug, status')
-    .single();
+  // Use raw fetch to bypass SDK so we see the exact Supabase REST response
+  const res = await fetch(`${supabaseUrl}/rest/v1/blog_posts?on_conflict=slug`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': supabaseKey,
+      'Authorization': `Bearer ${supabaseKey}`,
+      'Prefer': 'resolution=merge-duplicates,return=representation',
+    },
+    body: JSON.stringify(row),
+  });
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  const text = await res.text();
+  if (!res.ok) {
+    return NextResponse.json({ error: text, status: res.status }, { status: 500 });
   }
 
-  return NextResponse.json({ success: true, post: data });
+  const data = JSON.parse(text);
+  return NextResponse.json({ success: true, post: data[0] ?? data });
 }
