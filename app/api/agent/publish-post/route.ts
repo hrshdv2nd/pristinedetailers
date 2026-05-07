@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Agents authenticate with AGENT_API_SECRET (set in env)
 function isAuthorized(request: NextRequest): boolean {
   const auth = request.headers.get('authorization');
   const secret = process.env.AGENT_API_SECRET;
@@ -15,10 +14,13 @@ export async function POST(request: NextRequest) {
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!supabaseUrl || !serviceRoleKey) {
-    const missing = [!supabaseUrl && 'NEXT_PUBLIC_SUPABASE_URL', !serviceRoleKey && 'SUPABASE_SERVICE_ROLE_KEY'].filter(Boolean);
-    return NextResponse.json({ error: `Server misconfigured: missing ${missing.join(', ')}` }, { status: 500 });
+  // Prefer service role key; fall back to publishable key (RLS is open for agent writes)
+  const supabaseKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    return NextResponse.json({ error: 'Server misconfigured: missing Supabase credentials' }, { status: 500 });
   }
 
   const body = await request.json();
@@ -28,8 +30,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields: slug, title, excerpt, category' }, { status: 400 });
   }
 
-  // Use service role key — bypasses RLS so agent can write
-  const supabase = createClient(supabaseUrl, serviceRoleKey);
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
   const { data, error } = await supabase
     .from('blog_posts')
