@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -46,6 +47,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
         {children}
         <Analytics />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YF234784J5" strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-YF234784J5');`}
+        </Script>
       </body>
     </html>
   );
