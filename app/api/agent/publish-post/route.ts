@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 
 function isAuthorized(request: NextRequest): boolean {
   const auth = request.headers.get('authorization');
@@ -56,5 +57,11 @@ export async function POST(request: NextRequest) {
   }
 
   const data = JSON.parse(text);
+
+  if (status === 'published') {
+    revalidatePath('/blog');
+    revalidatePath('/journal');
+  }
+
   return NextResponse.json({ success: true, post: data[0] ?? data });
 }
