@@ -42,6 +42,9 @@ Then write one new journal article for the Pristine Detailers website. The artic
 - `https://images.unsplash.com/photo-1547744703-2c8f07bbb5f0?w=1200&q=80` — luxury car interior
 
 ### Topic Bank (rotate through, don't repeat)
+- "Paint correction in Melbourne: what each stage costs and when you need it" *(added by Alex — high commercial intent, SEO gap, comparison table format for AI citation)*
+- "Ceramic coating vs car wax: the honest comparison for Melbourne weather" *(added by Alex — comparison table format, top-of-funnel, highest AI citation rate format)*
+- "Mobile car detailing in Toorak, Brighton & South Yarra: what to expect" *(added by Alex — suburb-specific content, ICP targeting, mention bird droppings/salt air/UV)*
 - "The best time of year to get a ceramic coating in Melbourne"
 - "Why your car paint fades faster near the bay"
 - "How to wash a car that has a ceramic coating (and what to never do)"
