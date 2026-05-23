@@ -30,7 +30,7 @@ export function Journal({ articles }: { articles: Article[] }) {
 
   return (
     <div style={{ minHeight: '100vh', background: '#F4F4F2' }}>
-      <Nav active="home" />
+      <Nav active="about" />
 
       {/* Hero */}
       <section className="pd-sect-hero">

@@ -112,7 +112,7 @@ export function JournalArticle({ post }: { post: Post }) {
 
   return (
     <div style={{ minHeight: '100vh', background: '#F4F4F2' }}>
-      <Nav active="home" />
+      <Nav active="about" />
 
       {/* Hero */}
       <section className="pd-sect-hero" style={{ paddingBottom: 0 }}>

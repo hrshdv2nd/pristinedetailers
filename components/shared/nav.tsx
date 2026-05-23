@@ -19,6 +19,18 @@ const ABOUT_ITEMS = [
     ),
   },
   {
+    id: 'blog',
+    label: 'Blog',
+    desc: 'Expert guides on ceramic coating, PPF, and keeping your car in showroom condition.',
+    href: '/blog',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+      </svg>
+    ),
+  },
+  {
     id: 'careers',
     label: 'Join the Team',
     desc: "Passionate about cars? We're always growing our crew of Melbourne detailers.",
