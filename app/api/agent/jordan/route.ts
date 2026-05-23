@@ -19,6 +19,7 @@ Rules:
 - End with one short call-to-action paragraph mentioning Pristine Detailers
 - Target real search queries (e.g. "ceramic coating cost Melbourne", "mobile car detailing near me")
 - Pick a topic NOT already covered by existing articles (listed below)
+- Do NOT include any image markdown (![...](...)). Text only — images are handled separately.
 
 Categories (pick one): Ceramic Coating | Paint Protection Film | Membership | Detailing
 

@@ -23,6 +23,13 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Melbourne': '#EDE8F3',
 };
 
+const CATEGORY_IMAGES: Record<string, string> = {
+  'Ceramic Coating':       '/images/20250217_125148.jpg',
+  'Paint Protection Film': '/images/20250217_125148.jpg',
+  'Detailing':             '/images/20250525_093249.jpg',
+  'Membership':            '/images/20250525_093249.jpg',
+};
+
 function formatDate(iso: string | null): string {
   if (!iso) return '';
   return new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -66,11 +73,6 @@ function renderBody(markdown: string) {
             style={{ width: '100%', height: 'auto', display: 'block', maxHeight: 520, objectFit: 'cover' }}
             loading="lazy"
           />
-          {imgMatch[1] && (
-            <figcaption style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76', marginTop: 8, textAlign: 'center' }}>
-              {imgMatch[1]}
-            </figcaption>
-          )}
         </figure>
       );
     }
@@ -142,6 +144,20 @@ export function JournalArticle({ post }: { post: Post }) {
           </p>
         </div>
       </section>
+
+      {/* Hero image */}
+      {CATEGORY_IMAGES[post.category] && (
+        <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 32px 48px' }}>
+          <div style={{ borderRadius: 20, overflow: 'hidden', height: 420 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={CATEGORY_IMAGES[post.category]}
+              alt={post.title}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Body */}
       <section style={{ paddingBottom: 80 }}>
