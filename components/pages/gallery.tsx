@@ -14,14 +14,14 @@ const ITEMS = [
   { label: 'Full Detail — Red Sports Car', category: 'Full Detail', src: '/images/20250525_093249.jpg', h: 360 },
   { label: 'Engine Bay Detail', category: 'Engine Bay', src: '/images/20250321_101446.jpg', h: 320 },
   { label: 'The Pristine Team', category: 'Team', src: '/images/20241203_134603.jpg', h: 400 },
-  { label: 'PPF Full Front — Satin', category: 'PPF', src: null, h: 380, tone: 'dark' },
-  { label: 'Interior Detail — Alcantara', category: 'Full Detail', src: null, h: 340, tone: 'navy' },
-  { label: 'Ceramic — Obsidian Black', category: 'Ceramic', src: null, h: 420, tone: 'dark' },
-  { label: 'PPF — Partial Hood', category: 'PPF', src: null, h: 300, tone: 'dark' },
-  { label: 'Wheel Detail', category: 'Full Detail', src: null, h: 360, tone: 'navy' },
-  { label: 'Paint Correction', category: 'Ceramic', src: null, h: 340, tone: 'dark' },
-  { label: 'Graphene Coating', category: 'Ceramic', src: null, h: 400, tone: 'navy' },
-  { label: 'PPF — Full Vehicle', category: 'PPF', src: null, h: 360, tone: 'dark' },
+  { label: 'PPF Full Front — Satin', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
+  { label: 'Interior Detail — Alcantara', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
+  { label: 'Ceramic — Obsidian Black', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
+  { label: 'PPF — Partial Hood', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
+  { label: 'Wheel Detail', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
+  { label: 'Paint Correction', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 340 },
+  { label: 'Graphene Coating', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
+  { label: 'PPF — Full Vehicle', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
 ];
 
 export function Gallery() {

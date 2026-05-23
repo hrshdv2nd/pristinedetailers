@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Footer } from '@/components/shared/footer';
 import { Nav } from '@/components/shared/nav';
-import { Arrow, Eyebrow } from '@/components/shared/atoms';
-import { Placeholder } from '@/components/shared/placeholder';
+import { Arrow } from '@/components/shared/atoms';
 import { BlobImage } from '@/components/shared/blob-image';
 
 export function Services() {
@@ -63,7 +63,7 @@ export function Services() {
             <div className="pd-card" style={{ padding: 28, position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', right: -80, top: -80, opacity: 0.15, pointerEvents: 'none' }}>
                 <BlobImage variant="a" size={220} rotate={20} color="#C89B37">
-                  <Placeholder label="GOLD" tone="navy" style={{ width: '100%', height: '100%' }} />
+                  <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg" alt="" fill style={{ objectFit: 'cover' }} />
                 </BlobImage>
               </div>
               <div style={{ position: 'relative', zIndex: 1 }}>

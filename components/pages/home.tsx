@@ -436,7 +436,7 @@ function FlagshipSection() {
               <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg" alt="Ceramic coated black car" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <BlobImage variant="d" size={240} rotate={-10} color="#fff" style={{ position: 'absolute', bottom: 0, left: 0 }}>
-              <Placeholder label="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg" tone="dark" style={{ width: '100%', height: '100%' }} />
+              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg" alt="Ceramic coating result" fill style={{ objectFit: 'cover' }} />
             </BlobImage>
             <div
               style={{
@@ -864,10 +864,10 @@ function GallerySection() {
   const items: { label: string; variant: string; h: number; tone: string; src?: string }[] = [
     { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: '/images/20250217_125148.jpg' },
     { label: 'THE TEAM', variant: 'b', h: 320, tone: 'navy', src: '/images/20241203_134603.jpg' },
-    { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark' },
+    { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
     { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
     { label: 'ENGINE BAY', variant: 'a', h: 300, tone: 'navy', src: '/images/20250321_101446.jpg' },
-    { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark' },
+    { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
   ];
 
   return (

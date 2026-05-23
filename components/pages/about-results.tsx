@@ -34,7 +34,7 @@ const RESULTS = [
   {
     label: 'PPF Full Front — Satin',
     service: 'PPF',
-    src: undefined,
+    src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg',
     h: 380,
     desc: 'Invisible self-healing PPF across the full front end. Zero orange-peel, zero edge lift.',
     tone: 'dark',
@@ -42,7 +42,7 @@ const RESULTS = [
   {
     label: 'Interior Detail — Alcantara',
     service: 'Full Detail',
-    src: undefined,
+    src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg',
     h: 300,
     desc: 'Deep interior clean including Alcantara steering wheel, leather treatment, and headliner steam.',
     tone: 'navy',
@@ -50,7 +50,7 @@ const RESULTS = [
   {
     label: 'Ceramic — Obsidian Black',
     service: 'Ceramic',
-    src: undefined,
+    src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg',
     h: 360,
     desc: 'Two-stage paint correction followed by a 3-year ceramic coating on Obsidian Black metallic.',
     tone: 'dark',

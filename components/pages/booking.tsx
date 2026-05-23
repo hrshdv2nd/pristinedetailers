@@ -1,9 +1,9 @@
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Footer } from '@/components/shared/footer';
 import { Nav } from '@/components/shared/nav';
-import { Placeholder } from '@/components/shared/placeholder';
 import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
@@ -508,7 +508,7 @@ function StepAddons({
         }}
       >
         <BlobImage variant="c" size={120} rotate={-8} color="#C89B37">
-          <Placeholder label="CERAMIC" tone="navy" style={{ width: '100%', height: '100%' }} />
+          <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg" alt="" fill style={{ objectFit: 'cover' }} />
         </BlobImage>
         <div style={{ flex: 1 }}>
           <div style={{ fontFamily: 'var(--f-mono)', fontSize: 11, color: 'var(--navy-soft)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
