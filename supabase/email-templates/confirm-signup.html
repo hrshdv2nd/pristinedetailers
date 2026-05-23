@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirm your signup — Pristine Detailers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 24px 16px !important; }
+      .email-card   { padding: 36px 24px !important; border-radius: 16px !important; }
+      .email-btn    { display: block !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#F4F4F2;font-family:'Inter Tight',Arial,sans-serif;-webkit-font-smoothing:antialiased;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4F4F2;">
+    <tr>
+      <td align="center" class="email-wrapper" style="padding:48px 24px;">
+
+        <!-- Logo / Brand -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;margin:0 auto 28px;">
+          <tr>
+            <td align="center" style="padding-bottom:8px;">
+              <!-- Diamond mark -->
+              <span style="display:inline-block;width:36px;height:36px;background:#C89B37;border-radius:8px;line-height:36px;text-align:center;font-size:18px;color:#fff;font-weight:700;margin-bottom:10px;">✦</span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <span style="font-family:'Bricolage Grotesque',Georgia,serif;font-size:20px;font-weight:700;color:#0A0A0A;letter-spacing:-0.03em;">Pristine Detailers</span>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Card -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;margin:0 auto;">
+          <tr>
+            <td class="email-card" style="background:#FFFFFF;border:1px solid #E1DFD8;border-radius:20px;padding:48px 44px;box-shadow:0 4px 12px rgba(10,10,10,0.05),0 12px 28px rgba(10,10,10,0.05);">
+
+              <!-- Eyebrow -->
+              <p style="font-family:'JetBrains Mono',monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A7A76;margin:0 0 20px;">Account Verification</p>
+
+              <!-- Heading -->
+              <h1 style="font-family:'Bricolage Grotesque',Georgia,serif;font-size:30px;font-weight:700;color:#0A0A0A;letter-spacing:-0.03em;line-height:1.1;margin:0 0 16px;">Confirm your<br /><span style="color:#C89B37;">signup</span></h1>
+
+              <!-- Divider -->
+              <div style="height:1px;background:#E1DFD8;margin:24px 0;"></div>
+
+              <!-- Body copy -->
+              <p style="font-size:15px;line-height:1.6;color:#3A3A38;margin:0 0 12px;">
+                Welcome to Pristine Detailers. Please verify your email address to complete your account setup and access your customer portal.
+              </p>
+              <p style="font-size:14px;line-height:1.5;color:#7A7A76;margin:0 0 32px;">
+                This link will expire in 24 hours.
+              </p>
+
+              <!-- CTA button -->
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="border-radius:12px;background:#C89B37;">
+                    <a href="{{ .ConfirmationURL }}"
+                       class="email-btn"
+                       style="display:inline-block;padding:14px 28px;font-family:'Inter Tight',Arial,sans-serif;font-size:15px;font-weight:600;color:#0A0A0A;text-decoration:none;border-radius:12px;background:#C89B37;letter-spacing:-0.01em;">
+                      Confirm my email &rarr;
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <div style="height:1px;background:#E1DFD8;margin:32px 0 24px;"></div>
+
+              <!-- Fallback link -->
+              <p style="font-size:13px;color:#7A7A76;line-height:1.5;margin:0;">
+                If the button above doesn't work, copy and paste this link into your browser:<br />
+                <a href="{{ .ConfirmationURL }}" style="color:#C89B37;text-decoration:none;word-break:break-all;font-size:12px;">{{ .ConfirmationURL }}</a>
+              </p>
+
+            </td>
+          </tr>
+        </table>
+
+        <!-- Footer -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;margin:24px auto 0;">
+          <tr>
+            <td align="center" style="padding:0 20px;">
+              <p style="font-size:12px;color:#7A7A76;line-height:1.6;margin:0;">
+                You received this email because you signed up at
+                <a href="https://pristinedetailers.com.au" style="color:#C89B37;text-decoration:none;">pristinedetailers.com.au</a>.<br />
+                If you didn't create an account, you can safely ignore this email.
+              </p>
+              <p style="font-size:11px;color:#B0AEA8;margin:12px 0 0;">
+                &copy; 2026 Pristine Detailers &mdash; Melbourne, Australia
+              </p>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
