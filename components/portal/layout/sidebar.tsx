@@ -9,10 +9,12 @@ type Role = 'customer' | 'detailer' | 'admin';
 const NAV: Record<Role, { label: string; href: string; icon: string }[]> = {
   customer: [
     { label: 'Overview',   href: '/dashboard',            icon: '◈' },
+    { label: 'Profile',    href: '/dashboard/profile',    icon: '◎' },
     { label: 'Membership', href: '/dashboard/membership', icon: '✦' },
     { label: 'Bookings',   href: '/dashboard/bookings',   icon: '⊞' },
     { label: 'History',    href: '/dashboard/history',    icon: '⊟' },
     { label: 'Billing',    href: '/dashboard/billing',    icon: '⊛' },
+    { label: 'Invoices',   href: '/dashboard/invoices',   icon: '⊜' },
     { label: 'Referrals',  href: '/dashboard/referrals',  icon: '⊕' },
   ],
   detailer: [

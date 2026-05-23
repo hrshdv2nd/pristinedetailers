@@ -82,6 +82,7 @@ export interface Customer {
   membership_started_at: string | null;
   membership_renews_at:  string | null;
   stripe_customer_id:    string | null;
+  xero_contact_id:       string | null;
   total_spent:           number;
   lifetime_visits:       number;
   notes:                 string | null;
