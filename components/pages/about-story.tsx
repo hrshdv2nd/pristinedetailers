@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
@@ -78,46 +77,6 @@ export function AboutStory() {
         </div>
       </section>
 
-      {/* Team photo */}
-      <section style={{ padding: '0 0 80px' }}>
-        <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-          <div
-            style={{
-              position: 'relative',
-              borderRadius: 24,
-              overflow: 'hidden',
-              height: 480,
-              background: '#0A0A0A',
-            }}
-          >
-            <Image
-              src="/images/20241203_134603.jpg"
-              alt="The Pristine Detailers team"
-              fill
-              style={{ objectFit: 'cover', opacity: 0.85 }}
-            />
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 32,
-                left: 32,
-                background: 'rgba(10,10,10,0.7)',
-                backdropFilter: 'blur(12px)',
-                borderRadius: 16,
-                padding: '16px 24px',
-                border: '1px solid rgba(255,255,255,0.1)',
-              }}
-            >
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                The crew · Melbourne
-              </div>
-              <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500, color: '#fff', marginTop: 4 }}>
-                Passionate about cars. Serious about results.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Stats */}
       <section style={{ padding: '60px 0', background: '#0A0A0A', color: '#fff' }}>
