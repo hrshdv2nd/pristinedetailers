@@ -8,18 +8,6 @@ import { Arrow } from './atoms';
 
 const ABOUT_ITEMS = [
   {
-    id: 'story',
-    label: 'Our Story',
-    desc: 'Built in Melbourne 2019, on a belief every car deserves obsessive care.',
-    href: '/about',
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-        <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-      </svg>
-    ),
-  },
-  {
     id: 'reviews',
     label: 'Reviews',
     desc: '4.9 stars across 240 verified customer reviews in greater Melbourne.',
@@ -27,19 +15,6 @@ const ABOUT_ITEMS = [
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
-  },
-  {
-    id: 'results',
-    label: 'Results',
-    desc: 'Ceramic coatings, PPF wraps, and full-detail transformations — the proof.',
-    href: '/about/results',
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <polyline points="21 15 16 10 5 21" />
       </svg>
     ),
   },
@@ -54,20 +29,6 @@ const ABOUT_ITEMS = [
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 00-3-3.87" />
         <path d="M16 3.13a4 4 0 010 7.75" />
-      </svg>
-    ),
-  },
-  {
-    id: 'events',
-    label: 'Events',
-    desc: 'Member collection days, VIP reveals, and seasonal car showcases.',
-    href: '/about/events',
-    icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
       </svg>
     ),
   },
