@@ -4,80 +4,7 @@ import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
 
-const REVIEWS = [
-  {
-    name: 'Marcus T.',
-    car: '2024 Porsche 911 GT3',
-    suburb: 'Toorak',
-    rating: 5,
-    date: 'March 2026',
-    quote: 'The finish on my GT3 is better than the day it left Stuttgart. Water rolls off in sheets — it\'s like the car is permanently wet. Worth every dollar and then some.',
-  },
-  {
-    name: 'Priya S.',
-    car: '2023 Range Rover Sport',
-    suburb: 'Hawthorn',
-    rating: 5,
-    date: 'February 2026',
-    quote: 'Six months of school-run punishment and three Melbourne summers later, it still looks showroom. The membership has more than paid for itself. Wouldn\'t go anywhere else.',
-  },
-  {
-    name: 'Dan K.',
-    car: '2022 Tesla Model S Plaid',
-    suburb: 'Kew',
-    rating: 5,
-    date: 'January 2026',
-    quote: 'They came to my garage, set up a full dust barrier system — completely self-contained. Most professional service I\'ve had for any vehicle. The graphene coat is exceptional.',
-  },
-  {
-    name: 'Lena B.',
-    car: '2021 BMW M3 Competition',
-    suburb: 'Brighton',
-    rating: 5,
-    date: 'December 2025',
-    quote: 'The paint correction alone was worth it — scratches I\'d accepted as permanent are just gone. The ceramic on top has made washing the car almost meditative. Effortless.',
-  },
-  {
-    name: 'James W.',
-    car: '2020 Mercedes-AMG GT63',
-    suburb: 'Malvern',
-    rating: 5,
-    date: 'November 2025',
-    quote: 'PPF and ceramic combo on an AMG Obsidian Black — I was nervous handing it over. They treated it like it was their own car. The protection is invisible and the finish is stunning.',
-  },
-  {
-    name: 'Sarah M.',
-    car: '2024 Audi RS6 Avant',
-    suburb: 'Camberwell',
-    rating: 5,
-    date: 'October 2025',
-    quote: 'Pristine turned up on time, finished ahead of schedule, and left the driveway cleaner than they found it. The interior detail was surgical. Four stars would be underselling it.',
-  },
-  {
-    name: 'Tom R.',
-    car: '2019 Ferrari 488 Pista',
-    suburb: 'South Yarra',
-    rating: 5,
-    date: 'September 2025',
-    quote: 'I\'ve used detailers in London, Monaco, and Sydney. These guys are the best I\'ve found. They understand the relationship between an owner and their car. That\'s rare.',
-  },
-  {
-    name: 'Claire N.',
-    car: '2023 McLaren Artura',
-    suburb: 'Doncaster',
-    rating: 5,
-    date: 'August 2025',
-    quote: 'Full front PPF on the Artura, perfectly installed. You can\'t tell it\'s there unless you\'re looking for it, which is exactly the point. Highly recommend the full-front package.',
-  },
-  {
-    name: 'Alex P.',
-    car: '2022 Lexus LC500',
-    suburb: 'Berwick',
-    rating: 5,
-    date: 'July 2025',
-    quote: 'Booked online, got a response within the hour confirming my slot. The detailer arrived perfectly kitted out. Polished the LC to a mirror finish that Lexus themselves couldn\'t match.',
-  },
-];
+const GOOGLE_REVIEWS_URL = 'https://g.page/r/Cc1b9olmTTY0EAI/review';
 
 export function AboutReviews() {
   return (
@@ -104,10 +31,10 @@ export function AboutReviews() {
                   4.9 stars.
                 </span>
                 <br />
-                240 Melburnians.
+                31 Melburnians.
               </h1>
               <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, maxWidth: 480, lineHeight: 1.6 }}>
-                Verified reviews from real customers across greater Melbourne — from Berwick to Brighton, Toorak to Doncaster.
+                Real reviews from Melbourne car owners, verified on Google. Read them for yourself.
               </p>
             </div>
 
@@ -140,65 +67,38 @@ export function AboutReviews() {
                   ))}
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {['Google', 'Facebook', 'Trustpilot'].map(p => (
-                  <span
-                    key={p}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 6,
-                      padding: '6px 12px',
-                      borderRadius: 999,
-                      background: '#F4F4F2',
-                      border: '1px solid #E1DFD8',
-                      fontSize: 12,
-                      fontWeight: 500,
-                      color: '#0A0A0A',
-                    }}
-                  >
-                    ✓ {p}
-                  </span>
-                ))}
-              </div>
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 18px', borderRadius: 999, background: '#F4F4F2', border: '1px solid #E1DFD8', fontSize: 13, fontWeight: 500, color: '#0A0A0A', textDecoration: 'none' }}
+              >
+                ✓ Verified on Google
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Reviews grid */}
+      {/* Google Reviews CTA */}
       <section className="pd-sect">
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-          <div className="pd-three-col" style={{ gap: 20 }}>
-            {REVIEWS.map(r => (
-              <div
-                key={r.name}
-                style={{
-                  background: '#fff',
-                  border: '1px solid #E1DFD8',
-                  borderRadius: 20,
-                  padding: 28,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 16,
-                }}
-              >
-                <div style={{ color: '#C89B37', fontSize: 14 }}>{'★'.repeat(r.rating)}</div>
-                <p style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 19, lineHeight: 1.4, letterSpacing: '-0.01em', fontWeight: 400, flex: 1 }}>
-                  &#8220;{r.quote}&#8221;
-                </p>
-                <div style={{ paddingTop: 16, borderTop: '1px solid #E1DFD8' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <div>
-                      <div style={{ fontWeight: 600, fontSize: 14 }}>{r.name}</div>
-                      <div style={{ fontSize: 12, color: '#7A7A76', marginTop: 2 }}>{r.car}</div>
-                      <div style={{ fontSize: 11, color: '#7A7A76', marginTop: 1, fontFamily: "'JetBrains Mono', monospace" }}>{r.suburb}</div>
-                    </div>
-                    <div style={{ fontSize: 11, color: '#7A7A76', fontFamily: "'JetBrains Mono', monospace", marginTop: 2 }}>{r.date}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div style={{ background: '#fff', border: '1px solid #E1DFD8', borderRadius: 24, padding: '64px 48px', textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
+            <div style={{ color: '#C89B37', fontSize: 28, letterSpacing: 4, marginBottom: 20 }}>★★★★★</div>
+            <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 16 }}>
+              Read our reviews on Google
+            </h2>
+            <p style={{ fontSize: 17, color: '#3A3A38', lineHeight: 1.6, marginBottom: 36, maxWidth: 440, margin: '0 auto 36px' }}>
+              See what Melbourne car owners are saying about Pristine Detailers — all verified, all real.
+            </p>
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 28px', borderRadius: 6, background: '#0A0A0A', color: '#fff', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}
+            >
+              View on Google <Arrow />
+            </a>
           </div>
         </div>
       </section>
