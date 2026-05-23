@@ -9,7 +9,9 @@ import { Placeholder } from '@/components/shared/placeholder';
 
 const CATEGORIES = ['All', 'Ceramic', 'PPF', 'Full Detail', 'Engine Bay', 'Team'];
 
-const ITEMS = [
+type GalleryItem = { label: string; category: string; src: string | null; h: number; tone?: string };
+
+const ITEMS: GalleryItem[] = [
   { label: 'Ceramic Coating — Classic Build', category: 'Ceramic', src: '/images/20250217_125148.jpg', h: 480 },
   { label: 'Full Detail — Red Sports Car', category: 'Full Detail', src: '/images/20250525_093249.jpg', h: 360 },
   { label: 'Engine Bay Detail', category: 'Engine Bay', src: '/images/20250321_101446.jpg', h: 320 },
