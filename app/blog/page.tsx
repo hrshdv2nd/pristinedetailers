@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
 import { Journal } from '@/components/pages/journal';
 
 export const metadata = {
@@ -19,7 +19,10 @@ export default async function Page() {
   }[] = [];
 
   try {
-    const supabase = await createClient();
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    );
     const { data } = await supabase
       .from('blog_posts')
       .select('slug, title, excerpt, category, read_time, published_at')
