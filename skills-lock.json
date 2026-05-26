@@ -23,7 +23,7 @@
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/ads/SKILL.md",
-      "computedHash": "2c974361b62805459d7fbd0ac8364dcbeb14f85ebd78c36f59fa32d6db23cd5e"
+      "computedHash": "3f623f4dd628a2989bf9e181bb8100ddf8998cbacbbfa1dbcff69642fedd9da0"
     },
     "ai-seo": {
       "source": "coreyhaines31/marketingskills",
@@ -71,7 +71,7 @@
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/cold-email/SKILL.md",
-      "computedHash": "8433faa5b0d503e1cd695d089730543caaceb92c5189195b946d4e14fff6d8a7"
+      "computedHash": "be0b73511a6244b8b8aa9126225844cfe9e492f4c1ee6bffc57344ce5ee2a6e8"
     },
     "community-marketing": {
       "source": "coreyhaines31/marketingskills",
@@ -89,7 +89,7 @@
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/competitor-profiling/SKILL.md",
-      "computedHash": "861bcc0d6003fe82b4af701d2b0b4b54a56cc2c09127196b3d2efc89111869b2"
+      "computedHash": "d691200df7b02d85327192dd2203f97eec5a01e7748e9b171a5c9d6a584dc181"
     },
     "competitors": {
       "source": "coreyhaines31/marketingskills",
@@ -125,7 +125,7 @@
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/customer-research/SKILL.md",
-      "computedHash": "996d19e9b473e5383406d5958bf225bff9109a84053bfd5475645c5a8e5e9f35"
+      "computedHash": "628dcedb189ccccc08e7eaf12d884bbc7e43f8b2576f0f3143ed0a17fd40cc1f"
     },
     "directory-submissions": {
       "source": "coreyhaines31/marketingskills",
@@ -276,6 +276,12 @@
       "sourceType": "github",
       "skillPath": "skills/programmatic-seo/SKILL.md",
       "computedHash": "0bbdcbacfbe46fd78d774041ee49afd313505bb435b775dc246f4b8e6981d797"
+    },
+    "prospecting": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/prospecting/SKILL.md",
+      "computedHash": "63049127e427e260538e236301fcb7cfa87b2fa2938fe80d372f904f9d306223"
     },
     "referral-program": {
       "source": "coreyhaines31/marketingskills",
