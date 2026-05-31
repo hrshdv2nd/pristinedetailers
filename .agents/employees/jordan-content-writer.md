@@ -86,6 +86,8 @@ Then write one new journal article for the Pristine Detailers website. The artic
 - "Paint correction in Melbourne: what each stage costs and when you need it" *(added by Alex — high commercial intent, SEO gap, comparison table format for AI citation)*
 - "Ceramic coating vs car wax: the honest comparison for Melbourne weather" *(added by Alex — comparison table format, top-of-funnel, highest AI citation rate format)*
 - "Mobile car detailing in Toorak, Brighton & South Yarra: what to expect" *(added by Alex — suburb-specific content, ICP targeting, mention bird droppings/salt air/UV)*
+- "PPF vs ceramic coating: the Melbourne driver's guide to choosing the right paint protection" *(added by Alex — comparison table format ~33% AI citation rate, targets explicit keyword gap 'PPF vs ceramic coating Melbourne', conclusion should explain why Pristine recommends both. Include Melbourne-specific column: stone chips on Eastern Freeway/Eastlink for PPF, UV and bird droppings for ceramic. PPF category)*
+- "Car detailing cost in Melbourne: full pricing guide for ceramic, PPF and detailing (2026)" *(added by Alex — highest-commercial-intent pricing query currently unserved, all prices already exist on /services but are tab-hidden. Open with a summary pricing table — Service / Starting price / Duration — before any intro copy. Specific numbers earn 37–40% higher AI citation rates. Detailing category)*
 - "The best time of year to get a ceramic coating in Melbourne"
 - "Why your car paint fades faster near the bay"
 - "How to wash a car that has a ceramic coating (and what to never do)"
