@@ -81,9 +81,13 @@ Then write one new journal article for the Pristine Detailers website. The artic
 - `https://images.unsplash.com/photo-1547744703-2c8f07bbb5f0?w=1200&q=80` — luxury car interior
 
 ### Topic Bank (rotate through, don't repeat)
+- "Paint protection film pricing in Melbourne: what each coverage level costs and why" *(added by Alex — commercial intent, pricing table format highest AI citation rate ~33%, fills gap from tab-hidden pricing on /services. PPF category)*
+- "How long does mobile car detailing take? A service-by-service time guide for Melbourne drivers" *(added by Alex — answers #1 pre-booking question, structured table format perfect for AI extraction, Melbourne-specific logistics angle for apartments/offices. Detailing category)*
 - "Paint correction in Melbourne: what each stage costs and when you need it" *(added by Alex — high commercial intent, SEO gap, comparison table format for AI citation)*
 - "Ceramic coating vs car wax: the honest comparison for Melbourne weather" *(added by Alex — comparison table format, top-of-funnel, highest AI citation rate format)*
 - "Mobile car detailing in Toorak, Brighton & South Yarra: what to expect" *(added by Alex — suburb-specific content, ICP targeting, mention bird droppings/salt air/UV)*
+- "PPF vs ceramic coating: the Melbourne driver's guide to choosing the right paint protection" *(added by Alex — comparison table format ~33% AI citation rate, targets explicit keyword gap 'PPF vs ceramic coating Melbourne', conclusion should explain why Pristine recommends both. Include Melbourne-specific column: stone chips on Eastern Freeway/Eastlink for PPF, UV and bird droppings for ceramic. PPF category)*
+- "Car detailing cost in Melbourne: full pricing guide for ceramic, PPF and detailing (2026)" *(added by Alex — highest-commercial-intent pricing query currently unserved, all prices already exist on /services but are tab-hidden. Open with a summary pricing table — Service / Starting price / Duration — before any intro copy. Specific numbers earn 37–40% higher AI citation rates. Detailing category)*
 - "The best time of year to get a ceramic coating in Melbourne"
 - "Why your car paint fades faster near the bay"
 - "How to wash a car that has a ceramic coating (and what to never do)"
