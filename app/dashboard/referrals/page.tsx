@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getReferralData } from '@/actions/membership';
 import Topbar from '@/components/portal/layout/topbar';
 import StatCard from '@/components/portal/shared/stat-card';
+import CopyReferralButton from '@/components/portal/customer/copy-referral-button';
 
 export const metadata: Metadata = { title: 'Referrals — Pristine Detailers' };
 
@@ -17,12 +18,7 @@ export default async function ReferralsPage() {
           <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C89B37', margin: '0 0 12px' }}>Your Referral Code</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <span style={{ fontSize: 32, fontWeight: 700, letterSpacing: '0.08em', fontFamily: 'monospace', color: '#C89B37' }}>{referrals.code}</span>
-            <button
-              onClick={() => navigator.clipboard.writeText(referrals.code)}
-              style={{ padding: '8px 16px', background: 'rgba(200,155,55,0.2)', border: '1px solid rgba(200,155,55,0.4)', borderRadius: 8, color: '#C89B37', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}
-            >
-              Copy
-            </button>
+            <CopyReferralButton code={referrals.code} />
           </div>
           <p style={{ fontSize: 13, color: '#9CA3AF', margin: '12px 0 0' }}>
             Every 5 conversions earns you a free detail session. You need {referrals.nextRewardIn} more to unlock your next reward.

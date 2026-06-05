@@ -1,7 +1,7 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
-import { createMembershipCheckout, createBillingPortalSession, getCustomerInvoices } from '@/lib/stripe';
+import { createStripeCustomer, createMembershipCheckout, createBillingPortalSession, getCustomerInvoices } from '@/lib/stripe';
 import type { Customer, MembershipPlan, Payment } from '@/lib/types/database';
 
 export interface ReferralStats {
@@ -35,6 +35,24 @@ export async function getMembershipStatus(): Promise<{ customer: Customer; plan:
   return { customer, plan: membership_plans };
 }
 
+async function ensureStripeCustomer(supabase: Awaited<ReturnType<typeof createClient>>, userId: string): Promise<string | null> {
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('email, full_name')
+    .eq('id', userId)
+    .single<{ email: string; full_name: string }>();
+
+  if (!profile) return null;
+
+  try {
+    const stripeId = await createStripeCustomer(profile.email, profile.full_name, { supabase_user_id: userId });
+    await supabase.from('customers').update({ stripe_customer_id: stripeId }).eq('user_id', userId);
+    return stripeId;
+  } catch {
+    return null;
+  }
+}
+
 export async function startMembershipCheckout(planId: string): Promise<{ url?: string; error?: string }> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
@@ -43,12 +61,17 @@ export async function startMembershipCheckout(planId: string): Promise<{ url?: s
   const { data: plan } = await supabase.from('membership_plans').select('stripe_price_id').eq('id', planId).single<{ stripe_price_id: string }>();
   if (!plan?.stripe_price_id) return { error: 'Plan not found' };
 
-  const { data: customer } = await supabase.from('customers').select('stripe_customer_id').eq('user_id', user.id).single<{ stripe_customer_id: string }>();
-  if (!customer?.stripe_customer_id) return { error: 'Stripe customer not found' };
+  let { data: customer } = await supabase.from('customers').select('stripe_customer_id').eq('user_id', user.id).single<{ stripe_customer_id: string | null }>();
+
+  if (!customer?.stripe_customer_id) {
+    const newId = await ensureStripeCustomer(supabase, user.id);
+    if (!newId) return { error: 'Could not create billing account. Please add STRIPE_SECRET_KEY.' };
+    customer = { stripe_customer_id: newId };
+  }
 
   try {
     const url = await createMembershipCheckout(
-      customer.stripe_customer_id,
+      customer.stripe_customer_id!,
       plan.stripe_price_id,
       `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard/membership?success=1`,
       `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard/membership`,
@@ -64,12 +87,17 @@ export async function openBillingPortal(): Promise<{ url?: string; error?: strin
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: 'Not authenticated' };
 
-  const { data: customer } = await supabase.from('customers').select('stripe_customer_id').eq('user_id', user.id).single<{ stripe_customer_id: string }>();
-  if (!customer?.stripe_customer_id) return { error: 'No billing account' };
+  let { data: customer } = await supabase.from('customers').select('stripe_customer_id').eq('user_id', user.id).single<{ stripe_customer_id: string | null }>();
+
+  if (!customer?.stripe_customer_id) {
+    const newId = await ensureStripeCustomer(supabase, user.id);
+    if (!newId) return { error: 'Could not create billing account. Please add STRIPE_SECRET_KEY.' };
+    customer = { stripe_customer_id: newId };
+  }
 
   try {
     const url = await createBillingPortalSession(
-      customer.stripe_customer_id,
+      customer.stripe_customer_id!,
       `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard/billing`,
     );
     return { url };

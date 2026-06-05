@@ -22,7 +22,7 @@ function fmt(date: string) {
 }
 
 function fmtAmount(amount: number, currency: string) {
-  return new Intl.NumberFormat('en-AU', { style: 'currency', currency: currency.toUpperCase() }).format(amount / 100);
+  return new Intl.NumberFormat('en-AU', { style: 'currency', currency: currency.toUpperCase() }).format(amount);
 }
 
 export default function BillingClient({ payments }: { payments: Payment[] }) {

@@ -94,7 +94,7 @@ export default function MembershipClient({ membership, payments }: Props) {
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <StatusBadge status={p.status} />
-                    <span style={{ fontSize: 15, fontWeight: 600, color: '#0A0A0A' }}>${(p.amount / 100).toFixed(2)}</span>
+                    <span style={{ fontSize: 15, fontWeight: 600, color: '#0A0A0A' }}>${p.amount.toFixed(2)}</span>
                   </div>
                 </div>
               ))}
