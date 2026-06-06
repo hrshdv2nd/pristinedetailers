@@ -51,12 +51,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Script id="ga4-init" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-YF234784J5');`}
         </Script>
-        <Script
-          src="https://beta.leadconnectorhq.com/loader.js"
-          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a23e234cce0c0ecc8689b8a"
-          strategy="afterInteractive"
-        />
+        <Script id="ghl-chat-widget" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html: `
+            var s = document.createElement('script');
+            s.src = 'https://beta.leadconnectorhq.com/loader.js';
+            s.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
+            s.setAttribute('data-widget-id', '6a23e234cce0c0ecc8689b8a');
+            document.body.appendChild(s);
+          `
+        }} />
       </body>
     </html>
   );
