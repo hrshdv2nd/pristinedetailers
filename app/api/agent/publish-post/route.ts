@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
+import { ghlTriggerWorkflow } from '@/lib/ghl';
 
 function isAuthorized(request: NextRequest): boolean {
   const auth = request.headers.get('authorization');
@@ -61,6 +62,15 @@ export async function POST(request: NextRequest) {
   if (status === 'published') {
     revalidatePath('/blog');
     revalidatePath('/journal');
+
+    // Trigger GHL "new blog post" workflow if configured
+    const workflowId = process.env.GHL_NEW_POST_WORKFLOW_ID;
+    const notifyEmail = process.env.GHL_NOTIFY_EMAIL;
+    if (workflowId && notifyEmail) {
+      ghlTriggerWorkflow(workflowId, notifyEmail).catch((err) => {
+        console.warn('[publish-post] GHL workflow trigger failed:', err);
+      });
+    }
   }
 
   return NextResponse.json({ success: true, post: data[0] ?? data });

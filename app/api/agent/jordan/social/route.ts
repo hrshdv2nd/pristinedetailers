@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { createClient } from '@supabase/supabase-js';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import { ghlScheduleSocialPost } from '@/lib/ghl';
 
 const SOCIAL_SYSTEM_PROMPT = `You are Jordan, senior content writer for Pristine Detailers — Melbourne's premium mobile car detailing service.
 
@@ -69,6 +70,12 @@ interface SocialPost {
 interface PublishResult {
   success: boolean;
   postId?: string;
+  error?: string;
+}
+
+interface GHLPublishResult {
+  success: boolean;
+  id?: string;
   error?: string;
 }
 
@@ -170,6 +177,24 @@ async function publishToInstagram(post: SocialPost): Promise<PublishResult> {
   }
 }
 
+async function publishToGHLSocialPlanner(post: SocialPost, scheduledAt?: string): Promise<GHLPublishResult> {
+  if (!process.env.GHL_API_KEY || !process.env.GHL_LOCATION_ID) {
+    return { success: false, error: 'GHL_API_KEY or GHL_LOCATION_ID not set' };
+  }
+  try {
+    const result = await ghlScheduleSocialPost({
+      caption: post.facebook_caption,
+      imageUrl: post.cover_image_url,
+      platforms: ['facebook', 'instagram'],
+      scheduledAt,
+    });
+    if (result.ok) return { success: true, id: result.data.id };
+    return { success: false, error: result.data.message ?? result.data.error ?? `GHL returned ${result.status}` };
+  } catch (err) {
+    return { success: false, error: String(err) };
+  }
+}
+
 function buildReport(posts: SocialPost[], date: string): string {
   const lines: string[] = [
     `# Jordan — Daily Social Posts`,
@@ -241,14 +266,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to parse Claude response as JSON' }, { status: 500 });
   }
 
-  // Publish to both platforms for each post
+  // Build scheduled times for GHL (today at 8am, 12pm, 5pm AEST = UTC+10)
+  const scheduledTimes = ['T22:00:00.000Z', 'T02:00:00.000Z', 'T07:00:00.000Z'].map(
+    (t) => `${today}${t}`
+  );
+
+  // Publish to Meta + GHL Social Planner for each post
   const publishResults = await Promise.all(
-    result.posts.map(async (post) => {
-      const [facebook, instagram] = await Promise.all([
+    result.posts.map(async (post, i) => {
+      const [facebook, instagram, ghl] = await Promise.all([
         publishToFacebook(post),
         publishToInstagram(post),
+        publishToGHLSocialPlanner(post, scheduledTimes[i]),
       ]);
-      return { topic: post.topic, time: post.time, facebook, instagram };
+      return { topic: post.topic, time: post.time, facebook, instagram, ghl };
     })
   );
 
@@ -264,14 +295,16 @@ export async function POST(req: NextRequest) {
 
   const fbConfigured = !!(process.env.FACEBOOK_PAGE_ACCESS_TOKEN && process.env.FACEBOOK_PAGE_ID);
   const igConfigured = !!(process.env.FACEBOOK_PAGE_ACCESS_TOKEN && process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID);
+  const ghlConfigured = !!(process.env.GHL_API_KEY && process.env.GHL_LOCATION_ID);
 
   return NextResponse.json({
     success: true,
     date: today,
     posts_generated: result.posts.length,
     publishing_status: {
-      facebook: fbConfigured ? 'attempted' : 'skipped — add FACEBOOK_PAGE_ACCESS_TOKEN + FACEBOOK_PAGE_ID env vars',
-      instagram: igConfigured ? 'attempted' : 'skipped — add FACEBOOK_PAGE_ACCESS_TOKEN + INSTAGRAM_BUSINESS_ACCOUNT_ID env vars',
+      facebook: fbConfigured ? 'attempted' : 'skipped — add FACEBOOK_PAGE_ACCESS_TOKEN + FACEBOOK_PAGE_ID',
+      instagram: igConfigured ? 'attempted' : 'skipped — add FACEBOOK_PAGE_ACCESS_TOKEN + INSTAGRAM_BUSINESS_ACCOUNT_ID',
+      ghl_social_planner: ghlConfigured ? 'attempted' : 'skipped — add GHL_API_KEY + GHL_LOCATION_ID',
     },
     results: publishResults,
     report_saved_to: `.agents/reports/jordan-social-${today}.md`,
