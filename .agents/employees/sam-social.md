@@ -31,6 +31,34 @@ Create 3 social media posts for Pristine Detailers — one per platform:
 ### Output
 Save daily posts to `.agents/reports/social-{YYYY-MM-DD}.md` with clear Platform / Caption / Hashtags sections.
 
+### Publishing (Step 7)
+After saving the report, publish via the Sam social API endpoint:
+
+```
+POST https://pristinedetailers.com.au/api/agent/sam/social/publish
+Authorization: Bearer $AGENT_API_SECRET
+Content-Type: application/json
+
+{
+  "instagram_caption": "...",
+  "facebook_caption": "...",
+  "linkedin_caption": "...",
+  "image_url": "optional — Unsplash URL from image bank below"
+}
+```
+
+If `SITE_URL` and `AGENT_API_SECRET` env vars are available in the session, call this endpoint using curl. If not, note in the report that publishing requires manual trigger or a cron hit to the endpoint.
+
+**Image bank** (pick the most contextually relevant URL):
+- Ceramic coating applied: `https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&q=80`
+- Glossy black car close-up: `https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80`
+- Paint protection film: `https://images.unsplash.com/photo-1604754742629-3e5728249d73?w=1200&q=80`
+- Sports car front angle: `https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80`
+- Car detailing wash: `https://images.unsplash.com/photo-1617469767824-e76ad64e9f86?w=1200&q=80`
+- Interior detailing: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80`
+- Polishing machine: `https://images.unsplash.com/photo-1489824904134-af1a94f0e6e2?w=1200&q=80`
+- Prestige car Melbourne: `https://images.unsplash.com/photo-1568605117036-5c5edba50dc0?w=1200&q=80`
+
 ### Content Rotation (cycle weekly)
 - Monday: Educational tip (ceramic, PPF, maintenance)
 - Tuesday: Before/after result spotlight
