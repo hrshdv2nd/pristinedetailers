@@ -13,7 +13,7 @@ export function Services() {
   const services = [
     {
       id: 'vehicle-detailing',
-      title: 'Vehicle detailing',
+      title: 'Basic Detailing',
       description: 'Interior, exterior, polish, and protection for every finish.',
       price: '$150',
       label: 'Best for a quick inside and out clean',
