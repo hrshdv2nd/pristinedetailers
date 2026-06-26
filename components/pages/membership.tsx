@@ -28,7 +28,7 @@ export function Membership() {
     {
       id: 'essential',
       title: 'Essential membership',
-      price: '$79/mo',
+      price: '$99/mo',
       description: 'Light protection and a monthly exterior refresh for city drivers.',
       benefits: ['Monthly wash + seal', 'Priority booking', 'Member support'],
     },
