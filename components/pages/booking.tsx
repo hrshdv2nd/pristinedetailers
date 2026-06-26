@@ -129,7 +129,10 @@ export function Booking() {
     [addOns],
   );
   const upsellCost = upsell ? 1890 : 0;
-  const total = (sel?.price ?? 0) + addTotal + upsellCost;
+  // Listed prices are exclusive of GST; GST (10%) is added on top.
+  const subtotal = (sel?.price ?? 0) + addTotal + upsellCost;
+  const gst = subtotal * 0.1;
+  const total = subtotal + gst;
 
   const canContinueSchedule = !!selectedDate && !!selectedTime && !!customerName && !!customerEmail;
 
@@ -336,7 +339,7 @@ export function Booking() {
                     disabled={bookingLoading}
                     style={{ opacity: bookingLoading ? 0.6 : 1, cursor: bookingLoading ? 'not-allowed' : 'pointer' }}
                   >
-                    {bookingLoading ? 'Confirming…' : `Confirm & pay $${total.toLocaleString()}`} <Arrow />
+                    {bookingLoading ? 'Confirming…' : `Confirm & pay $${total.toLocaleString(undefined, { maximumFractionDigits: 2 })}`} <Arrow />
                   </button>
                 )}
               </div>
@@ -372,9 +375,22 @@ export function Booking() {
                   )}
                 </div>
 
+                {sel && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--ink-2)' }}>
+                      <span>Subtotal (excl GST)</span>
+                      <span>${subtotal.toLocaleString()}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--ink-2)' }}>
+                      <span>GST (10%)</span>
+                      <span>${gst.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    </div>
+                  </div>
+                )}
+
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--ink-3)', textTransform: 'uppercase' }}>Total</span>
-                  <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500, letterSpacing: '-0.03em' }}>${total.toLocaleString()}</span>
+                  <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--ink-3)', textTransform: 'uppercase' }}>Total (incl GST)</span>
+                  <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500, letterSpacing: '-0.03em' }}>${total.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
                 </div>
 
                 <div style={{ marginTop: 20, padding: 16, background: 'var(--navy-soft)', borderRadius: 12, display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.45, color: 'var(--navy-deep)' }}>
@@ -794,8 +810,8 @@ function StepConfirm({
           </div>
         ))}
         <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', padding: '24px 28px', background: 'var(--bg)', fontSize: 15, alignItems: 'center' }}>
-          <span style={{ color: 'var(--ink-3)' }}>Total</span>
-          <span style={{ fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 500 }}>${total.toLocaleString()}</span>
+          <span style={{ color: 'var(--ink-3)' }}>Total (incl GST)</span>
+          <span style={{ fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 500 }}>${total.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
         </div>
       </div>
 

@@ -109,7 +109,10 @@ export function Services() {
                         </div>
                         <div style={{ textAlign: 'right' }}>
                           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
-                          <div style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</div>
+                          <div style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>
+                            {service.price}
+                            <span style={{ fontSize: 15, fontWeight: 400, color: 'var(--ink-3)', marginLeft: 5 }}>+ GST</span>
+                          </div>
                           <div style={{ color: 'var(--ink-3)', marginTop: 8 }}>{service.label}</div>
                         </div>
                       </div>

@@ -308,6 +308,7 @@ function ServicesPreview() {
                   <span style={{ fontSize: 13, opacity: 0.6 }}>From</span>
                   <span style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500 }}>
                     {s.from}
+                    <span style={{ fontSize: 13, fontWeight: 400, opacity: 0.6, marginLeft: 4 }}>+ GST</span>
                   </span>
                 </div>
               </div>
@@ -388,6 +389,7 @@ function FlagshipSection() {
                   </div>
                   <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 500, marginTop: 6, letterSpacing: '-0.02em' }}>
                     {p.price}
+                    <span style={{ fontSize: 14, fontWeight: 400, opacity: 0.6, marginLeft: 4 }}>+ GST</span>
                   </div>
                   <div style={{ fontSize: 12, opacity: 0.7, marginTop: 8, lineHeight: 1.4 }}>{p.feat}</div>
                 </div>
@@ -719,6 +721,7 @@ function PPFSection() {
                     </div>
                     <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 24, fontWeight: 500 }}>
                       {p.price}
+                      <span style={{ fontSize: 13, fontWeight: 400, color: '#7A7A76', marginLeft: 4 }}>+ GST</span>
                     </div>
                   </div>
                 ))}

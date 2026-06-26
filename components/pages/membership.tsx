@@ -92,7 +92,10 @@ export function Membership() {
                     )}
                     <div className="pd-eyebrow">{planOption.title}</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 14 }}>
-                      <h2 style={{ fontSize: 28, margin: 0 }}>{planOption.price}</h2>
+                      <h2 style={{ fontSize: 28, margin: 0 }}>
+                        {planOption.price}
+                        <span style={{ fontSize: 14, fontWeight: 400, opacity: 0.6, marginLeft: 5 }}>+ GST</span>
+                      </h2>
                       <span style={{ color: 'var(--ink-3)' }}>{plan === planOption.id ? 'Selected' : 'Choose'}</span>
                     </div>
                     <p style={{ marginTop: 18, color: 'var(--ink-2)' }}>{planOption.description}</p>
