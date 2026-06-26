@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
+import { isAuthorizedAgent } from '@/lib/security';
 
 const SYSTEM_PROMPT = `You are Jordan, Chief Marketing Officer of Pristine Detailers — Melbourne's premium mobile car detailing business.
 
@@ -33,16 +34,6 @@ Return ONLY a valid JSON object — no markdown fences, no commentary, just the 
   "body": "string — full article in markdown, ## and ### for headings, double newline between sections"
 }`;
 
-function isAuthorized(req: NextRequest): boolean {
-  const auth = req.headers.get('authorization');
-  const secret = process.env.AGENT_API_SECRET;
-  const cron = process.env.CRON_SECRET;
-  if (!secret) return false;
-  if (auth === `Bearer ${secret}`) return true;
-  if (cron && auth === `Bearer ${cron}`) return true;
-  return false;
-}
-
 function supabaseAdmin() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -63,7 +54,7 @@ async function getExistingTitles(): Promise<string[]> {
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!isAuthorizedAgent(req)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

@@ -31,22 +31,33 @@ export interface GHLContact {
 export interface GHLSocialPostPayload {
   caption: string;
   imageUrl?: string;
-  platforms: ('facebook' | 'instagram' | 'linkedin' | 'tiktok' | 'twitter')[];
-  scheduledAt?: string; // ISO 8601 — omit to post immediately
+  // Pass explicit accountIds, or omit to use env defaults (GHL_FACEBOOK_ACCOUNT_ID + GHL_INSTAGRAM_ACCOUNT_ID)
+  accountIds?: string[];
+  scheduledDate?: string; // ISO 8601 — omit to save as draft
 }
 
 // Post to GHL Social Planner
 export async function ghlScheduleSocialPost(payload: GHLSocialPostPayload) {
   const locId = locationId();
+
+  const userId = process.env.GHL_USER_ID;
+  if (!userId) throw new Error('GHL_USER_ID not set');
+
+  const accountIds = payload.accountIds ?? [
+    process.env.GHL_FACEBOOK_ACCOUNT_ID,
+    process.env.GHL_INSTAGRAM_ACCOUNT_ID,
+  ].filter(Boolean) as string[];
+
+  if (accountIds.length === 0) throw new Error('No GHL account IDs configured');
+
   const body: Record<string, unknown> = {
     type: 'post',
-    status: payload.scheduledAt ? 'scheduled' : 'draft',
-    platforms: payload.platforms,
-    ...(payload.scheduledAt ? { scheduledAt: payload.scheduledAt } : {}),
-    content: {
-      message: payload.caption,
-      ...(payload.imageUrl ? { imageUrl: payload.imageUrl } : {}),
-    },
+    status: payload.scheduledDate ? 'scheduled' : 'draft',
+    accountIds,
+    userId,
+    summary: payload.caption,
+    ...(payload.scheduledDate ? { scheduledDate: payload.scheduledDate } : {}),
+    ...(payload.imageUrl ? { media: [{ url: payload.imageUrl, type: 'image' }] } : {}),
   };
 
   const res = await fetch(`${GHL_BASE}/social-media-posting/${locId}/posts`, {
@@ -55,7 +66,7 @@ export async function ghlScheduleSocialPost(payload: GHLSocialPostPayload) {
     body: JSON.stringify(body),
   });
 
-  const data = await res.json() as { id?: string; error?: string; message?: string };
+  const data = await res.json() as { results?: { post?: { _id?: string } }; id?: string; error?: string; message?: string | string[] };
   return { ok: res.ok, status: res.status, data };
 }
 

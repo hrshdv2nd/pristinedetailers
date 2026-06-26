@@ -1,10 +1,10 @@
-# Pristine Detailers — Product Marketing Context
+# Pristine Detailers - Product Marketing Context
 
 ## Business Overview
 **Pristine Detailers** is a premium mobile car detailing company based in **Melbourne, Victoria, Australia**. We come to the customer — no workshop, no waiting room. Same tools, same certified technicians, same results as a fixed studio.
 
 ## Core Services
-- **Ceramic Coating** — professional-grade, 3–8 year protection, UV resistance, hydrophobic finish
+- **Ceramic Coating** — professional-grade, 3-5 year protection, UV resistance, hydrophobic finish
 - **Paint Protection Film (PPF)** — full-body or partial wrap, stone chip and scratch protection
 - **Paint Correction** — machine polish to remove swirls, scratches, and oxidation from the clear coat
 - **Interior Detailing** — deep clean, leather conditioning, odour elimination

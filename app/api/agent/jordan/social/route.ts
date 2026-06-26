@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import { ghlScheduleSocialPost } from '@/lib/ghl';
+import { isAuthorizedAgent } from '@/lib/security';
 
 const SOCIAL_SYSTEM_PROMPT = `You are Jordan, senior content writer for Pristine Detailers — Melbourne's premium mobile car detailing service.
 
@@ -77,16 +78,6 @@ interface GHLPublishResult {
   success: boolean;
   id?: string;
   error?: string;
-}
-
-function isAuthorized(req: NextRequest): boolean {
-  const auth = req.headers.get('authorization');
-  const secret = process.env.AGENT_API_SECRET;
-  const cron = process.env.CRON_SECRET;
-  if (!secret) return false;
-  if (auth === `Bearer ${secret}`) return true;
-  if (cron && auth === `Bearer ${cron}`) return true;
-  return false;
 }
 
 function supabaseAdmin() {
@@ -185,11 +176,13 @@ async function publishToGHLSocialPlanner(post: SocialPost, scheduledAt?: string)
     const result = await ghlScheduleSocialPost({
       caption: post.facebook_caption,
       imageUrl: post.cover_image_url,
-      platforms: ['facebook', 'instagram'],
-      scheduledAt,
+      scheduledDate: scheduledAt,
     });
     if (result.ok) return { success: true, id: result.data.id };
-    return { success: false, error: result.data.message ?? result.data.error ?? `GHL returned ${result.status}` };
+    const message = Array.isArray(result.data.message)
+      ? result.data.message.join('; ')
+      : result.data.message;
+    return { success: false, error: message ?? result.data.error ?? `GHL returned ${result.status}` };
   } catch (err) {
     return { success: false, error: String(err) };
   }
@@ -222,7 +215,7 @@ function buildReport(posts: SocialPost[], date: string): string {
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!isAuthorizedAgent(req)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -267,9 +260,14 @@ export async function POST(req: NextRequest) {
   }
 
   // Build scheduled times for GHL (today at 8am, 12pm, 5pm AEST = UTC+10)
-  const scheduledTimes = ['T22:00:00.000Z', 'T02:00:00.000Z', 'T07:00:00.000Z'].map(
-    (t) => `${today}${t}`
-  );
+  const prevDay = new Date(today);
+  prevDay.setDate(prevDay.getDate() - 1);
+  const prev = prevDay.toISOString().split('T')[0];
+  const scheduledTimes = [
+    `${prev}T22:00:00.000Z`,  // 8am AEST next day
+    `${today}T02:00:00.000Z`, // 12pm AEST
+    `${today}T07:00:00.000Z`, // 5pm AEST
+  ];
 
   // Publish to Meta + GHL Social Planner for each post
   const publishResults = await Promise.all(
@@ -277,7 +275,7 @@ export async function POST(req: NextRequest) {
       const [facebook, instagram, ghl] = await Promise.all([
         publishToFacebook(post),
         publishToInstagram(post),
-        publishToGHLSocialPlanner(post, scheduledTimes[i]),
+        publishToGHLSocialPlanner(post, scheduledTimes[i] ?? undefined),
       ]);
       return { topic: post.topic, time: post.time, facebook, instagram, ghl };
     })

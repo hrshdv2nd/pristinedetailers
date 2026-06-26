@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ghlScheduleSocialPost } from '@/lib/ghl';
+import { isAuthorizedAgent } from '@/lib/security';
 
 interface PublishPayload {
   instagram_caption: string;
@@ -16,15 +17,11 @@ interface PlatformResult {
   error?: string;
 }
 
-function isAuthorized(req: NextRequest): boolean {
-  const auth = req.headers.get('authorization');
-  const secret = process.env.AGENT_API_SECRET;
-  const cron = process.env.CRON_SECRET;
-  if (!secret) return false;
-  if (auth === `Bearer ${secret}`) return true;
-  if (cron && auth === `Bearer ${cron}`) return true;
-  return false;
+function ghlError(data: { error?: string; message?: string | string[] }): string | undefined {
+  const message = Array.isArray(data.message) ? data.message.join('; ') : data.message;
+  return message ?? data.error;
 }
+
 
 async function publishToFacebook(caption: string, imageUrl?: string): Promise<PlatformResult> {
   const token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
@@ -88,7 +85,7 @@ async function publishToInstagram(caption: string, imageUrl?: string): Promise<P
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!isAuthorizedAgent(req)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -125,20 +122,20 @@ export async function POST(req: NextRequest) {
       ? ghlScheduleSocialPost({
           caption: facebook_caption,
           imageUrl: image_url,
-          platforms: ['facebook', 'instagram'],
-          scheduledAt: scheduled_at,
+          // omit accountIds → defaults to GHL_FACEBOOK_ACCOUNT_ID + GHL_INSTAGRAM_ACCOUNT_ID
+          scheduledDate: scheduled_at,
         })
-          .then((r) => ({ success: r.ok, id: r.data.id, error: r.data.message ?? r.data.error }))
+          .then((r) => ({ success: r.ok, id: r.data.id, error: ghlError(r.data) }))
           .catch((e) => ({ success: false, error: String(e) }))
       : Promise.resolve({ success: false, error: 'skipped — GHL_API_KEY or GHL_LOCATION_ID not set' }),
 
     ghlConfigured
       ? ghlScheduleSocialPost({
           caption: linkedin_caption,
-          platforms: ['linkedin'],
-          scheduledAt: scheduled_at,
+          accountIds: [process.env.GHL_LINKEDIN_ACCOUNT_ID].filter(Boolean) as string[],
+          scheduledDate: scheduled_at,
         })
-          .then((r) => ({ success: r.ok, id: r.data.id, error: r.data.message ?? r.data.error }))
+          .then((r) => ({ success: r.ok, id: r.data.id, error: ghlError(r.data) }))
           .catch((e) => ({ success: false, error: String(e) }))
       : Promise.resolve({ success: false, error: 'skipped — GHL_API_KEY or GHL_LOCATION_ID not set' }),
   ]);

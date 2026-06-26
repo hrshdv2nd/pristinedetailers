@@ -43,14 +43,30 @@ export async function getJobDetail(bookingId: string): Promise<DetailerJobWithRe
   return data ?? null;
 }
 
+// Verify the current detailer is assigned to this booking before mutating it.
+// RLS enforces this at the row level too, but checking here fails fast and
+// keeps authorization explicit at the application layer (defense in depth).
+async function assertOwnsBooking(supabase: Awaited<ReturnType<typeof createClient>>, bookingId: string): Promise<void> {
+  const detailerId = await getDetailerId();
+  const { data } = await supabase
+    .from('bookings')
+    .select('id')
+    .eq('id', bookingId)
+    .eq('detailer_id', detailerId)
+    .single<{ id: string }>();
+  if (!data) throw new Error('Job not found');
+}
+
 export async function startJob(bookingId: string): Promise<void> {
   const supabase = await createClient();
+  await assertOwnsBooking(supabase, bookingId);
   await supabase.from('bookings').update({ status: 'in_progress' }).eq('id', bookingId);
   await supabase.from('job_details').upsert({ booking_id: bookingId, started_at: new Date().toISOString() }, { onConflict: 'booking_id' });
 }
 
 export async function uploadJobPhotos(bookingId: string, type: 'before' | 'after', urls: string[]): Promise<void> {
   const supabase = await createClient();
+  await assertOwnsBooking(supabase, bookingId);
   const { data: existing } = await supabase.from('job_details').select('before_photos, after_photos').eq('booking_id', bookingId).single<{ before_photos: string[]; after_photos: string[] }>();
 
   const field = type === 'before' ? 'before_photos' : 'after_photos';

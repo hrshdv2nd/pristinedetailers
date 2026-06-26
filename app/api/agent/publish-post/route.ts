@@ -1,16 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { ghlTriggerWorkflow } from '@/lib/ghl';
-
-function isAuthorized(request: NextRequest): boolean {
-  const auth = request.headers.get('authorization');
-  const secret = process.env.AGENT_API_SECRET;
-  if (!secret) return false;
-  return auth === `Bearer ${secret}`;
-}
+import { isAuthorizedAgent } from '@/lib/security';
 
 export async function POST(request: NextRequest) {
-  if (!isAuthorized(request)) {
+  if (!isAuthorizedAgent(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

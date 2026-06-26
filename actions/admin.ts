@@ -97,7 +97,12 @@ export async function getCustomers(page = 1, search = ''): Promise<{ customers: 
     .select('*, membership_plans(name, price_monthly, benefits), profiles!inner(full_name, email, phone, created_at)', { count: 'exact' });
 
   if (search) {
-    query = query.or(`profiles.full_name.ilike.%${search}%,profiles.email.ilike.%${search}%`);
+    // Strip PostgREST filter metacharacters so a search term can't break out of
+    // the ilike pattern and inject extra filter conditions.
+    const safe = search.replace(/[,()*\\]/g, '').trim();
+    if (safe) {
+      query = query.or(`profiles.full_name.ilike.%${safe}%,profiles.email.ilike.%${safe}%`);
+    }
   }
 
   const { data, count } = await query.range(offset, offset + limit - 1).order('created_at', { ascending: false });

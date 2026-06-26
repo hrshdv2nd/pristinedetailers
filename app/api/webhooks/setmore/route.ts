@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { safeEqual } from '@/lib/security';
 
 interface SetmoreWebhookPayload {
   event: string;
@@ -15,8 +16,8 @@ interface SetmoreWebhookPayload {
 }
 
 export async function POST(request: NextRequest) {
-  const secret = request.headers.get('x-setmore-secret');
-  if (secret !== process.env.SETMORE_WEBHOOK_SECRET) {
+  const expected = process.env.SETMORE_WEBHOOK_SECRET;
+  if (!expected || !safeEqual(request.headers.get('x-setmore-secret'), expected)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

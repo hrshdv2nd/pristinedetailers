@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { ghlUpsertContact, ghlTagContact, ghlSendEmail } from '@/lib/ghl';
+import { safeEqual } from '@/lib/security';
 
 // GHL webhook event types we care about
 const HANDLED_EVENTS = ['ContactCreate', 'ContactUpdate', 'FormSubmit', 'AppointmentCreate'];
@@ -86,11 +87,13 @@ async function generateFollowUpEmail(contact: GHLWebhookPayload['contact'], even
 }
 
 export async function POST(req: NextRequest) {
-  // Optional: validate GHL webhook secret
+  // Validate GHL webhook secret if configured. NOTE: this endpoint triggers AI
+  // email generation and GHL contact writes, so GHL_WEBHOOK_SECRET SHOULD be
+  // set in production — otherwise the endpoint is unauthenticated and abusable.
   const webhookSecret = process.env.GHL_WEBHOOK_SECRET;
   if (webhookSecret) {
     const signature = req.headers.get('x-ghl-signature') ?? req.headers.get('x-hook-secret');
-    if (signature !== webhookSecret) {
+    if (!safeEqual(signature, webhookSecret)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
   }
