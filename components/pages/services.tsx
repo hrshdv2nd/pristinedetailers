@@ -15,7 +15,7 @@ export function Services() {
       id: 'vehicle-detailing',
       title: 'Vehicle detailing',
       description: 'Interior, exterior, polish, and protection for every finish.',
-      price: '$120',
+      price: '$150',
       label: 'Best for a quick inside and out clean',
       body: 'Our team handles the full job from wash and clay bar through finishing touches. If you want add-ons such as engine bay detail or headlight restoration, we\'ll plan them in.',
     },
