@@ -12,7 +12,7 @@ export function AboutCareers() {
       {/* Hero */}
       <section className="pd-sect-hero">
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-          <Eyebrow>Join the Team</Eyebrow>
+          <Eyebrow>Work With Us</Eyebrow>
           <h1
             style={{
               fontFamily: "'Bricolage Grotesque', sans-serif",
@@ -40,7 +40,7 @@ export function AboutCareers() {
         <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 32px' }}>
           <div style={{ background: '#fff', border: '1px solid #E1DFD8', borderRadius: 20, padding: 40, textAlign: 'center' }}>
             <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 24, fontWeight: 500, marginBottom: 8 }}>
-              No current openings
+              We're looking for the right people, not just anyone. Submit a resume today!
             </div>
             <p style={{ color: '#3A3A38', fontSize: 15, lineHeight: 1.6 }}>
               We don&#8217;t have any roles open right now. If you think you&#8217;d be a great fit,

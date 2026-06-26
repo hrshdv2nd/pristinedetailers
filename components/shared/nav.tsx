@@ -32,7 +32,7 @@ const ABOUT_ITEMS = [
   },
   {
     id: 'careers',
-    label: 'Join the Team',
+    label: 'Work With Us',
     desc: "Passionate about cars? We're always growing our crew of Melbourne detailers.",
     href: '/about/careers',
     icon: (
