@@ -78,8 +78,8 @@ export function Footer() {
             {
               title: 'Company',
               links: [
-                { label: 'About', href: '/about' },
-                { label: 'Melbourne Service Area', href: '/about' },
+                { label: 'Reviews', href: '/about/reviews' },
+                { label: 'Melbourne Service Area', href: '/' },
                 { label: 'Gallery', href: '/gallery' },
                 { label: 'Blog', href: '/blog' },
                 { label: 'Contact', href: '/contact' },
