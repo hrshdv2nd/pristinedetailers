@@ -194,12 +194,13 @@ function HeroComposition() {
 
 // ============ MARQUEE ============
 function MarqueeStrip() {
+  const LOGO_HEIGHT = 32;
   const brands = [
-    { name: 'GYEON', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gyeon.png', height: 34 },
-    { name: 'Gtechniq', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gtechniq.png', height: 30 },
-    { name: 'Koch-Chemie', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/koch-chemie.png', height: 32 },
-    { name: 'P&S', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/p-and-s.png', height: 40 },
-    { name: 'Scholl Concepts', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/scholl-concepts.png', height: 46 },
+    { name: 'GYEON', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gyeon.png' },
+    { name: 'Gtechniq', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gtechniq.png' },
+    { name: 'Koch-Chemie', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/koch-chemie.png' },
+    { name: 'P&S', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/p-and-s.png' },
+    { name: 'Scholl Concepts', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/scholl-concepts.png' },
   ];
   const row = [...brands, ...brands, ...brands];
 
@@ -215,7 +216,7 @@ function MarqueeStrip() {
             key={i}
             src={brand.src}
             alt={brand.name}
-            style={{ height: brand.height, width: 'auto', flexShrink: 0, opacity: 0.85 }}
+            style={{ height: LOGO_HEIGHT, width: 'auto', flexShrink: 0, opacity: 0.85 }}
           />
         ))}
       </div>
