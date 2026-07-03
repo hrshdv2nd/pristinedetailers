@@ -194,17 +194,29 @@ function HeroComposition() {
 
 // ============ MARQUEE ============
 function MarqueeStrip() {
-  const items = ['Porsche', 'Audi', 'BMW', 'Tesla', 'Mercedes-AMG', 'Range Rover', 'Ferrari', 'McLaren', 'Lotus', 'BYD'];
-  const row = [...items, ...items, ...items];
+  const brands = [
+    { name: 'GYEON', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gyeon.png', height: 34 },
+    { name: 'Gtechniq', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/gtechniq.png', height: 30 },
+    { name: 'Koch-Chemie', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/koch-chemie.png', height: 32 },
+    { name: 'P&S', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/p-and-s.png', height: 40 },
+    { name: 'Scholl Concepts', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Brands/scholl-concepts.png', height: 46 },
+  ];
+  const row = [...brands, ...brands, ...brands];
 
   return (
-    <section style={{ padding: '28px 0', borderTop: '1px solid #E1DFD8', borderBottom: '1px solid #E1DFD8', background: '#EBEAE5', overflow: 'hidden' }}>
+    <section style={{ padding: '40px 0', borderTop: '1px solid #E1DFD8', borderBottom: '1px solid #E1DFD8', background: '#EBEAE5', overflow: 'hidden' }}>
+      <div style={{ textAlign: 'center', marginBottom: 24 }}>
+        <Eyebrow>Brands We Use</Eyebrow>
+      </div>
       <style>{`@keyframes pd-marquee { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }`}</style>
-      <div style={{ display: 'flex', gap: 64, animation: 'pd-marquee 60s linear infinite', whiteSpace: 'nowrap' }}>
-        {row.map((it, i) => (
-          <span key={i} style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 28, fontStyle: 'italic', color: '#3A3A38', fontWeight: 400, letterSpacing: '-0.02em' }}>
-            {it} <span style={{ color: '#7A7A76', marginLeft: 64 }}>·</span>
-          </span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 80, animation: 'pd-marquee 40s linear infinite', whiteSpace: 'nowrap' }}>
+        {row.map((brand, i) => (
+          <img
+            key={i}
+            src={brand.src}
+            alt={brand.name}
+            style={{ height: brand.height, width: 'auto', flexShrink: 0, opacity: 0.85 }}
+          />
         ))}
       </div>
     </section>
