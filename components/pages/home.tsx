@@ -249,7 +249,7 @@ function ServicesPreview() {
           </a>
         </div>
 
-        <div className="pd-four-col" style={{ gap: 20 }}>
+        <div className="pd-four-col" style={{ gap: 20, gridTemplateColumns: 'repeat(5, 1fr)' }}>
           {services.map(s => (
             <a
               key={s.tag}
