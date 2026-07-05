@@ -602,21 +602,6 @@ function MelbourneSection() {
               }}
             >
               <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/melbs.webp" alt="Map of Melbourne" fill style={{ objectFit: 'cover' }} />
-              <div
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: '53%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  transform: 'translate(-50%, -50%)',
-                }}
-              >
-                <span style={{ width: 18, height: 18, borderRadius: '50%', background: '#0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff' }} />
-                </span>
-              </div>
             </div>
 
             <div style={{ marginTop: 28, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
