@@ -601,46 +601,36 @@ function MelbourneSection() {
                 background: '#EFEDE7',
               }}
             >
-              <svg viewBox="0 0 400 300" style={{ width: '100%', height: '100%' }}>
-                <g stroke="#C9C5BB" strokeWidth="1" fill="none">
-                  <path d="M 0 150 Q 200 130 400 150" />
-                  <path d="M 0 180 Q 200 200 400 170" />
-                  <path d="M 50 0 L 50 300" />
-                  <path d="M 150 0 L 150 300" />
-                  <path d="M 250 0 L 250 300" />
-                  <path d="M 350 0 L 350 300" />
-                  <path d="M 0 80 L 400 100" />
-                  <path d="M 0 240 L 400 230" />
-                </g>
-                <path d="M 0 160 Q 100 140 180 170 Q 260 200 400 155" stroke="#C89B37" strokeWidth="2" fill="none" opacity="0.4" />
-                {[
-                  [80, 120],
-                  [140, 160],
-                  [200, 145],
-                  [250, 130],
-                  [180, 200],
-                  [300, 170],
-                  [220, 100],
-                  [120, 200],
-                  [320, 130],
-                  [260, 220],
-                ].map(([x, y], i) => (
-                  <g key={i}>
-                    <circle cx={x} cy={y} r="10" fill="#C89B37" opacity="0.15" />
-                    <circle cx={x} cy={y} r="4" fill="#C89B37" />
-                  </g>
-                ))}
-                <g>
-                  <circle cx="200" cy="160" r="18" fill="#0A0A0A" />
-                  <circle cx="200" cy="160" r="6" fill="#fff" />
-                </g>
-                <text x="218" y="164" fontFamily="JetBrains Mono" fontSize="10" fill="#0A0A0A" fontWeight="600">
+              <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/melbs.webp" alt="Map of Melbourne" fill style={{ objectFit: 'cover' }} />
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: '53%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                <span style={{ width: 18, height: 18, borderRadius: '50%', background: '#0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff' }} />
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 10,
+                    fontWeight: 600,
+                    color: '#0A0A0A',
+                    background: '#fff',
+                    padding: '4px 8px',
+                    borderRadius: 4,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
                   HQ · CLYDE NORTH
-                </text>
-                <text x="20" y="30" fontFamily="Bricolage Grotesque" fontSize="14" fill="#7A7A76" fontStyle="italic">
-                  Melbourne
-                </text>
-              </svg>
+                </span>
+              </div>
             </div>
 
             <div style={{ marginTop: 28, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
