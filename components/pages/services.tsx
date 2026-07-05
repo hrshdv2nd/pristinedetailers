@@ -43,6 +43,14 @@ export function Services() {
       label: 'Best for high-risk areas',
       body: 'Self-healing polyurethane film, precisely cut and installed panel by panel. Virtually invisible at any angle, PPF takes the stone chips, road debris, and minor abrasions so your paint never has to. Stack with ceramic for maximum long-term defence.',
     },
+    {
+      id: 'window-tinting',
+      title: 'Mobile Window Tinting',
+      description: 'UV and heat-blocking film fitted at your home or office.',
+      price: '$200',
+      label: 'Best for privacy, heat reduction and UV protection',
+      body: 'Our mobile technicians install premium window film on-site, cutting glare and cabin heat while blocking up to 99% of UV rays. Choose your tint level and we handle the rest — no need to visit a shop.',
+    },
   ];
 
   return (
