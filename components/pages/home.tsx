@@ -616,20 +616,6 @@ function MelbourneSection() {
                 <span style={{ width: 18, height: 18, borderRadius: '50%', background: '#0A0A0A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff' }} />
                 </span>
-                <span
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 10,
-                    fontWeight: 600,
-                    color: '#0A0A0A',
-                    background: '#fff',
-                    padding: '4px 8px',
-                    borderRadius: 4,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  HQ · CLYDE NORTH
-                </span>
               </div>
             </div>
 
