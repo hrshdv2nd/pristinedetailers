@@ -6,7 +6,7 @@ import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Placeholder } from '@/components/shared/placeholder';
 import { BlobImage } from '@/components/shared/blob-image';
-import { Arrow, Eyebrow, Stat } from '@/components/shared/atoms';
+import { Arrow, Eyebrow } from '@/components/shared/atoms';
 
 export function Home() {
   return (
@@ -124,11 +124,6 @@ function HeroSection() {
             >
               Explore services
             </a>
-          </div>
-          <div className="pd-hero-stats" style={{ display: 'flex', gap: 48, marginTop: 64, paddingTop: 32, borderTop: '1px solid #E1DFD8' }}>
-            <div className="pd-hero-stat"><Stat value="2,400+" label="Cars detailed" /></div>
-            <Stat value="5yr" label="Ceramic Coatings" />
-            <Stat value="$99/mo" label="Membership from" />
           </div>
         </div>
 
