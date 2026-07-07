@@ -706,7 +706,7 @@ function PPFSection() {
 
             <div style={{ position: 'relative', height: 520 }}>
               <BlobImage variant="b" size={420} rotate={4} color="#0A0A0A" style={{ position: 'absolute', top: 0, right: 0 }}>
-                <Image src="/images/20250525_093249.jpg" alt="Mobile detail in progress" fill style={{ objectFit: 'cover' }} />
+                <Image src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/ppf.jpeg" alt="Paint protection film installation" fill style={{ objectFit: 'cover' }} />
               </BlobImage>
               <div
                 style={{
