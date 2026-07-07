@@ -895,7 +895,6 @@ function MembershipTeaser() {
 function GallerySection() {
   const items: { label: string; variant: string; h: number; tone: string; src?: string }[] = [
     { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: '/images/20250217_125148.jpg' },
-    { label: 'THE TEAM', variant: 'b', h: 320, tone: 'navy', src: '/images/20241203_134603.jpg' },
     { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
     { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
     { label: 'ENGINE BAY', variant: 'a', h: 300, tone: 'navy', src: '/images/20250321_101446.jpg' },
