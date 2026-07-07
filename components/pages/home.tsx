@@ -128,7 +128,7 @@ function HeroSection() {
           <div className="pd-hero-stats" style={{ display: 'flex', gap: 48, marginTop: 64, paddingTop: 32, borderTop: '1px solid #E1DFD8' }}>
             <div className="pd-hero-stat"><Stat value="2,400+" label="Cars detailed" /></div>
             <Stat value="5yr" label="Ceramic Coatings" />
-            <Stat value="$80/mo" label="Membership from" />
+            <Stat value="$99/mo" label="Membership from" />
           </div>
         </div>
 
@@ -749,6 +749,9 @@ function PPFSection() {
 
 // ============ MEMBERSHIP TEASER ============
 function MembershipTeaser() {
+  const [plan, setPlan] = useState<'monthly' | 'annual'>('annual');
+  const annualSavings = 99 * 12 - 1068; // $120
+
   return (
     <section className="pd-sect-sm">
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
@@ -768,7 +771,7 @@ function MembershipTeaser() {
             <path d="M 50,5 C 80,5 95,25 90,55 C 85,85 60,95 35,90 C 10,85 5,60 10,35 C 15,15 25,5 50,5 Z" fill="#fff" />
           </svg>
           <div style={{ position: 'relative' }}>
-            <Eyebrow style={{ color: 'rgba(10,10,10,0.6)' }}>Membership · $80/mo</Eyebrow>
+            <Eyebrow style={{ color: 'rgba(10,10,10,0.6)' }}>Membership · from $99/mo</Eyebrow>
             <h2
               className="pd-h-sm"
               style={{
@@ -812,15 +815,66 @@ function MembershipTeaser() {
                 padding: 28,
               }}
             >
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, opacity: 0.7, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                Yearly Savings Plans
+              {/* Plan tab switcher */}
+              <div style={{ display: 'flex', background: 'rgba(10,10,10,0.12)', borderRadius: 10, padding: 3, gap: 2, marginBottom: 20 }}>
+                {(['monthly', 'annual'] as const).map(p => (
+                  <button
+                    key={p}
+                    onClick={() => setPlan(p)}
+                    style={{
+                      flex: 1,
+                      padding: '7px 10px',
+                      borderRadius: 7,
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontFamily: "'Inter Tight', sans-serif",
+                      fontSize: 12,
+                      fontWeight: 600,
+                      transition: 'all 0.15s',
+                      background: plan === p ? '#0A0A0A' : 'transparent',
+                      color: plan === p ? '#fff' : 'rgba(10,10,10,0.55)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 6,
+                    }}
+                  >
+                    {p === 'monthly' ? 'Monthly' : 'Annual'}
+                    {p === 'annual' && (
+                      <span style={{
+                        background: '#C89B37',
+                        color: plan === 'annual' ? '#fff' : '#0A0A0A',
+                        fontSize: 9,
+                        fontWeight: 700,
+                        padding: '2px 6px',
+                        borderRadius: 4,
+                        letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                      }}>
+                        Save ${annualSavings}
+                      </span>
+                    )}
+                  </button>
+                ))}
               </div>
-              <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 72, fontWeight: 500, marginTop: 8, letterSpacing: '-0.03em' }}>
-                $840<span style={{ fontSize: 22, opacity: 0.7 }}>/yr</span>
+
+              {/* Price */}
+              <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 68, fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1 }}>
+                {plan === 'monthly' ? (
+                  <>$99<span style={{ fontSize: 22, opacity: 0.7 }}>/mo</span></>
+                ) : (
+                  <>$1,068<span style={{ fontSize: 22, opacity: 0.7 }}>/yr</span></>
+                )}
               </div>
+              {plan === 'annual' && (
+                <div style={{ fontSize: 13, marginTop: 6, opacity: 0.65 }}>
+                  $89/mo · save ${annualSavings} vs monthly billing
+                </div>
+              )}
+
               <div style={{ height: 1, background: 'rgba(10,10,10,0.15)', margin: '20px 0' }} />
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14 }}>
-                {['12 monthly details included', 'Priority same-week booking', '15% off services s', ' Discounted rates for same household vehicle'].map(x => (
+                {['12 monthly details included', 'Priority same-week booking', '15% off services', 'Discounted rates for same household vehicle'].map(x => (
                   <div key={x} style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 12l5 5L20 7" />
