@@ -1,6 +1,6 @@
-# iMessage Chat-Reveal Video Ads
+# iOS-Native Reveal Video Ads (iMessage, ChatGPT, Apple Notes, AirDrop)
 
-A 9:16 social-native video format that recreates an iMessage conversation unfolding in real time: someone sends a screenshot of a result or product, a friend reacts and asks what it is, and the conversation reveals the brand — usually with a promo code. Message bubbles pop in over ~15–22 seconds with authentic send/receive sounds, then a static brand end card lands the CTA.
+A family of 9:16 social-native video formats that recreate a familiar iOS surface in real time and let the brand emerge inside it. The flagship is the **iMessage chat reveal** — someone sends a screenshot of a result or product, a friend reacts and asks what it is, and the conversation reveals the brand, usually with a promo code. Message bubbles pop in over ~15–22 seconds with authentic send/receive sounds, then a static brand end card lands the CTA. The same architecture powers **ChatGPT reveals**, **Apple Notes reveals**, and **AirDrop reveals** — covered in [Other iOS-Native Reveal Surfaces](#other-ios-native-reveal-surfaces) below.
 
 The format works because it borrows the most-read UI on earth. A chat thread is a familiar, high-attention dramatization — it mirrors how real recommendations happen, so the viewer leans in instead of scrolling past. The CTA arrives conversationally ("use code FREEPACK") instead of as a hard sell, which keeps the ad-skip reflex from firing until the pitch has already landed. Run it only as a clearly labeled paid placement (Meta's "Sponsored" tag does the disclosure work); never seed it organically as if it were a real leaked conversation.
 
@@ -144,4 +144,58 @@ Treat the thread as the variable and the pipeline as fixed. Test in this order �
 4. **Peer persona** — name, avatar, and texting style shift the perceived audience
 5. **Length** — try a 12-bubble and an 8-bubble cut of the same script
 
-The same architecture extends to other chat surfaces — a ChatGPT conversation reveal, WhatsApp, Slack — same timeline-driven recording, different UI shell. Start with iMessage; it has the highest recognition and the strongest audio identity.
+The same architecture extends to further surfaces too — WhatsApp, Slack, a search box — same timeline-driven recording, different UI shell.
+
+---
+
+## Other iOS-Native Reveal Surfaces
+
+Everything above about production (UI mockup → timeline-driven continuous recording → deterministic SFX cues → static end card), grounding, and disclosure carries over unchanged. What changes per surface is the *persuasion mechanic* and a handful of craft details.
+
+| Surface | Persuasion mechanic | Reach for it when |
+|---|---|---|
+| **iMessage** | A friend's recommendation — social proof through dialogue | The product is discovered through results people share ("what app is that?") |
+| **ChatGPT** | An authoritative answer to the viewer's own question | The problem is question-shaped — something people would literally type into ChatGPT |
+| **Apple Notes** | A private confession made public — first-person, no dialogue | The angle is transformation or realization ("things nobody told me about 45") |
+| **AirDrop** | A spontaneous peer share — "someone nearby thought this was worth sending you *right now*," with a built-in accept/decline decision | The product is something people pass to each other (a deal, a link, a find, a file) and the accept-tap can *be* the reveal |
+
+The strongest signal for choosing: which of these surfaces already fills your audience's day. Recommendation products want iMessage; advice-seeking problems want ChatGPT; identity/transformation stories want Notes; and anything people spontaneously pass to each other wants AirDrop.
+
+### ChatGPT Reveal
+
+The viewer identifies with the *asker*. The typed question is the hook and must be the target customer's verbatim question — awkward phrasing and all ("why is my stomach so bloated all of a sudden at 47?"). The streaming answer names the problem's real mechanism, then the solution category; the brand lands in the answer's recommendation or in a typed follow-up ("what's the best one?").
+
+**Craft details:**
+- **Stream the answer in word chunks**, not character-by-character (that's typing, not generation) and not whole paragraphs at once. A subtle tick underneath the stream and a clean stop when the response completes; no iMessage tritones anywhere.
+- **Type the question like thumbs, stream the answer like a model.** Two distinct rhythms — the contrast is what reads as "real ChatGPT."
+- **Keep the answer scannable:** short paragraphs, a bolded phrase or a short list, exactly the way ChatGPT actually formats. A wall of text breaks the illusion and loses the viewer.
+- OpenAI's interface is their trade dress — same legal-review posture as the Apple UI mimicry note above, with a generic "AI assistant" skin as the fallback.
+
+**Compliance — stricter here than anywhere else in this family.** The "answer" is your ad copy wearing a lab coat: an authority costume. Every claim in it needs the same substantiation as a claim in your own voice, and the format's borrowed authority raises the bar, not lowers it. Do not put health, medical, or financial advice in a fabricated AI answer without legal review — that's the highest-risk version of this format. And never present the exchange as a real, unprompted ChatGPT output endorsing your product; it's a dramatization, same as the iMessage thread.
+
+### Apple Notes Reveal
+
+A different genre from the chat formats: **confession, not conversation.** The viewer watches someone type a private note — a list of realizations, a "things I wish I knew" entry — with the keyboard visible. The note's title is the hook and does the job slide 1 does in a carousel ("Things nobody told me about 45."). The product appears as one item in the list, named the way a person would actually write it to themselves — not the way a brand would.
+
+**Craft details:**
+- **Audio is keyboard taps only.** No chat SFX, no receive tones — a note has no other party. A quiet music bed still works underneath.
+- **Type at real thumb pace with jitter**, same as the iMessage composer rule. One typo-and-correction reads as human; several read as staged.
+- **Get the Notes chrome right:** title styled larger than body, the formatting bar above the keyboard, iOS-yellow accents. Same HTML-mimicry approach — and the same Apple trade-dress review note and generic-notes-app fallback — as everything else here.
+- **Fit the note to the frame.** Write short enough that the whole note fits without scrolling, or scroll once, deliberately, late.
+- **First person or it doesn't work.** The moment the note reads like ad copy ("[Brand] changed everything!"), the intimacy that makes the format convert is gone. The product mention should be the *least* enthusiastic line in the note.
+
+The grounding rule hits differently here: the confession is a dramatization of a *composite, true* customer story — pull the realizations from real reviews and interviews (the Grounded Inputs corpus), and keep any numbers or outcomes to documented ones.
+
+### AirDrop Reveal
+
+The one interaction-native format in the family: the hook is an **incoming AirDrop request**, and the **Accept tap is the reveal**. The viewer watches from the *receiver's* POV — a translucent AirDrop card slides up, "[Sender] would like to share [preview]," with a gray Decline and a blue Accept. The curiosity is structural ("what is this and who's sending it?") and the accept/decline choice is a built-in micro-conversion beat baked into iOS itself. Tapping Accept transfers the item — and *that's* where the product, the offer, or the result lands.
+
+**Craft details:**
+- **The preview thumbnail is the hook.** It's the one image on the AirDrop card before Accept, so it has to earn the tap — same job as the iMessage screenshot attachment. Make it the result, the product money-shot, or the offer.
+- **Cast the sender name like a real share.** "Sarah's iPhone," "Mom," "Jordan's MacBook" reads native; a brand name in the sender slot reads like an ad — save brand-as-sender for the reveal, not the incoming card.
+- **The transfer progress ring is the signature motion — don't skip it.** Incoming card → a beat of hesitation ("accept?") → the Accept tap → the circular progress fills → the item lands + end card. That progress-ring beat is what makes it read as a real AirDrop and not a cut.
+- **Audio is the AirDrop swoosh / received tone**, not the iMessage tritones. Same CC0-Apple-sounds sourcing and the same Apple trade-dress review note as the rest of the family, with a generic "nearby share" skin as the fallback.
+- **Keep it short and get the material right.** The card's blur/translucency and the gray Decline / blue Accept button pair are the recognizable cues; a flat opaque sheet breaks the illusion. The whole beat is faster than the chat formats — the interaction *is* the ad.
+- **Receiver POV by default; sender POV as the flex.** Receiving reads as discovery ("someone sent me this"); sending reads as a recommendation you're making ("had to AirDrop this to the group") — use sender POV when the angle is advocacy rather than discovery.
+
+Grounding is the same family rule: it's a dramatization of a share, not a claim that a real person actually AirDropped your product. Every claim on the transferred item is substantiated per the Grounded Inputs rules, and the exchange is never presented as a real, unprompted endorsement.
