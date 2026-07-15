@@ -20,7 +20,7 @@
 - Basic Detailing: from $150
 - Revitalise Package: from $300
 - Ceramic Coating: from $750
-- Paint Protection Film: from $2,900
+- Paint Protection Film: from $3,000
 - Membership (recurring direct debit, excl. GST):
   - Essential: $99/mo — monthly wash + seal, priority booking
   - Signature: $149/mo — bi-monthly detail, ceramic maintenance, exclusive add-on pricing (most popular, members save up to 35% annually)
