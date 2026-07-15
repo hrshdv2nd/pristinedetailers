@@ -31,7 +31,7 @@ export function Services() {
       id: 'ceramic-coating',
       title: 'Ceramic coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
-      price: '$750',
+      price: '$999',
       label: 'Best for deep long lasting protection',
       body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant — our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
     },
