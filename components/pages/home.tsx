@@ -222,10 +222,9 @@ function MarqueeStrip() {
 function ServicesPreview() {
   const services = [
     { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$99', image: '/images/20250525_093249.jpg' },
-    { tag: '02', title: 'Basic Detailing', blurb: 'Basic detailing add ons include steam cleaning and waxing.', from: '$150', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
-    { tag: '03', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
-    { tag: '04', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
-    { tag: '05', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
+    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
+    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
   ];
 
   return (
@@ -243,7 +242,7 @@ function ServicesPreview() {
           </a>
         </div>
 
-        <div className="pd-four-col" style={{ gap: 20, gridTemplateColumns: 'repeat(5, 1fr)' }}>
+        <div className="pd-four-col" style={{ gap: 20, gridTemplateColumns: 'repeat(4, 1fr)' }}>
           {services.map(s => (
             <a
               key={s.tag}

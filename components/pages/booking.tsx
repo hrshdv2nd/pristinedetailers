@@ -8,7 +8,6 @@ import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
 const SERVICES = [
-  { id: 'essential-detail', name: 'Essential Detail', price: 150, duration: '3 hrs' },
   { id: 'revitalise-detail', name: 'Revitalise Detail', price: 300, duration: '5 hrs', popular: true },
   { id: 'ceramic-3yr', name: 'Ceramic Coating', price: 999, duration: '2 days' },
   { id: 'ppf-full-front', name: 'PPF · Full Front', price: 2999, duration: '3 days' },
@@ -25,7 +24,6 @@ const ADD_ON_LIST = [
 
 // Hardcoded Setmore keys (from /api/setmore/debug)
 const SETMORE_MAP: Record<string, { serviceKey: string; staffKey: string; durationMins: number }> = {
-  'essential-detail':  { serviceKey: '8c9fa98d-71fc-4e4e-bc6a-d3863de5930c', staffKey: 'MW48ha1ejJNvrXxujYvGgyoMEaSVmRm4', durationMins: 120 },
   'revitalise-detail': { serviceKey: '92b15811-c629-49a5-bfa8-e7007f68721d', staffKey: 'MW48ha1ejJNvrXxujYvGgyoMEaSVmRm4', durationMins: 195 },
   'ceramic-3yr':       { serviceKey: '277d5f6c-85fa-40eb-9676-e08b831fef46', staffKey: 'cce7ef23-2272-4e62-8fb6-a5e8a369babf', durationMins: 480 },
   'ppf-full-front':    { serviceKey: '', staffKey: '', durationMins: 480 },

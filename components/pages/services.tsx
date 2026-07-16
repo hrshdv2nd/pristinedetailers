@@ -15,17 +15,8 @@ const CheckIcon = () => (
 );
 
 export function Services() {
-  const [selected, setSelected] = useState('vehicle-detailing');
+  const [selected, setSelected] = useState('revitalise-package');
   const services = [
-    {
-      id: 'vehicle-detailing',
-      title: 'Basic Detailing',
-      description: 'Interior, exterior, polish, and protection for every finish.',
-      price: '$150',
-      label: 'Best for a quick inside and out clean',
-      body: 'Our team handles the full job from wash and clay bar through finishing touches. If you want add-ons such as engine bay detail or headlight restoration, we\'ll plan them in.',
-      benefits: ['Full interior vacuum & wipe-down', 'Exterior hand wash & dry', 'Tyre shine & window clean', 'Add-ons available on request'],
-    },
     {
       id: 'revitalise-package',
       title: 'Revitalise Package',
