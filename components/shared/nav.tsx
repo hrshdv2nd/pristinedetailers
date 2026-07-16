@@ -10,7 +10,7 @@ const ABOUT_ITEMS = [
   {
     id: 'reviews',
     label: 'Reviews',
-    desc: '4.9 stars across 240 verified customer reviews in greater Melbourne.',
+    desc: '4.9 stars from verified customers in greater Melbourne.',
     href: '/about/reviews',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -183,7 +183,7 @@ function AboutPanel({
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[
               { value: '2,400+', label: 'Cars Detailed' },
-              { value: '4.9 ★', label: '240 Reviews' },
+              { value: '4.9 ★', label: 'Reviews' },
               { value: '6 yrs', label: 'In Melbourne' },
               { value: '60+', label: 'Suburbs Covered' },
             ].map((s) => (

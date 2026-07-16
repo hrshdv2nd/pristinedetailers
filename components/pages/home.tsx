@@ -65,7 +65,7 @@ function HeroSection() {
                 border: '1px solid #E1DFD8',
               }}
             >
-              ★ 4.9 / 30 reviews
+              ★ 4.9
             </span>
           </div>
           <h1
@@ -818,7 +818,7 @@ function TestimonialsSection() {
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <Eyebrow>06 · Reviews</Eyebrow>
           <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
-            <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> across 39 reviews.
+            <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> from happy customers.
           </h2>
         </div>
         <div className="pd-three-col" style={{ gap: 20 }}>

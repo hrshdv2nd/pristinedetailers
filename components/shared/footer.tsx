@@ -51,7 +51,7 @@ export function Footer() {
                 color: '#fff',
               }}
             >
-              ★ 4.9 · 240 reviews
+              ★ 4.9
             </div>
           </div>
 

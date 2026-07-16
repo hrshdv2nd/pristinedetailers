@@ -67,7 +67,7 @@ export function Gallery() {
           <div className="pd-four-col" style={{ gap: 0, textAlign: 'center' }}>
             {[
               { value: '2,400+', label: 'Cars detailed' },
-              { value: '4.9★', label: '240 reviews' },
+              { value: '4.9★', label: 'Reviews' },
               { value: '8yr', label: 'Max warranty' },
               { value: '6 yrs', label: 'In Melbourne' },
             ].map((s, i) => (
