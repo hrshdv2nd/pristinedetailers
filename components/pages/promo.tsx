@@ -77,7 +77,39 @@ export function Promo() {
         </div>
       </section>
 
-      {/* PHOTO_ROW_SECTION */}
+      {/* Photo row */}
+      <section className="pd-sect-sm" style={{ paddingTop: 0 }}>
+        <div className="pd-container">
+          <div className="pd-three-col">
+            {[
+              { label: 'Tint edge trim', file: '/images/promo-tint-trim.jpg' },
+              { label: 'Machine paint polish', file: '/images/promo-machine-polish.jpg' },
+              { label: 'Tint film install', file: '/images/promo-tint-install.jpg' },
+            ].map((photo) => (
+              <div
+                key={photo.label}
+                style={{
+                  aspectRatio: '4 / 5',
+                  borderRadius: 16,
+                  border: '1px dashed #C8C4BB',
+                  background: '#EBEAE5',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  padding: 24,
+                }}
+              >
+                <div style={{ fontSize: 13, fontWeight: 500, color: '#3A3A38' }}>{photo.label}</div>
+                <div style={{ fontSize: 11, color: '#7A7A76', marginTop: 6, fontFamily: "'JetBrains Mono', monospace" }}>
+                  Replace with {photo.file}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* INCLUDED_SECTION */}
 
