@@ -220,8 +220,18 @@ function MarqueeStrip() {
 
 // ============ SERVICES PREVIEW ============
 function ServicesPreview() {
-  const services = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly exterior wash, interior clean.', from: '$99', image: '/images/20250525_093249.jpg' },
+  const services: {
+    tag: string;
+    title: string;
+    blurb: string;
+    from: string;
+    image: string;
+    flagship?: boolean;
+    badge?: string;
+    href?: string;
+    priceSuffix?: string;
+  }[] = [
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$99', priceSuffix: '/mo', badge: 'Membership', href: '/membership', image: '/images/20250525_093249.jpg' },
     { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
     { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
     { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
@@ -246,7 +256,7 @@ function ServicesPreview() {
           {services.map(s => (
             <a
               key={s.tag}
-              href="/services"
+              href={s.href || '/services'}
               style={{
                 padding: 24,
                 display: 'flex',
@@ -268,12 +278,12 @@ function ServicesPreview() {
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, letterSpacing: '0.1em', opacity: 0.5 }}>
                   {s.tag}
                 </span>
-                {s.flagship && (
+                {(s.badge || s.flagship) && (
                   <span
                     style={{
-                      background: '#C89B37',
-                      border: 'none',
-                      color: '#0A0A0A',
+                      background: s.flagship ? '#C89B37' : 'transparent',
+                      border: s.flagship ? 'none' : '1px solid #C89B37',
+                      color: s.flagship ? '#0A0A0A' : '#A07A21',
                       fontWeight: 700,
                       fontSize: '10px',
                       padding: '4px 10px',
@@ -282,7 +292,7 @@ function ServicesPreview() {
                       textTransform: 'uppercase',
                     }}
                   >
-                    Flagship
+                    {s.badge || 'Flagship'}
                   </span>
                 )}
               </div>
@@ -314,7 +324,7 @@ function ServicesPreview() {
                 >
                   <span style={{ fontSize: 13, opacity: 0.6 }}>From</span>
                   <span style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500 }}>
-                    {s.from}
+                    {s.from}{s.priceSuffix || ''}
                     <span style={{ fontSize: 13, fontWeight: 400, opacity: 0.6, marginLeft: 4 }}>+ GST</span>
                   </span>
                 </div>
