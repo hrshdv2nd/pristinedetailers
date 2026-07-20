@@ -174,7 +174,60 @@ export function Promo() {
         </div>
       </section>
 
-      {/* FORM_SECTION */}
+      {/* Lead form */}
+      <section className="pd-sect-sm" id="lead-form">
+        <div className="pd-container" style={{ maxWidth: 640 }}>
+          <div className="pd-card" style={{ padding: 40 }}>
+            <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 26, fontWeight: 600, marginBottom: 8 }}>
+              Claim Your Free Window Tinting
+            </h2>
+            <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 32, lineHeight: 1.5 }}>
+              Fill in your details and we&apos;ll be in touch to book your Ceramic Coating + free Window Tinting package.
+            </p>
+
+            {/*
+              GHL EMBED GOES HERE.
+              Replace everything between this comment and "END GHL EMBED
+              PLACEHOLDER" below with the GoHighLevel form embed snippet (an
+              <iframe> + <Script src=".../form_embed.js" /> pair), matching the
+              pattern already used on /contact in components/pages/contact.tsx.
+            */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {['Full name', 'Phone number', 'Email address', 'Vehicle make & model'].map((field) => (
+                <div key={field}>
+                  <label style={{ fontSize: 12, color: '#7A7A76', display: 'block', marginBottom: 6 }}>{field}</label>
+                  <input
+                    type="text"
+                    disabled
+                    placeholder={field}
+                    style={{
+                      width: '100%',
+                      padding: '12px 14px',
+                      borderRadius: 8,
+                      border: '1px solid #E1DFD8',
+                      background: '#F8F7F4',
+                      fontSize: 14,
+                      color: '#7A7A76',
+                    }}
+                  />
+                </div>
+              ))}
+              <button
+                type="button"
+                disabled
+                className="pd-btn pd-btn-primary"
+                style={{ marginTop: 8, opacity: 0.6, cursor: 'not-allowed' }}
+              >
+                Claim This Offer
+              </button>
+              <p style={{ fontSize: 12, color: '#7A7A76', textAlign: 'center', margin: 0 }}>
+                Form placeholder — GHL embed pending
+              </p>
+            </div>
+            {/* END GHL EMBED PLACEHOLDER */}
+          </div>
+        </div>
+      </section>
 
       {/* FINE_PRINT_SECTION */}
 
