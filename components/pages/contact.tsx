@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import Script from 'next/script';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
@@ -58,31 +58,6 @@ const CONTACT_DETAILS = [
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 export function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise(r => setTimeout(r, 800));
-    setSent(true);
-    setLoading(false);
-  }
-
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    padding: '12px 16px',
-    borderRadius: 10,
-    border: '1.5px solid #E1DFD8',
-    fontSize: 15,
-    background: '#fff',
-    outline: 'none',
-    boxSizing: 'border-box',
-    fontFamily: 'inherit',
-    color: '#0A0A0A',
-  };
-
   return (
     <div style={{ minHeight: '100vh', background: '#F4F4F2' }}>
       <Nav active="contact" />
@@ -226,127 +201,31 @@ export function Contact() {
             {/* Right — contact form */}
             <div>
               <div style={{ background: '#fff', border: '1px solid #E1DFD8', borderRadius: 24, padding: 40 }}>
-                {sent ? (
-                  <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                    <div style={{ width: 56, height: 56, borderRadius: '50%', background: '#F3E8CD', display: 'grid', placeItems: 'center', margin: '0 auto 20px' }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C89B37" strokeWidth="2.5">
-                        <path d="M5 12l5 5L20 7" />
-                      </svg>
-                    </div>
-                    <h3 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 26, fontWeight: 500, marginBottom: 10 }}>
-                      Message sent
-                    </h3>
-                    <p style={{ fontSize: 15, color: '#3A3A38', lineHeight: 1.6, maxWidth: 340, margin: '0 auto' }}>
-                      Thanks for reaching out. We&apos;ll get back to you within one business day.
-                    </p>
-                    <button
-                      onClick={() => { setSent(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }); }}
-                      style={{ marginTop: 28, padding: '10px 20px', borderRadius: 8, background: '#F4F4F2', border: '1px solid #E1DFD8', fontSize: 14, cursor: 'pointer', fontFamily: 'inherit' }}
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 26, fontWeight: 600, marginBottom: 8 }}>
-                      Send us a message
-                    </h2>
-                    <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 32, lineHeight: 1.5 }}>
-                      Fill in the form and we&apos;ll get back to you within one business day.
-                    </p>
+                <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 26, fontWeight: 600, marginBottom: 8 }}>
+                  Send us a message
+                </h2>
+                <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 32, lineHeight: 1.5 }}>
+                  Fill in the form and we&apos;ll get back to you within one business day.
+                </p>
 
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                      <div className="pd-two-col" style={{ gap: 14 }}>
-                        <div>
-                          <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 7, color: '#0A0A0A' }}>Full name *</label>
-                          <input
-                            type="text"
-                            placeholder="Your name"
-                            value={form.name}
-                            onChange={e => setForm({ ...form, name: e.target.value })}
-                            required
-                            style={inputStyle}
-                          />
-                        </div>
-                        <div>
-                          <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 7, color: '#0A0A0A' }}>Phone</label>
-                          <input
-                            type="tel"
-                            placeholder="04xx xxx xxx"
-                            value={form.phone}
-                            onChange={e => setForm({ ...form, phone: e.target.value })}
-                            style={inputStyle}
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 7, color: '#0A0A0A' }}>Email address *</label>
-                        <input
-                          type="email"
-                          placeholder="you@email.com"
-                          value={form.email}
-                          onChange={e => setForm({ ...form, email: e.target.value })}
-                          required
-                          style={inputStyle}
-                        />
-                      </div>
-
-                      <div>
-                        <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 7, color: '#0A0A0A' }}>Subject</label>
-                        <select
-                          value={form.subject}
-                          onChange={e => setForm({ ...form, subject: e.target.value })}
-                          style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}
-                        >
-                          <option value="">Select a topic…</option>
-                          <option>General enquiry</option>
-                          <option>Quote request</option>
-                          <option>Ceramic coating</option>
-                          <option>Paint Protection Film</option>
-                          <option>Membership</option>
-                          <option>Existing booking</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label style={{ display: 'block', fontSize: 13, fontWeight: 600, marginBottom: 7, color: '#0A0A0A' }}>Message *</label>
-                        <textarea
-                          placeholder="Tell us about your car, your location, and what you're looking for…"
-                          value={form.message}
-                          onChange={e => setForm({ ...form, message: e.target.value })}
-                          required
-                          rows={5}
-                          style={{ ...inputStyle, resize: 'vertical' }}
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={loading}
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: 8,
-                          padding: '14px 28px',
-                          borderRadius: 8,
-                          background: loading ? '#7A7A76' : '#0A0A0A',
-                          color: '#fff',
-                          fontSize: 15,
-                          fontWeight: 600,
-                          border: 'none',
-                          cursor: loading ? 'not-allowed' : 'pointer',
-                          fontFamily: 'inherit',
-                          transition: 'background 0.15s',
-                        }}
-                      >
-                        {loading ? 'Sending…' : (<>Send message <Arrow /></>)}
-                      </button>
-                    </form>
-                  </>
-                )}
+                <iframe
+                  src="https://link.upscalerhq.com/widget/form/vy4mvXGjBuyJHO6vMzgm"
+                  style={{ width: '100%', height: 961, border: 'none', borderRadius: 8 }}
+                  id="inline-vy4mvXGjBuyJHO6vMzgm"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Contact Form"
+                  data-height="961"
+                  data-layout-iframe-id="inline-vy4mvXGjBuyJHO6vMzgm"
+                  data-form-id="vy4mvXGjBuyJHO6vMzgm"
+                  title="Contact Form"
+                />
+                <Script src="https://link.upscalerhq.com/js/form_embed.js" strategy="lazyOnload" />
               </div>
             </div>
           </div>
