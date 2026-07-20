@@ -1,7 +1,7 @@
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow } from '@/components/shared/atoms';
-import { currentOffer } from '@/lib/offers';
+import { currentOffer, formatExpiryDate } from '@/lib/offers';
 
 function PromoCheckIcon() {
   return (
@@ -229,7 +229,15 @@ export function Promo() {
         </div>
       </section>
 
-      {/* FINE_PRINT_SECTION */}
+      {/* Fine print */}
+      <section style={{ padding: '0 0 60px' }}>
+        <div className="pd-container">
+          <p style={{ fontSize: 12, color: '#7A7A76', textAlign: 'center', margin: 0 }}>
+            Offer valid till {formatExpiryDate(currentOffer)}. Applies to Ceramic Coating packages only.
+            Cannot be combined with other offers.
+          </p>
+        </div>
+      </section>
 
       <Footer />
     </div>
