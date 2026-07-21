@@ -79,9 +79,9 @@ export function Contact() {
               maxWidth: 800,
             }}
           >
-            We&apos;re a{' '}
+            Get in{' '}
             <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              call away.
+              touch.
             </span>
           </h1>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>

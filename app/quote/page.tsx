@@ -1,4 +1,4 @@
-import { Contact } from '@/components/pages/contact';
+import { Quote } from '@/components/pages/quote';
 
 export const metadata = {
   title: 'Get a Free Quote — Pristine Detailers',
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <Contact />;
+  return <Quote />;
 }
