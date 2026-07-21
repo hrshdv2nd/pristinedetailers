@@ -239,7 +239,7 @@ function AboutPanel({
 
           <div style={{ marginTop: 24 }}>
             <a
-              href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
+              href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -532,7 +532,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             Get a Free Quote
           </a>
           <a
-            href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
+            href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

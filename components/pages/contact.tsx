@@ -6,7 +6,7 @@ import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow } from '@/components/shared/atoms';
 
-const BOOKING_URL = 'https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D';
+const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
 const CONTACT_DETAILS = [
   {

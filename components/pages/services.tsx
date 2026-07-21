@@ -13,7 +13,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const BOOKING_URL = 'https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D';
+const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
 const DIFFERENTIATORS = [
   { title: 'Mobile, wherever you are', desc: 'We travel across greater Melbourne — home, office, or car park.' },
