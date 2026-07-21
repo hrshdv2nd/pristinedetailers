@@ -43,8 +43,6 @@ export function AboutCareers() {
               We're looking for the right people, not just anyone. Submit a resume today!
             </div>
             <p style={{ color: '#3A3A38', fontSize: 15, lineHeight: 1.6 }}>
-              We don&#8217;t have any roles open right now. If you think you&#8217;d be a great fit,
-              feel free to reach out via our <a href="/contact" style={{ color: '#A07A21', fontWeight: 500 }}>contact page</a> and we&#8217;ll keep you in mind.
             </p>
           </div>
         </div>
