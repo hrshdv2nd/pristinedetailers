@@ -308,13 +308,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             height={34}
             style={{ objectFit: 'contain' }}
           />
-          <span>
-            Pristine
-            <span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>
-              ·
-            </span>
-            Detailers
-          </span>
+          <span>Pristine Detailers</span>
         </a>
 
         {/* Hamburger button */}

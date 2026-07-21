@@ -33,9 +33,7 @@ export function Footer() {
               }}
             >
               <Image src="/logo-flag.png" alt="Logo" width={34} height={34} />
-              <span>
-                Pristine<span style={{ fontStyle: 'italic', fontWeight: 400, opacity: 0.55 }}>·</span>Detailers
-              </span>
+              <span>Pristine Detailers</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', maxWidth: '340px', lineHeight: 1.6, marginBottom: '28px' }}>
               Melbourne's premium mobile detailing service. Ceramic coating, paint protection film, and membership care.
