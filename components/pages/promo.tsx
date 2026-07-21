@@ -254,19 +254,18 @@ export function Promo() {
               src="https://link.upscalerhq.com/widget/form/jmztcdFF0hA4f8P6O6uB"
               style={{ width: '100%', height: 780, border: 'none', borderRadius: 8 }}
               id="popup-jmztcdFF0hA4f8P6O6uB"
-              data-layout="{'id':'POPUP'}"
+              data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
               data-trigger-value=""
               data-activation-type="alwaysActivated"
               data-activation-value=""
-              data-deactivation-type="neverDeactivate"
+              data-deactivation-type="leadCollected"
               data-deactivation-value=""
               data-form-name="Auto Detailer Form"
               data-height="780"
               data-layout-iframe-id="popup-jmztcdFF0hA4f8P6O6uB"
               data-form-id="jmztcdFF0hA4f8P6O6uB"
               title="Auto Detailer Form"
-              data-modal-height="500"
             />
             <Script src="https://link.upscalerhq.com/js/form_embed.js" strategy="lazyOnload" />
           </div>
