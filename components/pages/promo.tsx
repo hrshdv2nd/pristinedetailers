@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow } from '@/components/shared/atoms';
@@ -90,29 +91,21 @@ export function Promo() {
         <div className="pd-container">
           <div className="pd-three-col">
             {[
-              { label: 'Tint edge trim', file: '/images/promo-tint-trim.jpg' },
-              { label: 'Machine paint polish', file: '/images/promo-machine-polish.jpg' },
-              { label: 'Tint film install', file: '/images/promo-tint-install.jpg' },
+              { label: 'Tint edge trim', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg' },
+              { label: 'Snow foam pre-wash', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
+              { label: 'Tint film install', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
             ].map((photo) => (
               <div
                 key={photo.label}
                 style={{
+                  position: 'relative',
                   aspectRatio: '4 / 5',
                   borderRadius: 16,
-                  border: '1px dashed #C8C4BB',
+                  overflow: 'hidden',
                   background: '#EBEAE5',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  padding: 24,
                 }}
               >
-                <div style={{ fontSize: 13, fontWeight: 500, color: '#3A3A38' }}>{photo.label}</div>
-                <div style={{ fontSize: 11, color: '#7A7A76', marginTop: 6, fontFamily: "'JetBrains Mono', monospace" }}>
-                  Replace with {photo.file}
-                </div>
+                <Image src={photo.src} alt={photo.label} fill style={{ objectFit: 'cover' }} />
               </div>
             ))}
           </div>
