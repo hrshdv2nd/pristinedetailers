@@ -88,7 +88,7 @@ function HeroSection() {
             self.
           </h1>
           <p style={{ fontSize: 19, color: '#3A3A38', marginTop: 32, maxWidth: 520, lineHeight: 1.55 }}>
-            Obsessive-grade detailing - from monthly maintenance details to elite paint protection services.
+            Precision grade detailing and paint protection helping 5,000+ car owners protect their investment.
           </p>
           <div className="pd-hero-actions" style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a

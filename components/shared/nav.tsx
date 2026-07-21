@@ -503,7 +503,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
           style={{ marginLeft: 'auto' }}
         >
           <a
-            href="/login"
+            href="/quote"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -516,18 +516,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
               color: '#0A0A0A',
             }}
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
-            </svg>
-            My Portal
+            Get a Free Quote
           </a>
           <a
             href="https://pristinedetailers.setmore.com/?rwg_token=AFd1xnHc01bPFSDGd3K3nYddUlaV-cztDbrRQWVpRQrryHy2QabfUzu8eldvWeBOKmsA3V_ye-mvGjVtw1bchHEbX1qVQpXyJQ%3D%3D" target="_blank" rel="noopener noreferrer"
