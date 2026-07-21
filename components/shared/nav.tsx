@@ -510,10 +510,10 @@ export function Nav({ active = 'home' }: { active?: string }) {
               gap: '6px',
               padding: '8px 16px',
               borderRadius: '6px',
-              background: '#EBEAE5',
+              background: '#9B2226',
               fontSize: '14px',
               fontWeight: '500',
-              color: '#0A0A0A',
+              color: '#fff',
             }}
           >
             Get a Free Quote

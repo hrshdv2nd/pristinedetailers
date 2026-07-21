@@ -38,6 +38,9 @@ export function Quote() {
       <section className="pd-sect" style={{ paddingTop: 0 }}>
         <div className="pd-container" style={{ maxWidth: 760 }}>
           <div className="pd-card" style={{ padding: 40 }}>
+            <h2 style={{ fontFamily: 'var(--f-display)', fontSize: 26, fontWeight: 600, marginBottom: 24 }}>
+              Submit our Form for a Free Quote
+            </h2>
             <iframe
               src="https://link.upscalerhq.com/widget/form/jmztcdFF0hA4f8P6O6uB"
               style={{ width: '100%', height: 846, border: 'none', borderRadius: 8 }}
