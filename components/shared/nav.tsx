@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Arrow } from './atoms';
+import { OfferBar } from './offer-bar';
 
 // ── About subsection data ──────────────────────────────────────────────────
 
@@ -283,7 +284,9 @@ export function Nav({ active = 'home' }: { active?: string }) {
   };
 
   return (
-    <nav className="pd-nav">
+    <>
+      <OfferBar />
+      <nav className="pd-nav">
       <div className="pd-nav-inner" style={{ flexWrap: 'wrap' }}>
         {/* Logo */}
         <a
@@ -552,5 +555,6 @@ export function Nav({ active = 'home' }: { active?: string }) {
         </div>
       </div>
     </nav>
+    </>
   );
 }
