@@ -245,7 +245,7 @@ function ServicesPreview() {
           <div>
             <Eyebrow>Services</Eyebrow>
             <h2 className="pd-h-md" style={{ marginTop: 16, maxWidth: 780, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
-              Three pillars of <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>obsession.</span>
+              Four pillars of <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>obsession.</span>
             </h2>
           </div>
           <a href="/services" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0A0A0A', fontSize: '14px', fontWeight: '500' }}>
