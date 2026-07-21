@@ -1,4 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow } from '@/components/shared/atoms';
@@ -13,6 +17,8 @@ function PromoCheckIcon() {
 }
 
 export function Promo() {
+  const [quoteOpen, setQuoteOpen] = useState(false);
+
   return (
     <div className="pd-page">
       <Nav active="promo" />
@@ -76,13 +82,14 @@ export function Promo() {
             <div style={{ fontSize: 14, color: '#7A7A76', marginTop: 4 }}>{currentOffer.priceNote}</div>
           </div>
 
-          <a
-            href="#lead-form"
+          <button
+            type="button"
+            onClick={() => setQuoteOpen(true)}
             className="pd-btn pd-btn-primary"
-            style={{ marginTop: 32, textDecoration: 'none' }}
+            style={{ marginTop: 32 }}
           >
             Claim This Offer <Arrow />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -167,60 +174,104 @@ export function Promo() {
         </div>
       </section>
 
-      {/* Lead form */}
-      <section className="pd-sect-sm" id="lead-form">
+      {/* Claim offer CTA */}
+      <section className="pd-sect-sm">
         <div className="pd-container" style={{ maxWidth: 640 }}>
-          <div className="pd-card" style={{ padding: 40 }}>
+          <div className="pd-card" style={{ padding: 40, textAlign: 'center' }}>
             <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 26, fontWeight: 600, marginBottom: 8 }}>
               Claim Your Free Window Tinting
             </h2>
-            <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 32, lineHeight: 1.5 }}>
+            <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 24, lineHeight: 1.5 }}>
               Fill in your details and we&apos;ll be in touch to book your Ceramic Coating + free Window Tinting package.
             </p>
-
-            {/*
-              GHL EMBED GOES HERE.
-              Replace everything between this comment and "END GHL EMBED
-              PLACEHOLDER" below with the GoHighLevel form embed snippet (an
-              <iframe> + <Script src=".../form_embed.js" /> pair), matching the
-              pattern already used on /contact in components/pages/contact.tsx.
-            */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {['Full name', 'Phone number', 'Email address', 'Vehicle make & model'].map((field) => (
-                <div key={field}>
-                  <label style={{ fontSize: 12, color: '#7A7A76', display: 'block', marginBottom: 6 }}>{field}</label>
-                  <input
-                    type="text"
-                    disabled
-                    placeholder={field}
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      borderRadius: 8,
-                      border: '1px solid #E1DFD8',
-                      background: '#F8F7F4',
-                      fontSize: 14,
-                      color: '#7A7A76',
-                    }}
-                  />
-                </div>
-              ))}
-              <button
-                type="button"
-                disabled
-                className="pd-btn pd-btn-primary"
-                style={{ marginTop: 8, opacity: 0.6, cursor: 'not-allowed' }}
-              >
-                Claim This Offer
-              </button>
-              <p style={{ fontSize: 12, color: '#7A7A76', textAlign: 'center', margin: 0 }}>
-                Form placeholder — GHL embed pending
-              </p>
-            </div>
-            {/* END GHL EMBED PLACEHOLDER */}
+            <button
+              type="button"
+              onClick={() => setQuoteOpen(true)}
+              className="pd-btn pd-btn-primary"
+            >
+              Claim This Offer <Arrow />
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Popup form */}
+      {quoteOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setQuoteOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(10,10,10,0.6)',
+            zIndex: 100,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20,
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: '#fff',
+              borderRadius: 20,
+              maxWidth: 560,
+              width: '100%',
+              maxHeight: '90vh',
+              overflow: 'auto',
+              position: 'relative',
+              padding: 32,
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setQuoteOpen(false)}
+              aria-label="Close"
+              style={{
+                position: 'absolute',
+                top: 16,
+                right: 16,
+                background: '#F4F4F2',
+                border: 'none',
+                borderRadius: '50%',
+                width: 32,
+                height: 32,
+                display: 'grid',
+                placeItems: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 24, fontWeight: 600, marginBottom: 20 }}>
+              Claim Your Free Window Tinting
+            </h2>
+            <iframe
+              src="https://link.upscalerhq.com/widget/form/jmztcdFF0hA4f8P6O6uB"
+              style={{ width: '100%', height: 780, border: 'none', borderRadius: 8 }}
+              id="popup-jmztcdFF0hA4f8P6O6uB"
+              data-layout="{'id':'POPUP'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Auto Detailer Form"
+              data-height="780"
+              data-layout-iframe-id="popup-jmztcdFF0hA4f8P6O6uB"
+              data-form-id="jmztcdFF0hA4f8P6O6uB"
+              title="Auto Detailer Form"
+              data-modal-height="500"
+            />
+            <Script src="https://link.upscalerhq.com/js/form_embed.js" strategy="lazyOnload" />
+          </div>
+        </div>
+      )}
 
       {/* Fine print */}
       <section style={{ padding: '0 0 60px' }}>
