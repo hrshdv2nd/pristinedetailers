@@ -34,12 +34,12 @@ const nextConfig = {
     // base-tag-injection protection regardless.
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.leadconnectorhq.com https://*.upscalerhq.com https://va.vercel-scripts.com",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.leadconnectorhq.com https://*.upscalerhq.com https://reputationhub.site https://va.vercel-scripts.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
-      "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://*.leadconnectorhq.com https://*.upscalerhq.com https://*.vercel-insights.com https://maps.googleapis.com",
-      "frame-src 'self' https://www.googletagmanager.com https://*.leadconnectorhq.com https://*.upscalerhq.com",
+      "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://*.leadconnectorhq.com https://*.upscalerhq.com https://reputationhub.site https://*.vercel-insights.com https://maps.googleapis.com",
+      "frame-src 'self' https://www.googletagmanager.com https://*.leadconnectorhq.com https://*.upscalerhq.com https://reputationhub.site",
       "worker-src 'self' blob:",
       "object-src 'none'",
       "base-uri 'self'",
