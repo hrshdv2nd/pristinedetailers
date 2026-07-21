@@ -175,7 +175,7 @@ function HeroComposition() {
           </svg>
         </div>
         <div>
-          <div style={{ fontSize: 12, color: '#7A7A76', fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          <div style={{ fontSize: 12, color: '#7A7A76', fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             Servicing
           </div>
           <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500, letterSpacing: '-0.02em' }}>
@@ -276,7 +276,7 @@ function ServicesPreview() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = 'translateY(0)')}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, letterSpacing: '0.1em', opacity: 0.5 }}>
+                <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 12, letterSpacing: '0.1em', opacity: 0.5 }}>
                   {s.tag}
                 </span>
                 {(s.badge || s.flagship) && (
@@ -402,7 +402,7 @@ function FlagshipSection() {
                       Most loved
                     </span>
                   )}
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, opacity: 0.55, letterSpacing: '0.1em' }}>
+                  <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, opacity: 0.55, letterSpacing: '0.1em' }}>
                     {p.tier}
                   </div>
                   <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 500, marginTop: 6, letterSpacing: '-0.02em' }}>
@@ -473,7 +473,7 @@ function FlagshipSection() {
             >
               <div
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: "'Inter Tight', sans-serif",
                   fontSize: 11,
                   color: '#7A7A76',
                   letterSpacing: '0.1em',
@@ -553,7 +553,7 @@ function MelbourneSection() {
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
                   60+
                 </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Suburbs
                 </div>
               </div>
@@ -561,7 +561,7 @@ function MelbourneSection() {
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
                   2
                 </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Mobile units
                 </div>
               </div>
@@ -569,7 +569,7 @@ function MelbourneSection() {
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
                   Instant
                 </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Typical lead time
                 </div>
               </div>
@@ -727,7 +727,7 @@ function PPFSection() {
               >
                 <div
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Inter Tight', sans-serif",
                     fontSize: 11,
                     color: '#7A7A76',
                     textTransform: 'uppercase',

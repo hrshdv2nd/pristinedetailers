@@ -37,7 +37,7 @@ export function Placeholder({
     >
       <span
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "'Inter Tight', sans-serif",
           fontSize: '11px',
           letterSpacing: '0.1em',
           textTransform: 'uppercase',

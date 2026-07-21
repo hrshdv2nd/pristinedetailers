@@ -116,7 +116,7 @@ export function Contact() {
                         {d.icon}
                       </div>
                       <div>
-                        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
+                        <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
                           {d.label}
                         </div>
                         <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 18, fontWeight: 500, color: '#0A0A0A', letterSpacing: '-0.01em' }}>
@@ -141,7 +141,7 @@ export function Contact() {
 
               {/* Hours table */}
               <div style={{ background: '#0A0A0A', borderRadius: 20, padding: 28, color: '#fff' }}>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 20 }}>
+                <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 20 }}>
                   Opening Hours
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -157,7 +157,7 @@ export function Contact() {
                       }}
                     >
                       <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)', fontWeight: 400 }}>{day}</span>
-                      <span style={{ fontSize: 13, fontFamily: "'JetBrains Mono', monospace", color: '#C89B37' }}>9:00am – 5:00pm</span>
+                      <span style={{ fontSize: 13, fontFamily: "'Inter Tight', sans-serif", color: '#C89B37' }}>9:00am – 5:00pm</span>
                     </div>
                   ))}
                 </div>

@@ -73,7 +73,7 @@ export function Gallery() {
             ].map((s, i) => (
               <div key={s.label} style={{ padding: '8px 0', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 28, fontWeight: 500, color: '#C89B37', letterSpacing: '-0.02em' }}>{s.value}</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 4 }}>{s.label}</div>
+                <div style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 10, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: 4 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -140,7 +140,7 @@ export function Gallery() {
                     padding: 20,
                   }}
                 >
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: '#C89B37', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
+                  <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 10, color: '#C89B37', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
                     {item.category}
                   </span>
                   <span style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 15, fontWeight: 500, color: '#fff', lineHeight: 1.3 }}>

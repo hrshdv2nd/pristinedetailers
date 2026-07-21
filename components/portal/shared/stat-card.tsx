@@ -24,7 +24,7 @@ export default function StatCard({ label, value, subtext, trend, color = 'defaul
       borderRadius: 16,
       padding: '24px 24px 20px',
     }}>
-      <div style={{ fontSize: 12, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em', color: color === 'default' ? '#7A7A76' : 'rgba(255,255,255,0.6)', marginBottom: 10 }}>
+      <div style={{ fontSize: 12, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em', color: color === 'default' ? '#7A7A76' : 'rgba(255,255,255,0.6)', marginBottom: 10 }}>
         {label}
       </div>
       <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 36, fontWeight: 600, color: fg, letterSpacing: '-0.03em', lineHeight: 1 }}>

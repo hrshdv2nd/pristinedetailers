@@ -31,7 +31,7 @@ const config: Config = {
       fontFamily: {
         display: ['Bricolage Grotesque', 'sans-serif'],
         sans: ['Inter Tight', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        mono: ['Inter Tight', 'sans-serif'],
       },
       borderRadius: {
         'pd-sm': '6px',

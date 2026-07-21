@@ -14,7 +14,7 @@ export function Eyebrow({ children, style = {} }: { children: React.ReactNode; s
     <div
       className="pd-eyebrow"
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "'Inter Tight', sans-serif",
         fontSize: '12px',
         fontWeight: '500',
         letterSpacing: '0.1em',

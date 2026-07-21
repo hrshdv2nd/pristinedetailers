@@ -74,12 +74,12 @@ export function AboutReviews() {
                     { stars: 1, pct: 0 },
                   ].map(r => (
                     <div key={r.stars} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76', width: 12, textAlign: 'right' }}>{r.stars}</span>
+                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76', width: 12, textAlign: 'right' }}>{r.stars}</span>
                       <span style={{ color: '#C89B37', fontSize: 11 }}>★</span>
                       <div style={{ flex: 1, height: 6, background: '#EBEAE5', borderRadius: 999, overflow: 'hidden' }}>
                         <div style={{ height: '100%', width: `${r.pct}%`, background: r.pct > 10 ? '#C89B37' : '#E1DFD8', borderRadius: 999 }} />
                       </div>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76', width: 28 }}>{r.pct}%</span>
+                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76', width: 28 }}>{r.pct}%</span>
                     </div>
                   ))}
                 </div>

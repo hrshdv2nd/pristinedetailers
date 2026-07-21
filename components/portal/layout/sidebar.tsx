@@ -55,7 +55,7 @@ export default function Sidebar({ role, userName }: { role: Role; userName: stri
           <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 17, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em' }}>
             Pristine<span style={{ color: '#C89B37' }}>·</span>Detailers
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 3, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 3, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             {role === 'admin' ? 'Admin Portal' : role === 'detailer' ? 'Detailer Portal' : 'My Portal'}
           </div>
         </Link>

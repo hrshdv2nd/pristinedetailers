@@ -65,7 +65,7 @@ export function Journal({ articles }: { articles: Article[] }) {
                   <path d="M 50,5 C 80,5 95,25 90,55 C 85,85 60,95 35,90 C 10,85 5,60 10,35 C 15,15 25,5 50,5 Z" fill="#C89B37" />
                 </svg>
                 <div style={{ position: 'relative' }}>
-                  <span style={{ display: 'inline-block', padding: '4px 10px', borderRadius: 999, background: '#C89B37', color: '#0A0A0A', fontSize: 11, fontWeight: 600, fontFamily: "'JetBrains Mono', monospace", textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16 }}>
+                  <span style={{ display: 'inline-block', padding: '4px 10px', borderRadius: 999, background: '#C89B37', color: '#0A0A0A', fontSize: 11, fontWeight: 600, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 16 }}>
                     Latest
                   </span>
                   <h3 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500, lineHeight: 1.25, marginBottom: 12 }}>
@@ -75,7 +75,7 @@ export function Journal({ articles }: { articles: Article[] }) {
                     {featured.excerpt}
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>{featured.read_time}</span>
+                    <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>{featured.read_time}</span>
                     <a href={`/blog/${featured.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#C89B37', fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
                       Read <Arrow />
                     </a>
@@ -116,10 +116,10 @@ export function Journal({ articles }: { articles: Article[] }) {
 
                   <div style={{ padding: 28, display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                      <span style={{ padding: '4px 10px', borderRadius: 999, background: CATEGORY_COLORS[article.category] ?? '#EBEAE5', color: '#3A3A38', fontSize: 11, fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
+                      <span style={{ padding: '4px 10px', borderRadius: 999, background: CATEGORY_COLORS[article.category] ?? '#EBEAE5', color: '#3A3A38', fontSize: 11, fontWeight: 500, fontFamily: "'Inter Tight', sans-serif" }}>
                         {article.category}
                       </span>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76' }}>
+                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76' }}>
                         {formatDate(article.published_at)}
                       </span>
                     </div>
@@ -133,7 +133,7 @@ export function Journal({ articles }: { articles: Article[] }) {
                     </p>
 
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 24, paddingTop: 20, borderTop: '1px solid #E1DFD8' }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76' }}>{article.read_time}</span>
+                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76' }}>{article.read_time}</span>
                       <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: '#0A0A0A', fontSize: 13, fontWeight: 500 }}>
                         Read <Arrow />
                       </span>

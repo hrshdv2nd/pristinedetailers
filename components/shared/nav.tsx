@@ -66,7 +66,7 @@ function AboutPanel({
       <div style={{ padding: '16px 10px' }}>
         <div
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "'Inter Tight', sans-serif",
             fontSize: 10,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
@@ -148,7 +148,7 @@ function AboutPanel({
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "'Inter Tight', sans-serif",
               fontSize: 10,
               color: 'rgba(255,255,255,0.45)',
               letterSpacing: '0.1em',
@@ -210,7 +210,7 @@ function AboutPanel({
                 </span>
                 <span
                   style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: "'Inter Tight', sans-serif",
                     fontSize: 10,
                     color: 'rgba(255,255,255,0.45)',
                     textTransform: 'uppercase',

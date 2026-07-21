@@ -124,13 +124,13 @@ export function JournalArticle({ post }: { post: Post }) {
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-            <span style={{ padding: '4px 12px', borderRadius: 999, background: categoryColor, color: '#3A3A38', fontSize: 11, fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
+            <span style={{ padding: '4px 12px', borderRadius: 999, background: categoryColor, color: '#3A3A38', fontSize: 11, fontWeight: 500, fontFamily: "'Inter Tight', sans-serif" }}>
               {post.category}
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76' }}>
+            <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76' }}>
               {post.read_time}
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#7A7A76' }}>
+            <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 11, color: '#7A7A76' }}>
               {formatDate(post.published_at)}
             </span>
           </div>
