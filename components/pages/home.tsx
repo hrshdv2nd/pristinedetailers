@@ -7,6 +7,7 @@ import { Footer } from '@/components/shared/footer';
 import { Placeholder } from '@/components/shared/placeholder';
 import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
+import { GHLReviewWidget } from '@/components/shared/ghl-review-widget';
 
 export function Home() {
   return (
@@ -800,27 +801,6 @@ function GallerySection() {
 
 // ============ TESTIMONIALS ============
 function TestimonialsSection() {
-  const reviews = [
-    {
-      name: 'Marcus T.',
-      car: '2024 Porsche 911 GT3',
-      quote: 'The finish on my GT3 is better than factory. Water rolls off in sheets. Worth every dollar.',
-      rating: 5,
-    },
-    {
-      name: 'Priya S.',
-      car: '2023 Range Rover Sport',
-      quote: 'Six months of school-run punishment and it still looks showroom. Membership has paid for itself.',
-      rating: 5,
-    },
-    {
-      name: 'Dan K.',
-      car: '2022 Tesla Model S Plaid',
-      quote: "They came to my garage in Toorak, set up a whole dust barrier. Most professional service I've had.",
-      rating: 5,
-    },
-  ];
-
   return (
     <section className="pd-sect-sm" style={{ background: '#EBEAE5' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
@@ -830,48 +810,7 @@ function TestimonialsSection() {
             <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> from happy customers.
           </h2>
         </div>
-        <div className="pd-three-col" style={{ gap: 20 }}>
-          {reviews.map(r => (
-            <div
-              key={r.name}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 20,
-                background: '#fff',
-                padding: 24,
-                borderRadius: 16,
-                border: '1px solid #E1DFD8',
-              }}
-            >
-              <div style={{ color: '#C89B37', fontSize: 16 }}>{'★'.repeat(r.rating)}</div>
-              <p style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, lineHeight: 1.35, letterSpacing: '-0.01em', fontWeight: 400 }}>
-                "{r.quote}"
-              </p>
-              <div style={{ marginTop: 'auto', display: 'flex', gap: 12, alignItems: 'center', paddingTop: 20, borderTop: '1px solid #E1DFD8' }}>
-                <div
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: '50%',
-                    background: '#F3E8CD',
-                    display: 'grid',
-                    placeItems: 'center',
-                    color: '#C89B37',
-                    fontWeight: 600,
-                    fontFamily: "'Bricolage Grotesque', sans-serif",
-                  }}
-                >
-                  {r.name[0]}
-                </div>
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: 14 }}>{r.name}</div>
-                  <div style={{ fontSize: 12, color: '#7A7A76' }}>{r.car}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GHLReviewWidget />
       </div>
     </section>
   );
