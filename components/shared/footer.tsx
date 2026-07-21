@@ -120,7 +120,7 @@ export function Footer() {
 
         <div className="pd-footer-bottom">
           <span>© 2026 Pristine Detailers · Melbourne, Australia · ABN 00 000 000 000</span>
-          <span style={{ fontFamily: "'Inter Tight', sans-serif" }}>0491 108 905 · hello@pristinedetailers.com.au</span>
+          <span style={{ fontFamily: "'Inter Tight', sans-serif" }}>0468 048 461 · hello@pristinedetailers.com.au</span>
         </div>
       </div>
     </footer>

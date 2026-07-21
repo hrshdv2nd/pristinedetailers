@@ -94,7 +94,7 @@ const SECTIONS = [
     body: [
       'If you have questions, concerns, or a complaint about how we handle your personal information, please contact us at:',
       'Email: info@pristinedetailers.com.au',
-      'Phone: 0491 108 905',
+      'Phone: 0468 048 461',
       'If we are unable to resolve your concern, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at www.oaic.gov.au.',
     ],
   },

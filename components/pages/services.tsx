@@ -35,7 +35,7 @@ export function Services() {
       id: 'revitalise-package',
       title: 'Revitalise Package',
       description: 'A full reset — deep clean, paint correction, and lasting protection in one visit.',
-      price: '$300',
+      price: '$385',
       label: 'Best for neglected or pre-sale vehicles',
       body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
       benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant — lasts up to 6 months'],

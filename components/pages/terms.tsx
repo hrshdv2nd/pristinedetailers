@@ -103,7 +103,7 @@ const SECTIONS = [
     body: [
       'If you have any questions about these terms, please contact us before booking.',
       'Email: info@pristinedetailers.com.au',
-      'Phone: 0491 108 905',
+      'Phone: 0468 048 461',
     ],
   },
 ];

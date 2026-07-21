@@ -243,7 +243,7 @@ function ServicesPreview() {
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 56 }}>
           <div>
-            <Eyebrow>01 · Services</Eyebrow>
+            <Eyebrow>Services</Eyebrow>
             <h2 className="pd-h-md" style={{ marginTop: 16, maxWidth: 780, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
               Three pillars of <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>obsession.</span>
             </h2>
@@ -528,7 +528,7 @@ function MelbourneSection() {
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div className="pd-two-col pd-two-col-1-2" style={{ gap: 80, alignItems: 'start' }}>
           <div className="pd-aside-sticky">
-            <Eyebrow>03 · Local</Eyebrow>
+            <Eyebrow>Local</Eyebrow>
             <h2
               className="pd-h-md"
               style={{
@@ -666,7 +666,7 @@ function PPFSection() {
             }}
           >
             <div>
-              <Eyebrow>04 · Protection</Eyebrow>
+              <Eyebrow>Protection</Eyebrow>
               <h2
                 className="pd-h-md"
                 style={{
@@ -766,7 +766,7 @@ function GallerySection() {
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 56 }}>
           <div>
-            <Eyebrow>05 · Portfolio</Eyebrow>
+            <Eyebrow>Portfolio</Eyebrow>
             <h2
               className="pd-h-md"
               style={{
@@ -805,7 +805,7 @@ function TestimonialsSection() {
     <section className="pd-sect-sm" style={{ background: '#EBEAE5' }}>
       <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <Eyebrow>06 · Reviews</Eyebrow>
+          <Eyebrow>Reviews</Eyebrow>
           <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
             <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> from happy customers.
           </h2>
@@ -830,7 +830,7 @@ function FAQSection() {
     <section className="pd-sect">
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <Eyebrow>07 · FAQ</Eyebrow>
+          <Eyebrow>FAQ</Eyebrow>
           <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
             Questions, answered.
           </h2>

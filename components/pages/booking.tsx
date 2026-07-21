@@ -8,7 +8,7 @@ import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
 const SERVICES = [
-  { id: 'revitalise-detail', name: 'Revitalise Detail', price: 300, duration: '5 hrs', popular: true },
+  { id: 'revitalise-detail', name: 'Revitalise Detail', price: 385, duration: '5 hrs', popular: true },
   { id: 'ceramic-3yr', name: 'Ceramic Coating', price: 999, duration: '2 days' },
   { id: 'ppf-full-front', name: 'PPF · Full Front', price: 2999, duration: '3 days' },
   { id: 'ppf-full-car', name: 'PPF · Full Car', price: 7549, duration: '7 days' },

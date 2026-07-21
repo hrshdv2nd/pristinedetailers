@@ -8,9 +8,9 @@ import { Arrow, Eyebrow } from '@/components/shared/atoms';
 const CONTACT_DETAILS = [
   {
     label: 'Phone',
-    value: '0491 108 905',
+    value: '0468 048 461',
     sub: 'Call or text anytime during business hours',
-    href: 'tel:0491108905',
+    href: 'tel:0468048461',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B37" strokeWidth="1.8">
         <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 0 0 .1 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
@@ -171,7 +171,7 @@ export function Contact() {
               {/* Quick actions */}
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a
-                  href="tel:0491108905"
+                  href="tel:0468048461"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 20px', borderRadius: 8, background: '#0A0A0A', color: '#fff', fontSize: 14, fontWeight: 500, textDecoration: 'none' }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
