@@ -15,7 +15,7 @@ There is no $99 one-off service anywhere on the site — not on `/services`, not
 
 Keep the card in its existing position/slot in the 4-card grid (least disruptive, no layout change) but change what it communicates and where it points:
 
-1. **Price display** — show `$99/mo + GST` instead of `$99 + GST`, so the recurring nature is explicit at a glance. Achieved by adding an optional `priceSuffix` field to the card data, appended after the price, before the "+ GST" label.
+1. **Price display** — show `$149/mo` instead of `$99 + GST`, so the recurring nature is explicit at a glance. Achieved by adding an optional `priceSuffix` field to the card data, appended after the price, before the "+ GST" label.
 2. **Badge** — add a small pill badge reading **"Membership"** in the same top-right badge slot the Ceramic card uses for "Flagship" (generalizing that slot from a `flagship`-only boolean to an optional `badge` string, so both badges render through the same code path). The membership card keeps the existing white-card styling (only the Ceramic card keeps the black "flagship" treatment) — only the badge changes.
 3. **Blurb copy** — change from "Monthly exterior wash, interior clean." to "Monthly wash-and-seal, included with Essential membership." — makes the membership relationship explicit in-line, before the visitor even clicks.
 4. **Link target** — this card's `<a>` points to `/membership` instead of `/services`. The other three cards keep linking to `/services`. Achieved by adding an optional per-card `href` field (falls back to `/services` if unset).
