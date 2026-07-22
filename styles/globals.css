@@ -60,6 +60,7 @@ a {
 
 button {
   font-family: inherit;
+  line-height: inherit;
   cursor: pointer;
   border: none;
   background: none;
