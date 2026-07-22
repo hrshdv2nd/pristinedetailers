@@ -25,9 +25,9 @@ export function AboutReferAMate() {
               maxWidth: 820,
             }}
           >
-            Share the shine.<br />
+            $50 referral voucher,<br />
             <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              Get rewarded.
+              across the board.
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, maxWidth: 580, lineHeight: 1.6 }}>
