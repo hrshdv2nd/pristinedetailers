@@ -89,7 +89,7 @@ export function MembershipTerms() {
       <section style={{ padding: '60px 0 100px' }}>
         <div className="pd-container" style={{ maxWidth: 780 }}>
           <Link
-            href="/services#membership"
+            href="/services"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#7A7A76', marginBottom: 36, textDecoration: 'none' }}
           >
             ← Back to membership
