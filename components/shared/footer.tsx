@@ -80,6 +80,7 @@ export function Footer() {
                 { label: 'Melbourne Service Area', href: '/' },
                 { label: 'Gallery', href: '/gallery' },
                 { label: 'Blog', href: '/blog' },
+                { label: 'Refer A Mate', href: '/about/refer-a-mate' },
                 { label: 'Contact', href: '/contact' },
                 { label: 'Privacy Policy', href: '/privacy-policy' },
                 { label: 'Terms & Conditions', href: '/terms' },

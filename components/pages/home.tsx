@@ -232,7 +232,7 @@ function ServicesPreview() {
     href?: string;
     priceSuffix?: string;
   }[] = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$99', priceSuffix: '/mo', badge: 'Membership', href: '/membership', image: '/images/20250525_093249.jpg' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$150', priceSuffix: '/mo', badge: 'Membership', href: '/membership', image: '/images/20250525_093249.jpg' },
     { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
     { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
     { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
@@ -823,7 +823,7 @@ function FAQSection() {
     { q: 'Do you come to my home or office?', a: 'Yes — our mobile team will bring the tools & we will need access to water and power. We require a covered or open  space roughly the size of two parking bays to complete a thorough service.' },
     { q: 'How long does a ceramic coating application take?', a: 'A full ceramic application (including paint correction) is typically 1 day worth of work.'},
     { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely — and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
-    { q: 'What does the membership include?', a: '$99/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },
+    { q: 'What does the membership include?', a: '$150/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },
   ];
 
   return (

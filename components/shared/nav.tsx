@@ -58,6 +58,21 @@ const ABOUT_ITEMS = [
       </svg>
     ),
   },
+  {
+    id: 'refer-a-mate',
+    label: 'Refer A Mate',
+    desc: "Refer a friend and you'll both be looked after.",
+    href: '/about/refer-a-mate',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M20 21v-2a4 4 0 00-3-3.87" />
+        <path d="M4 21v-2a4 4 0 013-3.87" />
+        <circle cx="12" cy="7" r="4" />
+        <path d="M22 21l-2-2" />
+        <path d="M18 17l2 2-2 2" />
+      </svg>
+    ),
+  },
 ];
 
 // ── Dropdown panel ─────────────────────────────────────────────────────────
