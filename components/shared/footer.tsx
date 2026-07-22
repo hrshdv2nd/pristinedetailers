@@ -67,9 +67,9 @@ export function Footer() {
             {
               title: 'Membership',
               links: [
-                { label: 'Plans', href: '/membership' },
-                { label: 'Member Perks', href: '/membership' },
-                { label: 'Savings Calculator', href: '/membership' },
+                { label: 'Plans', href: '/services#membership' },
+                { label: 'Member Perks', href: '/services#membership' },
+                { label: 'Savings Calculator', href: '/services#membership' },
                 { label: 'Priority Booking', href: '/booking' },
               ],
             },

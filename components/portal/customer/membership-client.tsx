@@ -76,7 +76,7 @@ export default function MembershipClient({ membership, payments }: Props) {
           <div style={{ background: '#fff', borderRadius: 16, padding: 28, border: '1px solid #F0EDE8', marginBottom: 32, textAlign: 'center' }}>
             <h3 style={{ fontSize: 18, fontWeight: 600, color: '#0A0A0A', margin: '0 0 8px' }}>No Active Membership</h3>
             <p style={{ fontSize: 14, color: '#6B6B6B', margin: '0 0 20px' }}>Choose a plan to start booking premium details.</p>
-            <a href="/membership" style={{ display: 'inline-block', padding: '10px 24px', background: '#C89B37', color: '#fff', borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 14 }}>
+            <a href="/services#membership" style={{ display: 'inline-block', padding: '10px 24px', background: '#C89B37', color: '#fff', borderRadius: 8, fontWeight: 600, textDecoration: 'none', fontSize: 14 }}>
               View Plans
             </a>
           </div>

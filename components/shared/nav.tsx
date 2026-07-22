@@ -289,7 +289,6 @@ export function Nav({ active = 'home' }: { active?: string }) {
   const regularLinks = [
     { id: 'home', label: 'Home', href: '/' },
     { id: 'services', label: 'Services', href: '/services' },
-    { id: 'membership', label: 'Membership', href: '/membership' },
     { id: 'contact', label: 'Contact', href: '/contact' },
   ];
 
