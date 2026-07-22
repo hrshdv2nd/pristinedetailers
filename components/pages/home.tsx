@@ -545,7 +545,7 @@ function MelbourneSection() {
               since 2020.
             </h2>
             <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, lineHeight: 1.6, maxWidth: 440 }}>
-              Our mobile units travel across East and South East Melbourne, bringing studio-grade detailing to your driveway, garage, or office car park. Same-day bookings available over the phone.
+              We serve car owners across East and South East Melbourne with studio-grade detailing, plus mobile window tinting brought to your driveway, garage, or office car park. Same-day bookings available over the phone.
             </p>
 
             <div style={{ marginTop: 40, display: 'flex', gap: 40 }}>
@@ -559,10 +559,10 @@ function MelbourneSection() {
               </div>
               <div>
                 <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  2
+                  5,000+
                 </div>
                 <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  Mobile units
+                  Cars detailed
                 </div>
               </div>
               <div>
@@ -819,7 +819,7 @@ function TestimonialsSection() {
 function FAQSection() {
   const [open, setOpen] = useState<number>(-1);
   const faqs = [
-    { q: 'Do you come to my home or office?', a: 'Yes — our mobile team will bring the tools & we will need access to water and power. We require a covered or open  space roughly the size of two parking bays to complete a thorough service.' },
+    { q: 'Do you come to my home or office?', a: 'Detailing (full detail, ceramic coating, PPF, interior care) is completed at our studio — [SHOP ADDRESS]. The one exception is window tinting, which our mobile team installs at your home or office.' },
     { q: 'How long does a ceramic coating application take?', a: 'A full ceramic application (including paint correction) is typically 1 day worth of work.'},
     { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely — and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
     { q: 'What does the membership include?', a: '$150/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },

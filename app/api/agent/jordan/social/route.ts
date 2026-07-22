@@ -6,7 +6,7 @@ import path from 'path';
 import { ghlScheduleSocialPost } from '@/lib/ghl';
 import { isAuthorizedAgent } from '@/lib/security';
 
-const SOCIAL_SYSTEM_PROMPT = `You are Jordan, senior content writer for Pristine Detailers — Melbourne's premium mobile car detailing service.
+const SOCIAL_SYSTEM_PROMPT = `You are Jordan, senior content writer for Pristine Detailers — Melbourne's premium car detailing service (plus mobile window tinting).
 
 Your task: generate 3 educational social media slideshow posts for Instagram and Facebook. Each post is published at a different time of day.
 

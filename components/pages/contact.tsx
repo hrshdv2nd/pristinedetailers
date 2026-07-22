@@ -47,7 +47,7 @@ const CONTACT_DETAILS = [
   {
     label: 'Service Area',
     value: 'Greater Melbourne',
-    sub: '60+ suburbs — we come to you',
+    sub: '60+ suburbs — mobile window tinting available',
     href: null,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B37" strokeWidth="1.8">

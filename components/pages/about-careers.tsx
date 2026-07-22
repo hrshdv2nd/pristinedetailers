@@ -30,7 +30,7 @@ export function AboutCareers() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, maxWidth: 580, lineHeight: 1.6 }}>
-            Pristine Detailers is Melbourne&#8217;s highest-rated mobile detailing crew. We&#8217;re always looking for people who care as much as we do — about cars, craft, and the people who own them.
+            Pristine Detailers is Melbourne&#8217;s highest-rated car detailing crew. We&#8217;re always looking for people who care as much as we do — about cars, craft, and the people who own them.
           </p>
         </div>
       </section>

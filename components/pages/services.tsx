@@ -16,7 +16,7 @@ const CheckIcon = () => (
 const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
 const DIFFERENTIATORS = [
-  { title: 'Mobile, wherever you are', desc: 'We travel across greater Melbourne — home, office, or car park.' },
+  { title: 'Studio-grade equipment', desc: 'A dedicated detailing space with the tools casual detailers simply don\'t have.' },
   { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual detailers.' },
   { title: 'One point of contact', desc: 'Text or call — no chasing different people for updates.' },
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
@@ -25,7 +25,7 @@ const DIFFERENTIATORS = [
 const REVIEWS = [
   { name: 'Marcus T.', car: '2024 Porsche 911 GT3', quote: 'The finish on my GT3 is better than factory. Water rolls off in sheets. Worth every dollar.', rating: 5 },
   { name: 'Priya S.', car: '2023 Range Rover Sport', quote: 'Six months of school-run punishment and it still looks showroom. Membership has paid for itself.', rating: 5 },
-  { name: 'Dan K.', car: '2022 Tesla Model S Plaid', quote: "They came to my garage in Toorak, set up a whole dust barrier. Most professional service I've had.", rating: 5 },
+  { name: 'Dan K.', car: '2022 Tesla Model S Plaid', quote: "The window tint team came out to my office in Toorak — quick, tidy, and completely professional.", rating: 5 },
 ];
 
 export function Services() {
@@ -90,7 +90,7 @@ export function Services() {
             We treat every car like the one we drive.
           </h1>
           <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 620 }}>
-            From mobile detail appointments to long-term ceramic and PPF installations, we make premium service feel effortless.
+            From studio detail appointments to long-term ceramic and PPF installations, we make premium service feel effortless.
           </p>
         </div>
       </section>

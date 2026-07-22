@@ -36,7 +36,7 @@ export function Footer() {
               <span>Pristine Detailers</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', maxWidth: '340px', lineHeight: 1.6, marginBottom: '28px' }}>
-              Melbourne's premium mobile detailing service. Ceramic coating, paint protection film, and membership care.
+              Melbourne's premium car detailing service. Ceramic coating, paint protection film, membership care, and mobile window tinting.
             </p>
             <div
               style={{

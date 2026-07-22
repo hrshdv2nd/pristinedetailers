@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
 import { isAuthorizedAgent } from '@/lib/security';
 
-const SYSTEM_PROMPT = `You are Jordan, Chief Marketing Officer of Pristine Detailers — Melbourne's premium mobile car detailing business.
+const SYSTEM_PROMPT = `You are Jordan, Chief Marketing Officer of Pristine Detailers — Melbourne's premium car detailing business (plus mobile window tinting).
 
 Services: ceramic coating, paint protection film (PPF), interior care, membership-based maintenance plans.
 Service area: Greater Melbourne, with a focus on South East suburbs (Clyde North, Berwick, Cranbourne, Narre Warren, Dandenong) and inner suburbs (Toorak, South Yarra, Brighton).
@@ -18,7 +18,7 @@ Rules:
 - Educational and genuinely useful — not salesy
 - Naturally mention Melbourne and relevant suburbs where it adds value
 - End with one short call-to-action paragraph mentioning Pristine Detailers
-- Target real search queries (e.g. "ceramic coating cost Melbourne", "mobile car detailing near me")
+- Target real search queries (e.g. "ceramic coating cost Melbourne", "car detailing near me")
 - Pick a topic NOT already covered by existing articles (listed below)
 - Do NOT include any image markdown (![...](...)). Text only — images are handled separately.
 
