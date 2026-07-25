@@ -167,6 +167,13 @@ export function Services() {
               </div>
             ))}
           </div>
+
+          <p style={{ marginTop: 16, fontSize: 13, color: 'var(--ink-3)' }}>
+            24 hours or more notice to transfer or cancel your booking gets you a transfer or credit voucher (a $100 reschedule fee applies to ceramic coating and PPF jobs). Less than 24 hours notice is treated as a No Show with no transfer or credit.{' '}
+            <Link href="/terms#cancellations" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+              Read our full Cancellation Policy
+            </Link>.
+          </p>
         </div>
       </section>
 

@@ -30,6 +30,7 @@ const SECTIONS = [
   },
   {
     heading: 'Cancellations & Rescheduling',
+    id: 'cancellations',
     body: [
       '24 hours or more: When you email us with 24 hours or more notice of your request to transfer or cancel your booking, we will transfer your booking to another session of your choosing (subject to availability and pricing) or issue you a credit voucher for your future use. If your request is for a transfer or cancellation of a ceramic coating or PPF (multiday) job, a reschedule fee of $100 applies and we will issue you a credit voucher equivalent to your purchase less the reschedule fee.',
       'Less than 24 hours: If you submit your notice to transfer or cancel your booking within 24 hours of your session start time, you are considered a "No Show" without the right to be transferred or to receive a credit for your purchase.',
@@ -134,7 +135,7 @@ export function Terms() {
 
           <div style={{ display: 'grid', gap: 0 }}>
             {SECTIONS.map((section) => (
-              <div key={section.heading} style={{ paddingBottom: 36, marginBottom: 36, borderBottom: '1px solid #E1DFD8' }}>
+              <div key={section.heading} id={section.id} style={{ paddingBottom: 36, marginBottom: 36, borderBottom: '1px solid #E1DFD8', scrollMarginTop: 100 }}>
                 <h2 style={{ fontSize: 17, fontWeight: 600, marginBottom: 16, letterSpacing: '-0.01em' }}>
                   {section.heading}
                 </h2>
