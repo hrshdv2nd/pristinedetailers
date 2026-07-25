@@ -1,0 +1,14 @@
+/Users/harshadv/pristinedetailers/app/icon.png
+/Users/harshadv/pristinedetailers/public/file.svg
+/Users/harshadv/pristinedetailers/public/globe.svg
+/Users/harshadv/pristinedetailers/public/images/20241203_134603.jpg
+/Users/harshadv/pristinedetailers/public/images/20250217_125148.jpg
+/Users/harshadv/pristinedetailers/public/images/20250321_101446.jpg
+/Users/harshadv/pristinedetailers/public/images/20250525_093249.jpg
+/Users/harshadv/pristinedetailers/public/images/Pristine Detailers Flag.png
+/Users/harshadv/pristinedetailers/public/images/Screenshot 2026-04-21 at 6.28.27 pm.png
+/Users/harshadv/pristinedetailers/public/images/Screenshot 2026-04-21 at 6.28.43 pm.png
+/Users/harshadv/pristinedetailers/public/logo-flag.png
+/Users/harshadv/pristinedetailers/public/next.svg
+/Users/harshadv/pristinedetailers/public/vercel.svg
+/Users/harshadv/pristinedetailers/public/window.svg

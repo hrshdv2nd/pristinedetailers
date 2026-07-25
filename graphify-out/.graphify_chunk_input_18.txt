@@ -1,0 +1,4 @@
+/Users/harshadv/pristinedetailers/docs/superpowers/specs/2026-07-20-services-page-declutter-design.md
+/Users/harshadv/pristinedetailers/docs/superpowers/specs/2026-07-21-ceramic-tint-promo-design.md
+/Users/harshadv/pristinedetailers/public/index.html
+/Users/harshadv/pristinedetailers/supabase/email-templates/confirm-signup.html
