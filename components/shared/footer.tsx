@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { SocialLinks } from './atoms';
 
 export function Footer() {
   return (
@@ -47,10 +48,12 @@ export function Footer() {
                 borderRadius: '999px',
                 fontSize: '12px',
                 color: '#fff',
+                marginBottom: '24px',
               }}
             >
               ★ 4.9
             </div>
+            <SocialLinks />
           </div>
 
           {[

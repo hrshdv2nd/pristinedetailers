@@ -4,7 +4,7 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
-import { Arrow } from '@/components/shared/atoms';
+import { Arrow, SocialLinks } from '@/components/shared/atoms';
 
 const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
@@ -154,6 +154,10 @@ export function Contact() {
                   <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
                     Same-day bookings available for calls received before 10am. After-hours enquiries are responded to the following morning.
                   </div>
+                </div>
+                <div style={{ marginTop: 20, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>Follow us</span>
+                  <SocialLinks />
                 </div>
               </div>
 
