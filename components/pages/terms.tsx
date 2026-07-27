@@ -1,7 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
-import { Eyebrow } from '@/components/shared/atoms';
+import { Eyebrow, Arrow } from '@/components/shared/atoms';
+import { SupportTicketModal } from '@/components/shared/support-ticket-modal';
 
 const SECTIONS = [
   {
@@ -16,7 +20,7 @@ const SECTIONS = [
     heading: 'Our Services',
     body: [
       'Pristine Detailers provides car detailing, ceramic coating, paint protection film, interior care, mobile window tinting, and related services in the Greater Melbourne area.',
-      'Detailing, ceramic coating, paint protection film, and interior care services are performed at our studio, [SHOP ADDRESS]. Window tinting is performed at your nominated location. You are responsible for ensuring a safe, accessible, and suitable working environment at the time of your mobile appointment.',
+      'Detailing, ceramic coating, paint protection film, and interior care services are performed at our studio. Window tinting is performed at your chosen location. You are responsible for ensuring a safe, accessible, and suitable working environment at the time of your mobile appointment.',
       'Service inclusions are as described on our website at the time of booking. We reserve the right to update service details at any time with reasonable notice.',
     ],
   },
@@ -110,6 +114,8 @@ const SECTIONS = [
 ];
 
 export function Terms() {
+  const [ticketOpen, setTicketOpen] = useState(false);
+
   return (
     <div className="pd-page">
       <Nav />
@@ -129,9 +135,18 @@ export function Terms() {
           >
             Terms & Conditions
           </h1>
-          <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 56 }}>
+          <p style={{ fontSize: 14, color: '#7A7A76', marginBottom: 24 }}>
             Effective date: 1 May 2026 &nbsp;·&nbsp; Pristine Detailers, Melbourne VIC, Australia
           </p>
+
+          <button
+            type="button"
+            onClick={() => setTicketOpen(true)}
+            className="pd-btn pd-btn-dark"
+            style={{ marginBottom: 40 }}
+          >
+            Submit a Support Ticket <Arrow />
+          </button>
 
           <div style={{ display: 'grid', gap: 0 }}>
             {SECTIONS.map((section) => (
@@ -163,6 +178,8 @@ export function Terms() {
           </p>
         </div>
       </section>
+
+      <SupportTicketModal open={ticketOpen} onClose={() => setTicketOpen(false)} />
 
       <Footer />
     </div>
