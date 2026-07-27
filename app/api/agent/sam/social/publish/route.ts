@@ -7,12 +7,10 @@ interface PublishPayload {
   facebook_caption: string;
   linkedin_caption: string;
   image_url?: string;
-  scheduled_at?: string; // ISO 8601 — omit to post immediately
 }
 
-interface PlatformResult {
+interface GHLPublishResult {
   success: boolean;
-  postId?: string;
   id?: string;
   error?: string;
 }
@@ -22,63 +20,23 @@ function ghlError(data: { error?: string; message?: string | string[] }): string
   return message ?? data.error;
 }
 
-
-async function publishToFacebook(caption: string, imageUrl?: string): Promise<PlatformResult> {
-  const token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
-  const pageId = process.env.FACEBOOK_PAGE_ID;
-  if (!token || !pageId) {
-    return { success: false, error: 'FACEBOOK_PAGE_ACCESS_TOKEN or FACEBOOK_PAGE_ID not set' };
+// Always saves as a draft in GHL Social Planner — never posts live or auto-schedules.
+// A human must open GHL and publish/schedule it themselves.
+async function draftToGHL(caption: string, accountId: string | undefined, imageUrl?: string): Promise<GHLPublishResult> {
+  if (!process.env.GHL_API_KEY || !process.env.GHL_LOCATION_ID) {
+    return { success: false, error: 'skipped — GHL_API_KEY or GHL_LOCATION_ID not set' };
   }
-
+  if (!accountId) {
+    return { success: false, error: 'skipped — account not configured' };
+  }
   try {
-    const endpoint = imageUrl
-      ? `https://graph.facebook.com/v19.0/${pageId}/photos`
-      : `https://graph.facebook.com/v19.0/${pageId}/feed`;
-    const body: Record<string, string> = { message: caption, access_token: token };
-    if (imageUrl) body.url = imageUrl;
-
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+    const result = await ghlScheduleSocialPost({
+      caption,
+      imageUrl,
+      accountIds: [accountId],
+      // no scheduledDate → GHL saves it as a draft, not scheduled/published
     });
-    const data = await res.json() as { id?: string; error?: { message: string } };
-    if (data.id) return { success: true, postId: data.id };
-    return { success: false, error: data.error?.message ?? 'Unknown Facebook error' };
-  } catch (err) {
-    return { success: false, error: String(err) };
-  }
-}
-
-async function publishToInstagram(caption: string, imageUrl?: string): Promise<PlatformResult> {
-  const token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
-  const igId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
-  if (!token || !igId) {
-    return { success: false, error: 'FACEBOOK_PAGE_ACCESS_TOKEN or INSTAGRAM_BUSINESS_ACCOUNT_ID not set' };
-  }
-  if (!imageUrl) {
-    return { success: false, error: 'Instagram requires an image_url' };
-  }
-
-  try {
-    const containerRes = await fetch(`https://graph.facebook.com/v19.0/${igId}/media`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image_url: imageUrl, caption, access_token: token }),
-    });
-    const container = await containerRes.json() as { id?: string; error?: { message: string } };
-    if (!container.id) {
-      return { success: false, error: container.error?.message ?? 'Failed to create Instagram media container' };
-    }
-
-    const publishRes = await fetch(`https://graph.facebook.com/v19.0/${igId}/media_publish`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ creation_id: container.id, access_token: token }),
-    });
-    const published = await publishRes.json() as { id?: string; error?: { message: string } };
-    if (published.id) return { success: true, postId: published.id };
-    return { success: false, error: published.error?.message ?? 'Failed to publish to Instagram' };
+    return { success: result.ok, id: result.data.id, error: result.ok ? undefined : ghlError(result.data) };
   } catch (err) {
     return { success: false, error: String(err) };
   }
@@ -96,7 +54,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  const { instagram_caption, facebook_caption, linkedin_caption, image_url, scheduled_at } = body;
+  const { instagram_caption, facebook_caption, linkedin_caption, image_url } = body;
 
   if (!instagram_caption || !facebook_caption || !linkedin_caption) {
     return NextResponse.json(
@@ -105,48 +63,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const ghlConfigured = !!(process.env.GHL_API_KEY && process.env.GHL_LOCATION_ID);
-  const fbConfigured = !!(process.env.FACEBOOK_PAGE_ACCESS_TOKEN && process.env.FACEBOOK_PAGE_ID);
-  const igConfigured = !!(process.env.FACEBOOK_PAGE_ACCESS_TOKEN && process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID);
-
-  const [facebook, instagram, ghlFbIg, ghlLinkedIn] = await Promise.all([
-    fbConfigured
-      ? publishToFacebook(facebook_caption, image_url)
-      : Promise.resolve({ success: false, error: 'skipped — FACEBOOK_PAGE_ACCESS_TOKEN or FACEBOOK_PAGE_ID not set' }),
-
-    igConfigured
-      ? publishToInstagram(instagram_caption, image_url)
-      : Promise.resolve({ success: false, error: 'skipped — FACEBOOK_PAGE_ACCESS_TOKEN or INSTAGRAM_BUSINESS_ACCOUNT_ID not set' }),
-
-    ghlConfigured
-      ? ghlScheduleSocialPost({
-          caption: facebook_caption,
-          imageUrl: image_url,
-          // omit accountIds → defaults to GHL_FACEBOOK_ACCOUNT_ID + GHL_INSTAGRAM_ACCOUNT_ID
-          scheduledDate: scheduled_at,
-        })
-          .then((r) => ({ success: r.ok, id: r.data.id, error: ghlError(r.data) }))
-          .catch((e) => ({ success: false, error: String(e) }))
-      : Promise.resolve({ success: false, error: 'skipped — GHL_API_KEY or GHL_LOCATION_ID not set' }),
-
-    ghlConfigured
-      ? ghlScheduleSocialPost({
-          caption: linkedin_caption,
-          accountIds: [process.env.GHL_LINKEDIN_ACCOUNT_ID].filter(Boolean) as string[],
-          scheduledDate: scheduled_at,
-        })
-          .then((r) => ({ success: r.ok, id: r.data.id, error: ghlError(r.data) }))
-          .catch((e) => ({ success: false, error: String(e) }))
-      : Promise.resolve({ success: false, error: 'skipped — GHL_API_KEY or GHL_LOCATION_ID not set' }),
+  const [facebook, instagram, linkedin] = await Promise.all([
+    draftToGHL(facebook_caption, process.env.GHL_FACEBOOK_ACCOUNT_ID, image_url),
+    draftToGHL(instagram_caption, process.env.GHL_INSTAGRAM_ACCOUNT_ID, image_url),
+    draftToGHL(linkedin_caption, process.env.GHL_LINKEDIN_ACCOUNT_ID),
   ]);
 
   return NextResponse.json({
     success: true,
-    results: {
-      facebook_direct: facebook,
-      instagram_direct: instagram,
-      ghl_facebook_instagram: ghlFbIg,
-      ghl_linkedin: ghlLinkedIn,
-    },
+    results: { facebook, instagram, linkedin },
   });
 }

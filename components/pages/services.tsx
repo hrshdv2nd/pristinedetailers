@@ -57,6 +57,7 @@ export function Services() {
       label: 'Best for deep long lasting protection',
       body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant — our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
       benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
+      learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
     },
     {
       id: 'paint-protection',
@@ -160,9 +161,16 @@ export function Services() {
                     ))}
                   </ul>
 
-                  <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark" style={{ justifySelf: 'start' }}>
-                    Book this service <Arrow />
-                  </Link>
+                  <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+                    <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">
+                      Book this service <Arrow />
+                    </Link>
+                    {service.learnMoreHref && (
+                      <Link href={service.learnMoreHref} className="pd-btn pd-btn-ghost">
+                        Learn more <Arrow />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -170,7 +178,7 @@ export function Services() {
 
           <p style={{ marginTop: 16, fontSize: 13, color: 'var(--ink-3)' }}>
             24 hours or more notice to transfer or cancel your booking gets you a transfer or credit voucher (a $100 reschedule fee applies to ceramic coating and PPF jobs). Less than 24 hours notice is treated as a No Show with no transfer or credit.{' '}
-            <Link href="/terms#cancellations" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+            <Link href="/cancellation-policy" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
               Read our full Cancellation Policy
             </Link>.
           </p>

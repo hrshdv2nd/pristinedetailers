@@ -87,7 +87,7 @@ export function Footer() {
                 { label: 'Contact', href: '/contact' },
                 { label: 'Privacy Policy', href: '/privacy-policy' },
                 { label: 'Terms & Conditions', href: '/terms' },
-                { label: 'Cancellation Policy', href: '/terms#cancellations' },
+                { label: 'Cancellation Policy', href: '/cancellation-policy' },
               ],
             },
             {
