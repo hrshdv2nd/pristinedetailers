@@ -232,10 +232,10 @@ function ServicesPreview() {
     href?: string;
     priceSuffix?: string;
   }[] = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$165', priceSuffix: '/mo', badge: 'Membership', href: '/services', image: '/images/20250525_093249.jpg' },
-    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$1,099', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
-    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,190', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
-    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$220', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$150', priceSuffix: '/mo', badge: 'Membership', href: '/services', image: '/images/20250525_093249.jpg' },
+    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
+    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
   ];
 
   return (
@@ -332,6 +332,7 @@ function ServicesPreview() {
             </a>
           ))}
         </div>
+        <p style={{ fontSize: 12, color: '#7A7A76', marginTop: 20, textAlign: 'right' }}>All prices exclude GST.</p>
       </div>
     </section>
   );
@@ -369,7 +370,7 @@ function FlagshipSection() {
 
             <div className="pd-three-col" style={{ marginTop: 48, gap: 20 }}>
               {[
-                { tier: '5YR', price: '$1,099', feat: 'Enhanced gloss, long lasting protection', best: true },
+                { tier: '5YR', price: '$999', feat: 'Enhanced gloss, long lasting protection', best: true },
               ].map(p => (
                 <div
                   key={p.tier}
@@ -411,6 +412,7 @@ function FlagshipSection() {
                 </div>
               ))}
             </div>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 12 }}>All prices exclude GST.</p>
 
             <div style={{ marginTop: 40, display: 'flex', gap: 12 }}>
               <a
@@ -658,9 +660,9 @@ function PPFSection() {
 
               <div style={{ marginTop: 40 }}>
                 {[
-                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$3,190' },
-                  { name: 'Full Front', parts: 'Bumper, full hood, fenders, mirrors, headlights', price: '$4,620' },
-                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$8,690' },
+                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$2,900' },
+                  { name: 'Full Front', parts: 'Bumper, full hood, fenders, mirrors, headlights', price: '$4,200' },
+                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$7,900' },
                 ].map(p => (
                   <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', borderTop: '1px solid #E1DFD8' }}>
                     <div>
@@ -676,6 +678,7 @@ function PPFSection() {
                 ))}
                 <div style={{ borderTop: '1px solid #E1DFD8' }} />
               </div>
+              <p style={{ fontSize: 12, color: '#7A7A76', marginTop: 12 }}>All prices exclude GST.</p>
 
               <a
                 href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer"
