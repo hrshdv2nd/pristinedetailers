@@ -17,10 +17,10 @@ export function Home() {
       <HeroSection />
       <MarqueeStrip />
       <ServicesPreview />
+      <GallerySection />
       <FlagshipSection />
       <MelbourneSection />
       <PPFSection />
-      <GallerySection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
@@ -759,12 +759,8 @@ function GallerySection() {
     { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
     { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
     { label: 'ENGINE BAY DETAIL', variant: 'a', h: 400, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg' },
-    { label: 'CERAMIC · MIRROR FINISH', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg' },
-    { label: 'FULL DETAIL · SHOWROOM', variant: 'd', h: 320, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg' },
-    { label: 'CERAMIC · BYD', variant: 'b', h: 380, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/byd%20ceramic%20coating.jpg' },
     { label: 'CERAMIC · BMW M4', variant: 'a', h: 420, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/bmwmm4ceramic' },
     { label: 'CERAMIC · HAVAL', variant: 'c', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/haval_ceramic' },
-    { label: 'COATING THICKNESS CHECK', variant: 'd', h: 320, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/coating_thickness_check' },
     { label: 'TESLA · PAINT PREP', variant: 'b', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/tesla_prep_work' },
     { label: 'TESLA PLAID · CERAMIC', variant: 'a', h: 400, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/tesla_Coating_plaid' },
   ];
