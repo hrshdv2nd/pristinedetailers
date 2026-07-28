@@ -3,7 +3,7 @@ import { getCustomerProfile, getVehicles } from '@/actions/profile';
 import Topbar from '@/components/portal/layout/topbar';
 import ProfileClient from '@/components/portal/customer/profile-client';
 
-export const metadata: Metadata = { title: 'My Profile — Pristine Detailers' };
+export const metadata: Metadata = { title: 'My Profile - Pristine Detailers' };
 
 export default async function ProfilePage() {
   const [profileData, vehicles] = await Promise.all([getCustomerProfile(), getVehicles()]);

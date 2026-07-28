@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import AdminCustomerClient from '@/components/portal/admin/customer-detail-client';
 import type { CustomerWithPlan } from '@/lib/types/database';
 
-export const metadata: Metadata = { title: 'Customer Detail — Pristine Detailers Admin' };
+export const metadata: Metadata = { title: 'Customer Detail - Pristine Detailers Admin' };
 
 export default async function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

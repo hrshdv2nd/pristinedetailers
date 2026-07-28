@@ -29,7 +29,7 @@ export function Quote() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>
-            Tell us about your car and what you&apos;re after — we&apos;ll get back to you with pricing within one business day.
+            Tell us about your car and what you&apos;re after - we&apos;ll get back to you with pricing within one business day.
           </p>
         </div>
       </section>

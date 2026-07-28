@@ -822,9 +822,9 @@ function TestimonialsSection() {
 function FAQSection() {
   const [open, setOpen] = useState<number>(-1);
   const faqs = [
-    { q: 'Do you come to my home or office?', a: 'Detailing (full detail, ceramic coating, PPF, interior care) is completed at our studio — [SHOP ADDRESS]. The one exception is window tinting, which our mobile team installs at your home or office.' },
+    { q: 'Do you come to my home or office?', a: 'Detailing (full detail, ceramic coating, PPF, interior care) is completed at our studio - [SHOP ADDRESS]. The one exception is window tinting, which our mobile team installs at your home or office.' },
     { q: 'How long does a ceramic coating application take?', a: 'A full ceramic application (including paint correction) is typically 1 day worth of work.'},
-    { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely — and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
+    { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely - and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
     { q: 'What does the membership include?', a: '$150/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },
   ];
 

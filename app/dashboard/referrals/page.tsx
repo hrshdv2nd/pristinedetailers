@@ -4,7 +4,7 @@ import Topbar from '@/components/portal/layout/topbar';
 import StatCard from '@/components/portal/shared/stat-card';
 import CopyReferralButton from '@/components/portal/customer/copy-referral-button';
 
-export const metadata: Metadata = { title: 'Referrals — Pristine Detailers' };
+export const metadata: Metadata = { title: 'Referrals - Pristine Detailers' };
 
 export default async function ReferralsPage() {
   const referrals = await getReferralData();

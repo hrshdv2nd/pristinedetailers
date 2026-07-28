@@ -18,14 +18,14 @@ const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 const DIFFERENTIATORS = [
   { title: 'Studio-grade equipment', desc: 'A dedicated detailing space with the tools casual detailers simply don\'t have.' },
   { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual detailers.' },
-  { title: 'One point of contact', desc: 'Text or call — no chasing different people for updates.' },
+  { title: 'One point of contact', desc: 'Text or call - no chasing different people for updates.' },
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
 ];
 
 const REVIEWS = [
   { name: 'Marcus T.', car: '2024 Porsche 911 GT3', quote: 'The finish on my GT3 is better than factory. Water rolls off in sheets. Worth every dollar.', rating: 5 },
   { name: 'Priya S.', car: '2023 Range Rover Sport', quote: 'Six months of school-run punishment and it still looks showroom. Membership has paid for itself.', rating: 5 },
-  { name: 'Dan K.', car: '2022 Tesla Model S Plaid', quote: "The window tint team came out to my office in Toorak — quick, tidy, and completely professional.", rating: 5 },
+  { name: 'Dan K.', car: '2022 Tesla Model S Plaid', quote: "The window tint team came out to my office in Toorak - quick, tidy, and completely professional.", rating: 5 },
 ];
 
 export function Services() {
@@ -37,17 +37,17 @@ export function Services() {
       description: 'Monthly wash-and-seal to keep your car looking freshly detailed, year-round.',
       price: '$150/mo',
       label: 'Included with Essential membership',
-      body: 'The Maintenance Detail is our recurring monthly service — a full exterior wash, decontamination, and protective seal that keeps your paint looking after itself between bigger jobs. It comes standard with our Essential membership, with priority booking and member pricing on every add-on.',
+      body: 'The Maintenance Detail is our recurring monthly service - a full exterior wash, decontamination, and protective seal that keeps your paint looking after itself between bigger jobs. It comes standard with our Essential membership, with priority booking and member pricing on every add-on.',
       benefits: ['Monthly wash + protective seal', 'Priority booking every month', 'Member support & scheduling', 'Discounted rates on add-ons'],
     },
     {
       id: 'revitalise-package',
       title: 'Revitalise Package',
-      description: 'A full reset — deep clean, paint correction, and lasting protection in one visit.',
+      description: 'A full reset - deep clean, paint correction, and lasting protection in one visit.',
       price: '$385',
       label: 'Best for neglected or pre-sale vehicles',
       body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
-      benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant — lasts up to 6 months'],
+      benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant - lasts up to 6 months'],
     },
     {
       id: 'ceramic-coating',
@@ -55,7 +55,7 @@ export function Services() {
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
       price: '$999',
       label: 'Best for deep long lasting protection',
-      body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant — our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
+      body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
       benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
       learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
     },
@@ -74,7 +74,7 @@ export function Services() {
       description: 'UV and heat-blocking film fitted at your home or office.',
       price: '$200',
       label: 'Best for privacy, heat reduction and UV protection',
-      body: 'Our mobile technicians install premium window film on-site, cutting glare and cabin heat while blocking up to 99% of UV rays. Choose your tint level and we handle the rest — no need to visit a shop.',
+      body: 'Our mobile technicians install premium window film on-site, cutting glare and cabin heat while blocking up to 99% of UV rays. Choose your tint level and we handle the rest - no need to visit a shop.',
       benefits: ['Blocks up to 99% of UV rays', 'Cuts glare & cabin heat', 'Installed on-site, no shop visit', 'Choose your preferred tint level'],
     },
   ];

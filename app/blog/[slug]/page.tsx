@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       .single();
     if (!data) return {};
     return {
-      title: `${data.title} — Pristine Detailers`,
+      title: `${data.title} - Pristine Detailers`,
       description: data.excerpt,
     };
   } catch {

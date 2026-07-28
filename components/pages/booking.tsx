@@ -677,7 +677,7 @@ function StepSchedule({
           </div>
         ) : !hasServiceKey ? (
           <div style={{ fontSize: 14, color: 'var(--ink-3)', padding: '16px 0' }}>
-            Service not yet linked to Setmore — please call us to book this service.
+            Service not yet linked to Setmore - please call us to book this service.
           </div>
         ) : slots.length === 0 ? (
           <div style={{ fontSize: 14, color: 'var(--ink-3)', padding: '16px 0' }}>
@@ -779,25 +779,25 @@ function StepConfirm({
 }) {
   const whenStr = selectedDateDisplay && selectedTime
     ? `${selectedDateDisplay} · ${slotToDisplay(selectedTime)}`
-    : '—';
+    : '-';
 
   return (
     <div>
       <h2 style={{ fontSize: 56, fontWeight: 500 }}>
         Nearly <span className="pd-hl">pristine.</span>
       </h2>
-      <p style={{ fontSize: 16, color: 'var(--ink-2)', marginTop: 16 }}>Review and confirm — we&apos;ll text you when your technician is 30 mins out.</p>
+      <p style={{ fontSize: 16, color: 'var(--ink-2)', marginTop: 16 }}>Review and confirm - we&apos;ll text you when your technician is 30 mins out.</p>
 
       <div className="pd-card" style={{ marginTop: 40, padding: 0, overflow: 'hidden' }}>
         {[
           ['Service', service.name],
           ['When', whenStr],
           ['Technician', staffName || 'To be assigned'],
-          ['Address', address || '—'],
+          ['Address', address || '-'],
           ['Est. duration', service.duration],
           ['Add-ons', addOns.map((id) => ADD_ON_LIST.find((a) => a.id === id)?.name).filter(Boolean).join(', ') || 'None'],
           ...(upsell ? [['Upgrade', 'Ceramic 3yr coating']] : []),
-          ['Name', customerName || '—'],
+          ['Name', customerName || '-'],
         ].map(([label, value]) => (
           <div
             key={label}

@@ -3,7 +3,7 @@ import { getPastBookings } from '@/actions/bookings';
 import Topbar from '@/components/portal/layout/topbar';
 import StatusBadge from '@/components/portal/shared/status-badge';
 
-export const metadata: Metadata = { title: 'Job History — Pristine Detailers' };
+export const metadata: Metadata = { title: 'Job History - Pristine Detailers' };
 
 function fmt(date: string) {
   return new Date(date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });

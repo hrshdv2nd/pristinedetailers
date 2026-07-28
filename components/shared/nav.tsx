@@ -390,7 +390,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             </a>
           ))}
 
-          {/* About — desktop hover dropdown */}
+          {/* About - desktop hover dropdown */}
           <div
             className="pd-about-desktop"
             style={{ position: 'relative' }}
@@ -437,7 +437,7 @@ export function Nav({ active = 'home' }: { active?: string }) {
             )}
           </div>
 
-          {/* About — mobile accordion */}
+          {/* About - mobile accordion */}
           <div className="pd-about-mobile">
             <button
               onClick={() => setAboutMobileOpen((v) => !v)}

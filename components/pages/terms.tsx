@@ -70,7 +70,7 @@ const SECTIONS = [
   {
     heading: 'Intellectual Property',
     body: [
-      'All content on the Pristine Detailers website — including text, images, branding, and design — is owned by or licensed to Pristine Detailers and is protected by Australian copyright law.',
+      'All content on the Pristine Detailers website - including text, images, branding, and design - is owned by or licensed to Pristine Detailers and is protected by Australian copyright law.',
       'You may not reproduce, copy, or redistribute any content from our website without our express written permission.',
     ],
   },

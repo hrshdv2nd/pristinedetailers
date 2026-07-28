@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { Journal } from '@/components/pages/journal';
 
 export const metadata = {
-  title: 'Journal — Pristine Detailers',
+  title: 'Journal - Pristine Detailers',
   description: 'Expert guides on ceramic coating, paint protection film, and keeping your car in showroom condition.',
 };
 

@@ -9,18 +9,18 @@ import { Placeholder } from '@/components/shared/placeholder';
 type GalleryItem = { label: string; src: string | null; h: number; tone?: string };
 
 const ITEMS: GalleryItem[] = [
-  { label: 'Ceramic Coating — Classic Build', src: '/images/20250217_125148.jpg', h: 480 },
-  { label: 'Full Detail — Red Sports Car', src: '/images/20250525_093249.jpg', h: 360 },
-  { label: 'PPF Full Front — Satin', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
-  { label: 'Interior Detail — Alcantara', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
-  { label: 'Ceramic — Obsidian Black', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
-  { label: 'PPF — Partial Hood', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
+  { label: 'Ceramic Coating - Classic Build', src: '/images/20250217_125148.jpg', h: 480 },
+  { label: 'Full Detail - Red Sports Car', src: '/images/20250525_093249.jpg', h: 360 },
+  { label: 'PPF Full Front - Satin', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
+  { label: 'Interior Detail - Alcantara', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
+  { label: 'Ceramic - Obsidian Black', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
+  { label: 'PPF - Partial Hood', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
   { label: 'Wheel Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
   { label: 'Graphene Coating', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
-  { label: 'PPF — Full Vehicle', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
-  { label: 'Engine Bay — Detailed & Dressed', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
-  { label: 'Ceramic Coating — Mirror Finish', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
-  { label: 'Full Detail — Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
+  { label: 'PPF - Full Vehicle', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
+  { label: 'Engine Bay - Detailed & Dressed', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
+  { label: 'Ceramic Coating - Mirror Finish', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
+  { label: 'Full Detail - Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
 ];
 
 export function Gallery() {
@@ -49,7 +49,7 @@ export function Gallery() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>
-            Every car we touch. Ceramic coatings, PPF installs, full details, and engine bays — all documented.
+            Every car we touch. Ceramic coatings, PPF installs, full details, and engine bays - all documented.
           </p>
         </div>
       </section>

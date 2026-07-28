@@ -4,7 +4,7 @@ import { getMyJobs } from '@/actions/detailer';
 import Topbar from '@/components/portal/layout/topbar';
 import StatusBadge from '@/components/portal/shared/status-badge';
 
-export const metadata: Metadata = { title: 'My Jobs — Pristine Detailers' };
+export const metadata: Metadata = { title: 'My Jobs - Pristine Detailers' };
 
 function fmt(date: string) {
   return new Date(date).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });

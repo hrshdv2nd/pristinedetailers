@@ -21,7 +21,7 @@ const SECTIONS = [
     body: [
       '24 hours or more notice: Email us at least 24 hours before your appointment and we\'ll transfer your booking to another session of your choosing (subject to availability and pricing) or issue you a credit voucher for future use.',
       'Ceramic coating & PPF (multi-day) bookings: A $100 reschedule fee applies to transfers or cancellations of ceramic coating and paint protection film jobs. We\'ll issue a credit voucher for your purchase amount less the reschedule fee.',
-      'Less than 24 hours notice: Cancelling or requesting to reschedule within 24 hours of your appointment start time is treated as a "No Show" — you are not entitled to a transfer or credit for that booking.',
+      'Less than 24 hours notice: Cancelling or requesting to reschedule within 24 hours of your appointment start time is treated as a "No Show" - you are not entitled to a transfer or credit for that booking.',
       'Business-initiated changes: We may need to reschedule due to adverse weather, safety concerns, or staff availability. We\'ll contact you as soon as possible to arrange an alternative time at no cost to you.',
     ],
   },
@@ -29,17 +29,17 @@ const SECTIONS = [
     heading: 'Change of Mind',
     body: [
       'Under the Australian Consumer Law, businesses are not legally required to provide a refund or credit simply because you\'ve changed your mind about a service you\'ve booked.',
-      'As a courtesy, if you change your mind before your appointment and give us 24 hours or more notice, we\'ll treat it the same as a cancellation above — a transfer or credit voucher, less any applicable reschedule fee.',
-      'Once a service has commenced — including preparation, paint correction, coating application, or film installation — it can no longer be cancelled for change of mind, as products and labour have already been committed.',
+      'As a courtesy, if you change your mind before your appointment and give us 24 hours or more notice, we\'ll treat it the same as a cancellation above - a transfer or credit voucher, less any applicable reschedule fee.',
+      'Once a service has commenced - including preparation, paint correction, coating application, or film installation - it can no longer be cancelled for change of mind, as products and labour have already been committed.',
       'Consumables and products applied to your vehicle (ceramic coating, film, protective products) cannot be "returned" once applied, and change-of-mind refunds do not apply to completed work.',
-      'This does not affect your rights under the Australian Consumer Law where a service is not provided with due care and skill, or is not fit for purpose — see "Your Consumer Guarantees" below.',
+      'This does not affect your rights under the Australian Consumer Law where a service is not provided with due care and skill, or is not fit for purpose - see "Your Consumer Guarantees" below.',
     ],
   },
   {
     heading: 'Membership Cancellations',
     body: [
       'Membership plans can be cancelled at any time by giving written notice before your next billing date.',
-      'Once a monthly membership payment has been processed, that month is non-refundable — including where you choose not to book a service that month.',
+      'Once a monthly membership payment has been processed, that month is non-refundable - including where you choose not to book a service that month.',
       'The standard 24-hour cancellation and rescheduling terms above apply to individual appointments booked under a membership.',
     ],
   },

@@ -3,7 +3,7 @@ import { getMyEarnings } from '@/actions/detailer';
 import Topbar from '@/components/portal/layout/topbar';
 import StatCard from '@/components/portal/shared/stat-card';
 
-export const metadata: Metadata = { title: 'My Earnings — Pristine Detailers' };
+export const metadata: Metadata = { title: 'My Earnings - Pristine Detailers' };
 
 export default async function EarningsPage() {
   const earnings = await getMyEarnings();

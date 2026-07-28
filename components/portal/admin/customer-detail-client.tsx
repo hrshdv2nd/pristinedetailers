@@ -73,8 +73,8 @@ export default function AdminCustomerClient({ customer, notes: initialNotes, boo
               {[
                 ['Name', profile?.full_name],
                 ['Email', profile?.email],
-                ['Phone', profile?.phone ?? '—'],
-                ['Member since', profile?.created_at ? fmt(profile.created_at) : '—'],
+                ['Phone', profile?.phone ?? '-'],
+                ['Member since', profile?.created_at ? fmt(profile.created_at) : '-'],
                 ['Total spent', `$${customer.total_spent.toFixed(2)}`],
                 ['Lifetime visits', String(customer.lifetime_visits)],
               ].map(([label, val]) => (
@@ -133,7 +133,7 @@ export default function AdminCustomerClient({ customer, notes: initialNotes, boo
           )}
         </div>
 
-        {/* Right — notes */}
+        {/* Right - notes */}
         <div>
           <div style={{ background: '#fff', borderRadius: 12, border: '1px solid #F0EDE8', padding: 20 }}>
             <h3 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#9CA3AF', margin: '0 0 16px' }}>Admin Notes</h3>

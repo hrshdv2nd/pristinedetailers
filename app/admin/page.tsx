@@ -3,7 +3,7 @@ import { getAdminKPIs, getPendingPayouts } from '@/actions/admin';
 import Topbar from '@/components/portal/layout/topbar';
 import StatCard from '@/components/portal/shared/stat-card';
 
-export const metadata: Metadata = { title: 'Admin Dashboard — Pristine Detailers' };
+export const metadata: Metadata = { title: 'Admin Dashboard - Pristine Detailers' };
 
 export default async function AdminPage() {
   const [kpis, payouts] = await Promise.all([getAdminKPIs(), getPendingPayouts()]);

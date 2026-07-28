@@ -35,7 +35,7 @@ function formatDate(iso: string | null): string {
   return new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-// Minimal markdown renderer — handles headings, images, bold, lists, paragraphs
+// Minimal markdown renderer - handles headings, images, bold, lists, paragraphs
 function renderBody(markdown: string) {
   const blocks = markdown.split(/\n\n+/);
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getCustomerXeroInvoices } from '@/actions/profile';
 import Topbar from '@/components/portal/layout/topbar';
 
-export const metadata: Metadata = { title: 'Invoices — Pristine Detailers' };
+export const metadata: Metadata = { title: 'Invoices - Pristine Detailers' };
 
 const STATUS_COLOR: Record<string, { text: string; bg: string }> = {
   PAID:       { text: '#16A34A', bg: '#F0FDF4' },
@@ -12,7 +12,7 @@ const STATUS_COLOR: Record<string, { text: string; bg: string }> = {
 };
 
 function fmt(dateStr: string) {
-  if (!dateStr) return '—';
+  if (!dateStr) return '-';
   const match = dateStr.match(/\/Date\((\d+)/);
   const d = match ? new Date(parseInt(match[1])) : new Date(dateStr);
   return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -60,7 +60,7 @@ export default async function InvoicesPage() {
                   return (
                     <tr key={inv.InvoiceID} style={{ borderBottom: i < invoices.length - 1 ? '1px solid #F0EDE8' : 'none' }}>
                       <td style={{ padding: '14px 20px', fontSize: 14, fontWeight: 500, color: '#0A0A0A' }}>
-                        {inv.InvoiceNumber || '—'}
+                        {inv.InvoiceNumber || '-'}
                       </td>
                       <td style={{ padding: '14px 20px', fontSize: 14, color: '#6B6B6B' }}>{fmt(inv.Date)}</td>
                       <td style={{ padding: '14px 20px', fontSize: 14, color: '#6B6B6B' }}>{fmt(inv.DueDate)}</td>

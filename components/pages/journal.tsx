@@ -54,7 +54,7 @@ export function Journal({ articles }: { articles: Article[] }) {
                 </span>
               </h1>
               <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 24, maxWidth: 480, lineHeight: 1.6 }}>
-                Expert guides on ceramic coating, paint protection, and keeping your car in showroom condition — written by our technicians.
+                Expert guides on ceramic coating, paint protection, and keeping your car in showroom condition - written by our technicians.
               </p>
             </div>
 
@@ -154,7 +154,7 @@ export function Journal({ articles }: { articles: Article[] }) {
             New articles, monthly.
           </h2>
           <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', marginTop: 12, marginBottom: 32 }}>
-            One email per month — new guides, seasonal tips, and member exclusives. No spam.
+            One email per month - new guides, seasonal tips, and member exclusives. No spam.
           </p>
           <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', gap: 8, maxWidth: 440, margin: '0 auto', flexWrap: 'wrap' }}>
             <input

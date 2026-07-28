@@ -3,7 +3,7 @@ import { getRevenueBreakdown, getPendingPayouts } from '@/actions/admin';
 import Topbar from '@/components/portal/layout/topbar';
 import StatCard from '@/components/portal/shared/stat-card';
 
-export const metadata: Metadata = { title: 'Accounting — Pristine Detailers Admin' };
+export const metadata: Metadata = { title: 'Accounting - Pristine Detailers Admin' };
 
 export default async function AccountingPage({ searchParams }: { searchParams: Promise<{ period?: string }> }) {
   const sp = await searchParams;

@@ -131,7 +131,7 @@ export function MembershipTerms() {
           </div>
 
           <p style={{ marginTop: 16, fontSize: 13, color: '#7A7A76' }}>
-            Questions? Contact us before subscribing —{' '}
+            Questions? Contact us before subscribing -{' '}
             <Link href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer" style={{ color: '#C89B37', textDecoration: 'underline', textUnderlineOffset: 3 }}>
               get in touch
             </Link>.

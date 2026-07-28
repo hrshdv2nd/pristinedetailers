@@ -154,7 +154,7 @@ export function Promo() {
             </div>
             <div>
               <div style={{ fontSize: 13, fontWeight: 600, color: '#A07A21', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 16 }}>
-                Window Tinting — Free with this offer
+                Window Tinting - Free with this offer
               </div>
               <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[

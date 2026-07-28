@@ -4,7 +4,7 @@ import { getCustomers } from '@/actions/admin';
 import Topbar from '@/components/portal/layout/topbar';
 import StatusBadge from '@/components/portal/shared/status-badge';
 
-export const metadata: Metadata = { title: 'Customers — Pristine Detailers Admin' };
+export const metadata: Metadata = { title: 'Customers - Pristine Detailers Admin' };
 
 export default async function CustomersPage({ searchParams }: { searchParams: Promise<{ page?: string; search?: string }> }) {
   const sp = await searchParams;
@@ -40,8 +40,8 @@ export default async function CustomersPage({ searchParams }: { searchParams: Pr
             const plan = c.membership_plans as { name: string } | null;
             return (
               <div key={c.id} style={{ display: 'grid', gridTemplateColumns: '2fr 2fr 1.5fr 1fr 80px', padding: '14px 20px', borderTop: i > 0 ? '1px solid #F0EDE8' : 'none', alignItems: 'center' }}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#0A0A0A' }}>{profile?.full_name ?? '—'}</div>
-                <div style={{ fontSize: 13, color: '#6B6B6B' }}>{profile?.email ?? '—'}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#0A0A0A' }}>{profile?.full_name ?? '-'}</div>
+                <div style={{ fontSize: 13, color: '#6B6B6B' }}>{profile?.email ?? '-'}</div>
                 <div style={{ fontSize: 13, color: '#374151' }}>{plan?.name ?? 'No plan'}</div>
                 <StatusBadge status={c.membership_status} />
                 <Link href={`/admin/customers/${c.id}`} style={{ fontSize: 13, color: '#C89B37', fontWeight: 600, textDecoration: 'none' }}>View →</Link>

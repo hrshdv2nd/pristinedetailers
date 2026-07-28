@@ -47,7 +47,7 @@ const CONTACT_DETAILS = [
   {
     label: 'Service Area',
     value: 'Greater Melbourne',
-    sub: '60+ suburbs — mobile window tinting available',
+    sub: '60+ suburbs - mobile window tinting available',
     href: null,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C89B37" strokeWidth="1.8">
@@ -85,7 +85,7 @@ export function Contact() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: 'var(--ink-2)', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>
-            Questions about a service, a quote, or your area? Reach out — we respond to every message personally.
+            Questions about a service, a quote, or your area? Reach out - we respond to every message personally.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export function Contact() {
         <div className="pd-container">
           <div className="pd-two-col" style={{ gap: 64, alignItems: 'start' }}>
 
-            {/* Left — contact details + hours */}
+            {/* Left - contact details + hours */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
 
               {/* Contact cards */}
@@ -182,7 +182,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Right — contact form */}
+            {/* Right - contact form */}
             <div className="pd-card" style={{ padding: 40 }}>
               <h2 style={{ fontFamily: 'var(--f-display)', fontSize: 26, fontWeight: 600, marginBottom: 8 }}>
                 Send us a message
