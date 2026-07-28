@@ -19,7 +19,6 @@ const ITEMS: GalleryItem[] = [
   { label: 'Ceramic — Obsidian Black', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
   { label: 'PPF — Partial Hood', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
   { label: 'Wheel Detail', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
-  { label: 'Paint Correction', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 340 },
   { label: 'Graphene Coating', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
   { label: 'PPF — Full Vehicle', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
   { label: 'Engine Bay — Detailed & Dressed', category: 'Engine Bay', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
@@ -130,24 +129,6 @@ export function Gallery() {
                     style={{ height: item.h }}
                   />
                 )}
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(10,10,10,0.72) 0%, transparent 55%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    padding: 20,
-                  }}
-                >
-                  <span style={{ fontFamily: "'Inter Tight', sans-serif", fontSize: 10, color: '#C89B37', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 4 }}>
-                    {item.category}
-                  </span>
-                  <span style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 15, fontWeight: 500, color: '#fff', lineHeight: 1.3 }}>
-                    {item.label}
-                  </span>
-                </div>
               </div>
             ))}
           </div>
