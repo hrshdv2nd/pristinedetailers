@@ -23,6 +23,9 @@ const ITEMS: GalleryItem[] = [
   { label: 'Paint Correction', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 340 },
   { label: 'Graphene Coating', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
   { label: 'PPF — Full Vehicle', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
+  { label: 'Engine Bay — Detailed & Dressed', category: 'Engine Bay', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
+  { label: 'Ceramic Coating — Mirror Finish', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
+  { label: 'Full Detail — Showroom Ready', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
 ];
 
 export function Gallery() {

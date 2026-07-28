@@ -758,6 +758,9 @@ function GallerySection() {
     { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
     { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
     { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
+    { label: 'ENGINE BAY DETAIL', variant: 'a', h: 400, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg' },
+    { label: 'CERAMIC · MIRROR FINISH', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg' },
+    { label: 'FULL DETAIL · SHOWROOM', variant: 'd', h: 320, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg' },
   ];
 
   return (
