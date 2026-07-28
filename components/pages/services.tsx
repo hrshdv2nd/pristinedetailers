@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Footer } from '@/components/shared/footer';
 import { Nav } from '@/components/shared/nav';
 import { Arrow } from '@/components/shared/atoms';
+import { GHLReviewWidget } from '@/components/shared/ghl-review-widget';
 
 const CheckIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C89B37" strokeWidth="3" style={{ flexShrink: 0, marginTop: 3 }}>
@@ -22,12 +23,6 @@ const DIFFERENTIATORS = [
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
 ];
 
-const REVIEWS = [
-  { name: 'Marcus T.', car: '2024 Porsche 911 GT3', quote: 'The finish on my GT3 is better than factory. Water rolls off in sheets. Worth every dollar.', rating: 5 },
-  { name: 'Priya S.', car: '2023 Range Rover Sport', quote: 'Six months of school-run punishment and it still looks showroom. Membership has paid for itself.', rating: 5 },
-  { name: 'Dan K.', car: '2022 Tesla Model S Plaid', quote: "The window tint team came out to my office in Toorak - quick, tidy, and completely professional.", rating: 5 },
-];
-
 export function Services() {
   const [selected, setSelected] = useState('maintenance-detail');
   const services = [
@@ -35,7 +30,7 @@ export function Services() {
       id: 'maintenance-detail',
       title: 'Maintenance Detail',
       description: 'Monthly wash-and-seal to keep your car looking freshly detailed, year-round.',
-      price: '$150/mo',
+      price: '$165/mo',
       label: 'Included with Essential membership',
       body: 'The Maintenance Detail is our recurring monthly service - a full exterior wash, decontamination, and protective seal that keeps your paint looking after itself between bigger jobs. It comes standard with our Essential membership, with priority booking and member pricing on every add-on.',
       benefits: ['Monthly wash + protective seal', 'Priority booking every month', 'Member support & scheduling', 'Discounted rates on add-ons'],
@@ -44,7 +39,7 @@ export function Services() {
       id: 'revitalise-package',
       title: 'Revitalise Package',
       description: 'A full reset - deep clean, paint correction, and lasting protection in one visit.',
-      price: '$385',
+      price: '$424',
       label: 'Best for neglected or pre-sale vehicles',
       body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
       benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant - lasts up to 6 months'],
@@ -53,7 +48,7 @@ export function Services() {
       id: 'ceramic-coating',
       title: 'Ceramic coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
-      price: '$999',
+      price: '$1,099',
       label: 'Best for deep long lasting protection',
       body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
       benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
@@ -63,7 +58,7 @@ export function Services() {
       id: 'paint-protection',
       title: 'Paint Protection film',
       description: 'Invisible, impact-resistant coverage for the most vulnerable panels.',
-      price: '$3,000',
+      price: '$3,300',
       label: 'Best for high-risk areas',
       body: 'Self-healing polyurethane film, precisely cut and installed panel by panel. Virtually invisible at any angle, PPF takes the stone chips, road debris, and minor abrasions so your paint never has to. Stack with ceramic for maximum long-term defence.',
       benefits: ['Self-healing polyurethane film', 'Virtually invisible, panel-by-panel install', 'Absorbs stone chips & road debris', 'Stack with ceramic for max protection'],
@@ -72,7 +67,7 @@ export function Services() {
       id: 'window-tinting',
       title: 'Mobile Window Tinting',
       description: 'UV and heat-blocking film fitted at your home or office.',
-      price: '$200',
+      price: '$220',
       label: 'Best for privacy, heat reduction and UV protection',
       body: 'Our mobile technicians install premium window film on-site, cutting glare and cabin heat while blocking up to 99% of UV rays. Choose your tint level and we handle the rest - no need to visit a shop.',
       benefits: ['Blocks up to 99% of UV rays', 'Cuts glare & cabin heat', 'Installed on-site, no shop visit', 'Choose your preferred tint level'],
@@ -143,7 +138,6 @@ export function Services() {
                     <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: 6, whiteSpace: 'nowrap' }}>
                       <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</span>
-                      <span style={{ fontSize: 13, fontWeight: 400, color: 'var(--ink-3)' }}>+ GST</span>
                     </div>
                     <div style={{ color: 'var(--ink-3)', marginTop: 8, maxWidth: 220 }}>{service.label}</div>
                   </div>
@@ -213,48 +207,7 @@ export function Services() {
               <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> from happy customers.
             </h2>
           </div>
-          <div className="pd-three-col">
-            {REVIEWS.map(r => (
-              <div
-                key={r.name}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 20,
-                  background: '#fff',
-                  padding: 24,
-                  borderRadius: 16,
-                  border: '1px solid var(--line)',
-                }}
-              >
-                <div style={{ color: '#C89B37', fontSize: 16 }}>{'★'.repeat(r.rating)}</div>
-                <p style={{ fontFamily: 'var(--f-display)', fontSize: 20, lineHeight: 1.35, letterSpacing: '-0.01em', fontWeight: 400 }}>
-                  "{r.quote}"
-                </p>
-                <div style={{ marginTop: 'auto', display: 'flex', gap: 12, alignItems: 'center', paddingTop: 20, borderTop: '1px solid var(--line)' }}>
-                  <div
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: '50%',
-                      background: '#F3E8CD',
-                      display: 'grid',
-                      placeItems: 'center',
-                      color: '#C89B37',
-                      fontWeight: 600,
-                      fontFamily: 'var(--f-display)',
-                    }}
-                  >
-                    {r.name[0]}
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 600, fontSize: 14 }}>{r.name}</div>
-                    <div style={{ fontSize: 12, color: 'var(--ink-3)' }}>{r.car}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GHLReviewWidget />
         </div>
       </section>
 

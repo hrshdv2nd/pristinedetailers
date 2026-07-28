@@ -232,10 +232,10 @@ function ServicesPreview() {
     href?: string;
     priceSuffix?: string;
   }[] = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$150', priceSuffix: '/mo', badge: 'Membership', href: '/services', image: '/images/20250525_093249.jpg' },
-    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
-    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
-    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
+    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$165', priceSuffix: '/mo', badge: 'Membership', href: '/services', image: '/images/20250525_093249.jpg' },
+    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$1,099', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$3,190', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
+    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$220', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
   ];
 
   return (
@@ -326,7 +326,6 @@ function ServicesPreview() {
                   <span style={{ fontSize: 13, opacity: 0.6 }}>From</span>
                   <span style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 22, fontWeight: 500 }}>
                     {s.from}{s.priceSuffix || ''}
-                    <span style={{ fontSize: 13, fontWeight: 400, opacity: 0.6, marginLeft: 4 }}>+ GST</span>
                   </span>
                 </div>
               </div>
@@ -370,7 +369,7 @@ function FlagshipSection() {
 
             <div className="pd-three-col" style={{ marginTop: 48, gap: 20 }}>
               {[
-                { tier: '5YR', price: '$999', feat: 'Enhanced gloss, long lasting protection', best: true },
+                { tier: '5YR', price: '$1,099', feat: 'Enhanced gloss, long lasting protection', best: true },
               ].map(p => (
                 <div
                   key={p.tier}
@@ -407,7 +406,6 @@ function FlagshipSection() {
                   </div>
                   <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 32, fontWeight: 500, marginTop: 6, letterSpacing: '-0.02em' }}>
                     {p.price}
-                    <span style={{ fontSize: 14, fontWeight: 400, opacity: 0.6, marginLeft: 4 }}>+ GST</span>
                   </div>
                   <div style={{ fontSize: 12, opacity: 0.7, marginTop: 8, lineHeight: 1.4 }}>{p.feat}</div>
                 </div>
@@ -660,9 +658,9 @@ function PPFSection() {
 
               <div style={{ marginTop: 40 }}>
                 {[
-                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$2,900' },
-                  { name: 'Full Front', parts: 'Bumper, full hood, fenders, mirrors, headlights', price: '$4,200' },
-                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$7,900' },
+                  { name: 'Partial Front', parts: 'Bumper + partial hood + mirrors', price: '$3,190' },
+                  { name: 'Full Front', parts: 'Bumper, full hood, fenders, mirrors, headlights', price: '$4,620' },
+                  { name: 'Full Vehicle', parts: 'Every painted panel, top-to-bottom', price: '$8,690' },
                 ].map(p => (
                   <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0', borderTop: '1px solid #E1DFD8' }}>
                     <div>
@@ -673,7 +671,6 @@ function PPFSection() {
                     </div>
                     <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 24, fontWeight: 500 }}>
                       {p.price}
-                      <span style={{ fontSize: 13, fontWeight: 400, color: '#7A7A76', marginLeft: 4 }}>+ GST</span>
                     </div>
                   </div>
                 ))}

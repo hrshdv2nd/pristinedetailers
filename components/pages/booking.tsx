@@ -8,18 +8,18 @@ import { BlobImage } from '@/components/shared/blob-image';
 import { Arrow } from '@/components/shared/atoms';
 
 const SERVICES = [
-  { id: 'revitalise-detail', name: 'Revitalise Detail', price: 385, duration: '5 hrs', popular: true },
-  { id: 'ceramic-3yr', name: 'Ceramic Coating', price: 999, duration: '2 days' },
-  { id: 'ppf-full-front', name: 'PPF · Full Front', price: 2999, duration: '3 days' },
-  { id: 'ppf-full-car', name: 'PPF · Full Car', price: 7549, duration: '7 days' },
+  { id: 'revitalise-detail', name: 'Revitalise Detail', price: 424, duration: '5 hrs', popular: true },
+  { id: 'ceramic-3yr', name: 'Ceramic Coating', price: 1099, duration: '2 days' },
+  { id: 'ppf-full-front', name: 'PPF · Full Front', price: 3299, duration: '3 days' },
+  { id: 'ppf-full-car', name: 'PPF · Full Car', price: 8304, duration: '7 days' },
 ];
 
 const ADD_ON_LIST = [
-  { id: 'engine', name: 'Engine Bay Detail', price: 70 },
-  { id: 'leather-ceramic', name: 'Leather Ceramic Coating', price: 250 },
-  { id: 'wheel-ceramic', name: 'Wheel Ceramic Coating', price: 200 },
-  { id: 'glass-ceramic', name: 'Glass Ceramic Coating', price: 150 },
-  { id: 'pet', name: 'Pet Hair Removal', price: 50 },
+  { id: 'engine', name: 'Engine Bay Detail', price: 77 },
+  { id: 'leather-ceramic', name: 'Leather Ceramic Coating', price: 275 },
+  { id: 'wheel-ceramic', name: 'Wheel Ceramic Coating', price: 220 },
+  { id: 'glass-ceramic', name: 'Glass Ceramic Coating', price: 165 },
+  { id: 'pet', name: 'Pet Hair Removal', price: 55 },
 ];
 
 // Hardcoded Setmore keys (from /api/setmore/debug)
@@ -126,11 +126,8 @@ export function Booking() {
     () => addOns.reduce((t, id) => t + (ADD_ON_LIST.find((a) => a.id === id)?.price ?? 0), 0),
     [addOns],
   );
-  const upsellCost = upsell ? 1890 : 0;
-  // Listed prices are exclusive of GST; GST (10%) is added on top.
-  const subtotal = (sel?.price ?? 0) + addTotal + upsellCost;
-  const gst = subtotal * 0.1;
-  const total = subtotal + gst;
+  const upsellCost = upsell ? 2079 : 0;
+  const total = (sel?.price ?? 0) + addTotal + upsellCost;
 
   const canContinueSchedule = !!selectedDate && !!selectedTime && !!customerName && !!customerEmail;
 
@@ -368,26 +365,13 @@ export function Booking() {
                   {upsell && (
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, padding: '6px 0', color: 'var(--navy)', fontWeight: 600 }}>
                       <span>+ Ceramic 3yr</span>
-                      <span>$1,890</span>
+                      <span>$2,079</span>
                     </div>
                   )}
                 </div>
 
-                {sel && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--ink-2)' }}>
-                      <span>Subtotal (excl GST)</span>
-                      <span>${subtotal.toLocaleString()}</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--ink-2)' }}>
-                      <span>GST (10%)</span>
-                      <span>${gst.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                    </div>
-                  </div>
-                )}
-
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--ink-3)', textTransform: 'uppercase' }}>Total (incl GST)</span>
+                  <span style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--ink-3)', textTransform: 'uppercase' }}>Total</span>
                   <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500, letterSpacing: '-0.03em' }}>${total.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
                 </div>
 
@@ -530,7 +514,7 @@ function StepAddons({
           </div>
           <h3 style={{ fontSize: 26, fontWeight: 500, marginTop: 8 }}>Add Ceramic 3yr to this booking</h3>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', marginTop: 6, maxWidth: 460 }}>
-            Since we&apos;re polishing anyway, lock in 3 years of hydrophobic protection for an extra $1,890.
+            Since we&apos;re polishing anyway, lock in 3 years of hydrophobic protection for an extra $2,079.
           </p>
         </div>
         <button
@@ -808,7 +792,7 @@ function StepConfirm({
           </div>
         ))}
         <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', padding: '24px 28px', background: 'var(--bg)', fontSize: 15, alignItems: 'center' }}>
-          <span style={{ color: 'var(--ink-3)' }}>Total (incl GST)</span>
+          <span style={{ color: 'var(--ink-3)' }}>Total</span>
           <span style={{ fontFamily: 'var(--f-display)', fontSize: 32, fontWeight: 500 }}>${total.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
         </div>
       </div>
