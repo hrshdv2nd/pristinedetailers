@@ -10,22 +10,7 @@ export function Arrow() {
 }
 
 export function Eyebrow({ children, style = {} }: { children: React.ReactNode; style?: React.CSSProperties }) {
-  return (
-    <div
-      className="pd-eyebrow"
-      style={{
-        fontFamily: "'Inter Tight', sans-serif",
-        fontSize: '12px',
-        fontWeight: '500',
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        color: '#7A7A76',
-        ...style,
-      }}
-    >
-      {children}
-    </div>
-  );
+  return null;
 }
 
 export function Stat({ value, label }: { value: string; label: string }) {

@@ -548,33 +548,6 @@ function MelbourneSection() {
               We serve car owners across East and South East Melbourne with studio-grade detailing, plus mobile window tinting brought to your driveway, garage, or office car park. Same-day bookings available over the phone.
             </p>
 
-            <div style={{ marginTop: 40, display: 'flex', gap: 40 }}>
-              <div>
-                <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  60+
-                </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  Suburbs
-                </div>
-              </div>
-              <div>
-                <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  5,000+
-                </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  Cars detailed
-                </div>
-              </div>
-              <div>
-                <div style={{ fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: 44, fontWeight: 500, letterSpacing: '-0.03em' }}>
-                  Instant
-                </div>
-                <div style={{ fontSize: 13, color: '#7A7A76', marginTop: 4, fontFamily: "'Inter Tight', sans-serif", textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  Typical lead time
-                </div>
-              </div>
-            </div>
-
             <a
               href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer"
               style={{
@@ -706,6 +679,24 @@ function PPFSection() {
                 ))}
                 <div style={{ borderTop: '1px solid #E1DFD8' }} />
               </div>
+
+              <a
+                href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '12px 24px',
+                  borderRadius: '6px',
+                  background: '#0A0A0A',
+                  color: '#fff',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  marginTop: 32,
+                }}
+              >
+                Book Now <Arrow />
+              </a>
             </div>
 
             <div style={{ position: 'relative', height: 520 }}>
@@ -811,7 +802,7 @@ function TestimonialsSection() {
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <Eyebrow>Reviews</Eyebrow>
           <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
-            <span style={{ fontStyle: 'italic', fontWeight: 400 }}>4.9 stars</span> from happy customers.
+            Reviews
           </h2>
         </div>
         <GHLReviewWidget />
