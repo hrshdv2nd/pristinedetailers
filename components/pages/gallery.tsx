@@ -1,36 +1,29 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import { Nav } from '@/components/shared/nav';
 import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
 import { Placeholder } from '@/components/shared/placeholder';
 
-const CATEGORIES = ['All', 'Ceramic', 'PPF', 'Full Detail', 'Engine Bay'];
-
-type GalleryItem = { label: string; category: string; src: string | null; h: number; tone?: string };
+type GalleryItem = { label: string; src: string | null; h: number; tone?: string };
 
 const ITEMS: GalleryItem[] = [
-  { label: 'Ceramic Coating — Classic Build', category: 'Ceramic', src: '/images/20250217_125148.jpg', h: 480 },
-  { label: 'Full Detail — Red Sports Car', category: 'Full Detail', src: '/images/20250525_093249.jpg', h: 360 },
-  { label: 'PPF Full Front — Satin', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
-  { label: 'Interior Detail — Alcantara', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
-  { label: 'Ceramic — Obsidian Black', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
-  { label: 'PPF — Partial Hood', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
-  { label: 'Wheel Detail', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
-  { label: 'Graphene Coating', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
-  { label: 'PPF — Full Vehicle', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
-  { label: 'Engine Bay — Detailed & Dressed', category: 'Engine Bay', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
-  { label: 'Ceramic Coating — Mirror Finish', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
-  { label: 'Full Detail — Showroom Ready', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
+  { label: 'Ceramic Coating — Classic Build', src: '/images/20250217_125148.jpg', h: 480 },
+  { label: 'Full Detail — Red Sports Car', src: '/images/20250525_093249.jpg', h: 360 },
+  { label: 'PPF Full Front — Satin', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
+  { label: 'Interior Detail — Alcantara', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
+  { label: 'Ceramic — Obsidian Black', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
+  { label: 'PPF — Partial Hood', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
+  { label: 'Wheel Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
+  { label: 'Graphene Coating', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
+  { label: 'PPF — Full Vehicle', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
+  { label: 'Engine Bay — Detailed & Dressed', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
+  { label: 'Ceramic Coating — Mirror Finish', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
+  { label: 'Full Detail — Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
 ];
 
 export function Gallery() {
-  const [active, setActive] = useState('All');
-
-  const filtered = active === 'All' ? ITEMS : ITEMS.filter(i => i.category === active);
-
   return (
     <div style={{ minHeight: '100vh', background: '#F4F4F2' }}>
       <Nav active="about" />
@@ -80,35 +73,12 @@ export function Gallery() {
         </div>
       </div>
 
-      {/* Filter + Grid */}
+      {/* Grid */}
       <section className="pd-sect">
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-          {/* Filter tabs */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 48, flexWrap: 'wrap' }}>
-            {CATEGORIES.map(c => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                style={{
-                  padding: '8px 18px',
-                  borderRadius: 999,
-                  fontSize: 13,
-                  fontWeight: 500,
-                  border: `1.5px solid ${active === c ? '#C89B37' : '#E1DFD8'}`,
-                  background: active === c ? '#C89B37' : '#fff',
-                  color: active === c ? '#0A0A0A' : '#3A3A38',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                }}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-
           {/* Masonry grid */}
           <div className="pd-gallery-columns" style={{ columnCount: 3, columnGap: 20 } as React.CSSProperties}>
-            {filtered.map((item, i) => (
+            {ITEMS.map((item, i) => (
               <div
                 key={i}
                 style={{
