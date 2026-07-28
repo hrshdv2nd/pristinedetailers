@@ -7,14 +7,13 @@ import { Footer } from '@/components/shared/footer';
 import { Arrow, Eyebrow } from '@/components/shared/atoms';
 import { Placeholder } from '@/components/shared/placeholder';
 
-const CATEGORIES = ['All', 'Ceramic', 'PPF', 'Full Detail', 'Engine Bay', 'Team'];
+const CATEGORIES = ['All', 'Ceramic', 'PPF', 'Full Detail', 'Engine Bay'];
 
 type GalleryItem = { label: string; category: string; src: string | null; h: number; tone?: string };
 
 const ITEMS: GalleryItem[] = [
   { label: 'Ceramic Coating — Classic Build', category: 'Ceramic', src: '/images/20250217_125148.jpg', h: 480 },
   { label: 'Full Detail — Red Sports Car', category: 'Full Detail', src: '/images/20250525_093249.jpg', h: 360 },
-  { label: 'The Pristine Team', category: 'Team', src: '/images/20241203_134603.jpg', h: 400 },
   { label: 'PPF Full Front — Satin', category: 'PPF', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
   { label: 'Interior Detail — Alcantara', category: 'Full Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
   { label: 'Ceramic — Obsidian Black', category: 'Ceramic', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
@@ -52,9 +51,9 @@ export function Gallery() {
               maxWidth: 800,
             }}
           >
-            The{' '}
+            Our{' '}
             <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-              work.
+              gallery.
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>

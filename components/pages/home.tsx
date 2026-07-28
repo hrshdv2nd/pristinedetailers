@@ -777,7 +777,7 @@ function GallerySection() {
                 fontWeight: 600,
               }}
             >
-              The <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>work.</span>
+              Our <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>gallery.</span>
             </h2>
           </div>
           <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0A0A0A', fontSize: '14px', fontWeight: '500' }}>
