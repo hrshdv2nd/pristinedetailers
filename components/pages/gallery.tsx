@@ -21,6 +21,12 @@ const ITEMS: GalleryItem[] = [
   { label: 'Engine Bay - Detailed & Dressed', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
   { label: 'Ceramic Coating - Mirror Finish', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
   { label: 'Full Detail - Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
+  { label: 'Ceramic Coating - BYD', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/byd%20ceramic%20coating.jpg', h: 400 },
+  { label: 'Ceramic Coating - BMW M4', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/bmwmm4ceramic', h: 440 },
+  { label: 'Ceramic Coating - Haval', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/haval_ceramic', h: 360 },
+  { label: 'Coating Thickness Check', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/coating_thickness_check', h: 320 },
+  { label: 'Paint Prep - Tesla', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/tesla_prep_work', h: 380 },
+  { label: 'Ceramic Coating - Tesla Plaid', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/tesla_Coating_plaid', h: 420 },
 ];
 
 export function Gallery() {
