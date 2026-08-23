@@ -159,6 +159,18 @@
         "Applies the family grounding/disclosure rules (dramatized share, substantiated claims, not a real endorsement)"
       ],
       "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "We're a mobile app and want to make TikTok/Reels ads. Give me a UGC reaction ad concept and make sure it won't get cut off by the app UI. Also — should we add music?",
+      "expected_output": "Should load references/short-form-video-specs.md and deliver both the format and the spec. Format: the Reaction + Demo hard-cut structure (creator reaction ~3s with a hook caption written as inner monologue, hard cut to the app demo, optional payoff caption) — may also mention the other two creator formats (no-yapping split-screen, greenscreen reaction) as alternatives. Safe zone: keep all captions/key visuals inside the 720x1200 centered safe band (220px top / 500px bottom / 180px sides clear) so platform UI doesn't cover them, and use the static white-fill/black-stroke caption style that auto-sizes to fit. Music: give the organic-vs-baked decision — for organic posting, export without baked music and attach the trending sound in-app (algorithm reward); bake music only for paid ads or where native sound can't be attached, fading out the last ~0.8s.",
+      "assertions": [
+        "Provides the reaction+demo hard-cut structure with the hook caption as the reaction's inner monologue",
+        "Specifies the cross-platform safe band (roughly 220 top / 500 bottom / 180 sides, or the 720x1200 text-safe area) so captions aren't covered by platform UI",
+        "Describes the static white-fill/black-stroke caption style with auto-sizing (no animated captions)",
+        "Gives the organic-vs-baked-music decision rather than a blanket yes/no (attach trending sound in-app for organic; bake for ads)"
+      ],
+      "files": []
     }
   ]
 }
