@@ -16,12 +16,12 @@ export function Home() {
 
       <HeroSection />
       <MarqueeStrip />
+      <ReviewsSection />
       <ServicesPreview />
       <GallerySection />
       <FlagshipSection />
       <MelbourneSection />
       <PPFSection />
-      <TestimonialsSection />
       <FAQSection />
       <CTASection />
 
@@ -214,6 +214,23 @@ function MarqueeStrip() {
             style={{ height: LOGO_HEIGHT, width: 'auto', flexShrink: 0, opacity: 0.85 }}
           />
         ))}
+      </div>
+    </section>
+  );
+}
+
+// ============ REVIEWS ============
+function ReviewsSection() {
+  return (
+    <section className="pd-sect-sm">
+      <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <Eyebrow>Reviews</Eyebrow>
+          <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
+            What Melbourne <span style={{ background: 'linear-gradient(135deg, #C89B37, #A07A21)', backgroundClip: 'text', WebkitBackgroundClip: 'text', color: 'transparent' }}>drivers</span> say.
+          </h2>
+        </div>
+        <GHLReviewWidget widgetId="6a8e8f43e666b1066b0a2017" />
       </div>
     </section>
   );
@@ -789,23 +806,6 @@ function GallerySection() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ============ TESTIMONIALS ============
-function TestimonialsSection() {
-  return (
-    <section className="pd-sect-sm" style={{ background: '#EBEAE5' }}>
-      <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
-          <Eyebrow>Reviews</Eyebrow>
-          <h2 className="pd-h-sm" style={{ marginTop: 16, fontFamily: "'Bricolage Grotesque', sans-serif", fontWeight: 600 }}>
-            Reviews
-          </h2>
-        </div>
-        <GHLReviewWidget />
       </div>
     </section>
   );

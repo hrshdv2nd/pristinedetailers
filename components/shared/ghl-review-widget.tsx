@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 
-export function GHLReviewWidget() {
+export function GHLReviewWidget({ widgetId = '6a5eb5c79900d4b9046b8223' }: { widgetId?: string }) {
   return (
     <>
       <Script
@@ -12,7 +12,7 @@ export function GHLReviewWidget() {
       />
       <iframe
         className="lc_reviews_widget"
-        src="https://reputationhub.site/reputation/widgets/review_widget/rHpVohyvFEt5ych7HnDb?widgetId=6a5eb5c79900d4b9046b8223"
+        src={`https://reputationhub.site/reputation/widgets/review_widget/rHpVohyvFEt5ych7HnDb?widgetId=${widgetId}`}
         frameBorder="0"
         scrolling="no"
         style={{ minWidth: '100%', width: '100%' }}
