@@ -402,7 +402,7 @@ button {
 }
 
 /* Desktop: show hover dropdown, hide mobile accordion */
-.pd-about-desktop { display: block; }
+.pd-about-desktop { display: flex; align-items: center; }
 .pd-about-mobile  { display: none; }
 
 /* ===== FOOTER BOTTOM ===== */
