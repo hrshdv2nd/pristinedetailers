@@ -7,7 +7,7 @@ const SECTIONS = [
   {
     heading: 'Who We Are',
     body: [
-      'Pristine Detailers ("we", "us", "our") is a car detailing business operating in Melbourne, Victoria, Australia, offering mobile window tinting.',
+      'Pristine Detailers ("we", "us", "our") is a ceramic coating, graphene coating, and paint protection film business operating in Melbourne, Victoria, Australia, also offering mobile window tinting.',
       'This Privacy Policy explains how we collect, use, store, and disclose personal information in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).',
       'By using our website or services, you consent to the practices described in this policy.',
     ],

@@ -19,8 +19,8 @@ const SECTIONS = [
   {
     heading: 'Our Services',
     body: [
-      'Pristine Detailers provides car detailing, ceramic coating, paint protection film, interior care, mobile window tinting, and related services in the Greater Melbourne area.',
-      'Detailing, ceramic coating, paint protection film, and interior care services are performed at our studio. Window tinting is performed at your chosen location. You are responsible for ensuring a safe, accessible, and suitable working environment at the time of your mobile appointment.',
+      'Pristine Detailers provides ceramic coating, graphene coating, paint protection film, add-on coatings (including leather, glass, and wheel coating), mobile window tinting, and related services in the Greater Melbourne area.',
+      'Ceramic coating, graphene coating, paint protection film, and add-on coating services are performed at our studio. Window tinting is performed at your chosen location. You are responsible for ensuring a safe, accessible, and suitable working environment at the time of your mobile appointment.',
       'Service inclusions are as described on our website at the time of booking. We reserve the right to update service details at any time with reasonable notice.',
     ],
   },

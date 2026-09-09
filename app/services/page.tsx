@@ -3,7 +3,7 @@ import { Services } from '@/components/pages/services';
 
 export const metadata: Metadata = {
   title: 'Services - Pristine Detailers',
-  description: 'Premium car detailing services in Melbourne - full detail, ceramic coating, paint protection film, interior care, add-ons, and mobile window tinting.',
+  description: 'Premium ceramic coating, graphene coating, and paint protection film services in Melbourne - plus leather, glass, and wheel coating add-ons, and mobile window tinting.',
 };
 
 export default function Page() {

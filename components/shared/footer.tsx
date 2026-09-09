@@ -37,7 +37,7 @@ export function Footer() {
               <span>Pristine Detailers</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', maxWidth: '340px', lineHeight: 1.6, marginBottom: '28px' }}>
-              Melbourne's premium car detailing service. Ceramic coating, paint protection film, membership care, and mobile window tinting.
+              Melbourne's premium ceramic coating, graphene coating, and paint protection film specialists, plus mobile window tinting.
             </p>
             <div
               style={{
@@ -60,10 +60,10 @@ export function Footer() {
             {
               title: 'Services',
               links: [
-                { label: 'Full Detail', href: '/services' },
                 { label: 'Ceramic Coating', href: '/services' },
+                { label: 'Graphene Coating', href: '/services' },
                 { label: 'Paint Protection Film', href: '/services' },
-                { label: 'Interior Care', href: '/services' },
+                { label: 'Window Tinting', href: '/services' },
                 { label: 'Add-ons', href: '/services' },
               ],
             },
@@ -94,7 +94,7 @@ export function Footer() {
               title: 'Portals',
               links: [
                 { label: 'Customer', href: '/dashboard' },
-                { label: 'Detailer', href: '/detailer/jobs' },
+                { label: 'Technician', href: '/detailer/jobs' },
                 { label: 'Admin', href: '/admin' },
               ],
             },

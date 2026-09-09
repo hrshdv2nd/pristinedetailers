@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Booking } from '@/components/pages/booking';
 
 export const metadata: Metadata = {
-  title: 'Book a Detail - Pristine Detailers',
-  description: 'Book your car detailing appointment in Melbourne. Choose from full detail, ceramic coating, paint protection film, and more.',
+  title: 'Book Now - Pristine Detailers',
+  description: 'Book your ceramic coating, graphene coating, or paint protection film appointment in Melbourne.',
 };
 
 export default function Page() {
