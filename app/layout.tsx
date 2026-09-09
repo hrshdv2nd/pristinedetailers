@@ -4,8 +4,8 @@ import Script from "next/script";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Pristine Detailers - Melbourne's Premium Car Detailing",
-  description: "Obsessive-grade ceramic coating, paint protection film, and car detailing in Melbourne, plus mobile window tinting brought to your driveway.",
+  title: "Pristine Detailers - Melbourne's Premium Ceramic Coating & PPF",
+  description: "Obsessive-grade ceramic coating, graphene coating, and paint protection film in Melbourne, plus mobile window tinting brought to your driveway.",
 };
 
 export default function RootLayout({

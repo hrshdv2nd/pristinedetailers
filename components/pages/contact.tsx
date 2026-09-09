@@ -177,7 +177,7 @@ export function Contact() {
                   Email us
                 </a>
                 <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-primary" style={{ fontSize: 14 }}>
-                  Book a detail <Arrow />
+                  Book now <Arrow />
                 </Link>
               </div>
             </div>

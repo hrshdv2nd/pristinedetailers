@@ -50,7 +50,7 @@ function HeroSection() {
                 color: '#0A0A0A',
               }}
             >
-              Melbourne · Car Detailing Service
+              Melbourne · Ceramic, Graphene & PPF Specialists
             </span>
             <span
               style={{
@@ -88,7 +88,7 @@ function HeroSection() {
             self.
           </h1>
           <p style={{ fontSize: 19, color: '#3A3A38', marginTop: 32, maxWidth: 520, lineHeight: 1.55 }}>
-            Precision grade detailing and paint protection helping 5,000+ car owners protect their investment.
+            Precision grade ceramic, graphene, and paint protection film helping 5,000+ car owners protect their investment.
           </p>
           <div className="pd-hero-actions" style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a
@@ -105,7 +105,7 @@ function HeroSection() {
                 fontWeight: '500',
               }}
             >
-              Book a Detail <Arrow />
+              Book Now <Arrow />
             </a>
             <a
               href="/services"
@@ -143,7 +143,7 @@ function HeroComposition() {
       <BlobImage variant="b" size={440} rotate={-4} style={{ position: 'absolute', top: 10, right: 0, zIndex: 2 }}>
         <Image
           src="https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg"
-          alt="Detailer working on red sports car"
+          alt="Technician applying coating to red sports car"
           fill
           style={{ objectFit: 'cover', borderRadius: 24 }}
         />
@@ -249,8 +249,8 @@ function ServicesPreview() {
     href?: string;
     priceSuffix?: string;
   }[] = [
-    { tag: '01', title: 'Maintenance Detail', blurb: 'Monthly wash-and-seal, included with Essential membership.', from: '$150', priceSuffix: '/mo', badge: 'Membership', href: '/services', image: '/images/20250525_093249.jpg' },
-    { tag: '02', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '01', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '02', title: 'Graphene Coating', blurb: 'Next-gen protection with superior heat resistance and durability.', from: '$1,299', image: '/images/20250525_093249.jpg' },
     { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
     { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
   ];
@@ -562,7 +562,7 @@ function MelbourneSection() {
               since 2020.
             </h2>
             <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, lineHeight: 1.6, maxWidth: 440 }}>
-              We serve car owners across East and South East Melbourne with studio-grade detailing, plus mobile window tinting brought to your driveway, garage, or office car park. Same-day bookings available over the phone.
+              We serve car owners across East and South East Melbourne with studio-grade ceramic, graphene, and PPF installs, plus mobile window tinting brought to your driveway, garage, or office car park. Same-day bookings available over the phone.
             </p>
 
             <a
@@ -764,9 +764,8 @@ function GallerySection() {
   const items: { label: string; variant: string; h: number; tone: string; src?: string }[] = [
     { label: 'CERAMIC COATING', variant: 'a', h: 420, tone: 'dark', src: '/images/20250217_125148.jpg' },
     { label: 'INTERIOR · RECARO', variant: 'c', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg' },
-    { label: 'FULL DETAIL', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
+    { label: 'GRAPHENE COATING', variant: 'd', h: 380, tone: 'dark', src: '/images/20250525_093249.jpg' },
     { label: 'WHEELS · FORGED', variant: 'b', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
-    { label: 'ENGINE BAY DETAIL', variant: 'a', h: 400, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg' },
     { label: 'CERAMIC · BMW M4', variant: 'a', h: 420, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/bmwmm4ceramic' },
     { label: 'CERAMIC · HAVAL', variant: 'c', h: 340, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/haval_ceramic' },
     { label: 'TESLA · PAINT PREP', variant: 'b', h: 360, tone: 'dark', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/tesla_prep_work' },
@@ -815,10 +814,10 @@ function GallerySection() {
 function FAQSection() {
   const [open, setOpen] = useState<number>(-1);
   const faqs = [
-    { q: 'Do you come to my home or office?', a: 'Detailing (full detail, ceramic coating, PPF, interior care) is completed at our studio - [SHOP ADDRESS]. The one exception is window tinting, which our mobile team installs at your home or office.' },
+    { q: 'Do you come to my home or office?', a: 'Ceramic coating, graphene coating, and PPF installs are completed at our studio - [SHOP ADDRESS]. The one exception is window tinting, which our mobile team installs at your home or office.' },
     { q: 'How long does a ceramic coating application take?', a: 'A full ceramic application (including paint correction) is typically 1 day worth of work.'},
     { q: 'Can I combine PPF and ceramic coating?', a: 'Absolutely - and we recommend it for maximum protection. PPF goes on first (physical barrier), ceramic on top (hydrophobic finish + self-heal enhancement).' },
-    { q: 'What does the membership include?', a: '$150/month gets you one monthly wash-and-seal detail, priority same-week booking, 10% off all our other services and discounted rates for same household vehicles.' },
+    { q: 'What add-ons do you offer?', a: 'Leather Ceramic Coating, Glass Coating, and Wheel Coating - available as standalone add-ons or bundled with any Ceramic, Graphene, or PPF package.' },
   ];
 
   return (
@@ -916,7 +915,7 @@ function CTASection() {
                 fontWeight: '500',
               }}
             >
-              Book a detail <Arrow />
+              Book now <Arrow />
             </a>
             <a
               href="/services"

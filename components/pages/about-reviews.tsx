@@ -119,7 +119,7 @@ export function AboutReviews() {
             rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '14px 28px', borderRadius: 6, background: '#C89B37', color: '#0A0A0A', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}
           >
-            Book a detail <Arrow />
+            Book now <Arrow />
           </a>
         </div>
       </section>

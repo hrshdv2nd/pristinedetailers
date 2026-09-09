@@ -17,33 +17,15 @@ const CheckIcon = () => (
 const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
 const DIFFERENTIATORS = [
-  { title: 'Studio-grade equipment', desc: 'A dedicated detailing space with the tools casual detailers simply don\'t have.' },
-  { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual detailers.' },
+  { title: 'Studio-grade equipment', desc: 'A dedicated coating and PPF studio with the tools casual installers simply don\'t have.' },
+  { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual installers.' },
   { title: 'One point of contact', desc: 'Text or call - no chasing different people for updates.' },
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
 ];
 
 export function Services() {
-  const [selected, setSelected] = useState('maintenance-detail');
+  const [selected, setSelected] = useState('ceramic-coating');
   const services = [
-    {
-      id: 'maintenance-detail',
-      title: 'Maintenance Detail',
-      description: 'Monthly wash-and-seal to keep your car looking freshly detailed, year-round.',
-      price: '$150/mo',
-      label: 'Included with Essential membership',
-      body: 'The Maintenance Detail is our recurring monthly service - a full exterior wash, decontamination, and protective seal that keeps your paint looking after itself between bigger jobs. It comes standard with our Essential membership, with priority booking and member pricing on every add-on.',
-      benefits: ['Monthly wash + protective seal', 'Priority booking every month', 'Member support & scheduling', 'Discounted rates on add-ons'],
-    },
-    {
-      id: 'revitalise-package',
-      title: 'Revitalise Package',
-      description: 'A full reset - deep clean, paint correction, and lasting protection in one visit.',
-      price: '$385',
-      label: 'Best for neglected or pre-sale vehicles',
-      body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
-      benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant - lasts up to 6 months'],
-    },
     {
       id: 'ceramic-coating',
       title: 'Ceramic coating',
@@ -55,6 +37,15 @@ export function Services() {
       learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
     },
     {
+      id: 'graphene-coating',
+      title: 'Graphene coating',
+      description: 'Next-generation protection with superior heat resistance and durability.',
+      price: '$1,299',
+      label: 'Best for maximum durability and a self-cleaning finish',
+      body: 'Graphene-infused coating goes beyond traditional ceramic - denser molecular bonding gives you greater scratch resistance, faster heat dissipation, and an ultra-slick, self-cleaning finish that keeps dirt and grime from sticking. Applied by certified technicians and backed by a manufacturer warranty of up to 9 years.',
+      benefits: ['Superior heat dissipation & scratch resistance', 'Ultra-hydrophobic, self-cleaning finish', 'Applied by certified technicians', 'Manufacturer warranty up to 9 years'],
+    },
+    {
       id: 'paint-protection',
       title: 'Paint Protection film',
       description: 'Invisible, impact-resistant coverage for the most vulnerable panels.',
@@ -62,6 +53,33 @@ export function Services() {
       label: 'Best for high-risk areas',
       body: 'Self-healing polyurethane film, precisely cut and installed panel by panel. Virtually invisible at any angle, PPF takes the stone chips, road debris, and minor abrasions so your paint never has to. Stack with ceramic for maximum long-term defence.',
       benefits: ['Self-healing polyurethane film', 'Virtually invisible, panel-by-panel install', 'Absorbs stone chips & road debris', 'Stack with ceramic for max protection'],
+    },
+    {
+      id: 'leather-ceramic-coating',
+      title: 'Leather Ceramic Coating',
+      description: 'Protective ceramic layer for leather seats and trim.',
+      price: '$250',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A ceramic-based sealant applied to leather seats and trim, guarding against UV fading, spills, and everyday wear while keeping the surface soft and supple.',
+      benefits: ['UV and stain resistant', 'Keeps leather soft and supple', 'Applied alongside any coating service', 'Long-lasting protective barrier'],
+    },
+    {
+      id: 'glass-coating',
+      title: 'Glass Coating',
+      description: 'Hydrophobic ceramic coating for windscreens and windows.',
+      price: '$150',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A hydrophobic ceramic layer bonded to your glass that sheets water and debris for improved visibility in wet weather and easier cleaning.',
+      benefits: ['Improves visibility in rain', 'Repels water, dirt & grime', 'Easier day-to-day cleaning', 'Long-lasting hydrophobic finish'],
+    },
+    {
+      id: 'wheel-coating',
+      title: 'Wheel Coating',
+      description: 'Heat-resistant ceramic protection for your wheels.',
+      price: '$200',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A heat-resistant ceramic coating applied to your wheels, making brake dust and road grime easy to wipe away while protecting the finish from corrosion.',
+      benefits: ['Resists brake dust & road grime', 'Heat-resistant formula', 'Protects against corrosion', 'Easier to keep clean'],
     },
     {
       id: 'window-tinting',
@@ -86,7 +104,7 @@ export function Services() {
             We treat every car like the one we drive.
           </h1>
           <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 620 }}>
-            From studio detail appointments to long-term ceramic and PPF installations, we make premium service feel effortless.
+            From ceramic and graphene coatings to long-term PPF installations, we make premium protection feel effortless.
           </p>
         </div>
       </section>
@@ -222,7 +240,7 @@ export function Services() {
               <div className="pd-eyebrow">See it in person</div>
               <h2 style={{ fontSize: 30, marginTop: 16 }}>Browse the work.</h2>
               <p style={{ marginTop: 12, fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6, maxWidth: 380 }}>
-                Before-and-after results from recent details, coatings, and PPF installs across Melbourne.
+                Before-and-after results from recent coatings and PPF installs across Melbourne.
               </p>
               <Link href="/gallery" className="pd-btn pd-btn-ghost" style={{ marginTop: 24, alignSelf: 'flex-start' }}>
                 View gallery <Arrow />

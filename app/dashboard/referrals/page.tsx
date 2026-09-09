@@ -21,7 +21,7 @@ export default async function ReferralsPage() {
             <CopyReferralButton code={referrals.code} />
           </div>
           <p style={{ fontSize: 13, color: '#9CA3AF', margin: '12px 0 0' }}>
-            Every 5 conversions earns you a free detail session. You need {referrals.nextRewardIn} more to unlock your next reward.
+            Every 5 conversions earns you a free service. You need {referrals.nextRewardIn} more to unlock your next reward.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default async function ReferralsPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 32 }}>
           <StatCard label="Total Referred" value={String(referrals.totalReferred)} />
           <StatCard label="Converted" value={String(referrals.converted)} color="gold" />
-          <StatCard label="Rewards Earned" value={String(referrals.rewardsEarned)} subtext="Free detail sessions" color="gold" />
+          <StatCard label="Rewards Earned" value={String(referrals.rewardsEarned)} subtext="Free services" color="gold" />
         </div>
 
         {/* Timeline */}
@@ -62,7 +62,7 @@ export default async function ReferralsPage() {
           <div style={{ background: '#fff', borderRadius: 16, padding: 48, textAlign: 'center', border: '1px solid #F0EDE8' }}>
             <div style={{ fontSize: 40, marginBottom: 12 }}>🎁</div>
             <h3 style={{ fontSize: 17, fontWeight: 600, color: '#0A0A0A', margin: '0 0 8px' }}>No referrals yet</h3>
-            <p style={{ fontSize: 14, color: '#6B6B6B', margin: 0 }}>Share your code with friends and earn free detail sessions.</p>
+            <p style={{ fontSize: 14, color: '#6B6B6B', margin: 0 }}>Share your code with friends and earn free services.</p>
           </div>
         )}
       </div>
