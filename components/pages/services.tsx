@@ -23,27 +23,53 @@ const DIFFERENTIATORS = [
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
 ];
 
+type Tier = {
+  id: string;
+  name: string;
+  price: string;
+  body: string;
+  benefits: string[];
+  learnMoreHref?: string;
+};
+
+type ServiceItem = {
+  id: string;
+  title: string;
+  description: string;
+  label: string;
+  price?: string;
+  body?: string;
+  benefits?: string[];
+  learnMoreHref?: string;
+  tiers?: Tier[];
+};
+
 export function Services() {
-  const [selected, setSelected] = useState('ceramic-coating');
-  const services = [
+  const [selected, setSelected] = useState('ceramic-graphene-coating');
+  const [selectedTier, setSelectedTier] = useState('ceramic');
+  const services: ServiceItem[] = [
     {
-      id: 'ceramic-coating',
-      title: 'Ceramic coating',
+      id: 'ceramic-graphene-coating',
+      title: 'Ceramic & Graphene coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
-      price: '$999',
       label: 'Best for deep long lasting protection',
-      body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
-      benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
-      learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
-    },
-    {
-      id: 'graphene-coating',
-      title: 'Graphene coating',
-      description: 'Next-generation protection with superior heat resistance and durability.',
-      price: '$1,299',
-      label: 'Best for maximum durability and a self-cleaning finish',
-      body: 'Graphene-infused coating goes beyond traditional ceramic - denser molecular bonding gives you greater scratch resistance, faster heat dissipation, and an ultra-slick, self-cleaning finish that keeps dirt and grime from sticking. Applied by certified technicians and backed by a manufacturer warranty of up to 9 years.',
-      benefits: ['Superior heat dissipation & scratch resistance', 'Ultra-hydrophobic, self-cleaning finish', 'Applied by certified technicians', 'Manufacturer warranty up to 9 years'],
+      tiers: [
+        {
+          id: 'ceramic',
+          name: 'Ceramic',
+          price: '$750',
+          body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
+          benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
+          learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
+        },
+        {
+          id: 'graphene',
+          name: 'Graphene',
+          price: '$999',
+          body: 'Graphene-infused coating goes beyond traditional ceramic - denser molecular bonding gives you greater scratch resistance, faster heat dissipation, and an ultra-slick, self-cleaning finish that keeps dirt and grime from sticking. Applied by certified technicians and backed by a manufacturer warranty of up to 9 years.',
+          benefits: ['Superior heat dissipation & scratch resistance', 'Ultra-hydrophobic, self-cleaning finish', 'Applied by certified technicians', 'Manufacturer warranty up to 9 years'],
+        },
+      ] as Tier[],
     },
     {
       id: 'paint-protection',
@@ -145,47 +171,81 @@ export function Services() {
           </div>
 
           <div className="pd-card" style={{ padding: 40 }}>
-            {services.map(service => (
-              <div key={service.id} style={{ display: selected === service.id ? 'block' : 'none' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, flexWrap: 'wrap' }}>
-                  <div style={{ flex: '1 1 420px' }}>
-                    <div className="pd-eyebrow">{service.title}</div>
-                    <h2 style={{ fontSize: 34, lineHeight: 1.1, marginTop: 14 }}>{service.description}</h2>
-                  </div>
-                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                    <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
-                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: 6, whiteSpace: 'nowrap' }}>
-                      <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</span>
+            {services.map(service => {
+              const activeTier = service.tiers
+                ? service.tiers.find(t => t.id === selectedTier) ?? service.tiers[0]
+                : null;
+              const price = activeTier ? activeTier.price : service.price;
+              const body = activeTier ? activeTier.body : service.body;
+              const benefits = activeTier ? activeTier.benefits : service.benefits ?? [];
+              const learnMoreHref = activeTier ? activeTier.learnMoreHref : service.learnMoreHref;
+
+              return (
+                <div key={service.id} style={{ display: selected === service.id ? 'block' : 'none' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, flexWrap: 'wrap' }}>
+                    <div style={{ flex: '1 1 420px' }}>
+                      <div className="pd-eyebrow">{service.title}</div>
+                      <h2 style={{ fontSize: 34, lineHeight: 1.1, marginTop: 14 }}>{service.description}</h2>
+
+                      {service.tiers && (
+                        <div style={{ display: 'flex', gap: 8, marginTop: 20 }}>
+                          {service.tiers.map(t => (
+                            <button
+                              key={t.id}
+                              type="button"
+                              onClick={() => setSelectedTier(t.id)}
+                              style={{
+                                padding: '8px 16px',
+                                borderRadius: 999,
+                                border: `1.5px solid ${(activeTier?.id === t.id) ? '#0A0A0A' : '#C8C5BC'}`,
+                                background: (activeTier?.id === t.id) ? '#0A0A0A' : '#fff',
+                                color: (activeTier?.id === t.id) ? '#fff' : '#0A0A0A',
+                                fontSize: 13,
+                                fontWeight: 500,
+                                cursor: 'pointer',
+                              }}
+                            >
+                              {t.name} · {t.price}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                    <div style={{ color: 'var(--ink-3)', marginTop: 8, maxWidth: 220 }}>{service.label}</div>
+                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
+                      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: 6, whiteSpace: 'nowrap' }}>
+                        <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{price}</span>
+                      </div>
+                      <div style={{ color: 'var(--ink-3)', marginTop: 8, maxWidth: 220 }}>{service.label}</div>
+                    </div>
                   </div>
-                </div>
 
-                <div style={{ marginTop: 28, display: 'grid', gap: 28 }}>
-                  <p style={{ color: 'var(--ink-2)', maxWidth: 720 }}>{service.body}</p>
+                  <div style={{ marginTop: 28, display: 'grid', gap: 28 }}>
+                    <p style={{ color: 'var(--ink-2)', maxWidth: 720 }}>{body}</p>
 
-                  <ul className="pd-four-col" style={{ padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
-                    {service.benefits.map(b => (
-                      <li key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14, color: 'var(--ink-2)', listStyle: 'none' }}>
-                        <CheckIcon />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="pd-four-col" style={{ padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+                      {benefits.map(b => (
+                        <li key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14, color: 'var(--ink-2)', listStyle: 'none' }}>
+                          <CheckIcon />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
-                    <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">
-                      Book this service <Arrow />
-                    </Link>
-                    {service.learnMoreHref && (
-                      <Link href={service.learnMoreHref} className="pd-btn pd-btn-ghost">
-                        Learn more <Arrow />
+                    <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+                      <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">
+                        Book this service <Arrow />
                       </Link>
-                    )}
+                      {learnMoreHref && (
+                        <Link href={learnMoreHref} className="pd-btn pd-btn-ghost">
+                          Learn more <Arrow />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <p style={{ marginTop: 16, fontSize: 13, color: 'var(--ink-3)' }}>

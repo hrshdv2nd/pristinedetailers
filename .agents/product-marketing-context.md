@@ -16,8 +16,8 @@
 
 **Business model:**
 - One-off services priced per job (excl. GST)
-- Ceramic Coating: from $999
-- Graphene Coating: from $1,299
+- Ceramic Coating: from $750
+- Graphene Coating: from $999
 - Paint Protection Film: from $3,000
 - Add-ons: Leather Ceramic Coating $250, Glass Coating $150, Wheel Coating $200
 - Mobile Window Tinting: from $200
@@ -111,7 +111,7 @@
 | Objection | Response |
 |-----------|----------|
 | "What's the difference between ceramic and graphene?" | Graphene bonds more densely than ceramic, giving better heat dissipation, scratch resistance, and an even slicker self-cleaning finish — it's the next step up. |
-| "Isn't this expensive?" | A ceramic coating at $999 protects a $100K car for years and maintains resale value — it pays for itself. |
+| "Isn't this expensive?" | A ceramic coating at $750 protects a $100K car for years and maintains resale value — it pays for itself. |
 | "Can I combine PPF and ceramic/graphene?" | Yes — and we recommend it. PPF goes on first as a physical barrier, coating goes on top for the hydrophobic finish. |
 | "Do you come to me?" | Coating and PPF work is done at our studio for quality control. Window tinting is the one service our mobile team installs at your home or office. |
 

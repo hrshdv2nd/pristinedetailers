@@ -249,10 +249,10 @@ function ServicesPreview() {
     href?: string;
     priceSuffix?: string;
   }[] = [
-    { tag: '01', title: 'Ceramic Coating', blurb: '3 to 5-year paint protection with hydrophobic gloss finish.', from: '$999', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
-    { tag: '02', title: 'Graphene Coating', blurb: 'Next-gen protection with superior heat resistance and durability.', from: '$1,299', image: '/images/20250525_093249.jpg' },
-    { tag: '03', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
-    { tag: '04', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
+    { tag: '01', title: 'Ceramic & Graphene Coating', blurb: 'Ceramic from $750, graphene from $999 - hydrophobic gloss finish that lasts.', from: '$750', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', flagship: true },
+    { tag: '02', title: 'Paint Protection Film', blurb: 'Self-healing polyurethane film for stone chips and swirl defence.', from: '$2,900', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg' },
+    { tag: '03', title: 'Mobile Window Tinting', blurb: 'UV and heat-blocking film fitted at your home or office.', from: '$200', image: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/Car-Window-Tinting-scaled.webp' },
+    { tag: '04', title: 'Coating Add-ons', blurb: 'Leather, glass, and wheel coating - bundle with any protection package.', from: '$150', image: '/images/20250525_093249.jpg' },
   ];
 
   return (
@@ -387,7 +387,7 @@ function FlagshipSection() {
 
             <div className="pd-three-col" style={{ marginTop: 48, gap: 20 }}>
               {[
-                { tier: '5YR', price: '$999', feat: 'Enhanced gloss, long lasting protection', best: true },
+                { tier: '5YR', price: '$750', feat: 'Enhanced gloss, long lasting protection', best: true },
               ].map(p => (
                 <div
                   key={p.tier}
