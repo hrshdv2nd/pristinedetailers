@@ -31,7 +31,7 @@ export function AboutReferAMate() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 28, maxWidth: 580, lineHeight: 1.6 }}>
-            Know someone who&#8217;d love a Pristine detail? Refer them below and you&#8217;ll both be looked after.
+            Know someone who&#8217;d love Pristine Detailers&#8217; care? Refer them below and you&#8217;ll both be looked after.
           </p>
         </div>
       </section>

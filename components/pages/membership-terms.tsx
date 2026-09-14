@@ -16,7 +16,7 @@ const TERMS = [
   {
     heading: 'Booking Responsibility',
     items: [
-      "It is the member's responsibility to book their monthly detail appointment, but we will send reminders to make sure you don't miss it.",
+      "It is the member's responsibility to book their monthly service appointment, but we will send reminders to make sure you don't miss it.",
       'Membership does not automatically create bookings.',
       "If a booking is not made within a given month, that month's service is considered unused.",
     ],
@@ -25,7 +25,7 @@ const TERMS = [
     heading: 'Missed Months / No Catch-Up Services',
     items: [
       'Unused monthly services do not roll over.',
-      'No catch-up details, backdated appointments, credits, or refunds will be provided for missed months, regardless of customer availability, travel, scheduling conflicts, or failure to book.',
+      'No catch-up services, backdated appointments, credits, or refunds will be provided for missed months, regardless of customer availability, travel, scheduling conflicts, or failure to book.',
     ],
   },
   {

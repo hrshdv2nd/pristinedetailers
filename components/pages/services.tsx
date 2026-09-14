@@ -17,42 +17,59 @@ const CheckIcon = () => (
 const BOOKING_URL = 'https://link.upscalerhq.com/booking/pristine-detailers';
 
 const DIFFERENTIATORS = [
-  { title: 'Studio-grade equipment', desc: 'A dedicated detailing space with the tools casual detailers simply don\'t have.' },
-  { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual detailers.' },
+  { title: 'Studio-grade equipment', desc: 'A dedicated coating and PPF studio with the tools casual installers simply don\'t have.' },
+  { title: 'Certified technicians', desc: 'Trained and certified by Ceramic Pro and Gtechniq, not casual installers.' },
   { title: 'One point of contact', desc: 'Text or call - no chasing different people for updates.' },
   { title: 'Transparent pricing', desc: 'Clear pricing for every stage of your service, no surprises.' },
 ];
 
+type Tier = {
+  id: string;
+  name: string;
+  price: string;
+  body: string;
+  benefits: string[];
+  learnMoreHref?: string;
+};
+
+type ServiceItem = {
+  id: string;
+  title: string;
+  description: string;
+  label: string;
+  price?: string;
+  body?: string;
+  benefits?: string[];
+  learnMoreHref?: string;
+  tiers?: Tier[];
+};
+
 export function Services() {
-  const [selected, setSelected] = useState('maintenance-detail');
-  const services = [
+  const [selected, setSelected] = useState('ceramic-graphene-coating');
+  const [selectedTier, setSelectedTier] = useState('ceramic');
+  const services: ServiceItem[] = [
     {
-      id: 'maintenance-detail',
-      title: 'Maintenance Detail',
-      description: 'Monthly wash-and-seal to keep your car looking freshly detailed, year-round.',
-      price: '$150/mo',
-      label: 'Included with Essential membership',
-      body: 'The Maintenance Detail is our recurring monthly service - a full exterior wash, decontamination, and protective seal that keeps your paint looking after itself between bigger jobs. It comes standard with our Essential membership, with priority booking and member pricing on every add-on.',
-      benefits: ['Monthly wash + protective seal', 'Priority booking every month', 'Member support & scheduling', 'Discounted rates on add-ons'],
-    },
-    {
-      id: 'revitalise-package',
-      title: 'Revitalise Package',
-      description: 'A full reset - deep clean, paint correction, and lasting protection in one visit.',
-      price: '$385',
-      label: 'Best for neglected or pre-sale vehicles',
-      body: 'The Revitalise Package is for cars that need more than a wash. We start with a full exterior decontamination and clay bar, move through a two-stage paint correction to remove swirls and light scratches, then finish with an interior deep clean, leather treatment, tyre dressing, and a paint sealant that holds for up to 6 months.',
-      benefits: ['Two-stage machine paint correction', 'Full decontamination & clay bar', 'Interior deep clean & leather treatment', 'Paint sealant - lasts up to 6 months'],
-    },
-    {
-      id: 'ceramic-coating',
-      title: 'Ceramic coating',
+      id: 'ceramic-graphene-coating',
+      title: 'Ceramic & Graphene coating',
       description: 'Long-lasting hydrophobic protection for paint, wheels, and glass.',
-      price: '$999',
       label: 'Best for deep long lasting protection',
-      body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
-      benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
-      learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
+      tiers: [
+        {
+          id: 'ceramic',
+          name: 'Ceramic',
+          price: '$750',
+          body: 'A nano-ceramic barrier bonded directly to your paintwork. Hydrophobic, UV-stable, and scratch-resistant - our ceramic coatings are applied by certified technicians and backed by a manufacturer warranty of up to 8 years.',
+          benefits: ['Hydrophobic, UV-stable nano-ceramic', 'Scratch and swirl resistant finish', 'Applied by certified technicians', 'Manufacturer warranty up to 8 years'],
+          learnMoreHref: '/blog/is-ceramic-coating-worth-it-melbourne',
+        },
+        {
+          id: 'graphene',
+          name: 'Graphene',
+          price: '$999',
+          body: 'Graphene-infused coating goes beyond traditional ceramic - denser molecular bonding gives you greater scratch resistance, faster heat dissipation, and an ultra-slick, self-cleaning finish that keeps dirt and grime from sticking. Applied by certified technicians and backed by a manufacturer warranty of up to 9 years.',
+          benefits: ['Superior heat dissipation & scratch resistance', 'Ultra-hydrophobic, self-cleaning finish', 'Applied by certified technicians', 'Manufacturer warranty up to 9 years'],
+        },
+      ] as Tier[],
     },
     {
       id: 'paint-protection',
@@ -62,6 +79,33 @@ export function Services() {
       label: 'Best for high-risk areas',
       body: 'Self-healing polyurethane film, precisely cut and installed panel by panel. Virtually invisible at any angle, PPF takes the stone chips, road debris, and minor abrasions so your paint never has to. Stack with ceramic for maximum long-term defence.',
       benefits: ['Self-healing polyurethane film', 'Virtually invisible, panel-by-panel install', 'Absorbs stone chips & road debris', 'Stack with ceramic for max protection'],
+    },
+    {
+      id: 'leather-ceramic-coating',
+      title: 'Leather Ceramic Coating',
+      description: 'Protective ceramic layer for leather seats and trim.',
+      price: '$250',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A ceramic-based sealant applied to leather seats and trim, guarding against UV fading, spills, and everyday wear while keeping the surface soft and supple.',
+      benefits: ['UV and stain resistant', 'Keeps leather soft and supple', 'Applied alongside any coating service', 'Long-lasting protective barrier'],
+    },
+    {
+      id: 'glass-coating',
+      title: 'Glass Coating',
+      description: 'Hydrophobic ceramic coating for windscreens and windows.',
+      price: '$150',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A hydrophobic ceramic layer bonded to your glass that sheets water and debris for improved visibility in wet weather and easier cleaning.',
+      benefits: ['Improves visibility in rain', 'Repels water, dirt & grime', 'Easier day-to-day cleaning', 'Long-lasting hydrophobic finish'],
+    },
+    {
+      id: 'wheel-coating',
+      title: 'Wheel Coating',
+      description: 'Heat-resistant ceramic protection for your wheels.',
+      price: '$200',
+      label: 'Add-on to any coating or PPF service',
+      body: 'A heat-resistant ceramic coating applied to your wheels, making brake dust and road grime easy to wipe away while protecting the finish from corrosion.',
+      benefits: ['Resists brake dust & road grime', 'Heat-resistant formula', 'Protects against corrosion', 'Easier to keep clean'],
     },
     {
       id: 'window-tinting',
@@ -86,7 +130,7 @@ export function Services() {
             We treat every car like the one we drive.
           </h1>
           <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 620 }}>
-            From studio detail appointments to long-term ceramic and PPF installations, we make premium service feel effortless.
+            From ceramic and graphene coatings to long-term PPF installations, we make premium protection feel effortless.
           </p>
         </div>
       </section>
@@ -127,47 +171,81 @@ export function Services() {
           </div>
 
           <div className="pd-card" style={{ padding: 40 }}>
-            {services.map(service => (
-              <div key={service.id} style={{ display: selected === service.id ? 'block' : 'none' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, flexWrap: 'wrap' }}>
-                  <div style={{ flex: '1 1 420px' }}>
-                    <div className="pd-eyebrow">{service.title}</div>
-                    <h2 style={{ fontSize: 34, lineHeight: 1.1, marginTop: 14 }}>{service.description}</h2>
-                  </div>
-                  <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                    <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
-                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: 6, whiteSpace: 'nowrap' }}>
-                      <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{service.price}</span>
+            {services.map(service => {
+              const activeTier = service.tiers
+                ? service.tiers.find(t => t.id === selectedTier) ?? service.tiers[0]
+                : null;
+              const price = activeTier ? activeTier.price : service.price;
+              const body = activeTier ? activeTier.body : service.body;
+              const benefits = activeTier ? activeTier.benefits : service.benefits ?? [];
+              const learnMoreHref = activeTier ? activeTier.learnMoreHref : service.learnMoreHref;
+
+              return (
+                <div key={service.id} style={{ display: selected === service.id ? 'block' : 'none' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, flexWrap: 'wrap' }}>
+                    <div style={{ flex: '1 1 420px' }}>
+                      <div className="pd-eyebrow">{service.title}</div>
+                      <h2 style={{ fontSize: 34, lineHeight: 1.1, marginTop: 14 }}>{service.description}</h2>
+
+                      {service.tiers && (
+                        <div style={{ display: 'flex', gap: 8, marginTop: 20 }}>
+                          {service.tiers.map(t => (
+                            <button
+                              key={t.id}
+                              type="button"
+                              onClick={() => setSelectedTier(t.id)}
+                              style={{
+                                padding: '8px 16px',
+                                borderRadius: 999,
+                                border: `1.5px solid ${(activeTier?.id === t.id) ? '#0A0A0A' : '#C8C5BC'}`,
+                                background: (activeTier?.id === t.id) ? '#0A0A0A' : '#fff',
+                                color: (activeTier?.id === t.id) ? '#fff' : '#0A0A0A',
+                                fontSize: 13,
+                                fontWeight: 500,
+                                cursor: 'pointer',
+                              }}
+                            >
+                              {t.name} · {t.price}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                    <div style={{ color: 'var(--ink-3)', marginTop: 8, maxWidth: 220 }}>{service.label}</div>
+                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#C89B37', marginBottom: 6 }}>Starting From</div>
+                      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: 6, whiteSpace: 'nowrap' }}>
+                        <span style={{ fontFamily: 'var(--f-display)', fontSize: 40, fontWeight: 500 }}>{price}</span>
+                      </div>
+                      <div style={{ color: 'var(--ink-3)', marginTop: 8, maxWidth: 220 }}>{service.label}</div>
+                    </div>
                   </div>
-                </div>
 
-                <div style={{ marginTop: 28, display: 'grid', gap: 28 }}>
-                  <p style={{ color: 'var(--ink-2)', maxWidth: 720 }}>{service.body}</p>
+                  <div style={{ marginTop: 28, display: 'grid', gap: 28 }}>
+                    <p style={{ color: 'var(--ink-2)', maxWidth: 720 }}>{body}</p>
 
-                  <ul className="pd-four-col" style={{ padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
-                    {service.benefits.map(b => (
-                      <li key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14, color: 'var(--ink-2)', listStyle: 'none' }}>
-                        <CheckIcon />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="pd-four-col" style={{ padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+                      {benefits.map(b => (
+                        <li key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14, color: 'var(--ink-2)', listStyle: 'none' }}>
+                          <CheckIcon />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
 
-                  <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
-                    <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">
-                      Book this service <Arrow />
-                    </Link>
-                    {service.learnMoreHref && (
-                      <Link href={service.learnMoreHref} className="pd-btn pd-btn-ghost">
-                        Learn more <Arrow />
+                    <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+                      <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="pd-btn pd-btn-dark">
+                        Book this service <Arrow />
                       </Link>
-                    )}
+                      {learnMoreHref && (
+                        <Link href={learnMoreHref} className="pd-btn pd-btn-ghost">
+                          Learn more <Arrow />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <p style={{ marginTop: 16, fontSize: 13, color: 'var(--ink-3)' }}>
@@ -222,7 +300,7 @@ export function Services() {
               <div className="pd-eyebrow">See it in person</div>
               <h2 style={{ fontSize: 30, marginTop: 16 }}>Browse the work.</h2>
               <p style={{ marginTop: 12, fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6, maxWidth: 380 }}>
-                Before-and-after results from recent details, coatings, and PPF installs across Melbourne.
+                Before-and-after results from recent coatings and PPF installs across Melbourne.
               </p>
               <Link href="/gallery" className="pd-btn pd-btn-ghost" style={{ marginTop: 24, alignSelf: 'flex-start' }}>
                 View gallery <Arrow />

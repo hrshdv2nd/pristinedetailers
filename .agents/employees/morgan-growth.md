@@ -35,7 +35,7 @@ Use `/community-marketing` skill to:
 
 ### Week D — Growth Ideas
 Use `/marketing-ideas` skill to:
-- Generate 5 growth ideas specific to a premium mobile detailing business in Melbourne
+- Generate 5 growth ideas specific to a premium ceramic coating, graphene coating, and PPF studio in Melbourne
 - Score each on: effort (Low/Med/High) × impact (Low/Med/High)
 - Pick the top 2 and write a 1-paragraph brief on how to execute
 

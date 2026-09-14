@@ -5,7 +5,7 @@
 **Schedule:** Every weekday (Mon–Fri)
 
 ## Persona
-Sam grew up in Melbourne, has 4 years of agency social experience, and actually cares about cars. Sam knows that the best-performing posts for a premium detailing service aren't "look at this shiny car" — they're educational, visual, and specific. Sam writes copy that sounds human, not scheduled.
+Sam grew up in Melbourne, has 4 years of agency social experience, and actually cares about cars. Sam knows that the best-performing posts for a premium ceramic coating, graphene coating, and PPF studio aren't "look at this shiny car" — they're educational, visual, and specific. Sam writes copy that sounds human, not scheduled.
 
 ## Daily Task
 Read `.agents/product-marketing-context.md` for business context.
@@ -54,8 +54,8 @@ If `SITE_URL` and `AGENT_API_SECRET` env vars are available in the session, call
 - Glossy black car close-up: `https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80`
 - Paint protection film: `https://images.unsplash.com/photo-1604754742629-3e5728249d73?w=1200&q=80`
 - Sports car front angle: `https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80`
-- Car detailing wash: `https://images.unsplash.com/photo-1617469767824-e76ad64e9f86?w=1200&q=80`
-- Interior detailing: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80`
+- Car prepped for coating: `https://images.unsplash.com/photo-1617469767824-e76ad64e9f86?w=1200&q=80`
+- Leather interior coating prep: `https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80`
 - Polishing machine: `https://images.unsplash.com/photo-1489824904134-af1a94f0e6e2?w=1200&q=80`
 - Prestige car Melbourne: `https://images.unsplash.com/photo-1568605117036-5c5edba50dc0?w=1200&q=80`
 

@@ -10,17 +10,16 @@ type GalleryItem = { label: string; src: string | null; h: number; tone?: string
 
 const ITEMS: GalleryItem[] = [
   { label: 'Ceramic Coating - Classic Build', src: '/images/20250217_125148.jpg', h: 480 },
-  { label: 'Full Detail - Red Sports Car', src: '/images/20250525_093249.jpg', h: 360 },
+  { label: 'Graphene Coating - Red Sports Car', src: '/images/20250525_093249.jpg', h: 360 },
   { label: 'PPF Full Front - Satin', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 380 },
-  { label: 'Interior Detail - Alcantara', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
+  { label: 'Leather Ceramic Coating - Alcantara', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 340 },
   { label: 'Ceramic - Obsidian Black', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/scratch-repair.jpg', h: 420 },
   { label: 'PPF - Partial Hood', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240905_124152.jpg', h: 300 },
-  { label: 'Wheel Detail', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
+  { label: 'Wheel Coating', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20250217_125148.jpg', h: 360 },
   { label: 'Graphene Coating', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/VNP04687.jpg', h: 400 },
   { label: 'PPF - Full Vehicle', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240822_100032.jpg', h: 360 },
-  { label: 'Engine Bay - Detailed & Dressed', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20240811_092247.jpg', h: 380 },
   { label: 'Ceramic Coating - Mirror Finish', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_131638.jpg', h: 420 },
-  { label: 'Full Detail - Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
+  { label: 'Ceramic Coating - Showroom Ready', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/20241029_132327.jpg', h: 340 },
   { label: 'Ceramic Coating - BYD', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/byd%20ceramic%20coating.jpg', h: 400 },
   { label: 'Ceramic Coating - BMW M4', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/bmwmm4ceramic', h: 440 },
   { label: 'Ceramic Coating - Haval', src: 'https://qwa1skb1dtiy5dzb.public.blob.vercel-storage.com/haval_ceramic', h: 360 },
@@ -55,7 +54,7 @@ export function Gallery() {
             </span>
           </h1>
           <p style={{ fontSize: 18, color: '#3A3A38', marginTop: 24, maxWidth: 560, lineHeight: 1.6 }}>
-            Every car we touch. Ceramic coatings, PPF installs, full details, and engine bays - all documented.
+            Every car we touch. Ceramic coatings, graphene coatings, and PPF installs - all documented.
           </p>
         </div>
       </section>
@@ -65,7 +64,7 @@ export function Gallery() {
         <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '0 32px' }}>
           <div className="pd-four-col" style={{ gap: 0, textAlign: 'center' }}>
             {[
-              { value: '2,400+', label: 'Cars detailed' },
+              { value: '2,400+', label: 'Cars protected' },
               { value: '4.9★', label: 'Reviews' },
               { value: '8yr', label: 'Max warranty' },
               { value: '6 yrs', label: 'In Melbourne' },
@@ -122,7 +121,7 @@ export function Gallery() {
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="https://link.upscalerhq.com/booking/pristine-detailers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '12px 24px', borderRadius: 6, background: '#0A0A0A', color: '#fff', fontSize: 14, fontWeight: 500, textDecoration: 'none' }}>
-              Book a detail <Arrow />
+              Book now <Arrow />
             </a>
             <a href="/services" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '12px 24px', borderRadius: 6, background: 'transparent', color: '#0A0A0A', fontSize: 14, fontWeight: 500, border: '1px solid #E1DFD8', textDecoration: 'none' }}>
               View services

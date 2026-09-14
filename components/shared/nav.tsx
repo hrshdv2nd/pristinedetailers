@@ -34,7 +34,7 @@ const ABOUT_ITEMS = [
   {
     id: 'gallery',
     label: 'Gallery',
-    desc: 'Before-and-after results from ceramic coatings, PPF installs, and full details.',
+    desc: 'Before-and-after results from ceramic coatings, graphene coatings, and PPF installs.',
     href: '/gallery',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -47,7 +47,7 @@ const ABOUT_ITEMS = [
   {
     id: 'careers',
     label: 'Work With Us',
-    desc: "Passionate about cars? We're always growing our crew of Melbourne detailers.",
+    desc: "Passionate about cars? We're always growing our crew of Melbourne technicians.",
     href: '/about/careers',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -197,7 +197,7 @@ function AboutPanel({
               lineHeight: 1.18,
             }}
           >
-            Melbourne's Most Trusted Detailer.
+            Melbourne's Most Trusted Ceramic &amp; PPF Studio.
           </div>
 
           <div
@@ -211,7 +211,7 @@ function AboutPanel({
           {/* Stats */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {[
-              { value: '2,400+', label: 'Cars Detailed' },
+              { value: '2,400+', label: 'Cars Protected' },
               { value: '4.9 ★', label: 'Reviews' },
               { value: '6 yrs', label: 'In Melbourne' },
               { value: '60+', label: 'Suburbs Covered' },
@@ -269,7 +269,7 @@ function AboutPanel({
                 fontFamily: "'Bricolage Grotesque', sans-serif",
               }}
             >
-              Book a detail <Arrow />
+              Book now <Arrow />
             </a>
           </div>
         </div>
